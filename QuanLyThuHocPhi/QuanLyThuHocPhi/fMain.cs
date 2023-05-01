@@ -19,9 +19,7 @@ namespace QuanLyThuHocPhi
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            fAdmin fd = new fAdmin();
-            fd.ShowDialog();
+
         }
 
         private void button1_Click(object sender, EventArgs e)

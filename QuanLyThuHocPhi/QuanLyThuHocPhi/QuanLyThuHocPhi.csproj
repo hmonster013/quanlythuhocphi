@@ -81,51 +81,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UcGiangVien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcGiangVien.Designer.cs">
-      <DependentUpon>UcGiangVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UcKhoa.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcKhoa.Designer.cs">
-      <DependentUpon>UcKhoa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UcLopHoc.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcLopHoc.Designer.cs">
-      <DependentUpon>UcLopHoc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UcLopHocPhan.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcLopHocPhan.Designer.cs">
-      <DependentUpon>UcLopHocPhan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UcMonHoc.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcMonHoc.Designer.cs">
-      <DependentUpon>UcMonHoc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UcSinhVien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcSinhVien.Designer.cs">
-      <DependentUpon>UcSinhVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UcTinChi.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcTinChi.Designer.cs">
-      <DependentUpon>UcTinChi.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="fAdmin.resx">
-      <DependentUpon>fAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="fChangePassword.resx">
       <DependentUpon>fChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,27 +99,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UcGiangVien.resx">
-      <DependentUpon>UcGiangVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcKhoa.resx">
-      <DependentUpon>UcKhoa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcLopHoc.resx">
-      <DependentUpon>UcLopHoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcLopHocPhan.resx">
-      <DependentUpon>UcLopHocPhan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcMonHoc.resx">
-      <DependentUpon>UcMonHoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcSinhVien.resx">
-      <DependentUpon>UcSinhVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcTinChi.resx">
-      <DependentUpon>UcTinChi.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
