@@ -1,0 +1,9 @@
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\bin\Debug\ValueObject.dll
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\bin\Debug\ValueObject.pdb
+C:\Users\ACER\Desktop\QuanLyThuHocPhi\QuanLyThuHocPhi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete

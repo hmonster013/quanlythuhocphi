@@ -1,0 +1,124 @@
+Bạn nghĩ một chương trình quản lý thu học phí của sinh viên theo học chế tín chỉ 
+có người dùng là sinh viên, giáo viên, người quản lý sử dụng và tạo bằng winfrom thì cần những chức năng gì
+---------------------------------------------------------------------------------------------------------------------------
+Actor: Sinh viên, Admin, Giáo viên
+---------------------------------------------------------------------------------------------------------------------------
+- Quản lý thông tin sinh viên
+- Quản lý thông tin giảng viên
+- Quản lý thông tin lớp học
+- Quản lý thông tin môn học
+- Quản lý thông tin tín chỉ
+- Quản lý thông tin khoa
+- Quản lý đăng nhập và phân quyền
+- Quản lý lớp học phần đã đăng ký
+- Quản lý học phí
+- Quản lý các giao dịch tài chính
+- Quản lý lịch thanh toán
+- Thống kê và báo cáo
+---------------------------------------------------------------------------------------------------------------------------
+Bảng Sinh viên:
+
+MaSV (khóa chính): mã sinh viên
+HoTen: họ tên sinh viên
+NgaySinh: ngày sinh của sinh viên
+GioiTinh: giới tính của sinh viên
+DiaChi: địa chỉ của sinh viên
+Email: địa chỉ email của sinh viên
+SoDienThoai: số điện thoại của sinh viên
+
+Bảng Giảng viên:
+
+MaGV (khóa chính): mã giảng viên
+HoTen: họ tên giảng viên
+NgaySinh: ngày sinh của giảng viên
+GioiTinh: giới tính của giảng viên
+DiaChi: địa chỉ của giảng viên
+Email: địa chỉ email của giảng viên
+SoDienThoai: số điện thoại của giảng viên
+
+Bảng Lớp học:
+
+MaLop (khóa chính): mã lớp học
+TenLop: tên lớp học
+MaGV: mã giảng viên phụ trách lớp học
+
+Bảng Môn học:
+
+MaMon (khóa chính): mã môn học
+TenMon: tên môn học
+SoTinChi: số tín chỉ của môn học
+MaGV: mã giảng viên giảng dạy môn học
+
+Bảng Tín chỉ:
+
+MaTinChi (khóa chính): mã tín chỉ
+SoTinChi: số tín chỉ
+GiaTinChi: giá của một tín chỉ
+
+Bảng Khoa:
+
+MaKhoa (khóa chính): mã khoa
+TenKhoa: tên khoa
+
+Bảng Đăng nhập và phân quyền:
+
+MaDangNhap (khóa chính): mã đăng nhập
+TenDangNhap: tên đăng nhập
+MatKhau: mật khẩu
+MaQuyen: mã quyền truy cập
+
+Bảng Lớp học phần đã đăng ký:
+
+MaLopHP (khóa chính): mã lớp học phần
+MaSV: mã sinh viên
+MaLop: mã lớp học
+MaMon: mã môn học
+SoTinChi: số tín chỉ
+
+Bảng Học phí:
+
+MaHocPhi (khóa chính): mã học phí
+MaLopHP: mã lớp học phần
+SoTien: số tiền phải thanh toán
+DaThanhToan: trạng thái đã thanh toán hay chưa (có thể sử dụng kiểu boolean)
+
+Bảng Giao dịch tài chính:
+
+MaGiaoDich (khóa chính): mã giao dịch
+MaHocPhi: mã học phí liên quan
+NgayGiaoDich: ngày thực hiện giao dịch
+SoTien: số tiền thanh toán hoặc hoàn trả
+LoaiGiaoDich: loại giao dịch (thanh toán hoặc hoàn trả)
+
+Bảng Lịch thanh toán:
+
+MaLichThanhToan (khóa chính): mã lịch thanh toán
+MaHocKy: mã học kỳ
+NamHoc: năm học
+ThoiGianBatDau: thời gian bắt đầu thanh toán
+ThoiGianKetThuc: thời gian kết thúc thanh toán
+
+Bảng Thống kê học phí:
+
+MaThongKe (khóa chính): mã thống kê
+MaLopHP: mã lớp học phần
+MaSV: mã sinh viên
+SoTinChi: số tín chỉ
+SoTienPhaiDong: tổng số tiền phải đóng của sinh viên
+SoTienDaDong: tổng số tiền đã đóng của sinh viên
+
+Bảng Thống kê giao dịch tài chính:
+
+MaThongKe (khóa chính): mã thống kê
+MaHocKy: mã học kỳ
+NamHoc: năm học
+TongTienThu: tổng số tiền thu được trong học kỳ đó
+TongTienHoanTra: tổng số tiền hoàn trả trong học kỳ đó
+TongSoGiaoDich: tổng số giao dịch được thực hiện trong học kỳ đó
+---------------------------------------------------------------------------------------------------------------------------
+
+Lớp tín chỉ + Số tiền tín chỉ theo khoa + Số lớp tín chỉ đã đăng ký = số tiền phải đóng 
+
+Chức năng:
+
+
