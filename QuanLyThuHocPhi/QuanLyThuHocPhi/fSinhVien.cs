@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace QuanLyThuHocPhi
 {
-    public partial class fMain : Form
+    public partial class fSinhVien : Form
     {
-        public fMain()
+        public fSinhVien()
         {
             InitializeComponent();
         }
 
-        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void fSinhVien_Load(object sender, EventArgs e)
         {
 
         }

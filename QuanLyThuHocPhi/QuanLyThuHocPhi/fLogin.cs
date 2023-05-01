@@ -31,7 +31,7 @@ namespace QuanLyThuHocPhi
         private void button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            fMain fm = new fMain();
+            fSinhVien fm = new fSinhVien();
             fm.Show();
         }
     }

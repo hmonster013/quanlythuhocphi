@@ -35,3 +35,4 @@ C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Deb
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fLogin.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fChangePassword.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fMain.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin.resources
