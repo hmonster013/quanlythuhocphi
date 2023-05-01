@@ -7,11 +7,12 @@ create procedure sp_SINHVIEN_insert(
 	@NGAYSINH datetime,
 	@DIACHI nvarchar(100),
 	@DANGNGHIHOC bit,
-	@PASSWORD nvarchar(40)
+	@PASSWORD nvarchar(40),
+	@MAKHOA nvarchar(10)
 )
 as
 begin
-	insert into SINHVIEN values (@MASV, @HO, @TEN, @MALOP, @PHAI, @NGAYSINH, @DIACHI, @DANGNGHIHOC, @PASSWORD)
+	insert into SINHVIEN values (@MASV, @HO, @TEN, @MALOP, @PHAI, @NGAYSINH, @DIACHI, @DANGNGHIHOC, @PASSWORD, @MAKHOA)
 end
 GO
 
@@ -24,11 +25,12 @@ create procedure sp_SINHVIEN_update(
 	@NGAYSINH datetime,
 	@DIACHI nvarchar(100),
 	@DANGNGHIHOC bit,
-	@PASSWORD nvarchar(40)
+	@PASSWORD nvarchar(40),
+	@MAKHOA nvarchar(10)
 )
 as
 begin
-	update SINHVIEN set HO = @HO, TEN = @TEN, MALOP = @MALOP, PHAI = @PHAI, NGAYSINH = @NGAYSINH, DIACHI = @DIACHI, DANGNGHIHOC = @DANGNGHIHOC, PASSWORD = @PASSWORD WHERE MASV = @MASV
+	update SINHVIEN set HO = @HO, TEN = @TEN, MALOP = @MALOP, PHAI = @PHAI, NGAYSINH = @NGAYSINH, DIACHI = @DIACHI, DANGNGHIHOC = @DANGNGHIHOC, PASSWORD = @PASSWORD, MAKHOA = @MAKHOA WHERE MASV = @MASV
 end
 GO
 

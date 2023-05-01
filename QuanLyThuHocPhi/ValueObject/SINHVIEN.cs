@@ -17,5 +17,7 @@ namespace ValueObject
         public string DIACHI { get; set; }
         public string DANGNGHIHOC { get; set; }
         public string PASSWORD { get; set; }
+
+        public string MAKHOA { get; set; }
     }
 }

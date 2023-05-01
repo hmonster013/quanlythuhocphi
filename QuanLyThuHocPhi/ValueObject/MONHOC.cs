@@ -10,7 +10,5 @@ namespace ValueObject
     {
         public string MAMH { get; set; }
         public string TENMH { get; set; }
-        public string SOTIETLT { get; set; }
-        public string SOTIETTH { get; set; }
     }
 }

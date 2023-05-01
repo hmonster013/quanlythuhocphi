@@ -1,24 +1,20 @@
 create procedure sp_MONHOC_insert(
 	@MAMH nvarchar(10),
-	@TENMH nvarchar(50),
-	@SOTIETLT int,
-	@SOTIETTH int
+	@TENMH nvarchar(50)
 )
 as
 begin
-	insert into MONHOC values (@MAMH, @TENMH, @SOTIETLT, @SOTIETTH)
+	insert into MONHOC values (@MAMH, @TENMH)
 end
 GO
 
 create procedure sp_MONHOC_update(
 	@MAMH nvarchar(10),
-	@TENMH nvarchar(50),
-	@SOTIETLT int,
-	@SOTIETTH int
+	@TENMH nvarchar(50)
 )
 as
 begin
-	update MONHOC set TENMH = @TENMH, SOTIETLT = @SOTIETLT, SOTIETTH = @SOTIETTH WHERE MAMH = @MAMH
+	update MONHOC set TENMH = @TENMH WHERE MAMH = @MAMH
 end
 GO
 

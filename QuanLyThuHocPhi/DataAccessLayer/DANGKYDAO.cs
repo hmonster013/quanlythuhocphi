@@ -32,11 +32,8 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MADK", obj.MADK),
-                new SqlParameter("MALTC", obj.MALTC),
+                new SqlParameter("MALHP", obj.MALHP),
                 new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("DIEM_CC", obj.DIEM_CC),
-                new SqlParameter("DIEM_GK", obj.DIEM_GK),
-                new SqlParameter("DIEM_CK", obj.DIEM_CK),
                 new SqlParameter("HUYDANGKY", obj.HUYDANGKY)
             };
             return _dbConnect.ExecuteSQL("sp_DANGKY_insert", param);
@@ -47,11 +44,8 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MADK", obj.MADK),
-                new SqlParameter("MALTC", obj.MALTC),
+                new SqlParameter("MALHP", obj.MALHP),
                 new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("DIEM_CC", obj.DIEM_CC),
-                new SqlParameter("DIEM_GK", obj.DIEM_GK),
-                new SqlParameter("DIEM_CK", obj.DIEM_CK),
                 new SqlParameter("HUYDANGKY", obj.HUYDANGKY)
             };
             return _dbConnect.ExecuteSQL("sp_DANGKY_update", param);
