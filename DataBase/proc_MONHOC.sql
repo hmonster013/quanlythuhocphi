@@ -1,20 +1,25 @@
+USE QLSV_TC
+GO
+
 create procedure sp_MONHOC_insert(
 	@MAMH nvarchar(10),
-	@TENMH nvarchar(50)
+	@TENMH nvarchar(50),
+	@SOTINCHI int
 )
 as
 begin
-	insert into MONHOC values (@MAMH, @TENMH)
+	insert into MONHOC values (@MAMH, @TENMH, @SOTINCHI)
 end
 GO
 
 create procedure sp_MONHOC_update(
 	@MAMH nvarchar(10),
-	@TENMH nvarchar(50)
+	@TENMH nvarchar(50),
+	@SOTINCHI int
 )
 as
 begin
-	update MONHOC set TENMH = @TENMH WHERE MAMH = @MAMH
+	update MONHOC set TENMH = @TENMH, SOTINCHI = @SOTINCHI WHERE MAMH = @MAMH
 end
 GO
 

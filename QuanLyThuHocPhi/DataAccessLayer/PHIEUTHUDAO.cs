@@ -9,7 +9,7 @@ using ValueObject;
 
 namespace DataAccessLayer
 {
-    public class DONGHOCPHIDAO
+    public class PHIEUTHUDAO
     {
         dbConnect _dbConnect = new dbConnect();
 
@@ -18,7 +18,7 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_DONGHOCPHI_select_all", null);
         }
 
-        public DataTable GetDataByID(string ID)
+        public DataTable GetDataByID(int ID)
         {
             SqlParameter[] param =
             {
@@ -27,11 +27,11 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_DONGHOCPHI_select_madhp", param);
         }
 
-        public int Insert(DONGHOCPHI obj)
+        public int Insert(PHIEUTHU obj)
         {
             SqlParameter[] param =
             {
-                new SqlParameter("@MADHP", obj.MADHP),
+                new SqlParameter("@MAPT", obj.MAPT),
                 new SqlParameter("@MASV", obj.MASV),
                 new SqlParameter("@NIENKHOA", obj.NIENKHOA),
                 new SqlParameter("@HOCKY", obj.HOCKY),
@@ -41,11 +41,11 @@ namespace DataAccessLayer
             return _dbConnect.ExecuteSQL("sp_DONGHOCPHI_insert", param);
         }
 
-        public int Update(DONGHOCPHI obj)
+        public int Update(PHIEUTHU obj)
         {
             SqlParameter[] param =
             {
-                new SqlParameter("@MADHP", obj.MADHP),
+                new SqlParameter("@MAPT", obj.MAPT),
                 new SqlParameter("@MASV", obj.MASV),
                 new SqlParameter("@NIENKHOA", obj.NIENKHOA),
                 new SqlParameter("@HOCKY", obj.HOCKY),
@@ -55,7 +55,7 @@ namespace DataAccessLayer
             return _dbConnect.ExecuteSQL("sp_DONGHOCPHI_update", param);
         }
 
-        public int Delete(string ID)
+        public int Delete(int ID)
         {
             SqlParameter[] param =
             {

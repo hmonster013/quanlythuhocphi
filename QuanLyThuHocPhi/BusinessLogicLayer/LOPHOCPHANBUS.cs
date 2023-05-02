@@ -18,7 +18,7 @@ namespace BusinessLogicLayer
             return dao.GetData();
         }
 
-        public DataTable GetData(string ID)
+        public DataTable GetData(int ID)
         {
             return dao.GetDataByID(ID);
         }
@@ -33,7 +33,7 @@ namespace BusinessLogicLayer
             return dao.Update(obj);
         }
 
-        public int Delete(string ID)
+        public int Delete(int ID)
         {
             return dao.Delete(ID);
         }

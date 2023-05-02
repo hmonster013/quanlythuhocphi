@@ -32,10 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btLopHocPhan = new System.Windows.Forms.Button();
             this.btLop = new System.Windows.Forms.Button();
-            this.btTinChi = new System.Windows.Forms.Button();
             this.btKhoa = new System.Windows.Forms.Button();
             this.btMonHoc = new System.Windows.Forms.Button();
-            this.btGiaoVien = new System.Windows.Forms.Button();
+            this.btGiangVien = new System.Windows.Forms.Button();
             this.btSinhVien = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -52,10 +51,9 @@
             this.panel1.Controls.Add(this.btTaoPhieuThu);
             this.panel1.Controls.Add(this.btLopHocPhan);
             this.panel1.Controls.Add(this.btLop);
-            this.panel1.Controls.Add(this.btTinChi);
             this.panel1.Controls.Add(this.btKhoa);
             this.panel1.Controls.Add(this.btMonHoc);
-            this.panel1.Controls.Add(this.btGiaoVien);
+            this.panel1.Controls.Add(this.btGiangVien);
             this.panel1.Controls.Add(this.btSinhVien);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -71,7 +69,7 @@
             this.btLopHocPhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLopHocPhan.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLopHocPhan.ForeColor = System.Drawing.Color.White;
-            this.btLopHocPhan.Location = new System.Drawing.Point(0, 520);
+            this.btLopHocPhan.Location = new System.Drawing.Point(0, 450);
             this.btLopHocPhan.Name = "btLopHocPhan";
             this.btLopHocPhan.Size = new System.Drawing.Size(200, 70);
             this.btLopHocPhan.TabIndex = 7;
@@ -85,26 +83,12 @@
             this.btLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLop.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLop.ForeColor = System.Drawing.Color.White;
-            this.btLop.Location = new System.Drawing.Point(0, 450);
+            this.btLop.Location = new System.Drawing.Point(0, 380);
             this.btLop.Name = "btLop";
             this.btLop.Size = new System.Drawing.Size(200, 70);
             this.btLop.TabIndex = 6;
             this.btLop.Text = "Lớp";
             this.btLop.UseVisualStyleBackColor = true;
-            // 
-            // btTinChi
-            // 
-            this.btTinChi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btTinChi.FlatAppearance.BorderSize = 0;
-            this.btTinChi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btTinChi.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTinChi.ForeColor = System.Drawing.Color.White;
-            this.btTinChi.Location = new System.Drawing.Point(0, 380);
-            this.btTinChi.Name = "btTinChi";
-            this.btTinChi.Size = new System.Drawing.Size(200, 70);
-            this.btTinChi.TabIndex = 5;
-            this.btTinChi.Text = "Tín chỉ";
-            this.btTinChi.UseVisualStyleBackColor = true;
             // 
             // btKhoa
             // 
@@ -134,19 +118,19 @@
             this.btMonHoc.Text = "Môn học";
             this.btMonHoc.UseVisualStyleBackColor = true;
             // 
-            // btGiaoVien
+            // btGiangVien
             // 
-            this.btGiaoVien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btGiaoVien.FlatAppearance.BorderSize = 0;
-            this.btGiaoVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGiaoVien.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btGiaoVien.ForeColor = System.Drawing.Color.White;
-            this.btGiaoVien.Location = new System.Drawing.Point(0, 170);
-            this.btGiaoVien.Name = "btGiaoVien";
-            this.btGiaoVien.Size = new System.Drawing.Size(200, 70);
-            this.btGiaoVien.TabIndex = 2;
-            this.btGiaoVien.Text = "Giáo viên";
-            this.btGiaoVien.UseVisualStyleBackColor = true;
+            this.btGiangVien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btGiangVien.FlatAppearance.BorderSize = 0;
+            this.btGiangVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGiangVien.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btGiangVien.ForeColor = System.Drawing.Color.White;
+            this.btGiangVien.Location = new System.Drawing.Point(0, 170);
+            this.btGiangVien.Name = "btGiangVien";
+            this.btGiangVien.Size = new System.Drawing.Size(200, 70);
+            this.btGiangVien.TabIndex = 2;
+            this.btGiangVien.Text = "Giảng Viên";
+            this.btGiangVien.UseVisualStyleBackColor = true;
             // 
             // btSinhVien
             // 
@@ -197,7 +181,7 @@
             this.btTaoPhieuThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btTaoPhieuThu.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTaoPhieuThu.ForeColor = System.Drawing.Color.White;
-            this.btTaoPhieuThu.Location = new System.Drawing.Point(0, 590);
+            this.btTaoPhieuThu.Location = new System.Drawing.Point(0, 520);
             this.btTaoPhieuThu.Name = "btTaoPhieuThu";
             this.btTaoPhieuThu.Size = new System.Drawing.Size(200, 70);
             this.btTaoPhieuThu.TabIndex = 8;
@@ -211,7 +195,7 @@
             this.btDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btDangXuat.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btDangXuat.Location = new System.Drawing.Point(0, 660);
+            this.btDangXuat.Location = new System.Drawing.Point(0, 590);
             this.btDangXuat.Name = "btDangXuat";
             this.btDangXuat.Size = new System.Drawing.Size(200, 70);
             this.btDangXuat.TabIndex = 9;
@@ -238,10 +222,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btLopHocPhan;
         private System.Windows.Forms.Button btLop;
-        private System.Windows.Forms.Button btTinChi;
         private System.Windows.Forms.Button btKhoa;
         private System.Windows.Forms.Button btMonHoc;
-        private System.Windows.Forms.Button btGiaoVien;
+        private System.Windows.Forms.Button btGiangVien;
         private System.Windows.Forms.Button btSinhVien;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;

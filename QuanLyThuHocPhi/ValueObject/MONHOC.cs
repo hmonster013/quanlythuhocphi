@@ -10,5 +10,6 @@ namespace ValueObject
     {
         public string MAMH { get; set; }
         public string TENMH { get; set; }
+        public int SOTINCHI { get; set; }
     }
 }

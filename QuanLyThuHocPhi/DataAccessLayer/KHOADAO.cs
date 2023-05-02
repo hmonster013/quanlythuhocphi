@@ -32,7 +32,8 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MAKHOA", obj.MAKHOA),
-                new SqlParameter("TENKHOA", obj.TENKHOA)
+                new SqlParameter("TENKHOA", obj.TENKHOA),
+                new SqlParameter("DONGIA", obj.DONGIA)
             };
             return _dbConnect.ExecuteSQL("sp_KHOA_insert", param);
         }
@@ -42,7 +43,8 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MAKHOA", obj.MAKHOA),
-                new SqlParameter("TENKHOA", obj.TENKHOA)
+                new SqlParameter("TENKHOA", obj.TENKHOA),
+                new SqlParameter("DONGIA", obj.DONGIA)
             };
             return _dbConnect.ExecuteSQL("sp_KHOA_update", param);
         }

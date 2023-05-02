@@ -35,7 +35,6 @@ namespace DataAccessLayer
                 new SqlParameter("HO", obj.HO),
                 new SqlParameter("TEN", obj.TEN),
                 new SqlParameter("HOCHAM", obj.HOCHAM),
-                new SqlParameter("CHUYENMON", obj.CHUYENMON),
                 new SqlParameter("MAKHOA", obj.MAKHOA)
             };
             return _dbConnect.ExecuteSQL("sp_GIANGVIEN_insert", param);
@@ -49,7 +48,6 @@ namespace DataAccessLayer
                 new SqlParameter("HO", obj.HO),
                 new SqlParameter("TEN", obj.TEN),
                 new SqlParameter("HOCHAM", obj.HOCHAM),
-                new SqlParameter("CHUYENMON", obj.CHUYENMON),
                 new SqlParameter("MAKHOA", obj.MAKHOA)
             };
             return _dbConnect.ExecuteSQL("sp_GIANGVIEN_update", param);

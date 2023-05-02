@@ -11,7 +11,7 @@ namespace BusinessLogicLayer
 {
     internal class LOPBUS
     {
-        HOCPHIDAO dao = new HOCPHIDAO();
+        LOPDAO dao = new LOPDAO();
 
         public DataTable GetData()
         {
@@ -23,12 +23,12 @@ namespace BusinessLogicLayer
             return dao.GetDataByID(ID);
         }
 
-        public int Insert(HOCPHI_cls obj)
+        public int Insert(LOP obj)
         {
             return dao.Insert(obj);
         }
 
-        public int Update(HOCPHI_cls obj)
+        public int Update(LOP obj)
         {
             return dao.Update(obj);
         }

@@ -48,16 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DANGKYBUS.cs" />
-    <Compile Include="DONGHOCPHIBUS.cs" />
+    <Compile Include="PHIEUTHU.cs" />
     <Compile Include="GIANGVIENBUS.cs" />
-    <Compile Include="HOCPHIBUS.cs" />
     <Compile Include="KHOABUS.cs" />
     <Compile Include="LOPBUS.cs" />
     <Compile Include="LOPHOCPHANBUS.cs" />
     <Compile Include="MONHOCBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SINHVIENBUS.cs" />
-    <Compile Include="TINCHIBUS.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

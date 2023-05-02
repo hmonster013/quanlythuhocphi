@@ -18,7 +18,7 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_LOPHOCPHAN_select_all", null);
         }
 
-        public DataTable GetDataByID(string ID)
+        public DataTable GetDataByID(int ID)
         {
             SqlParameter[] param =
             {
@@ -35,10 +35,8 @@ namespace DataAccessLayer
                 new SqlParameter("NIENKHOA", obj.NIENKHOA),
                 new SqlParameter("HOCKY", obj.HOCKY),
                 new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("NHOM", obj.NHOM),
                 new SqlParameter("MAGV", obj.MAGV),
                 new SqlParameter("MAKHOA", obj.MAKHOA),
-                new SqlParameter("SOSVTOITHIEU", obj.SOSVTOITHIEU),
                 new SqlParameter("HUYLOP", obj.HUYLOP)
             };
             return _dbConnect.ExecuteSQL("sp_LOPHOCPHAN_insert", param);
@@ -52,16 +50,14 @@ namespace DataAccessLayer
                 new SqlParameter("NIENKHOA", obj.NIENKHOA),
                 new SqlParameter("HOCKY", obj.HOCKY),
                 new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("NHOM", obj.NHOM),
                 new SqlParameter("MAGV", obj.MAGV),
                 new SqlParameter("MAKHOA", obj.MAKHOA),
-                new SqlParameter("SOSVTOITHIEU", obj.SOSVTOITHIEU),
                 new SqlParameter("HUYLOP", obj.HUYLOP)
             };
             return _dbConnect.ExecuteSQL("sp_LOPHOCPHAN_update", param);
         }
 
-        public int Delete(string ID)
+        public int Delete(int ID)
         {
             SqlParameter[] param =
             {

@@ -9,31 +9,31 @@ using ValueObject;
 
 namespace BusinessLogicLayer
 {
-    internal class HOCPHIBUS
+    internal class PHIEUTHU
     {
-        HOCPHIDAO dao = new HOCPHIDAO();
+        PHIEUTHUDAO dao = new PHIEUTHUDAO();
 
         public DataTable GetData()
         {
             return dao.GetData();
         }
 
-        public DataTable GetData(string ID)
+        public DataTable GetData(int ID)
         {
             return dao.GetDataByID(ID);
         }
 
-        public int Insert(HOCPHI_cls obj)
+        public int Insert(ValueObject.PHIEUTHU obj)
         {
             return dao.Insert(obj);
         }
 
-        public int Update(HOCPHI_cls obj)
+        public int Update(ValueObject.PHIEUTHU obj)
         {
             return dao.Update(obj);
         }
 
-        public int Delete(string ID)
+        public int Delete(int ID)
         {
             return dao.Delete(ID);
         }

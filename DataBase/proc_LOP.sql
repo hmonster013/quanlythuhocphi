@@ -1,3 +1,6 @@
+USE QLSV_TC
+GO
+
 create procedure sp_LOP_insert(
 	@MALOP nvarchar(10),
 	@CHUYENNGANH nvarchar(50),
@@ -5,7 +8,7 @@ create procedure sp_LOP_insert(
 )
 as
 begin
-	insert into LOP values (@MALOP, @CHUYENNGANH, @MAKHOA)
+	insert into LOP(MALOP, CHUYENNGANH, MAKHOA) values (@MALOP, @CHUYENNGANH, @MAKHOA)
 end
 GO
 
@@ -41,8 +44,6 @@ create procedure sp_LOP_select_malop(
 )
 as
 begin
-	select * from LOP where MALOP =@MALOP
+	select * from LOP where MALOP = @MALOP
 end
 GO
-
-

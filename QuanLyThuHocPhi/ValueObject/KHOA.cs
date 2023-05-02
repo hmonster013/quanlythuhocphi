@@ -10,5 +10,6 @@ namespace ValueObject
     {
         public string MAKHOA { get; set; }
         public string TENKHOA { get; set; }
+        public float DONGIA { get; set; }
     }
 }

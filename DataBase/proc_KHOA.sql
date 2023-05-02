@@ -1,45 +1,51 @@
---INSERT
-create procedure sp_KHOA_insert(
-	@MAKHOA nvarchar(10),
-	@TENKHOA nvarchar(50)
-)
-as
-begin
-	insert into KHOA values (@MAKHOA, @TENKHOA)
-end
+USE QLSV_TC
 GO
---UPDATE
-create procedure sp_KHOA_update(
-	@MAKHOA nvarchar(10),
-	@TENKHOA nvarchar(50)
-)
-as
-begin
-	update KHOA set TENKHOA = @TENKHOA WHERE MAKHOA = @MAKHOA
-end
+
+-- INSERT
+CREATE PROCEDURE sp_KHOA_insert (
+@MAKHOA nvarchar(10),
+@TENKHOA nvarchar(50),
+@DONGIA float
+) AS
+BEGIN
+INSERT INTO KHOA (MAKHOA, TENKHOA, DONGIA)
+VALUES (@MAKHOA, @TENKHOA, @DONGIA)
+END
 GO
---DELETE
-create procedure sp_KHOA_delete(
-	@MAKHOA nvarchar(10)
-)
-as
-begin
-	delete KHOA where MAKHOA = @MAKHOA
-end
+
+-- UPDATE
+CREATE PROCEDURE sp_KHOA_update (
+@MAKHOA nvarchar(10),
+@TENKHOA nvarchar(50),
+@DONGIA float
+) AS
+BEGIN
+UPDATE KHOA SET TENKHOA = @TENKHOA, DONGIA = @DONGIA
+WHERE MAKHOA = @MAKHOA
+END
 GO
---SELECT *
-create procedure sp_KHOA_select_all
-as
-begin
-	select * from KHOA
-end
+
+-- DELETE
+CREATE PROCEDURE sp_KHOA_delete (
+@MAKHOA nvarchar(10)
+) AS
+BEGIN
+DELETE FROM KHOA WHERE MAKHOA = @MAKHOA
+END
 GO
---SELECT ID
-create procedure sp_KHOA_select_makhoa(
-	@MAKHOA nvarchar(10)
-)
-as
-begin
-	select * from KHOA where MAKHOA =@MAKHOA
-end
+
+-- SELECT *
+CREATE PROCEDURE sp_KHOA_select_all AS
+BEGIN
+SELECT * FROM KHOA
+END
+GO
+
+-- SELECT ID
+CREATE PROCEDURE sp_KHOA_select_makhoa (
+@MAKHOA nvarchar(10)
+) AS
+BEGIN
+SELECT * FROM KHOA WHERE MAKHOA = @MAKHOA
+END
 GO

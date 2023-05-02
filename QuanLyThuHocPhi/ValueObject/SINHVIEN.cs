@@ -12,12 +12,12 @@ namespace ValueObject
         public string HO { get; set; }
         public string TEN { get; set; }
         public string MALOP { get; set; }
-        public string PHAI { get; set; }
-        public string NGAYSINH { get; set; }
+        public bool PHAI { get; set; }
+        public DateTime NGAYSINH { get; set; }
         public string DIACHI { get; set; }
-        public string DANGNGHIHOC { get; set; }
+        public bool DANGNGHIHOC { get; set; }
         public string PASSWORD { get; set; }
-
         public string MAKHOA { get; set; }
     }
 }
+

@@ -46,16 +46,14 @@
   <ItemGroup>
     <Compile Include="DANGKYDAO.cs" />
     <Compile Include="dbConnect.cs" />
-    <Compile Include="DONGHOCPHIDAO.cs" />
+    <Compile Include="PHIEUTHUDAO.cs" />
     <Compile Include="GIANGVIENDAO.cs" />
-    <Compile Include="HOCPHIDAO.cs" />
     <Compile Include="KHOADAO.cs" />
     <Compile Include="LOPDAO.cs" />
     <Compile Include="LOPHOCPHANDAO.cs" />
     <Compile Include="MONHOCDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SINHVIENDAO.cs" />
-    <Compile Include="TINCHIDAO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,9 +8,10 @@ namespace ValueObject
 {
     public class DANGKY
     {
-        public string MADK { get; set; }
-        public string MALHP { get; set; }
+        public int MADK { get; set; }
+        public int MALHP { get; set; }
         public string MASV { get; set; }
-        public string HUYDANGKY { get; set; }
+        public bool HUYDANGKY { get; set; }
     }
 }
+

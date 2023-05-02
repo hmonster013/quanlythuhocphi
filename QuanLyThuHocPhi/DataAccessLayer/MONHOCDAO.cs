@@ -32,7 +32,8 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("TENMH", obj.TENMH)
+                new SqlParameter("TENMH", obj.TENMH),
+                new SqlParameter("SOTINCHI", obj.SOTINCHI)
             };
             return _dbConnect.ExecuteSQL("sp_MONHOC_insert", param);
         }
@@ -42,7 +43,8 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("TENMH", obj.TENMH)
+                new SqlParameter("TENMH", obj.TENMH),
+                new SqlParameter("SOTINCHI", obj.SOTINCHI)
             };
             return _dbConnect.ExecuteSQL("sp_MONHOC_update", param);
         }
