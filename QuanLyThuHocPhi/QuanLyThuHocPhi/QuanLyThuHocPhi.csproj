@@ -61,6 +61,48 @@
     <Compile Include="fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="fAdmin_GiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin_GiangVien.Designer.cs">
+      <DependentUpon>fAdmin_GiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAdmin_Khoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin_Khoa.Designer.cs">
+      <DependentUpon>fAdmin_Khoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAdmin_Lop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin_Lop.Designer.cs">
+      <DependentUpon>fAdmin_Lop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAdmin_LopHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin_LopHocPhan.Designer.cs">
+      <DependentUpon>fAdmin_LopHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAdmin_MonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin_MonHoc.Designer.cs">
+      <DependentUpon>fAdmin_MonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAdmin_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin_SinhVien.Designer.cs">
+      <DependentUpon>fAdmin_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAdmin_TaoPhieuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin_TaoPhieuThu.Designer.cs">
+      <DependentUpon>fAdmin_TaoPhieuThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="fChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +125,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin_GiangVien.resx">
+      <DependentUpon>fAdmin_GiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin_Khoa.resx">
+      <DependentUpon>fAdmin_Khoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin_Lop.resx">
+      <DependentUpon>fAdmin_Lop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin_LopHocPhan.resx">
+      <DependentUpon>fAdmin_LopHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin_MonHoc.resx">
+      <DependentUpon>fAdmin_MonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin_SinhVien.resx">
+      <DependentUpon>fAdmin_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin_TaoPhieuThu.resx">
+      <DependentUpon>fAdmin_TaoPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fChangePassword.resx">
       <DependentUpon>fChangePassword.cs</DependentUpon>

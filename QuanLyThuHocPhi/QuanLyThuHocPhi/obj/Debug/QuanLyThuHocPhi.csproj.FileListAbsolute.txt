@@ -36,3 +36,10 @@ C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Deb
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fChangePassword.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_SinhVien.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_GiangVien.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_Khoa.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_Lop.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_LopHocPhan.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_MonHoc.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_TaoPhieuThu.resources
