@@ -34,6 +34,10 @@ namespace DataAccessLayer
             sqlCommand.CommandText = procName;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Connection = _connection;
+            if (param != null)
+            {
+                sqlCommand.Parameters.AddRange(param);
+            }
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = sqlCommand;
             _connection.Open();
@@ -55,12 +59,12 @@ namespace DataAccessLayer
         {
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = procName;
-            sqlCommand.CommandType= CommandType.StoredProcedure;
-            sqlCommand.Connection = _connection;
             if (param != null)
             {
                 sqlCommand.Parameters.AddRange(param);
             }
+            sqlCommand.CommandType= CommandType.StoredProcedure;
+            sqlCommand.Connection = _connection;
             _connection.Open();
             int row = sqlCommand.ExecuteNonQuery();
             _connection.Close();

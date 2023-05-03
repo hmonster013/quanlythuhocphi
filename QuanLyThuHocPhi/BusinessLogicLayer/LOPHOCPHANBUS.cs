@@ -9,7 +9,7 @@ using ValueObject;
 
 namespace BusinessLogicLayer
 {
-    internal class LOPHOCPHANBUS
+    public class LOPHOCPHANBUS
     {
         LOPHOCPHANDAO dao = new LOPHOCPHANDAO();
 

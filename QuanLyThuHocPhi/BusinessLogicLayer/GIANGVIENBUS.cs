@@ -9,7 +9,7 @@ using ValueObject;
 
 namespace BusinessLogicLayer
 {
-    internal class GIANGVIENBUS
+    public class GIANGVIENBUS
     {
         GIANGVIENDAO dao = new GIANGVIENDAO();
 

@@ -30,43 +30,44 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.cbMaKhoa = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.cbMaLop = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.rdbFalse = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.rdbTrue = new System.Windows.Forms.RadioButton();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.rdbNu = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.rdbNam = new System.Windows.Forms.RadioButton();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txbMatKhau = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txbDiaChi = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbHoSV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbTenSV = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbMaSV = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btXóa = new System.Windows.Forms.Button();
-            this.btSửa = new System.Windows.Forms.Button();
+            this.btXoa = new System.Windows.Forms.Button();
+            this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btReset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -105,12 +106,21 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.comboBox2);
+            this.panel13.Controls.Add(this.cbMaKhoa);
             this.panel13.Controls.Add(this.label10);
             this.panel13.Location = new System.Drawing.Point(507, 206);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(397, 42);
             this.panel13.TabIndex = 2;
+            // 
+            // cbMaKhoa
+            // 
+            this.cbMaKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaKhoa.FormattingEnabled = true;
+            this.cbMaKhoa.Location = new System.Drawing.Point(142, 9);
+            this.cbMaKhoa.Name = "cbMaKhoa";
+            this.cbMaKhoa.Size = new System.Drawing.Size(247, 28);
+            this.cbMaKhoa.TabIndex = 2;
             // 
             // label10
             // 
@@ -124,20 +134,21 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.comboBox1);
+            this.panel12.Controls.Add(this.cbMaLop);
             this.panel12.Controls.Add(this.label9);
             this.panel12.Location = new System.Drawing.Point(507, 158);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(397, 42);
             this.panel12.TabIndex = 2;
             // 
-            // textBox9
+            // cbMaLop
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(142, 9);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(252, 26);
-            this.textBox9.TabIndex = 1;
+            this.cbMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaLop.FormattingEnabled = true;
+            this.cbMaLop.Location = new System.Drawing.Point(142, 8);
+            this.cbMaLop.Name = "cbMaLop";
+            this.cbMaLop.Size = new System.Drawing.Size(247, 28);
+            this.cbMaLop.TabIndex = 1;
             // 
             // label9
             // 
@@ -151,13 +162,25 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.radioButton4);
+            this.panel10.Controls.Add(this.rdbFalse);
             this.panel10.Controls.Add(this.label7);
-            this.panel10.Controls.Add(this.radioButton3);
+            this.panel10.Controls.Add(this.rdbTrue);
             this.panel10.Location = new System.Drawing.Point(507, 62);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(397, 42);
             this.panel10.TabIndex = 3;
+            // 
+            // rdbFalse
+            // 
+            this.rdbFalse.AutoSize = true;
+            this.rdbFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFalse.Location = new System.Drawing.Point(251, 8);
+            this.rdbFalse.Name = "rdbFalse";
+            this.rdbFalse.Size = new System.Drawing.Size(66, 24);
+            this.rdbFalse.TabIndex = 2;
+            this.rdbFalse.TabStop = true;
+            this.rdbFalse.Text = "False";
+            this.rdbFalse.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -169,22 +192,35 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Đang nghỉ học:";
             // 
+            // rdbTrue
+            // 
+            this.rdbTrue.AutoSize = true;
+            this.rdbTrue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbTrue.Location = new System.Drawing.Point(152, 7);
+            this.rdbTrue.Name = "rdbTrue";
+            this.rdbTrue.Size = new System.Drawing.Size(59, 24);
+            this.rdbTrue.TabIndex = 1;
+            this.rdbTrue.TabStop = true;
+            this.rdbTrue.Text = "True";
+            this.rdbTrue.UseVisualStyleBackColor = true;
+            // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.dateTimePicker1);
+            this.panel11.Controls.Add(this.dtpNgaySinh);
             this.panel11.Controls.Add(this.label8);
             this.panel11.Location = new System.Drawing.Point(507, 110);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(397, 42);
             this.panel11.TabIndex = 2;
             // 
-            // textBox8
+            // dtpNgaySinh
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(142, 8);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(252, 26);
-            this.textBox8.TabIndex = 1;
+            this.dtpNgaySinh.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaySinh.Location = new System.Drawing.Point(142, 9);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(247, 22);
+            this.dtpNgaySinh.TabIndex = 1;
             // 
             // label8
             // 
@@ -198,13 +234,25 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.radioButton2);
+            this.panel9.Controls.Add(this.rdbNu);
             this.panel9.Controls.Add(this.label6);
-            this.panel9.Controls.Add(this.radioButton1);
+            this.panel9.Controls.Add(this.rdbNam);
             this.panel9.Location = new System.Drawing.Point(507, 14);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(397, 42);
             this.panel9.TabIndex = 3;
+            // 
+            // rdbNu
+            // 
+            this.rdbNu.AutoSize = true;
+            this.rdbNu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbNu.Location = new System.Drawing.Point(152, 8);
+            this.rdbNu.Name = "rdbNu";
+            this.rdbNu.Size = new System.Drawing.Size(47, 24);
+            this.rdbNu.TabIndex = 2;
+            this.rdbNu.TabStop = true;
+            this.rdbNu.Text = "Nữ";
+            this.rdbNu.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -216,14 +264,34 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Giới tính:";
             // 
+            // rdbNam
+            // 
+            this.rdbNam.AutoSize = true;
+            this.rdbNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbNam.Location = new System.Drawing.Point(251, 8);
+            this.rdbNam.Name = "rdbNam";
+            this.rdbNam.Size = new System.Drawing.Size(60, 24);
+            this.rdbNam.TabIndex = 1;
+            this.rdbNam.TabStop = true;
+            this.rdbNam.Text = "Nam";
+            this.rdbNam.UseVisualStyleBackColor = true;
+            // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.textBox9);
+            this.panel8.Controls.Add(this.txbMatKhau);
             this.panel8.Controls.Add(this.label5);
             this.panel8.Location = new System.Drawing.Point(36, 206);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(397, 42);
             this.panel8.TabIndex = 2;
+            // 
+            // txbMatKhau
+            // 
+            this.txbMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMatKhau.Location = new System.Drawing.Point(142, 9);
+            this.txbMatKhau.Name = "txbMatKhau";
+            this.txbMatKhau.Size = new System.Drawing.Size(252, 26);
+            this.txbMatKhau.TabIndex = 1;
             // 
             // label5
             // 
@@ -237,12 +305,20 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.textBox8);
+            this.panel7.Controls.Add(this.txbDiaChi);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Location = new System.Drawing.Point(36, 158);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(397, 42);
             this.panel7.TabIndex = 2;
+            // 
+            // txbDiaChi
+            // 
+            this.txbDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDiaChi.Location = new System.Drawing.Point(142, 8);
+            this.txbDiaChi.Name = "txbDiaChi";
+            this.txbDiaChi.Size = new System.Drawing.Size(252, 26);
+            this.txbDiaChi.TabIndex = 1;
             // 
             // label4
             // 
@@ -256,20 +332,20 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.txbHoSV);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Location = new System.Drawing.Point(36, 62);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 42);
             this.panel5.TabIndex = 2;
             // 
-            // textBox2
+            // txbHoSV
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(142, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(252, 26);
-            this.textBox2.TabIndex = 1;
+            this.txbHoSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbHoSV.Location = new System.Drawing.Point(142, 9);
+            this.txbHoSV.Name = "txbHoSV";
+            this.txbHoSV.Size = new System.Drawing.Size(252, 26);
+            this.txbHoSV.TabIndex = 1;
             // 
             // label2
             // 
@@ -283,20 +359,20 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.textBox3);
+            this.panel6.Controls.Add(this.txbTenSV);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(36, 110);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 42);
             this.panel6.TabIndex = 2;
             // 
-            // textBox3
+            // txbTenSV
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(142, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(252, 26);
-            this.textBox3.TabIndex = 1;
+            this.txbTenSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTenSV.Location = new System.Drawing.Point(142, 8);
+            this.txbTenSV.Name = "txbTenSV";
+            this.txbTenSV.Size = new System.Drawing.Size(252, 26);
+            this.txbTenSV.TabIndex = 1;
             // 
             // label3
             // 
@@ -310,20 +386,20 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txbMaSV);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Location = new System.Drawing.Point(36, 14);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(397, 42);
             this.panel4.TabIndex = 1;
             // 
-            // textBox1
+            // txbMaSV
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(142, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 26);
-            this.textBox1.TabIndex = 1;
+            this.txbMaSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMaSV.Location = new System.Drawing.Point(142, 7);
+            this.txbMaSV.Name = "txbMaSV";
+            this.txbMaSV.Size = new System.Drawing.Size(252, 26);
+            this.txbMaSV.TabIndex = 1;
             // 
             // label1
             // 
@@ -339,8 +415,9 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.btXóa);
-            this.panel3.Controls.Add(this.btSửa);
+            this.panel3.Controls.Add(this.btReset);
+            this.panel3.Controls.Add(this.btXoa);
+            this.panel3.Controls.Add(this.btSua);
             this.panel3.Controls.Add(this.btThem);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(968, 0);
@@ -348,25 +425,27 @@
             this.panel3.Size = new System.Drawing.Size(113, 277);
             this.panel3.TabIndex = 0;
             // 
-            // btXóa
+            // btXoa
             // 
-            this.btXóa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btXóa.Location = new System.Drawing.Point(0, 90);
-            this.btXóa.Name = "btXóa";
-            this.btXóa.Size = new System.Drawing.Size(109, 45);
-            this.btXóa.TabIndex = 2;
-            this.btXóa.Text = "Xóa";
-            this.btXóa.UseVisualStyleBackColor = true;
+            this.btXoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btXoa.Location = new System.Drawing.Point(0, 90);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(109, 45);
+            this.btXoa.TabIndex = 2;
+            this.btXoa.Text = "Xóa";
+            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
-            // btSửa
+            // btSua
             // 
-            this.btSửa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btSửa.Location = new System.Drawing.Point(0, 45);
-            this.btSửa.Name = "btSửa";
-            this.btSửa.Size = new System.Drawing.Size(109, 45);
-            this.btSửa.TabIndex = 1;
-            this.btSửa.Text = "Sửa";
-            this.btSửa.UseVisualStyleBackColor = true;
+            this.btSua.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btSua.Location = new System.Drawing.Point(0, 45);
+            this.btSua.Name = "btSua";
+            this.btSua.Size = new System.Drawing.Size(109, 45);
+            this.btSua.TabIndex = 1;
+            this.btSua.Text = "Sửa";
+            this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // btThem
             // 
@@ -377,6 +456,7 @@
             this.btThem.TabIndex = 0;
             this.btThem.Text = "Thêm";
             this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // panel2
             // 
@@ -397,81 +477,18 @@
             this.dgvHienThi.Name = "dgvHienThi";
             this.dgvHienThi.Size = new System.Drawing.Size(1081, 455);
             this.dgvHienThi.TabIndex = 0;
+            this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
-            // radioButton1
+            // btReset
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(152, 7);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(60, 24);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Nam";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(251, 6);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 24);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Nữ";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(142, 8);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(247, 28);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(152, 7);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(59, 24);
-            this.radioButton3.TabIndex = 1;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "True";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(251, 8);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(66, 24);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "False";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(142, 9);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(247, 22);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(142, 9);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(247, 28);
-            this.comboBox2.TabIndex = 2;
+            this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btReset.Location = new System.Drawing.Point(0, 135);
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(109, 45);
+            this.btReset.TabIndex = 3;
+            this.btReset.Text = "Reset";
+            this.btReset.UseVisualStyleBackColor = true;
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // fAdmin_SinhVien
             // 
@@ -483,6 +500,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "fAdmin_SinhVien";
             this.Text = "fAdmin_SinhVien";
+            this.Load += new System.EventHandler(this.fAdmin_SinhVien_Load);
             this.panel1.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
@@ -517,10 +535,10 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txbMatKhau;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txbDiaChi;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label7;
@@ -531,26 +549,27 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbHoSV;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txbTenSV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbMaSV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btXóa;
-        private System.Windows.Forms.Button btSửa;
+        private System.Windows.Forms.Button btXoa;
+        private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvHienThi;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.RadioButton rdbNu;
+        private System.Windows.Forms.RadioButton rdbNam;
+        private System.Windows.Forms.ComboBox cbMaLop;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
+        private System.Windows.Forms.RadioButton rdbFalse;
+        private System.Windows.Forms.RadioButton rdbTrue;
+        private System.Windows.Forms.ComboBox cbMaKhoa;
+        private System.Windows.Forms.Button btReset;
     }
 }

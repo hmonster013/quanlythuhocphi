@@ -9,7 +9,7 @@ using ValueObject;
 
 namespace BusinessLogicLayer
 {
-    internal class MONHOCBUS
+    public class MONHOCBUS
     {
         MONHOCDAO dao = new MONHOCDAO();
 

@@ -234,6 +234,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAdmin";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

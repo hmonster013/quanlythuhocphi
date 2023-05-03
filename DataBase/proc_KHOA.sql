@@ -41,7 +41,7 @@ SELECT * FROM KHOA
 END
 GO
 
--- SELECT ID
+-- FIND ID
 CREATE PROCEDURE sp_KHOA_select_makhoa (
 @MAKHOA nvarchar(10)
 ) AS

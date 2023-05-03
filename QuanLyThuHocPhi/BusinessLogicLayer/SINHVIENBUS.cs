@@ -9,7 +9,7 @@ using ValueObject;
 
 namespace BusinessLogicLayer
 {
-    internal class SINHVIENBUS
+    public class SINHVIENBUS
     {
         SINHVIENDAO dao = new SINHVIENDAO();
 
