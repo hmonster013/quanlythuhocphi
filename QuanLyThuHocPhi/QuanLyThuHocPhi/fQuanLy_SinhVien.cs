@@ -13,11 +13,11 @@ using BusinessLogicLayer;
 
 namespace QuanLyThuHocPhi
 {
-    public partial class fAdmin_SinhVien : Form
+    public partial class fQuanLy_SinhVien : Form
     {
         private SINHVIEN obj = new SINHVIEN();
         private SINHVIENBUS bus = new SINHVIENBUS();
-        public fAdmin_SinhVien()
+        public fQuanLy_SinhVien()
         {
             InitializeComponent();
         }
@@ -37,7 +37,7 @@ namespace QuanLyThuHocPhi
             dgvHienThi.Columns[6].HeaderText = "Ngày sinh";
             dgvHienThi.Columns[7].HeaderText = "Địa chỉ";
             dgvHienThi.Columns[8].HeaderText = "Đang nghỉ học";
-            dgvHienThi.Columns[9].HeaderText = "Mật khẩu";
+            dgvHienThi.Columns[9].HeaderText = "Tên tài khoản";
         }
 
         private void dgvHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -46,7 +46,7 @@ namespace QuanLyThuHocPhi
             txbHoSV.Text = dgvHienThi.SelectedRows[0].Cells[1].Value.ToString();
             txbTenSV.Text = dgvHienThi.SelectedRows[0].Cells[2].Value.ToString();
             txbDiaChi.Text = dgvHienThi.SelectedRows[0].Cells[7].Value.ToString();
-            txbMatKhau.Text = dgvHienThi.SelectedRows[0].Cells[9].Value.ToString();
+            txbTenTK.Text = dgvHienThi.SelectedRows[0].Cells[9].Value.ToString();
             if (bool.Parse(dgvHienThi.SelectedRows[0].Cells[5].Value.ToString()) == true)
             {
                 rdbNu.Checked = true;
@@ -74,14 +74,20 @@ namespace QuanLyThuHocPhi
             KHOABUS tempKhoa = new KHOABUS();
             DataTable dtLop = tempLop.GetData();
             DataTable dtKhoa = tempKhoa.GetData();
+            //ComboBox Ma Lop
             foreach (DataRow row in dtLop.Rows)
             {
                 cbMaLop.Items.Add(row[0].ToString());
             }
+            cbMaLop.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbMaLop.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //ComboBox Ma Khoa
             foreach (DataRow row in dtKhoa.Rows)
             {
                 cbMaKhoa.Items.Add(row[0].ToString());
             }
+            cbMaKhoa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbMaKhoa.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void fAdmin_SinhVien_Load(object sender, EventArgs e)
@@ -96,7 +102,7 @@ namespace QuanLyThuHocPhi
             obj.HO = txbHoSV.Text; ;
             obj.TEN = txbTenSV.Text;
             obj.DIACHI = txbDiaChi.Text;
-            obj.PASSWORD = txbMatKhau.Text;
+            obj.TENTAIKHOAN = txbTenTK.Text;
             if (rdbNam.Checked == true)
             {
                 obj.PHAI = false;
@@ -135,7 +141,7 @@ namespace QuanLyThuHocPhi
             obj.HO = txbHoSV.Text; ;
             obj.TEN = txbTenSV.Text;
             obj.DIACHI = txbDiaChi.Text;
-            obj.PASSWORD = txbMatKhau.Text;
+            obj.TENTAIKHOAN = txbTenTK.Text;
             if (rdbNam.Checked == true)
             {
                 obj.PHAI = false;
@@ -194,7 +200,7 @@ namespace QuanLyThuHocPhi
             txbHoSV.Text = "";
             txbTenSV.Text = "";
             txbDiaChi.Text = "";
-            txbMatKhau.Text = "";
+            txbTenTK.Text = "";
             rdbNam.Checked = false;
             rdbNu.Checked = false;
             rdbTrue.Checked = false;

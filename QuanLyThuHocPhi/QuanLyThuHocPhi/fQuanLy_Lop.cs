@@ -12,12 +12,12 @@ using BusinessLogicLayer;
 
 namespace QuanLyThuHocPhi
 {
-    public partial class fAdmin_Lop : Form
+    public partial class fQuanLy_Lop : Form
     {
         private LOP obj = new LOP();
         private LOPBUS bus = new LOPBUS();
 
-        public fAdmin_Lop()
+        public fQuanLy_Lop()
         {
             InitializeComponent();
         }
@@ -32,6 +32,8 @@ namespace QuanLyThuHocPhi
             {
                 cbMaKhoa.Items.Add(row[0].ToString());
             }
+            cbMaKhoa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbMaKhoa.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public void load_dgvHienThi(object sender, EventArgs e)

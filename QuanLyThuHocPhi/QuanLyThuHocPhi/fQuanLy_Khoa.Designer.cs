@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThuHocPhi
 {
-    partial class fAdmin_Khoa
+    partial class fQuanLy_Khoa
     {
         /// <summary>
         /// Required designer variable.
@@ -227,15 +227,15 @@
             this.panel1.Size = new System.Drawing.Size(1081, 209);
             this.panel1.TabIndex = 2;
             // 
-            // fAdmin_Khoa
+            // fQuanLy_Khoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 634);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "fAdmin_Khoa";
-            this.Text = "fAdmin_Khoa";
+            this.Name = "fQuanLy_Khoa";
+            this.Text = "fQuanLy_Khoa";
             this.Load += new System.EventHandler(this.fAdmin_Khoa_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();

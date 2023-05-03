@@ -9,7 +9,7 @@ using ValueObject;
 
 namespace BusinessLogicLayer
 {
-    public class PHIEUTHU
+    public class PHIEUTHUBUS
     {
         PHIEUTHUDAO dao = new PHIEUTHUDAO();
 

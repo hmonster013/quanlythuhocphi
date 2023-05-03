@@ -35,15 +35,15 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lilbDoiMK = new System.Windows.Forms.LinkLabel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btLogin = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbMatKhau = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbTaiKhoan = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -56,6 +56,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(12, 12);
@@ -67,9 +68,9 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(61, 57);
+            this.pictureBox1.Location = new System.Drawing.Point(35, 49);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 250);
+            this.pictureBox1.Size = new System.Drawing.Size(271, 277);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -106,45 +107,45 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.linkLabel1);
+            this.panel6.Controls.Add(this.lilbDoiMK);
             this.panel6.Location = new System.Drawing.Point(3, 310);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(400, 58);
             this.panel6.TabIndex = 5;
             // 
-            // linkLabel1
+            // lilbDoiMK
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(308, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(79, 13);
-            this.linkLabel1.TabIndex = 0;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Đổi mật khẩu ?";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lilbDoiMK.AutoSize = true;
+            this.lilbDoiMK.Location = new System.Drawing.Point(308, 0);
+            this.lilbDoiMK.Name = "lilbDoiMK";
+            this.lilbDoiMK.Size = new System.Drawing.Size(79, 13);
+            this.lilbDoiMK.TabIndex = 0;
+            this.lilbDoiMK.TabStop = true;
+            this.lilbDoiMK.Text = "Đổi mật khẩu ?";
+            this.lilbDoiMK.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btLogin);
             this.panel5.Location = new System.Drawing.Point(3, 246);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(400, 58);
             this.panel5.TabIndex = 4;
             // 
-            // button1
+            // btLogin
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(394, 52);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btLogin.Location = new System.Drawing.Point(3, 3);
+            this.btLogin.Name = "btLogin";
+            this.btLogin.Size = new System.Drawing.Size(394, 52);
+            this.btLogin.TabIndex = 0;
+            this.btLogin.Text = "Login";
+            this.btLogin.UseVisualStyleBackColor = true;
+            this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.txbMatKhau);
             this.panel4.Location = new System.Drawing.Point(3, 182);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(400, 58);
@@ -159,17 +160,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Mật khẩu";
             // 
-            // textBox2
+            // txbMatKhau
             // 
-            this.textBox2.Location = new System.Drawing.Point(94, 17);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 20);
-            this.textBox2.TabIndex = 0;
+            this.txbMatKhau.Location = new System.Drawing.Point(94, 17);
+            this.txbMatKhau.Name = "txbMatKhau";
+            this.txbMatKhau.Size = new System.Drawing.Size(281, 20);
+            this.txbMatKhau.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txbTaiKhoan);
             this.panel3.Location = new System.Drawing.Point(3, 118);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(400, 58);
@@ -184,12 +185,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tài khoản";
             // 
-            // textBox1
+            // txbTaiKhoan
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(281, 20);
-            this.textBox1.TabIndex = 0;
+            this.txbTaiKhoan.Location = new System.Drawing.Point(94, 17);
+            this.txbTaiKhoan.Name = "txbTaiKhoan";
+            this.txbTaiKhoan.Size = new System.Drawing.Size(281, 20);
+            this.txbTaiKhoan.TabIndex = 0;
             // 
             // fLogin
             // 
@@ -221,16 +222,16 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbTaiKhoan;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbMatKhau;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lilbDoiMK;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btLogin;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;

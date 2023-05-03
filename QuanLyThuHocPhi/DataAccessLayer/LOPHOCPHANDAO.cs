@@ -27,11 +27,15 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_LOPHOCPHAN_select_malhp", param);
         }
 
+        public DataTable GetDataMaLHP()
+        {
+            return _dbConnect.GetData("SELECT IDENT_CURRENT('LOPHOCPHAN') + 1");
+        }
+
         public int Insert(LOPHOCPHAN obj)
         {
             SqlParameter[] param =
             {
-                new SqlParameter("MALHP", obj.MALHP),
                 new SqlParameter("NIENKHOA", obj.NIENKHOA),
                 new SqlParameter("HOCKY", obj.HOCKY),
                 new SqlParameter("MAMH", obj.MAMH),

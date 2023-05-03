@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyThuHocPhi
 {
-    public partial class fAdmin_LopHocPhan : Form
+    public partial class fSinhVien_HocPhi : Form
     {
-        public fAdmin_LopHocPhan()
+        public fSinhVien_HocPhi()
         {
             InitializeComponent();
         }

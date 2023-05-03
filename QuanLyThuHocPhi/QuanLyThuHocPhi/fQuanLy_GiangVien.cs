@@ -12,12 +12,12 @@ using BusinessLogicLayer;
 
 namespace QuanLyThuHocPhi
 {
-    public partial class fAdmin_GiangVien : Form
+    public partial class fQuanLy_GiangVien : Form
     {
         private GIANGVIEN obj = new GIANGVIEN();
         private GIANGVIENBUS bus = new GIANGVIENBUS();
 
-        public fAdmin_GiangVien()
+        public fQuanLy_GiangVien()
         {
             InitializeComponent();
         }
@@ -37,6 +37,7 @@ namespace QuanLyThuHocPhi
 
         public void addDataComboBox(object sender, EventArgs e)
         {
+            //ComboBox Ma Khoa
             KHOABUS temp = new KHOABUS();
             DataTable tb = new DataTable();
             tb = temp.GetData();
@@ -44,11 +45,15 @@ namespace QuanLyThuHocPhi
             {
                 cbMaKhoa.Items.Add(row[0].ToString());
             }
-
+            cbMaKhoa.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbMaKhoa.AutoCompleteSource = AutoCompleteSource.ListItems;
+            //ComboBox Hoc Ham
             cbHocHam.Items.Add("Tiến Sĩ");
             cbHocHam.Items.Add("Thạc Sĩ");
             cbHocHam.Items.Add("Giáo Sư");
             cbHocHam.Items.Add("P.Giáo sư");
+            cbHocHam.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbHocHam.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void dgvHienThi_CellClick(object sender, DataGridViewCellEventArgs e)

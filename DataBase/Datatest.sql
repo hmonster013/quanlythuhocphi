@@ -5,7 +5,11 @@ INSERT INTO KHOA VALUES (N'CNTT', N'Công nghệ thông tin', 429000)
 
 INSERT INTO LOP VALUES (N'72DCHT21', N'Hệ thống thông tin', N'CNTT')
 
-INSERT INTO SINHVIEN VALUES (N'72DCHT20104', N'Trần Phú', N'Huy', N'72DCHT21', N'CNTT', 0, '2003-5-18', N'Kim Giang, Hà Nội', 0, N'1')
+INSERT INTO NGUOIDUNG VALUES (N'72DCHT20104', N'1', N'User')
+INSERT INTO NGUOIDUNG VALUES (N'Admin', N'1', N'Admin')
+INSERT INTO NGUOIDUNG VALUES (N'QuanLy', N'1', N'QuanLy')
+
+INSERT INTO SINHVIEN VALUES (N'72DCHT20104', N'Trần Phú', N'Huy', N'72DCHT21', N'CNTT', 0, '2003-5-18', N'Kim Giang, Hà Nội', 0, N'72DCHT20104')
 
 INSERT INTO MONHOC(MAMH,TENMH,SOTINCHI) VALUES
 ('DC2HT26', N'Cấu trúc dữ liệu và giải thuật', 4),
@@ -21,8 +25,8 @@ INSERT INTO MONHOC(MAMH,TENMH,SOTINCHI) VALUES
 ('DC2TT31', N'Phần mềm mã nguồn mở', 2),
 ('DC2HT42', N'Toán học rời rạc', 4),
 ('DC3TT34', N'Giao thông thông minh - ITS', 2),
---('DC2TT11', N'Kiến trúc máy tính', 3),
---('DC2HT27', N'Lập trình Java cơ bản', 3),
+('DC2TT11', N'Kiến trúc máy tính', 3),
+('DC2HT27', N'Lập trình Java cơ bản', 3),
 ('DC2TT23', N'Ngôn ngữ lập trình C', 3),
 ('DC2TT24', N'Thương mại điện tử', 3),
 ('DC1LL08', N'Chủ nghĩa xã hội khoa học', 2),

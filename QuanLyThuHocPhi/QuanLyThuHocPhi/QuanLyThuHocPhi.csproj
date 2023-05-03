@@ -61,47 +61,59 @@
     <Compile Include="fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAdmin_GiangVien.cs">
+    <Compile Include="fAdmin_NguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAdmin_GiangVien.Designer.cs">
-      <DependentUpon>fAdmin_GiangVien.cs</DependentUpon>
+    <Compile Include="fAdmin_NguoiDung.Designer.cs">
+      <DependentUpon>fAdmin_NguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAdmin_Khoa.cs">
+    <Compile Include="fQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAdmin_Khoa.Designer.cs">
-      <DependentUpon>fAdmin_Khoa.cs</DependentUpon>
+    <Compile Include="fQuanLy.Designer.cs">
+      <DependentUpon>fQuanLy.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAdmin_Lop.cs">
+    <Compile Include="fQuanLy_GiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAdmin_Lop.Designer.cs">
-      <DependentUpon>fAdmin_Lop.cs</DependentUpon>
+    <Compile Include="fQuanLy_GiangVien.Designer.cs">
+      <DependentUpon>fQuanLy_GiangVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAdmin_LopHocPhan.cs">
+    <Compile Include="fQuanLy_Khoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAdmin_LopHocPhan.Designer.cs">
-      <DependentUpon>fAdmin_LopHocPhan.cs</DependentUpon>
+    <Compile Include="fQuanLy_Khoa.Designer.cs">
+      <DependentUpon>fQuanLy_Khoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAdmin_MonHoc.cs">
+    <Compile Include="fQuanLy_Lop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAdmin_MonHoc.Designer.cs">
-      <DependentUpon>fAdmin_MonHoc.cs</DependentUpon>
+    <Compile Include="fQuanLy_Lop.Designer.cs">
+      <DependentUpon>fQuanLy_Lop.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAdmin_SinhVien.cs">
+    <Compile Include="fQuanLy_LopHocPhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAdmin_SinhVien.Designer.cs">
-      <DependentUpon>fAdmin_SinhVien.cs</DependentUpon>
+    <Compile Include="fQuanLy_LopHocPhan.Designer.cs">
+      <DependentUpon>fQuanLy_LopHocPhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="fAdmin_TaoPhieuThu.cs">
+    <Compile Include="fQuanLy_MonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAdmin_TaoPhieuThu.Designer.cs">
-      <DependentUpon>fAdmin_TaoPhieuThu.cs</DependentUpon>
+    <Compile Include="fQuanLy_MonHoc.Designer.cs">
+      <DependentUpon>fQuanLy_MonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fQuanLy_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fQuanLy_SinhVien.Designer.cs">
+      <DependentUpon>fQuanLy_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fQuanLy_TaoPhieuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fQuanLy_TaoPhieuThu.Designer.cs">
+      <DependentUpon>fQuanLy_TaoPhieuThu.cs</DependentUpon>
     </Compile>
     <Compile Include="fChangePassword.cs">
       <SubType>Form</SubType>
@@ -121,31 +133,61 @@
     <Compile Include="fSinhVien.Designer.cs">
       <DependentUpon>fSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="fSinhVien_ChuongTrinhHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSinhVien_ChuongTrinhHoc.Designer.cs">
+      <DependentUpon>fSinhVien_ChuongTrinhHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSinhVien_DangKyHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSinhVien_DangKyHocPhan.Designer.cs">
+      <DependentUpon>fSinhVien_DangKyHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSinhVien_HocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSinhVien_HocPhi.Designer.cs">
+      <DependentUpon>fSinhVien_HocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSinhVien_ThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSinhVien_ThongTinCaNhan.Designer.cs">
+      <DependentUpon>fSinhVien_ThongTinCaNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAdmin_GiangVien.resx">
-      <DependentUpon>fAdmin_GiangVien.cs</DependentUpon>
+    <EmbeddedResource Include="fAdmin_NguoiDung.resx">
+      <DependentUpon>fAdmin_NguoiDung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAdmin_Khoa.resx">
-      <DependentUpon>fAdmin_Khoa.cs</DependentUpon>
+    <EmbeddedResource Include="fQuanLy.resx">
+      <DependentUpon>fQuanLy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAdmin_Lop.resx">
-      <DependentUpon>fAdmin_Lop.cs</DependentUpon>
+    <EmbeddedResource Include="fQuanLy_GiangVien.resx">
+      <DependentUpon>fQuanLy_GiangVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAdmin_LopHocPhan.resx">
-      <DependentUpon>fAdmin_LopHocPhan.cs</DependentUpon>
+    <EmbeddedResource Include="fQuanLy_Khoa.resx">
+      <DependentUpon>fQuanLy_Khoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAdmin_MonHoc.resx">
-      <DependentUpon>fAdmin_MonHoc.cs</DependentUpon>
+    <EmbeddedResource Include="fQuanLy_Lop.resx">
+      <DependentUpon>fQuanLy_Lop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAdmin_SinhVien.resx">
-      <DependentUpon>fAdmin_SinhVien.cs</DependentUpon>
+    <EmbeddedResource Include="fQuanLy_LopHocPhan.resx">
+      <DependentUpon>fQuanLy_LopHocPhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fAdmin_TaoPhieuThu.resx">
-      <DependentUpon>fAdmin_TaoPhieuThu.cs</DependentUpon>
+    <EmbeddedResource Include="fQuanLy_MonHoc.resx">
+      <DependentUpon>fQuanLy_MonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fQuanLy_SinhVien.resx">
+      <DependentUpon>fQuanLy_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fQuanLy_TaoPhieuThu.resx">
+      <DependentUpon>fQuanLy_TaoPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fChangePassword.resx">
       <DependentUpon>fChangePassword.cs</DependentUpon>
@@ -155,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fSinhVien.resx">
       <DependentUpon>fSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSinhVien_ThongTinCaNhan.resx">
+      <DependentUpon>fSinhVien_ThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -28,66 +28,40 @@ namespace QuanLyThuHocPhi
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            panel3.Controls.Add(childForm);
-            panel3.Tag = childForm;
+            pnHienThi.Controls.Add(childForm);
+            pnHienThi.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
-
-        private void btSinhVien_Click(object sender, EventArgs e)
+        private void btTaiKhoan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fAdmin_SinhVien());
-            lbHienThi.Text = btSinhVien.Text;
-        }
-
-        private void btGiangVien_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fAdmin_GiangVien());
-            lbHienThi.Text = btGiangVien.Text;
-        }
-
-        private void btMonHoc_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fAdmin_MonHoc());
-            lbHienThi.Text = btMonHoc.Text;
-        }
-
-        private void btKhoa_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fAdmin_Khoa());
-            lbHienThi.Text = btKhoa.Text;
-        }
-
-        private void btLop_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fAdmin_Lop());
-            lbHienThi.Text = btLop.Text;
-        }
-
-        private void btLopHocPhan_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fAdmin_LopHocPhan());
-            lbHienThi.Text = btLopHocPhan.Text;
-        }
-
-        private void btTaoPhieuThu_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fAdmin_TaoPhieuThu());
-            lbHienThi.Text = btTaoPhieuThu.Text;
+            OpenChildForm(new fAdmin_NguoiDung());
+            lbHienThi.Text = "Quản lý tài khoản";
         }
 
         private void btDangXuat_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            fLogin.Instance.Show();
         }
 
+        private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fQuanLy ftempQuanLy = new fQuanLy();
+            ftempQuanLy.ShowDialog();
+        }
+        private void sinhViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fSinhVien ftempSinhVien = new fSinhVien("Admin");
+            ftempSinhVien.ShowDialog();
+        }
         private void panel4_Click(object sender, EventArgs e)
         {
             if (currentFormChild != null)
             {
                 currentFormChild.Close();
             }
-            lbHienThi.Text = "HOME";
+            lbHienThi.Text = "Xin chào";
         }
     }
 }

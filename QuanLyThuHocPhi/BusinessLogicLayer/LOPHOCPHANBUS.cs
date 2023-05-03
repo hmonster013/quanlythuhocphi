@@ -23,6 +23,11 @@ namespace BusinessLogicLayer
             return dao.GetDataByID(ID);
         }
 
+        public DataTable GetDataMaLHP()
+        {
+            return dao.GetDataMaLHP();
+        }
+
         public int Insert(LOPHOCPHAN obj)
         {
             return dao.Insert(obj);

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThuHocPhi
 {
-    partial class fAdmin_SinhVien
+    partial class fQuanLy_SinhVien
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.rdbNam = new System.Windows.Forms.RadioButton();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txbMatKhau = new System.Windows.Forms.TextBox();
+            this.txbTenTK = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txbDiaChi = new System.Windows.Forms.TextBox();
@@ -62,12 +62,12 @@
             this.txbMaSV = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btReset = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
-            this.btReset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -278,20 +278,20 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.txbMatKhau);
+            this.panel8.Controls.Add(this.txbTenTK);
             this.panel8.Controls.Add(this.label5);
             this.panel8.Location = new System.Drawing.Point(36, 206);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(397, 42);
             this.panel8.TabIndex = 2;
             // 
-            // txbMatKhau
+            // txbTenTK
             // 
-            this.txbMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMatKhau.Location = new System.Drawing.Point(142, 9);
-            this.txbMatKhau.Name = "txbMatKhau";
-            this.txbMatKhau.Size = new System.Drawing.Size(252, 26);
-            this.txbMatKhau.TabIndex = 1;
+            this.txbTenTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTenTK.Location = new System.Drawing.Point(142, 9);
+            this.txbTenTK.Name = "txbTenTK";
+            this.txbTenTK.Size = new System.Drawing.Size(252, 26);
+            this.txbTenTK.TabIndex = 1;
             // 
             // label5
             // 
@@ -299,9 +299,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 20);
+            this.label5.Size = new System.Drawing.Size(109, 20);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Mật khẩu:";
+            this.label5.Text = "Tên tài khoản:";
             // 
             // panel7
             // 
@@ -425,6 +425,17 @@
             this.panel3.Size = new System.Drawing.Size(113, 277);
             this.panel3.TabIndex = 0;
             // 
+            // btReset
+            // 
+            this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btReset.Location = new System.Drawing.Point(0, 135);
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(109, 45);
+            this.btReset.TabIndex = 3;
+            this.btReset.Text = "Reset";
+            this.btReset.UseVisualStyleBackColor = true;
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
+            // 
             // btXoa
             // 
             this.btXoa.Dock = System.Windows.Forms.DockStyle.Top;
@@ -479,18 +490,7 @@
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
-            // btReset
-            // 
-            this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btReset.Location = new System.Drawing.Point(0, 135);
-            this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(109, 45);
-            this.btReset.TabIndex = 3;
-            this.btReset.Text = "Reset";
-            this.btReset.UseVisualStyleBackColor = true;
-            this.btReset.Click += new System.EventHandler(this.btReset_Click);
-            // 
-            // fAdmin_SinhVien
+            // fQuanLy_SinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -498,8 +498,8 @@
             this.ClientSize = new System.Drawing.Size(1081, 634);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "fAdmin_SinhVien";
-            this.Text = "fAdmin_SinhVien";
+            this.Name = "fQuanLy_SinhVien";
+            this.Text = "fQuanLy_SinhVien";
             this.Load += new System.EventHandler(this.fAdmin_SinhVien_Load);
             this.panel1.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
@@ -535,7 +535,7 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox txbMatKhau;
+        private System.Windows.Forms.TextBox txbTenTK;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox txbDiaChi;

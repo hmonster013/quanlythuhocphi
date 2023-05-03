@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DANGKYDAO.cs" />
     <Compile Include="dbConnect.cs" />
+    <Compile Include="NGUOIDUNGDAO.cs" />
     <Compile Include="PHIEUTHUDAO.cs" />
     <Compile Include="GIANGVIENDAO.cs" />
     <Compile Include="KHOADAO.cs" />

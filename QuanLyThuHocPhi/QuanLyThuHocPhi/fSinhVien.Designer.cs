@@ -32,16 +32,17 @@
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btDangXuat = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.btHocPhi = new System.Windows.Forms.Button();
             this.btDKHP = new System.Windows.Forms.Button();
             this.btChuongTrinhHoc = new System.Windows.Forms.Button();
             this.btTTCN = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbHienThi = new System.Windows.Forms.Label();
+            this.pnHienThi = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -53,7 +54,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Coral;
             this.panel1.Controls.Add(this.btDangXuat);
-            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.btHocPhi);
             this.panel1.Controls.Add(this.btDKHP);
             this.panel1.Controls.Add(this.btChuongTrinhHoc);
@@ -72,26 +72,13 @@
             this.btDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btDangXuat.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btDangXuat.Location = new System.Drawing.Point(0, 450);
+            this.btDangXuat.Location = new System.Drawing.Point(0, 380);
             this.btDangXuat.Name = "btDangXuat";
             this.btDangXuat.Size = new System.Drawing.Size(200, 70);
             this.btDangXuat.TabIndex = 12;
             this.btDangXuat.Text = "Đăng Xuất";
             this.btDangXuat.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(0, 380);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(200, 70);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btDangXuat.Click += new System.EventHandler(this.btDangXuat_Click);
             // 
             // btHocPhi
             // 
@@ -106,6 +93,7 @@
             this.btHocPhi.TabIndex = 10;
             this.btHocPhi.Text = "Học Phí";
             this.btHocPhi.UseVisualStyleBackColor = true;
+            this.btHocPhi.Click += new System.EventHandler(this.btHocPhi_Click);
             // 
             // btDKHP
             // 
@@ -120,6 +108,7 @@
             this.btDKHP.TabIndex = 9;
             this.btDKHP.Text = "Đăng ký học phần";
             this.btDKHP.UseVisualStyleBackColor = true;
+            this.btDKHP.Click += new System.EventHandler(this.btDKHP_Click);
             // 
             // btChuongTrinhHoc
             // 
@@ -134,6 +123,7 @@
             this.btChuongTrinhHoc.TabIndex = 8;
             this.btChuongTrinhHoc.Text = "Chương trình học";
             this.btChuongTrinhHoc.UseVisualStyleBackColor = true;
+            this.btChuongTrinhHoc.Click += new System.EventHandler(this.btChuongTrinhHoc_Click);
             // 
             // btTTCN
             // 
@@ -148,6 +138,7 @@
             this.btTTCN.TabIndex = 7;
             this.btTTCN.Text = "Thông tin cá nhân";
             this.btTTCN.UseVisualStyleBackColor = true;
+            this.btTTCN.Click += new System.EventHandler(this.btTTCN_Click);
             // 
             // panel4
             // 
@@ -158,31 +149,44 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 100);
             this.panel4.TabIndex = 6;
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Coral;
+            this.panel2.Controls.Add(this.lbHienThi);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(938, 100);
             this.panel2.TabIndex = 7;
             // 
-            // panel3
+            // lbHienThi
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 100);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(938, 491);
-            this.panel3.TabIndex = 8;
+            this.lbHienThi.AutoSize = true;
+            this.lbHienThi.Font = new System.Drawing.Font("Aachen", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHienThi.ForeColor = System.Drawing.Color.White;
+            this.lbHienThi.Location = new System.Drawing.Point(3, 20);
+            this.lbHienThi.Name = "lbHienThi";
+            this.lbHienThi.Size = new System.Drawing.Size(219, 64);
+            this.lbHienThi.TabIndex = 0;
+            this.lbHienThi.Text = "Xin chào";
+            // 
+            // pnHienThi
+            // 
+            this.pnHienThi.BackColor = System.Drawing.Color.White;
+            this.pnHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnHienThi.Location = new System.Drawing.Point(200, 100);
+            this.pnHienThi.Name = "pnHienThi";
+            this.pnHienThi.Size = new System.Drawing.Size(938, 491);
+            this.pnHienThi.TabIndex = 8;
             // 
             // fSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 591);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnHienThi);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fSinhVien";
@@ -190,21 +194,23 @@
             this.Load += new System.EventHandler(this.fSinhVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnHienThi;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btDangXuat;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btHocPhi;
         private System.Windows.Forms.Button btDKHP;
         private System.Windows.Forms.Button btChuongTrinhHoc;
         private System.Windows.Forms.Button btTTCN;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lbHienThi;
     }
 }

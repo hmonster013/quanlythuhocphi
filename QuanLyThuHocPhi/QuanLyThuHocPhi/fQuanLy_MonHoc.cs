@@ -12,12 +12,12 @@ using BusinessLogicLayer;
 
 namespace QuanLyThuHocPhi
 {
-    public partial class fAdmin_MonHoc : Form
+    public partial class fQuanLy_MonHoc : Form
     {
         private MONHOC obj = new MONHOC();
         private MONHOCBUS bus = new MONHOCBUS();
 
-        public fAdmin_MonHoc()
+        public fQuanLy_MonHoc()
         {
             InitializeComponent();
         }

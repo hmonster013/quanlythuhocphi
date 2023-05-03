@@ -14,12 +14,12 @@ using System.Data.SqlClient;
 
 namespace QuanLyThuHocPhi
 {
-    public partial class fAdmin_Khoa : Form
+    public partial class fQuanLy_Khoa : Form
     {
         KHOA obj = new KHOA();
         KHOABUS bus = new KHOABUS();
         
-        public fAdmin_Khoa()
+        public fQuanLy_Khoa()
         {
             InitializeComponent();
         }

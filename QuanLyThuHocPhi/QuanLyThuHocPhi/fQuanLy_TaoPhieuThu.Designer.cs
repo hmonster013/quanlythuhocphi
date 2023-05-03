@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThuHocPhi
 {
-    partial class fAdmin_TaoPhieuThu
+    partial class fQuanLy_TaoPhieuThu
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,25 +53,16 @@
             this.btThem = new System.Windows.Forms.Button();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -135,6 +135,89 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1081, 277);
             this.panel1.TabIndex = 4;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.comboBox2);
+            this.panel8.Controls.Add(this.label5);
+            this.panel8.Location = new System.Drawing.Point(36, 158);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(397, 42);
+            this.panel8.TabIndex = 3;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(142, 8);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(247, 28);
+            this.comboBox2.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Học kỳ:";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.textBox4);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Location = new System.Drawing.Point(507, 62);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(397, 42);
+            this.panel7.TabIndex = 7;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(142, 9);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(252, 26);
+            this.textBox4.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(103, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Số tiền đóng:";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.dateTimePicker1);
+            this.panel11.Controls.Add(this.label8);
+            this.panel11.Location = new System.Drawing.Point(36, 206);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(397, 42);
+            this.panel11.TabIndex = 6;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(142, 9);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(247, 22);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 20);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Ngày đóng:";
             // 
             // panel4
             // 
@@ -226,114 +309,31 @@
             this.panel2.Size = new System.Drawing.Size(1081, 634);
             this.panel2.TabIndex = 5;
             // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.dateTimePicker1);
-            this.panel11.Controls.Add(this.label8);
-            this.panel11.Location = new System.Drawing.Point(36, 206);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(397, 42);
-            this.panel11.TabIndex = 6;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(142, 9);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(247, 22);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 11);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Ngày đóng:";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.textBox4);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(507, 62);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(397, 42);
-            this.panel7.TabIndex = 7;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(142, 9);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(252, 26);
-            this.textBox4.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Số tiền đóng:";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.comboBox2);
-            this.panel8.Controls.Add(this.label5);
-            this.panel8.Location = new System.Drawing.Point(36, 158);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(397, 42);
-            this.panel8.TabIndex = 3;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(142, 8);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(247, 28);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Học kỳ:";
-            // 
-            // fAdmin_TaoPhieuThu
+            // fQuanLy_TaoPhieuThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 634);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Name = "fAdmin_TaoPhieuThu";
-            this.Text = "fAdmin_TaoPhieuThu";
+            this.Name = "fQuanLy_TaoPhieuThu";
+            this.Text = "fQuanLy_TaoPhieuThu";
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
