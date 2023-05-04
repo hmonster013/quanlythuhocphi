@@ -3,23 +3,21 @@ GO
 
 create procedure sp_LOP_insert(
 	@MALOP nvarchar(10),
-	@CHUYENNGANH nvarchar(50),
-	@MAKHOA nvarchar(10)
+	@MACN nvarchar(10)
 )
 as
 begin
-	insert into LOP(MALOP, CHUYENNGANH, MAKHOA) values (@MALOP, @CHUYENNGANH, @MAKHOA)
+	insert into LOP(MALOP, MACN) values (@MALOP, @MACN)
 end
 GO
 
 create procedure sp_LOP_update(
 	@MALOP nvarchar(10),
-	@CHUYENNGANH nvarchar(50),
-	@MAKHOA nvarchar(10)
+	@MACN nvarchar(10)
 )
 as
 begin
-	update LOP set CHUYENNGANH = @CHUYENNGANH, MAKHOA = @MAKHOA WHERE MALOP = @MALOP
+	update LOP set MACN = @MACN WHERE MALOP = @MALOP
 end
 GO
 

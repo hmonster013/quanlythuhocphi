@@ -45,6 +45,12 @@
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.cbMaCN = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.cbHocKy = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.panel5.SuspendLayout();
@@ -52,6 +58,8 @@
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -106,7 +114,7 @@
             // 
             this.panel6.Controls.Add(this.txbSoTC);
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(507, 14);
+            this.panel6.Location = new System.Drawing.Point(36, 110);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 42);
             this.panel6.TabIndex = 2;
@@ -217,6 +225,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.panel12);
+            this.panel1.Controls.Add(this.panel13);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
@@ -226,6 +236,62 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1081, 209);
             this.panel1.TabIndex = 4;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.cbMaCN);
+            this.panel13.Controls.Add(this.label10);
+            this.panel13.Location = new System.Drawing.Point(507, 14);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(397, 42);
+            this.panel13.TabIndex = 3;
+            // 
+            // cbMaCN
+            // 
+            this.cbMaCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaCN.FormattingEnabled = true;
+            this.cbMaCN.Location = new System.Drawing.Point(142, 9);
+            this.cbMaCN.Name = "cbMaCN";
+            this.cbMaCN.Size = new System.Drawing.Size(247, 28);
+            this.cbMaCN.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(139, 20);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Mã chuyên ngành:";
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.cbHocKy);
+            this.panel12.Controls.Add(this.label9);
+            this.panel12.Location = new System.Drawing.Point(507, 62);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(397, 42);
+            this.panel12.TabIndex = 4;
+            // 
+            // cbHocKy
+            // 
+            this.cbHocKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHocKy.FormattingEnabled = true;
+            this.cbHocKy.Location = new System.Drawing.Point(142, 8);
+            this.cbHocKy.Name = "cbHocKy";
+            this.cbHocKy.Size = new System.Drawing.Size(247, 28);
+            this.cbHocKy.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 11);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Học kỳ:";
             // 
             // fQuanLy_MonHoc
             // 
@@ -247,6 +313,10 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -270,5 +340,11 @@
         private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btReset;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.ComboBox cbMaCN;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.ComboBox cbHocKy;
+        private System.Windows.Forms.Label label9;
     }
 }

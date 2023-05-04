@@ -73,6 +73,12 @@
     <Compile Include="fQuanLy.Designer.cs">
       <DependentUpon>fQuanLy.cs</DependentUpon>
     </Compile>
+    <Compile Include="fQuanLy_ChuyenNganh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fQuanLy_ChuyenNganh.Designer.cs">
+      <DependentUpon>fQuanLy_ChuyenNganh.cs</DependentUpon>
+    </Compile>
     <Compile Include="fQuanLy_GiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     <EmbeddedResource Include="fQuanLy.resx">
       <DependentUpon>fQuanLy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fQuanLy_ChuyenNganh.resx">
+      <DependentUpon>fQuanLy_ChuyenNganh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fQuanLy_GiangVien.resx">
       <DependentUpon>fQuanLy_GiangVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fSinhVien.resx">
       <DependentUpon>fSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSinhVien_DangKyHocPhan.resx">
+      <DependentUpon>fSinhVien_DangKyHocPhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fSinhVien_ThongTinCaNhan.resx">
       <DependentUpon>fSinhVien_ThongTinCaNhan.cs</DependentUpon>

@@ -76,8 +76,15 @@ namespace QuanLyThuHocPhi
             lbHienThi.Text = btTaoPhieuThu.Text;
         }
 
+        private void btCN_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fQuanLy_ChuyenNganh());
+            lbHienThi.Text = btCN.Text;
+        }
+        private bool isClickbtDangXuat = false;
         private void btDangXuat_Click(object sender, EventArgs e)
         {
+            isClickbtDangXuat = true;
             this.Close();
             fLogin.Instance.Show();
         }
@@ -89,6 +96,14 @@ namespace QuanLyThuHocPhi
                 currentFormChild.Close();
             }
             lbHienThi.Text = "HOME";
+        }
+
+        private void fQuanLy_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isClickbtDangXuat)
+            {
+                Application.Exit();
+            }
         }
     }
 }

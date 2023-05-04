@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fQuanLy));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btDangXuat = new System.Windows.Forms.Button();
+            this.btCN = new System.Windows.Forms.Button();
             this.btTaoPhieuThu = new System.Windows.Forms.Button();
             this.btLopHocPhan = new System.Windows.Forms.Button();
             this.btLop = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Coral;
             this.panel1.Controls.Add(this.btDangXuat);
+            this.panel1.Controls.Add(this.btCN);
             this.panel1.Controls.Add(this.btTaoPhieuThu);
             this.panel1.Controls.Add(this.btLopHocPhan);
             this.panel1.Controls.Add(this.btLop);
@@ -71,13 +73,28 @@
             this.btDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btDangXuat.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btDangXuat.Location = new System.Drawing.Point(0, 590);
+            this.btDangXuat.Location = new System.Drawing.Point(0, 660);
             this.btDangXuat.Name = "btDangXuat";
             this.btDangXuat.Size = new System.Drawing.Size(200, 70);
-            this.btDangXuat.TabIndex = 9;
+            this.btDangXuat.TabIndex = 10;
             this.btDangXuat.Text = "Đăng xuất";
             this.btDangXuat.UseVisualStyleBackColor = true;
             this.btDangXuat.Click += new System.EventHandler(this.btDangXuat_Click);
+            // 
+            // btCN
+            // 
+            this.btCN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btCN.FlatAppearance.BorderSize = 0;
+            this.btCN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCN.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCN.ForeColor = System.Drawing.Color.White;
+            this.btCN.Location = new System.Drawing.Point(0, 590);
+            this.btCN.Name = "btCN";
+            this.btCN.Size = new System.Drawing.Size(200, 70);
+            this.btCN.TabIndex = 9;
+            this.btCN.Text = "Chuyên ngành";
+            this.btCN.UseVisualStyleBackColor = true;
+            this.btCN.Click += new System.EventHandler(this.btCN_Click);
             // 
             // btTaoPhieuThu
             // 
@@ -236,6 +253,7 @@
             this.Name = "fQuanLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fQuanLy_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -255,8 +273,9 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnHienThi;
-        private System.Windows.Forms.Button btDangXuat;
+        private System.Windows.Forms.Button btCN;
         private System.Windows.Forms.Button btTaoPhieuThu;
         private System.Windows.Forms.Label lbHienThi;
+        private System.Windows.Forms.Button btDangXuat;
     }
 }

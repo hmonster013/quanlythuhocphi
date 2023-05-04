@@ -171,6 +171,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fAdmin";
             this.Text = "fAdmin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fAdmin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

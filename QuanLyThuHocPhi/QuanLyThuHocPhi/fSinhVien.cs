@@ -73,8 +73,10 @@ namespace QuanLyThuHocPhi
             lbHienThi.Text = btHocPhi.Text;
         }
 
+        private bool isClickbtDangXuat = false;
         private void btDangXuat_Click(object sender, EventArgs e)
         {
+            isClickbtDangXuat = true;
             this.Close();
             fLogin.Instance.Show();
         }
@@ -86,7 +88,15 @@ namespace QuanLyThuHocPhi
             {
                 currentFormChild.Close();
             }
-            lbHienThi.Text = "Xin chào" + bus.GetData(MASV).Rows[0].ItemArray[2].ToString();
+            lbHienThi.Text = "Xin chào " + bus.GetData(MASV).Rows[0].ItemArray[2].ToString();
+        }
+
+        private void fSinhVien_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isClickbtDangXuat)
+            {
+                Application.Exit();
+            }
         }
     }
 }

@@ -191,6 +191,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "fSinhVien";
             this.Text = "Sinh Viên";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fSinhVien_FormClosing);
             this.Load += new System.EventHandler(this.fSinhVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panel1.ResumeLayout(false);

@@ -39,8 +39,10 @@ namespace QuanLyThuHocPhi
             lbHienThi.Text = "Quản lý tài khoản";
         }
 
+        private bool isClickbtDangXuat = false;
         private void btDangXuat_Click(object sender, EventArgs e)
         {
+            isClickbtDangXuat = true;
             this.Close();
             fLogin.Instance.Show();
         }
@@ -62,6 +64,14 @@ namespace QuanLyThuHocPhi
                 currentFormChild.Close();
             }
             lbHienThi.Text = "Xin chào";
+        }
+
+        private void fAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isClickbtDangXuat)
+            {
+                Application.Exit();
+            }
         }
     }
 }

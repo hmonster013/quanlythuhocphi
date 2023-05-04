@@ -24,16 +24,16 @@ namespace QuanLyThuHocPhi
 
         public void addDataComboBox(object sender, EventArgs e)
         {
-            KHOABUS temp = new KHOABUS();
+            CHUYENNGANHBUS temp = new CHUYENNGANHBUS();
             DataTable dt = new DataTable();
             dt = temp.GetData();
 
             foreach (DataRow row in dt.Rows)
             {
-                cbMaKhoa.Items.Add(row[0].ToString());
+                cbMaCN.Items.Add(row[0].ToString());
             }
-            cbMaKhoa.AutoCompleteMode = AutoCompleteMode.Suggest;
-            cbMaKhoa.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbMaCN.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbMaCN.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public void load_dgvHienThi(object sender, EventArgs e)
@@ -43,8 +43,7 @@ namespace QuanLyThuHocPhi
             dgvHienThi.ReadOnly = true;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHienThi.Columns[0].HeaderText = "Mã lớp";
-            dgvHienThi.Columns[1].HeaderText = "Chuyên ngành";
-            dgvHienThi.Columns[2].HeaderText = "Mã khoa";
+            dgvHienThi.Columns[1].HeaderText = "Mã chuyên ngành";
         }
 
         private void fAdmin_Lop_Load(object sender, EventArgs e)
@@ -56,15 +55,13 @@ namespace QuanLyThuHocPhi
         private void dgvHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txbMaLop.Text = dgvHienThi.SelectedRows[0].Cells[0].Value.ToString();
-            txbChuyenNganh.Text = dgvHienThi.SelectedRows[0].Cells[1].Value.ToString();
-            cbMaKhoa.Text = dgvHienThi.SelectedRows[0].Cells[2].Value.ToString();
+            cbMaCN.Text = dgvHienThi.SelectedRows[0].Cells[1].Value.ToString();
         }
 
         private void btThem_Click(object sender, EventArgs e)
         {
             obj.MALOP = txbMaLop.Text;
-            obj.CHUYENNGANH = txbChuyenNganh.Text;
-            obj.MAKHOA = cbMaKhoa.Text;
+            obj.MACN = cbMaCN.Text;
             if (bus.GetData(txbMaLop.Text).Rows.Count == 0)
             {
                 bus.Insert(obj);
@@ -80,8 +77,7 @@ namespace QuanLyThuHocPhi
         private void btSua_Click(object sender, EventArgs e)
         {
             obj.MALOP = txbMaLop.Text;
-            obj.CHUYENNGANH = txbChuyenNganh.Text;
-            obj.MAKHOA = cbMaKhoa.Text;
+            obj.MACN = cbMaCN.Text;
             if (bus.GetData(txbMaLop.Text).Rows.Count != 0)
             {
                 bus.Update(obj);
@@ -118,8 +114,7 @@ namespace QuanLyThuHocPhi
         private void btReset_Click(object sender, EventArgs e)
         {
             txbMaLop.Text = "";
-            txbChuyenNganh.Text = "";
-            cbMaKhoa.Text = "";
+            cbMaCN.Text = "";
         }
     }
 }

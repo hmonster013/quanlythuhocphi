@@ -9,7 +9,6 @@ namespace ValueObject
     public class LOP
     {
         public string MALOP { get; set; }
-        public string CHUYENNGANH { get; set; }
-        public string MAKHOA { get; set; }
+        public string MACN { get; set; }
     }
 }

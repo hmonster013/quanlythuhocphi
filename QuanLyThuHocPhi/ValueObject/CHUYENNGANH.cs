@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace ValueObject
 {
-    public class MONHOC
+    public class CHUYENNGANH
     {
-        public string MAMH { get; set; }
         public string MACN { get; set; }
-        public string TENMH { get; set; }
-        public int HOCKY { get; set; }
-        public int SOTINCHI { get; set; }
+        public string TENCN { get; set; }
+        public string MAKHOA { get; set; }
+
     }
 }

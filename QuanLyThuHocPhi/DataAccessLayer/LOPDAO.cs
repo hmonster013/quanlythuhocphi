@@ -32,8 +32,7 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MALOP", obj.MALOP),
-                new SqlParameter("CHUYENNGANH", obj.CHUYENNGANH),
-                new SqlParameter("MAKHOA", obj.MAKHOA)
+                new SqlParameter("MACN", obj.MACN)
             };
             return _dbConnect.ExecuteSQL("sp_LOP_insert", param);
         }
@@ -43,8 +42,7 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MALOP", obj.MALOP),
-                new SqlParameter("CHUYENNGANH", obj.CHUYENNGANH),
-                new SqlParameter("MAKHOA", obj.MAKHOA)
+                new SqlParameter("MACN", obj.MACN)
             };
             return _dbConnect.ExecuteSQL("sp_LOP_update", param);
         }
