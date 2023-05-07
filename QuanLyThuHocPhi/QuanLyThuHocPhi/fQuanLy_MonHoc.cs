@@ -54,8 +54,6 @@ namespace QuanLyThuHocPhi
             cbHocKy.Items.Add("3");
             cbHocKy.Items.Add("4");
             cbHocKy.Items.Add("5");
-            cbHocKy.AutoCompleteMode = AutoCompleteMode.Suggest;
-            cbHocKy.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
         private void dgvHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
         {

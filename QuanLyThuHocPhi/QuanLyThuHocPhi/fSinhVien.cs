@@ -57,7 +57,7 @@ namespace QuanLyThuHocPhi
 
         private void btChuongTrinhHoc_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fSinhVien_ChuongTrinhHoc());
+            OpenChildForm(new fSinhVien_ChuongTrinhHoc(MASV));
             lbHienThi.Text = btChuongTrinhHoc.Text;
         }
 

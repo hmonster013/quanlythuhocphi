@@ -44,6 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CHUONGTRINHHOCDAO.cs" />
     <Compile Include="CHUYENNGANHDAO.cs" />
     <Compile Include="DANGKYDAO.cs" />
     <Compile Include="dbConnect.cs" />

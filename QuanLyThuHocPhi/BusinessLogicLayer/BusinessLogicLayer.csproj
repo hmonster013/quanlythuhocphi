@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CHUONGTRINHHOCBUS.cs" />
     <Compile Include="CHUYENNGANHBUS.cs" />
     <Compile Include="DANGKYBUS.cs" />
     <Compile Include="NGUOIDUNGBUS.cs" />

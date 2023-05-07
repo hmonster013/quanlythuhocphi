@@ -48,3 +48,4 @@ C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Deb
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_NguoiDung.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien_DangKyHocPhan.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fQuanLy_ChuyenNganh.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien_ChuongTrinhHoc.resources
