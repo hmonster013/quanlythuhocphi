@@ -40,7 +40,7 @@
             this.btThem = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.cbMaK = new System.Windows.Forms.ComboBox();
+            this.cbMaCN = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.cbMaGV = new System.Windows.Forms.ComboBox();
@@ -196,21 +196,21 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.cbMaK);
+            this.panel8.Controls.Add(this.cbMaCN);
             this.panel8.Controls.Add(this.label5);
             this.panel8.Location = new System.Drawing.Point(507, 14);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(397, 42);
             this.panel8.TabIndex = 3;
             // 
-            // cbMaK
+            // cbMaCN
             // 
-            this.cbMaK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMaK.FormattingEnabled = true;
-            this.cbMaK.Location = new System.Drawing.Point(142, 8);
-            this.cbMaK.Name = "cbMaK";
-            this.cbMaK.Size = new System.Drawing.Size(247, 28);
-            this.cbMaK.TabIndex = 1;
+            this.cbMaCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaCN.FormattingEnabled = true;
+            this.cbMaCN.Location = new System.Drawing.Point(142, 8);
+            this.cbMaCN.Name = "cbMaCN";
+            this.cbMaCN.Size = new System.Drawing.Size(247, 28);
+            this.cbMaCN.TabIndex = 1;
             // 
             // label5
             // 
@@ -218,9 +218,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 11);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 20);
+            this.label5.Size = new System.Drawing.Size(139, 20);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Mã khoa:";
+            this.label5.Text = "Mã chuyên ngành:";
             // 
             // panel7
             // 
@@ -422,7 +422,7 @@
         private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox cbMaK;
+        private System.Windows.Forms.ComboBox cbMaCN;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.ComboBox cbMaGV;

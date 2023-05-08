@@ -32,12 +32,11 @@ namespace QuanLyThuHocPhi
             dgvHienThi.Columns[1].HeaderText = "Họ sinh viên";
             dgvHienThi.Columns[2].HeaderText = "Tên sinh viên";
             dgvHienThi.Columns[3].HeaderText = "Mã lớp";
-            dgvHienThi.Columns[4].HeaderText = "Mã khoa";
-            dgvHienThi.Columns[5].HeaderText = "Giới tính";
-            dgvHienThi.Columns[6].HeaderText = "Ngày sinh";
-            dgvHienThi.Columns[7].HeaderText = "Địa chỉ";
-            dgvHienThi.Columns[8].HeaderText = "Đang nghỉ học";
-            dgvHienThi.Columns[9].HeaderText = "Tên tài khoản";
+            dgvHienThi.Columns[4].HeaderText = "Giới tính";
+            dgvHienThi.Columns[5].HeaderText = "Ngày sinh";
+            dgvHienThi.Columns[6].HeaderText = "Địa chỉ";
+            dgvHienThi.Columns[7].HeaderText = "Đang nghỉ học";
+            dgvHienThi.Columns[8].HeaderText = "Tên tài khoản";
         }
 
         private void dgvHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -45,9 +44,9 @@ namespace QuanLyThuHocPhi
             txbMaSV.Text = dgvHienThi.SelectedRows[0].Cells[0].Value.ToString();
             txbHoSV.Text = dgvHienThi.SelectedRows[0].Cells[1].Value.ToString();
             txbTenSV.Text = dgvHienThi.SelectedRows[0].Cells[2].Value.ToString();
-            txbDiaChi.Text = dgvHienThi.SelectedRows[0].Cells[7].Value.ToString();
-            txbTenTK.Text = dgvHienThi.SelectedRows[0].Cells[9].Value.ToString();
-            if (bool.Parse(dgvHienThi.SelectedRows[0].Cells[5].Value.ToString()) == true)
+            txbDiaChi.Text = dgvHienThi.SelectedRows[0].Cells[6].Value.ToString();
+            txbTenTK.Text = dgvHienThi.SelectedRows[0].Cells[8].Value.ToString();
+            if (bool.Parse(dgvHienThi.SelectedRows[0].Cells[4].Value.ToString()) == true)
             {
                 rdbNu.Checked = true;
             }
@@ -55,7 +54,7 @@ namespace QuanLyThuHocPhi
             {
                 rdbNam.Checked = true;
             }
-            if (bool.Parse(dgvHienThi.SelectedRows[0].Cells[8].Value.ToString()) == true)
+            if (bool.Parse(dgvHienThi.SelectedRows[0].Cells[7].Value.ToString()) == true)
             {
                 rdbTrue.Checked = true;
             }
@@ -63,8 +62,7 @@ namespace QuanLyThuHocPhi
             {
                 rdbFalse.Checked = true;
             }
-            dtpNgaySinh.Value = DateTime.Parse(dgvHienThi.SelectedRows[0].Cells[6].Value.ToString());
-            cbMaKhoa.Text = dgvHienThi.SelectedRows[0].Cells[4].Value.ToString();
+            dtpNgaySinh.Value = DateTime.Parse(dgvHienThi.SelectedRows[0].Cells[5].Value.ToString());
             cbMaLop.Text = dgvHienThi.SelectedRows[0].Cells[3].Value.ToString();
         }
 
@@ -81,13 +79,6 @@ namespace QuanLyThuHocPhi
             }
             cbMaLop.AutoCompleteMode = AutoCompleteMode.Suggest;
             cbMaLop.AutoCompleteSource = AutoCompleteSource.ListItems;
-            //ComboBox Ma Khoa
-            foreach (DataRow row in dtKhoa.Rows)
-            {
-                cbMaKhoa.Items.Add(row[0].ToString());
-            }
-            cbMaKhoa.AutoCompleteMode = AutoCompleteMode.Suggest;
-            cbMaKhoa.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void fAdmin_SinhVien_Load(object sender, EventArgs e)
@@ -99,7 +90,7 @@ namespace QuanLyThuHocPhi
         private void btThem_Click(object sender, EventArgs e)
         {
             obj.MASV = txbMaSV.Text;
-            obj.HO = txbHoSV.Text; ;
+            obj.HO = txbHoSV.Text;
             obj.TEN = txbTenSV.Text;
             obj.DIACHI = txbDiaChi.Text;
             obj.TENTAIKHOAN = txbTenTK.Text;
@@ -120,7 +111,6 @@ namespace QuanLyThuHocPhi
                 obj.DANGNGHIHOC = false;
             }
             obj.NGAYSINH = dtpNgaySinh.Value;
-            obj.MAKHOA = cbMaKhoa.Text;
             obj.MALOP = cbMaLop.Text;
             if (bus.GetData(txbMaSV.Text).Rows.Count == 0)
             {
@@ -159,7 +149,6 @@ namespace QuanLyThuHocPhi
                 obj.DANGNGHIHOC = false;
             }
             obj.NGAYSINH = dtpNgaySinh.Value;
-            obj.MAKHOA = cbMaKhoa.Text;
             obj.MALOP = cbMaLop.Text;
             if (bus.GetData(txbMaSV.Text).Rows.Count != 0)
             {
@@ -206,7 +195,6 @@ namespace QuanLyThuHocPhi
             rdbTrue.Checked = false;
             rdbFalse.Checked = false;
             dtpNgaySinh.Value = DateTime.Now;
-            cbMaKhoa.Text = "";
             cbMaLop.Text = "";
         }
     }

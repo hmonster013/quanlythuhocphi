@@ -32,9 +32,9 @@ namespace QuanLyThuHocPhi
             txbMaSV.Text = dt.Rows[0].ItemArray[0].ToString();
             txbHoSV.Text = dt.Rows[0].ItemArray[1].ToString();
             txbTenSV.Text = dt.Rows[0].ItemArray[2].ToString();
-            txbDiaChi.Text = dt.Rows[0].ItemArray[7].ToString();
-            txbTenTK.Text = dt.Rows[0].ItemArray[9].ToString();
-            if (bool.Parse(dt.Rows[0].ItemArray[5].ToString()) == true)
+            txbDiaChi.Text = dt.Rows[0].ItemArray[6].ToString();
+            txbTenTK.Text = dt.Rows[0].ItemArray[8].ToString();
+            if (bool.Parse(dt.Rows[0].ItemArray[4].ToString()) == true)
             {
                 rdbNu.Checked = true;
             }
@@ -42,7 +42,7 @@ namespace QuanLyThuHocPhi
             {
                 rdbNam.Checked = true;
             }
-            if (bool.Parse(dt.Rows[0].ItemArray[8].ToString()) == true)
+            if (bool.Parse(dt.Rows[0].ItemArray[7].ToString()) == true)
             {
                 rdbTrue.Checked = true;
             }
@@ -50,8 +50,7 @@ namespace QuanLyThuHocPhi
             {
                 rdbFalse.Checked = true;
             }
-            dtpNgaySinh.Value = DateTime.Parse(dt.Rows[0].ItemArray[6].ToString());
-            cbMaKhoa.Text = dt.Rows[0].ItemArray[4].ToString();
+            dtpNgaySinh.Value = DateTime.Parse(dt.Rows[0].ItemArray[5].ToString());
             cbMaLop.Text = dt.Rows[0].ItemArray[3].ToString();
         }
 

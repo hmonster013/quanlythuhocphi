@@ -82,6 +82,7 @@
             this.cbHocKy.Name = "cbHocKy";
             this.cbHocKy.Size = new System.Drawing.Size(121, 28);
             this.cbHocKy.TabIndex = 2;
+            this.cbHocKy.SelectedIndexChanged += new System.EventHandler(this.cbHocKy_SelectedIndexChanged);
             // 
             // btTimKiem
             // 

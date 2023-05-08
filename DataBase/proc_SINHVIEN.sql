@@ -6,7 +6,6 @@ CREATE PROCEDURE sp_SINHVIEN_insert(
     @HO nvarchar(50),
     @TEN nvarchar(10),
     @MALOP nvarchar(10),
-    @MAKHOA nvarchar(10),
     @PHAI bit,
     @NGAYSINH date,
     @DIACHI nvarchar(100),
@@ -15,8 +14,8 @@ CREATE PROCEDURE sp_SINHVIEN_insert(
 )
 AS
 BEGIN
-    INSERT INTO SINHVIEN (MASV, HO, TEN, MALOP, MAKHOA, PHAI, NGAYSINH, DIACHI, DANGNGHIHOC, TENTAIKHOAN)
-    VALUES (@MASV, @HO, @TEN, @MALOP, @MAKHOA, @PHAI, @NGAYSINH, @DIACHI, @DANGNGHIHOC, @TENTAIKHOAN)
+    INSERT INTO SINHVIEN (MASV, HO, TEN, MALOP, PHAI, NGAYSINH, DIACHI, DANGNGHIHOC, TENTAIKHOAN)
+    VALUES (@MASV, @HO, @TEN, @MALOP, @PHAI, @NGAYSINH, @DIACHI, @DANGNGHIHOC, @TENTAIKHOAN)
 END
 GO
 
@@ -25,7 +24,6 @@ CREATE PROCEDURE sp_SINHVIEN_update(
     @HO nvarchar(50),
     @TEN nvarchar(10),
     @MALOP nvarchar(10),
-    @MAKHOA nvarchar(10),
     @PHAI bit,
     @NGAYSINH date,
     @DIACHI nvarchar(100),
@@ -38,7 +36,6 @@ BEGIN
     SET HO = @HO,
         TEN = @TEN,
         MALOP = @MALOP,
-        MAKHOA = @MAKHOA,
         PHAI = @PHAI,
         NGAYSINH = @NGAYSINH,
         DIACHI = @DIACHI,

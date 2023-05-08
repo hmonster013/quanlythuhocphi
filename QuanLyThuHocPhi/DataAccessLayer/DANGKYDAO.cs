@@ -27,13 +27,26 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_DANGKY_select_madk", param);
         }
 
+        public DataTable GetDataByMASV(string MASV)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MASV", MASV)
+            };
+            return _dbConnect.GetData("sp_DANGKY_select_masv", param);
+        }
+
+        public DataTable GetDataSTTMaDK()
+        {
+            return _dbConnect.GetData("SELECT IDENT_CURRENT('DANGKY') + 1");
+        }
+
         public int Insert(DANGKY obj)
         {
             SqlParameter[] param =
             {
-                new SqlParameter("MALHP", obj.MALHP),
                 new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("HUYDANGKY", obj.HUYDANGKY)
+                new SqlParameter("HOCKY", obj.HOCKY)
             };
             return _dbConnect.ExecuteSQL("sp_DANGKY_insert", param);
         }
@@ -43,9 +56,8 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MADK", obj.MADK),
-                new SqlParameter("MALHP", obj.MALHP),
                 new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("HUYDANGKY", obj.HUYDANGKY)
+                new SqlParameter("HOCKY", obj.HOCKY)
             };
             return _dbConnect.ExecuteSQL("sp_DANGKY_update", param);
         }

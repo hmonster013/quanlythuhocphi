@@ -52,15 +52,17 @@ namespace QuanLyThuHocPhi
             }
             cbMaGV.AutoCompleteMode = AutoCompleteMode.Suggest;
             cbMaGV.AutoCompleteSource = AutoCompleteSource.ListItems;
-            //ComboBox Ma khoa
-            KHOABUS tempKhoa = new KHOABUS();
-            dt = tempKhoa.GetData();
+            //ComboBox Ma chuyen nganh
+            CHUYENNGANHBUS temp = new CHUYENNGANHBUS();
+            dt = new DataTable();
+            dt = temp.GetData();
+
             foreach (DataRow row in dt.Rows)
             {
-                cbMaK.Items.Add(row[0].ToString());
+                cbMaCN.Items.Add(row[0].ToString());
             }
-            cbMaK.AutoCompleteMode = AutoCompleteMode.Suggest;
-            cbMaK.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbMaCN.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cbMaCN.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public void load_dgvHienThi(object sender, EventArgs e)
@@ -74,7 +76,7 @@ namespace QuanLyThuHocPhi
             dgvHienThi.Columns[2].HeaderText = "Học kỳ";
             dgvHienThi.Columns[3].HeaderText = "Mã môn học";
             dgvHienThi.Columns[4].HeaderText = "Mã giáo viên";
-            dgvHienThi.Columns[5].HeaderText = "Mã khoa";
+            dgvHienThi.Columns[5].HeaderText = "Mã chuyên ngành";
             dgvHienThi.Columns[6].HeaderText = "Hủy lớp";
         }
 
@@ -85,7 +87,7 @@ namespace QuanLyThuHocPhi
             cbHocKy.Text = dgvHienThi.SelectedRows[0].Cells[2].Value.ToString();
             cbMaMH.Text = dgvHienThi.SelectedRows[0].Cells[3].Value.ToString();
             cbMaGV.Text = dgvHienThi.SelectedRows[0].Cells[4].Value.ToString();
-            cbMaK.Text = dgvHienThi.SelectedRows[0].Cells[5].Value.ToString();
+            cbMaCN.Text = dgvHienThi.SelectedRows[0].Cells[5].Value.ToString();
             if (bool.Parse(dgvHienThi.SelectedRows[0].Cells[6].Value.ToString()))
             {
                 rdbTrue.Checked = true;
@@ -115,7 +117,7 @@ namespace QuanLyThuHocPhi
             obj.HOCKY = int.Parse(cbHocKy.Text);
             obj.MAMH = cbMaMH.Text;
             obj.MAGV = cbMaGV.Text;
-            obj.MAKHOA = cbMaK.Text;
+            obj.MACN = cbMaCN.Text;
             if (rdbTrue.Checked == true)
             {
                 obj.HUYLOP = true;
@@ -143,7 +145,7 @@ namespace QuanLyThuHocPhi
             obj.HOCKY = int.Parse(cbHocKy.Text);
             obj.MAMH = cbMaMH.Text;
             obj.MAGV = cbMaGV.Text;
-            obj.MAKHOA = cbMaK.Text;
+            obj.MACN = cbMaCN.Text;
             if (rdbTrue.Checked == true)
             {
                 obj.HUYLOP = true;
@@ -192,7 +194,7 @@ namespace QuanLyThuHocPhi
             cbHocKy.Text = "";
             cbMaMH.Text = "";
             cbMaGV.Text = "";
-            cbMaK.Text = "";
+            cbMaCN.Text = "";
             rdbTrue.Checked = false;
             rdbFalse.Checked = false;
         }

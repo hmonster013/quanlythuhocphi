@@ -9,9 +9,8 @@ namespace ValueObject
     public class DANGKY
     {
         public int MADK { get; set; }
-        public int MALHP { get; set; }
+        public int HOCKY { get; set; }
         public string MASV { get; set; }
-        public bool HUYDANGKY { get; set; }
     }
 }
 

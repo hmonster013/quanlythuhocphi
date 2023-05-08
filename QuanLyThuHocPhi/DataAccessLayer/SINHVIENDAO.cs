@@ -39,8 +39,7 @@ namespace DataAccessLayer
                 new SqlParameter("NGAYSINH", obj.NGAYSINH),
                 new SqlParameter("DIACHI", obj.DIACHI),
                 new SqlParameter("DANGNGHIHOC", obj.DANGNGHIHOC),
-                new SqlParameter("TENTAIKHOAN", obj.TENTAIKHOAN),
-                new SqlParameter("MAKHOA", obj.MAKHOA)
+                new SqlParameter("TENTAIKHOAN", obj.TENTAIKHOAN)
             };
             return _dbConnect.ExecuteSQL("sp_SINHVIEN_insert", param);
         }
@@ -57,8 +56,7 @@ namespace DataAccessLayer
                 new SqlParameter("NGAYSINH", obj.NGAYSINH),
                 new SqlParameter("DIACHI", obj.DIACHI),
                 new SqlParameter("DANGNGHIHOC", obj.DANGNGHIHOC),
-                new SqlParameter("TENTAIKHOAN", obj.TENTAIKHOAN),
-                new SqlParameter("MAKHOA", obj.MAKHOA)
+                new SqlParameter("TENTAIKHOAN", obj.TENTAIKHOAN)
             };
             return _dbConnect.ExecuteSQL("sp_SINHVIEN_update", param);
         }

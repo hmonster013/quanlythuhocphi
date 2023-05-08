@@ -63,7 +63,7 @@ namespace QuanLyThuHocPhi
 
         private void btDKHP_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fSinhVien_DangKyHocPhan());
+            OpenChildForm(new fSinhVien_DangKy(MASV));
             lbHienThi.Text = btDKHP.Text;
         }
 

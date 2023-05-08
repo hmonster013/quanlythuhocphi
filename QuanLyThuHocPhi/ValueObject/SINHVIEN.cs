@@ -17,7 +17,6 @@ namespace ValueObject
         public string DIACHI { get; set; }
         public bool DANGNGHIHOC { get; set; }
         public string TENTAIKHOAN { get; set; }
-        public string MAKHOA { get; set; }
     }
 }
 

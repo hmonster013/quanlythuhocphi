@@ -24,6 +24,16 @@ namespace BusinessLogicLayer
             return dao.GetDataByID(ID);
         }
 
+        public DataTable GetDataByMASV(string MASV)
+        {
+            return dao.GetDataByMASV(MASV);
+        }
+
+        public DataTable GetDataSTTMaDK()
+        {
+            return dao.GetDataSTTMaDK();
+        }
+
         public int Insert(DANGKY obj)
         {
             return dao.Insert(obj);

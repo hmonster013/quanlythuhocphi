@@ -48,13 +48,25 @@ namespace QuanLyThuHocPhi
         }
         private void btTimKiem_Click(object sender, EventArgs e)
         {
-
+            if (cbHocKy.SelectedItem == null)
+            {
+                dgvHienThi.DataSource = bus.GetDataByTenMH(MASV, txbTenMH.Text);
+            }
+            else
+            {
+                dgvHienThi.DataSource = bus.GetDataByTenMH(MASV, txbTenMH.Text, int.Parse(cbHocKy.Text));
+            }
         }
 
         private void fSinhVien_ChuongTrinhHoc_Load(object sender, EventArgs e)
         {
             addDataComboBox();
             load_dgvHienThi();
+        }
+
+        private void cbHocKy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvHienThi.DataSource = bus.GetData(MASV, int.Parse(cbHocKy.SelectedItem.ToString()));
         }
     }
 }

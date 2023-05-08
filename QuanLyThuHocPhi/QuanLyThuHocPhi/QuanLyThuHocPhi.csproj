@@ -145,17 +145,29 @@
     <Compile Include="fSinhVien_ChuongTrinhHoc.Designer.cs">
       <DependentUpon>fSinhVien_ChuongTrinhHoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="fSinhVien_DangKyHocPhan.cs">
+    <Compile Include="fSinhVien_ChiTietDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fSinhVien_DangKyHocPhan.Designer.cs">
-      <DependentUpon>fSinhVien_DangKyHocPhan.cs</DependentUpon>
+    <Compile Include="fSinhVien_ChiTietDangKy.Designer.cs">
+      <DependentUpon>fSinhVien_ChiTietDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSinhVien_DangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSinhVien_DangKy.Designer.cs">
+      <DependentUpon>fSinhVien_DangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="fSinhVien_HocPhi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fSinhVien_HocPhi.Designer.cs">
       <DependentUpon>fSinhVien_HocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSinhVien_ThemCTDK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSinhVien_ThemCTDK.Designer.cs">
+      <DependentUpon>fSinhVien_ThemCTDK.cs</DependentUpon>
     </Compile>
     <Compile Include="fSinhVien_ThongTinCaNhan.cs">
       <SubType>Form</SubType>
@@ -210,8 +222,14 @@
     <EmbeddedResource Include="fSinhVien_ChuongTrinhHoc.resx">
       <DependentUpon>fSinhVien_ChuongTrinhHoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fSinhVien_DangKyHocPhan.resx">
-      <DependentUpon>fSinhVien_DangKyHocPhan.cs</DependentUpon>
+    <EmbeddedResource Include="fSinhVien_ChiTietDangKy.resx">
+      <DependentUpon>fSinhVien_ChiTietDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSinhVien_DangKy.resx">
+      <DependentUpon>fSinhVien_DangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSinhVien_ThemCTDK.resx">
+      <DependentUpon>fSinhVien_ThemCTDK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fSinhVien_ThongTinCaNhan.resx">
       <DependentUpon>fSinhVien_ThongTinCaNhan.cs</DependentUpon>

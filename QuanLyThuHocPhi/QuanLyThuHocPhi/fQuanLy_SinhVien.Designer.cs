@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.cbMaKhoa = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.cbMaLop = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,7 +66,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -87,7 +83,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.panel13);
             this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.panel11);
@@ -103,34 +98,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1081, 277);
             this.panel1.TabIndex = 0;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.cbMaKhoa);
-            this.panel13.Controls.Add(this.label10);
-            this.panel13.Location = new System.Drawing.Point(507, 206);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(397, 42);
-            this.panel13.TabIndex = 2;
-            // 
-            // cbMaKhoa
-            // 
-            this.cbMaKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMaKhoa.FormattingEnabled = true;
-            this.cbMaKhoa.Location = new System.Drawing.Point(142, 9);
-            this.cbMaKhoa.Name = "cbMaKhoa";
-            this.cbMaKhoa.Size = new System.Drawing.Size(247, 28);
-            this.cbMaKhoa.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 12);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 20);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Mã khoa:";
             // 
             // panel12
             // 
@@ -502,8 +469,6 @@
             this.Text = "fQuanLy_SinhVien";
             this.Load += new System.EventHandler(this.fAdmin_SinhVien_Load);
             this.panel1.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -532,8 +497,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox txbTenTK;
         private System.Windows.Forms.Label label9;
@@ -569,7 +532,6 @@
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.RadioButton rdbFalse;
         private System.Windows.Forms.RadioButton rdbTrue;
-        private System.Windows.Forms.ComboBox cbMaKhoa;
         private System.Windows.Forms.Button btReset;
     }
 }

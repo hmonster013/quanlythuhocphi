@@ -13,7 +13,7 @@ namespace ValueObject
         public int HOCKY { get; set; }
         public string MAMH { get; set; }
         public string MAGV { get; set; }
-        public string MAKHOA { get; set; }
+        public string MACN { get; set; }
         public bool HUYLOP { get; set; }
     }
 }

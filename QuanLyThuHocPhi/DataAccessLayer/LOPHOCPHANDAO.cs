@@ -40,7 +40,7 @@ namespace DataAccessLayer
                 new SqlParameter("HOCKY", obj.HOCKY),
                 new SqlParameter("MAMH", obj.MAMH),
                 new SqlParameter("MAGV", obj.MAGV),
-                new SqlParameter("MAKHOA", obj.MAKHOA),
+                new SqlParameter("MACN", obj.MACN),
                 new SqlParameter("HUYLOP", obj.HUYLOP)
             };
             return _dbConnect.ExecuteSQL("sp_LOPHOCPHAN_insert", param);
@@ -55,7 +55,7 @@ namespace DataAccessLayer
                 new SqlParameter("HOCKY", obj.HOCKY),
                 new SqlParameter("MAMH", obj.MAMH),
                 new SqlParameter("MAGV", obj.MAGV),
-                new SqlParameter("MAKHOA", obj.MAKHOA),
+                new SqlParameter("MACN", obj.MACN),
                 new SqlParameter("HUYLOP", obj.HUYLOP)
             };
             return _dbConnect.ExecuteSQL("sp_LOPHOCPHAN_update", param);
