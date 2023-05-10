@@ -56,5 +56,15 @@ namespace DataAccessLayer
             };
             return _dbConnect.ExecuteSQL("sp_CTDANGKY_delete", param);
         }
+
+        public int Delete(CTDANGKY obj)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MALHP", obj.MALHP),
+                new SqlParameter("MADK", obj.MADK)
+            };
+            return _dbConnect.ExecuteSQL("sp_CTDANGKY_delete_bysv", param);
+        }
     }
 }

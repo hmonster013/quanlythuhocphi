@@ -37,6 +37,8 @@
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btDangKy = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
@@ -44,6 +46,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,6 +129,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -133,6 +137,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(937, 468);
             this.panel2.TabIndex = 5;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btDangKy);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 437);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(937, 31);
+            this.panel5.TabIndex = 3;
+            // 
+            // btDangKy
+            // 
+            this.btDangKy.AutoSize = true;
+            this.btDangKy.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDangKy.Location = new System.Drawing.Point(0, 1);
+            this.btDangKy.Name = "btDangKy";
+            this.btDangKy.Size = new System.Drawing.Size(937, 30);
+            this.btDangKy.TabIndex = 0;
+            this.btDangKy.Text = "Đăng ký";
+            this.btDangKy.UseVisualStyleBackColor = true;
+            this.btDangKy.Click += new System.EventHandler(this.btDangKy_Click);
             // 
             // label4
             // 
@@ -171,6 +197,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -190,5 +218,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btDangKy;
     }
 }

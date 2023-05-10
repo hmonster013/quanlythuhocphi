@@ -17,6 +17,7 @@ namespace QuanLyThuHocPhi
     {
         private DANGKY obj;
         private DANGKYBUS bus_DK = new DANGKYBUS(); 
+        private CTDANGKYBUS bus_CTDK = new CTDANGKYBUS();
         private XULYDANGKYBUS bus_XLDK = new XULYDANGKYBUS();
         public fSinhVien_ChiTietDangKy()
         {
@@ -51,6 +52,14 @@ namespace QuanLyThuHocPhi
             dgvHienThi.Columns[5].HeaderText = "Niên khóa";
             dgvHienThi.Columns[6].HeaderText = "Học kỳ";
             dgvHienThi.Columns[7].HeaderText = "Hủy lớp";
+
+            DataGridViewButtonColumn btcl = new DataGridViewButtonColumn();
+            btcl.Name = "btHuyDK";
+            btcl.HeaderText = "";
+            btcl.Text = "Hủy đăng ký";
+            btcl.UseColumnTextForButtonValue = true;
+
+            dgvHienThi.Columns.Add(btcl);
         }
 
         private void fSinhVien_DangKyHocPhan_Load(object sender, EventArgs e)
@@ -62,6 +71,30 @@ namespace QuanLyThuHocPhi
         private void btTimKiem_Click(object sender, EventArgs e)
         {
             dgvHienThi.DataSource = bus_XLDK.GetData(obj, txbTenMH.Text);
+        }
+
+        private void btDangKyThem_Click(object sender, EventArgs e)
+        {
+            fSinhVien_ThemCTDK ftemp = new fSinhVien_ThemCTDK(obj);
+            ftemp.FormClosed += Ftemp_FormClosed; // Gán sự kiện FormClosed của fSinhVien_ThemCTDK
+            ftemp.ShowDialog();
+        }
+
+        private void Ftemp_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dgvHienThi.DataSource = bus_XLDK.GetData(obj); // Gán giá trị mới cho DataSource của DataGridView
+        }
+
+        private void dgvHienThi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHienThi.Columns[e.ColumnIndex].Name == "btHuyDK")
+            {
+                CTDANGKY temp = new CTDANGKY();
+                temp.MALHP = int.Parse(dgvHienThi.Rows[e.RowIndex].Cells["MALHP"].Value.ToString());
+                temp.MADK = int.Parse(txbMaDK.Text);
+                bus_CTDK.Delete(temp);
+                dgvHienThi.DataSource = bus_XLDK.GetData(obj);
+            }
         }
     }
 }

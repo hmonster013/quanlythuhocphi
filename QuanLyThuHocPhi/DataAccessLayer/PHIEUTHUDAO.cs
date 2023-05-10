@@ -15,30 +15,44 @@ namespace DataAccessLayer
 
         public DataTable GetData()
         {
-            return _dbConnect.GetData("sp_DONGHOCPHI_select_all", null);
+            return _dbConnect.GetData("sp_PHIEUTHU_select_all", null);
         }
 
         public DataTable GetDataByID(int ID)
         {
             SqlParameter[] param =
             {
-                new SqlParameter("@MADHP", ID)
+                new SqlParameter("@MAPT", ID)
             };
-            return _dbConnect.GetData("sp_DONGHOCPHI_select_madhp", param);
+            return _dbConnect.GetData("sp_PHIEUTHU_select_mapt", param);
+        }
+
+        public DataTable GetDataByMaSVandHK(string MASV, int HOCKY)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MASV", MASV),
+                new SqlParameter("HOCKY", HOCKY)
+            };
+            return _dbConnect.GetData("sp_PHIEUTHU_select_masv_hocky", param);
+        }
+
+        public DataTable GetDataSTTPT() 
+        {
+            return _dbConnect.GetData("SELECT IDENT_CURRENT('PHIEUTHU') + 1");
         }
 
         public int Insert(PHIEUTHU obj)
         {
             SqlParameter[] param =
             {
-                new SqlParameter("@MAPT", obj.MAPT),
                 new SqlParameter("@MASV", obj.MASV),
                 new SqlParameter("@NIENKHOA", obj.NIENKHOA),
                 new SqlParameter("@HOCKY", obj.HOCKY),
                 new SqlParameter("@NGAYDONG", obj.NGAYDONG),
                 new SqlParameter("@SOTIENDONG", obj.SOTIENDONG)
             };
-            return _dbConnect.ExecuteSQL("sp_DONGHOCPHI_insert", param);
+            return _dbConnect.ExecuteSQL("sp_PHIEUTHU_insert", param);
         }
 
         public int Update(PHIEUTHU obj)
@@ -52,16 +66,16 @@ namespace DataAccessLayer
                 new SqlParameter("@NGAYDONG", obj.NGAYDONG),
                 new SqlParameter("@SOTIENDONG", obj.SOTIENDONG)
             };
-            return _dbConnect.ExecuteSQL("sp_DONGHOCPHI_update", param);
+            return _dbConnect.ExecuteSQL("sp_PHIEUTHU_update", param);
         }
 
         public int Delete(int ID)
         {
             SqlParameter[] param =
             {
-                new SqlParameter("@MADHP", ID)
+                new SqlParameter("@MAPT", ID)
             };
-            return _dbConnect.ExecuteSQL("sp_DONGHOCPHI_delete", param);
+            return _dbConnect.ExecuteSQL("sp_PHIEUTHU_delete", param);
         }
     }
 }

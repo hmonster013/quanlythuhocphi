@@ -56,4 +56,14 @@ begin
 end
 go
 
---exec sp_DANGKY_select_masv '72DCHT20104'
+CREATE PROCEDURE sp_DANGKY_select_masv_hocky(
+	@MASV nvarchar(15),
+	@HOCKY int
+)
+as
+begin
+	select * from DANGKY where MASV = @MASV and HOCKY = @HOCKY
+end
+go
+
+sp_DANGKY_select_masv_hocky '72DCHT20104', 2

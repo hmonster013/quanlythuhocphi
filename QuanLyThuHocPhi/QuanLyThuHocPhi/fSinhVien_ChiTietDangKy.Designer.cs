@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txbHocKy = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txbMaSV = new System.Windows.Forms.TextBox();
@@ -41,22 +42,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btTimKiem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbHocKy = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txbTenMH = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btDangKyThem = new System.Windows.Forms.Button();
+            this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,6 +78,14 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 42);
             this.panel5.TabIndex = 8;
+            // 
+            // txbHocKy
+            // 
+            this.txbHocKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbHocKy.Location = new System.Drawing.Point(142, 8);
+            this.txbHocKy.Name = "txbHocKy";
+            this.txbHocKy.Size = new System.Drawing.Size(252, 26);
+            this.txbHocKy.TabIndex = 2;
             // 
             // label3
             // 
@@ -178,31 +185,14 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.dgvHienThi);
+            this.panel2.Controls.Add(this.btDangKyThem);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 161);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(937, 378);
             this.panel2.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dgvHienThi);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 41);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(937, 337);
-            this.panel4.TabIndex = 2;
-            // 
-            // dgvHienThi
-            // 
-            this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
-            this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(937, 337);
-            this.dgvHienThi.TabIndex = 0;
             // 
             // panel3
             // 
@@ -213,24 +203,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(937, 41);
             this.panel3.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(358, 28);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Danh sách các môn học đã đăng ký:";
-            // 
-            // txbHocKy
-            // 
-            this.txbHocKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbHocKy.Location = new System.Drawing.Point(142, 8);
-            this.txbHocKy.Name = "txbHocKy";
-            this.txbHocKy.Size = new System.Drawing.Size(252, 26);
-            this.txbHocKy.TabIndex = 2;
             // 
             // panel8
             // 
@@ -251,6 +223,37 @@
             this.txbTenMH.Size = new System.Drawing.Size(252, 26);
             this.txbTenMH.TabIndex = 4;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(358, 28);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Danh sách các môn học đã đăng ký:";
+            // 
+            // btDangKyThem
+            // 
+            this.btDangKyThem.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btDangKyThem.Location = new System.Drawing.Point(0, 355);
+            this.btDangKyThem.Name = "btDangKyThem";
+            this.btDangKyThem.Size = new System.Drawing.Size(937, 23);
+            this.btDangKyThem.TabIndex = 2;
+            this.btDangKyThem.Text = "Đăng ký thêm";
+            this.btDangKyThem.UseVisualStyleBackColor = true;
+            this.btDangKyThem.Click += new System.EventHandler(this.btDangKyThem_Click);
+            // 
+            // dgvHienThi
+            // 
+            this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHienThi.Location = new System.Drawing.Point(0, 41);
+            this.dgvHienThi.Name = "dgvHienThi";
+            this.dgvHienThi.Size = new System.Drawing.Size(937, 314);
+            this.dgvHienThi.TabIndex = 3;
+            this.dgvHienThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellContentClick);
+            // 
             // fSinhVien_ChiTietDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,12 +273,11 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,8 +287,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btTimKiem;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvHienThi;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -301,5 +301,7 @@
         private System.Windows.Forms.TextBox txbHocKy;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox txbTenMH;
+        private System.Windows.Forms.DataGridView dgvHienThi;
+        private System.Windows.Forms.Button btDangKyThem;
     }
 }

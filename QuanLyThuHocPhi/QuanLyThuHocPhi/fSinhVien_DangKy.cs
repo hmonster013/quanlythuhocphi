@@ -87,15 +87,21 @@ namespace QuanLyThuHocPhi
 
         private void btDangKy_Click(object sender, EventArgs e)
         {
-            //Them dang ky vao csdl
             obj.MADK = int.Parse(txbMaDK.Text);
             obj.MASV = txbMaSV.Text;
             obj.HOCKY = int.Parse(cbHocKy.Text);
-            bus.Insert(obj);
-            dgvHienThi.DataSource = bus.GetDataByMASV(MASV);
-            //Mo bang them chi tiet dang ky
-            fSinhVien_ThemCTDK ftemp = new fSinhVien_ThemCTDK(obj);
-            ftemp.ShowDialog();
+            if (bus.GetDataByMASVandHOCKY(obj).Rows.Count == 0)
+            {
+                bus.Insert(obj);
+                dgvHienThi.DataSource = bus.GetDataByMASV(MASV);
+                //Mo bang them chi tiet dang ky
+                fSinhVien_ThemCTDK ftemp = new fSinhVien_ThemCTDK(obj);
+                ftemp.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Học kỳ đã được đang ký, vui lòng chọn lại");
+            }
         }
     }
 }

@@ -36,6 +36,16 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_DANGKY_select_masv", param);
         }
 
+        public DataTable GetDataByMASVandHOCKY(DANGKY obj)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MASV", obj.MASV),
+                new SqlParameter("HOCKY", obj.HOCKY)
+            };
+            return _dbConnect.GetData("sp_DANGKY_select_masv_hocky", param);
+        }
+
         public DataTable GetDataSTTMaDK()
         {
             return _dbConnect.GetData("SELECT IDENT_CURRENT('DANGKY') + 1");

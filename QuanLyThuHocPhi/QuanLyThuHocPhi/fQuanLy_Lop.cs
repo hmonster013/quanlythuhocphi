@@ -95,7 +95,7 @@ namespace QuanLyThuHocPhi
         {
             if (bus.GetData(txbMaLop.Text).Rows.Count != 0)
             {
-                DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa lớp này không?", "Thống báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa lớp này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (rs == DialogResult.Yes)
                 {
                     bus.Delete(txbMaLop.Text);

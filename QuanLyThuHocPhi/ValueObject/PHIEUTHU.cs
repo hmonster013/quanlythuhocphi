@@ -13,7 +13,7 @@ namespace ValueObject
         public string NIENKHOA { get; set; }
         public int HOCKY { get; set; }
         public DateTime NGAYDONG { get; set; }
-        public int SOTIENDONG { get; set; }
+        public float SOTIENDONG { get; set; }
     }
 }
 

@@ -37,5 +37,10 @@ namespace BusinessLogicLayer
         {
             return dao.Delete(ID);
         }
+
+        public int Delete(CTDANGKY obj)
+        {
+            return dao.Delete(obj);
+        }
     }
 }

@@ -31,6 +31,16 @@ begin
 end
 go
 
+create procedure sp_CTDANGKY_delete_bysv(
+	@MALHP int,
+	@MADK int
+)
+as
+begin
+	DELETE FROM CTDANGKY WHERE MALHP = @MALHP and MADK = @MADK
+end
+go
+
 create procedure sp_CTDANGKY_select_all
 as
 begin
