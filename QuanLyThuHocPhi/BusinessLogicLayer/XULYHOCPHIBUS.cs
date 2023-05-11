@@ -12,9 +12,19 @@ namespace BusinessLogicLayer
     {
         private XULYHOCPHIDAO dao = new XULYHOCPHIDAO();
 
-        public DataTable GetDataHocPhi(string MASV, int HOCKY)
+        public DataTable GetDataHocPhi(string MASV)
         {
-            return dao.GetDataHocPhi(MASV, HOCKY);
+            return dao.GetDataHocPhi(MASV);
+        }
+
+        public DataTable GetDataTongHocPHi(string MASV)
+        {
+            return dao.GetDataTongHocPhi(MASV);
+        }
+
+        public DataTable GetDataByHOCKY(string MASV, int HOCKY)
+        {
+            return dao.GetDataByHOCKY(MASV, HOCKY);
         }
     }
 }

@@ -69,7 +69,7 @@ namespace QuanLyThuHocPhi
 
         private void btHocPhi_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fSinhVien_HocPhi());
+            OpenChildForm(new fSinhVien_HocPhi(MASV));
             lbHienThi.Text = btHocPhi.Text;
         }
 

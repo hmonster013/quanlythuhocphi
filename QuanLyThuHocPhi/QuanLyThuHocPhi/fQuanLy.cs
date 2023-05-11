@@ -72,7 +72,7 @@ namespace QuanLyThuHocPhi
 
         private void btTaoPhieuThu_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fQuanLy_TaoPhieuThu());
+            OpenChildForm(new fQuanLy_PhieuThu());
             lbHienThi.Text = btTaoPhieuThu.Text;
         }
 

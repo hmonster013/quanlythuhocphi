@@ -11,14 +11,32 @@ namespace DataAccessLayer
     public class XULYHOCPHIDAO
     {
         private dbConnect _dbConnect = new dbConnect();
-        public DataTable GetDataHocPhi(string MASV, int HOCKY)
+        public DataTable GetDataHocPhi(string MASV)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MASV", MASV)
+            };
+            return _dbConnect.GetData("sp_XULYHOCPHI_all", param);
+        }
+
+        public DataTable GetDataTongHocPhi(string MASV)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MASV", MASV)
+            };
+            return _dbConnect.GetData("sp_XULYHOCPHI_sum_all", param);
+        }
+
+        public DataTable GetDataByHOCKY(string MASV, int HOCKY)
         {
             SqlParameter[] param =
             {
                 new SqlParameter("MASV", MASV),
                 new SqlParameter("HOCKY", HOCKY)
             };
-            return _dbConnect.GetData("sp_XULYHOCPHI_byhocky", param);
+            return _dbConnect.GetData("sp_XULYHOCPHI_select_byhocky", param);
         }
     }
 }

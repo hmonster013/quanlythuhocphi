@@ -27,7 +27,7 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_PHIEUTHU_select_mapt", param);
         }
 
-        public DataTable GetDataByMaSVandHK(string MASV, int HOCKY)
+        public DataTable GetDataByMaSVandHK(string MASV, int HOCKY) 
         {
             SqlParameter[] param =
             {
@@ -48,9 +48,7 @@ namespace DataAccessLayer
             {
                 new SqlParameter("@MASV", obj.MASV),
                 new SqlParameter("@NIENKHOA", obj.NIENKHOA),
-                new SqlParameter("@HOCKY", obj.HOCKY),
-                new SqlParameter("@NGAYDONG", obj.NGAYDONG),
-                new SqlParameter("@SOTIENDONG", obj.SOTIENDONG)
+                new SqlParameter("@HOCKY", obj.HOCKY)
             };
             return _dbConnect.ExecuteSQL("sp_PHIEUTHU_insert", param);
         }
@@ -62,9 +60,7 @@ namespace DataAccessLayer
                 new SqlParameter("@MAPT", obj.MAPT),
                 new SqlParameter("@MASV", obj.MASV),
                 new SqlParameter("@NIENKHOA", obj.NIENKHOA),
-                new SqlParameter("@HOCKY", obj.HOCKY),
-                new SqlParameter("@NGAYDONG", obj.NGAYDONG),
-                new SqlParameter("@SOTIENDONG", obj.SOTIENDONG)
+                new SqlParameter("@HOCKY", obj.HOCKY)
             };
             return _dbConnect.ExecuteSQL("sp_PHIEUTHU_update", param);
         }

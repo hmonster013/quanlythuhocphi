@@ -28,9 +28,9 @@ namespace BusinessLogicLayer
             return dao.GetDataSTTPT();
         }
 
-        public DataTable GetDataByMaSVandHK(string MAPT, int HOCKY)
+        public DataTable GetDataByMaSVandHK(string MASV, int HOCKY)
         {
-            return dao.GetDataByMaSVandHK(MAPT, HOCKY);
+            return dao.GetDataByMaSVandHK(MASV, HOCKY);
         }
 
         public int Insert(ValueObject.PHIEUTHU obj)

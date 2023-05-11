@@ -109,17 +109,23 @@
     <Compile Include="fQuanLy_MonHoc.Designer.cs">
       <DependentUpon>fQuanLy_MonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="fQuanLy_PhieuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fQuanLy_PhieuThu.Designer.cs">
+      <DependentUpon>fQuanLy_PhieuThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="fQuanLy_SinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fQuanLy_SinhVien.Designer.cs">
       <DependentUpon>fQuanLy_SinhVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="fQuanLy_TaoPhieuThu.cs">
+    <Compile Include="fQuanLy_CTPhieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fQuanLy_TaoPhieuThu.Designer.cs">
-      <DependentUpon>fQuanLy_TaoPhieuThu.cs</DependentUpon>
+    <Compile Include="fQuanLy_CTPhieuThu.Designer.cs">
+      <DependentUpon>fQuanLy_CTPhieuThu.cs</DependentUpon>
     </Compile>
     <Compile Include="fChangePassword.cs">
       <SubType>Form</SubType>
@@ -150,6 +156,12 @@
     </Compile>
     <Compile Include="fSinhVien_ChiTietDangKy.Designer.cs">
       <DependentUpon>fSinhVien_ChiTietDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSinhVien_CTHocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSinhVien_CTHocPhi.Designer.cs">
+      <DependentUpon>fSinhVien_CTHocPhi.cs</DependentUpon>
     </Compile>
     <Compile Include="fSinhVien_DangKy.cs">
       <SubType>Form</SubType>
@@ -204,11 +216,14 @@
     <EmbeddedResource Include="fQuanLy_MonHoc.resx">
       <DependentUpon>fQuanLy_MonHoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fQuanLy_PhieuThu.resx">
+      <DependentUpon>fQuanLy_PhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fQuanLy_SinhVien.resx">
       <DependentUpon>fQuanLy_SinhVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fQuanLy_TaoPhieuThu.resx">
-      <DependentUpon>fQuanLy_TaoPhieuThu.cs</DependentUpon>
+    <EmbeddedResource Include="fQuanLy_CTPhieuThu.resx">
+      <DependentUpon>fQuanLy_CTPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fChangePassword.resx">
       <DependentUpon>fChangePassword.cs</DependentUpon>
@@ -225,8 +240,14 @@
     <EmbeddedResource Include="fSinhVien_ChiTietDangKy.resx">
       <DependentUpon>fSinhVien_ChiTietDangKy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fSinhVien_CTHocPhi.resx">
+      <DependentUpon>fSinhVien_CTHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fSinhVien_DangKy.resx">
       <DependentUpon>fSinhVien_DangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSinhVien_HocPhi.resx">
+      <DependentUpon>fSinhVien_HocPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fSinhVien_ThemCTDK.resx">
       <DependentUpon>fSinhVien_ThemCTDK.cs</DependentUpon>

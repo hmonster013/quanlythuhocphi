@@ -42,7 +42,6 @@ C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Deb
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fQuanLy_LopHocPhan.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fQuanLy_MonHoc.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fQuanLy_SinhVien.resources
-C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fQuanLy_TaoPhieuThu.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien_ThongTinCaNhan.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fAdmin_NguoiDung.resources
@@ -51,3 +50,7 @@ C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Deb
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien_ChiTietDangKy.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien_DangKy.resources
 C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien_ThemCTDK.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fQuanLy_PhieuThu.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fQuanLy_CTPhieuThu.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien_HocPhi.resources
+C:\Users\ACER\Desktop\QuanLyThuHocPhiocs\QuanLyThuHocPhi\QuanLyThuHocPhi\obj\Debug\QuanLyThuHocPhi.fSinhVien_CTHocPhi.resources

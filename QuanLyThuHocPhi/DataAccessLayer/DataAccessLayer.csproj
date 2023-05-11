@@ -47,6 +47,7 @@
     <Compile Include="CHUONGTRINHHOCDAO.cs" />
     <Compile Include="CHUYENNGANHDAO.cs" />
     <Compile Include="CTDANGKYDAO.cs" />
+    <Compile Include="CTPHIEUTHUDAO.cs" />
     <Compile Include="DANGKYDAO.cs" />
     <Compile Include="dbConnect.cs" />
     <Compile Include="NGUOIDUNGDAO.cs" />

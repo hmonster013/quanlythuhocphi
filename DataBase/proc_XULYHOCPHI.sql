@@ -1,7 +1,8 @@
 ﻿USE QLSV_TC
 GO
 
-CREATE PROCEDURE sp_XULYHOCPHI_select_all(
+--Lấy tất cả học phí của 1 sinh viên theo mã sinh viên của từng học kỳ
+CREATE PROCEDURE sp_XULYHOCPHI_select_allhocphi(
 	@MASV nvarchar(15)
 )
 as
@@ -24,15 +25,32 @@ begin
 end
 go
 
-exec sp_XULYHOCPHI_select_all '72DCHT20104'
+exec sp_XULYHOCPHI_select_allhocphi '72DCHT20104'
 go
 
-CREATE PROCEDURE sp_XULYHOCPHI_tonghocphi(
+--Lấy ra tất cả số tiền đã đóng của 1 sinh viên theo mã sinh viên theo từng học kỳ 
+CREATE PROCEDURE sp_XULYHOCPHI_select_alldadong(
 	@MASV nvarchar(15)
 )
 as
 begin
-	CREATE TABLE #temp(
+	SELECT PHIEUTHU.*, SUM(CTPHIEUTHU.SOTIENDONG) AS DADONG
+	FROM PHIEUTHU LEFT JOIN CTPHIEUTHU ON PHIEUTHU.MAPT = CTPHIEUTHU.MAPT
+	WHERE PHIEUTHU.MASV = @MASV
+	GROUP BY PHIEUTHU.MAPT, PHIEUTHU.MASV, PHIEUTHU.NIENKHOA, PHIEUTHU.HOCKY
+end
+go
+
+exec sp_XULYHOCPHI_select_alldadong '72DCHT20104'
+GO
+
+--Lấy ra tất cả các thông tin về học phí, số tiền đã đóng, số tiền chưa đóng theo từng học kỳ
+CREATE PROCEDURE sp_XULYHOCPHI_all(
+	@MASV nvarchar(15)
+)
+as
+begin
+	CREATE TABLE #temp_hocphi(
 		MASV nvarchar(15),
 		MADK int,
 		HOCKY int,
@@ -40,23 +58,89 @@ begin
 		HOCPHI float
 	)
 
-	INSERT INTO #temp
-	EXEC sp_XULYHOCPHI_select_all @MASV
+	INSERT INTO #temp_hocphi
+	EXEC sp_XULYHOCPHI_select_allhocphi @MASV
 
-	SELECT SUM(HOCPHI) as TONGHOCPHI
-	FROM #temp
+	CREATE TABLE #temp_dadong(
+		MAPT int,
+		MASV nvarchar(15),
+		NIENKHOA nvarchar(9),
+		HOCKY int,
+		DADONG float
+	)
+
+	INSERT INTO #temp_dadong
+	EXEC sp_XULYHOCPHI_select_alldadong @MASV
+
+	SELECT   #temp_hocphi.MADK, #temp_hocphi.MASV, #temp_dadong.NIENKHOA, #temp_hocphi.HOCKY, #temp_hocphi.TONGSOTC, #temp_dadong.MAPT, #temp_hocphi.HOCPHI,
+			CASE 
+			WHEN #temp_dadong.DADONG is null THEN 0
+			ELSE #temp_dadong.DADONG
+			END AS DADONG,
+			CASE 
+			WHEN #temp_hocphi.HOCPHI - #temp_dadong.DADONG is null THEN #temp_hocphi.HOCPHI
+			ELSE #temp_hocphi.HOCPHI - #temp_dadong.DADONG
+			END AS CHUADONG
+	FROM #temp_hocphi LEFT JOIN #temp_dadong ON #temp_hocphi.MASV = #temp_dadong.MASV AND #temp_hocphi.HOCKY = #temp_dadong.HOCKY
 end
 go
 
-sp_XULYHOCPHI_tonghocphi '72DCHT20104'
+exec sp_XULYHOCPHI_all '72DCHT20104'
+go
 
-CREATE PROCEDURE sp_XULYHOCPHI_byhocky(
+--Lấy ra tất cả các thông tin về tổng học phí, tổng số tiền đã đóng, tổng số tiền chưa đóng
+CREATE PROCEDURE sp_XULYHOCPHI_sum_all(
+	@MASV nvarchar(15)
+)
+as
+begin
+	CREATE TABLE #temp_hocphi(
+		MASV nvarchar(15),
+		MADK int,
+		HOCKY int,
+		TONGSOTC int,
+		HOCPHI float
+	)
+
+	INSERT INTO #temp_hocphi
+	EXEC sp_XULYHOCPHI_select_allhocphi @MASV
+
+	CREATE TABLE #temp_dadong(
+		MAPT int,
+		MASV nvarchar(15),
+		NIENKHOA nvarchar(9),
+		HOCKY int,
+		DADONG float
+	)
+
+	INSERT INTO #temp_dadong
+	EXEC sp_XULYHOCPHI_select_alldadong @MASV
+
+	SELECT  #temp_hocphi.MASV, SUM(#temp_hocphi.HOCPHI) AS TONGHOCPHI,
+			CASE 
+			WHEN SUM(#temp_dadong.DADONG) is null THEN 0
+			ELSE SUM(#temp_dadong.DADONG)
+			END AS TONGDADONG,
+			CASE 
+			WHEN SUM(#temp_dadong.DADONG) is null THEN SUM(#temp_hocphi.HOCPHI)
+			ELSE SUM(#temp_hocphi.HOCPHI) - SUM(#temp_dadong.DADONG)
+			END AS TONGCHUADONG
+	FROM #temp_hocphi LEFT JOIN #temp_dadong ON #temp_hocphi.MASV = #temp_dadong.MASV AND #temp_hocphi.HOCKY = #temp_dadong.HOCKY
+	GROUP BY #temp_hocphi.MASV
+end
+go
+
+exec sp_XULYHOCPHI_sum_all '72DCHT20104'
+go
+
+--Lấy thông tin về thông tin học phí , đã đóng, chưa đóng của một sinh viên trong học kỳ nào đó
+CREATE PROCEDURE sp_XULYHOCPHI_select_byhocky(
 	@MASV nvarchar(15),
 	@HOCKY int
 )
 as
 begin
-	CREATE TABLE #temp(
+	CREATE TABLE #temp_hocphi(
 		MASV nvarchar(15),
 		MADK int,
 		HOCKY int,
@@ -64,21 +148,33 @@ begin
 		HOCPHI float
 	)
 
-	INSERT INTO #temp
-	EXEC sp_XULYHOCPHI_select_all @MASV
+	INSERT INTO #temp_hocphi
+	EXEC sp_XULYHOCPHI_select_allhocphi @MASV
 
-	SELECT #temp.*, 			
+	CREATE TABLE #temp_dadong(
+		MAPT int,
+		MASV nvarchar(15),
+		NIENKHOA nvarchar(9),
+		HOCKY int,
+		DADONG float
+	)
+
+	INSERT INTO #temp_dadong
+	EXEC sp_XULYHOCPHI_select_alldadong @MASV
+
+	SELECT  #temp_dadong.MAPT, #temp_hocphi.MASV, #temp_hocphi.MADK, #temp_dadong.NIENKHOA, #temp_hocphi.HOCKY, #temp_hocphi.HOCPHI,
 			CASE 
-			WHEN PHIEUTHU.SOTIENDONG is null THEN 0
-			ELSE PHIEUTHU.SOTIENDONG
+			WHEN #temp_dadong.DADONG is null THEN 0
+			ELSE #temp_dadong.DADONG
 			END AS DADONG,
 			CASE 
-			WHEN #temp.HOCPHI - PHIEUTHU.SOTIENDONG is null THEN 0
-			ELSE #temp.HOCPHI - PHIEUTHU.SOTIENDONG
+			WHEN #temp_hocphi.HOCPHI - #temp_dadong.DADONG is null THEN #temp_hocphi.HOCPHI
+			ELSE #temp_hocphi.HOCPHI - #temp_dadong.DADONG
 			END AS CHUADONG
-	FROM #temp LEFT JOIN PHIEUTHU ON #temp.MASV = PHIEUTHU.MASV AND #temp.HOCKY = PHIEUTHU.HOCKY
-	WHERE #temp.HOCKY = @HOCKY
+	FROM #temp_hocphi LEFT JOIN #temp_dadong ON #temp_hocphi.MASV = #temp_dadong.MASV AND #temp_hocphi.HOCKY = #temp_dadong.HOCKY
+	WHERE #temp_hocphi.HOCKY = @HOCKY
 end
 go
 
-exec sp_XULYHOCPHI_byhocky '72DCHT20104', 2
+exec sp_XULYHOCPHI_select_byhocky '72DCHT20104', 2
+go

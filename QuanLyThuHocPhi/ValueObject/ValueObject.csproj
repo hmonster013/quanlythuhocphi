@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CHUYENNGANH.cs" />
     <Compile Include="CTDANGKY.cs" />
+    <Compile Include="CTPHIEUTHU.cs" />
     <Compile Include="DANGKY.cs" />
     <Compile Include="NGUOIDUNG.cs" />
     <Compile Include="PHIEUTHU.cs" />

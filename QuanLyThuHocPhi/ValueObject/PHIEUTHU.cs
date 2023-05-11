@@ -12,8 +12,6 @@ namespace ValueObject
         public string MASV { get; set; }
         public string NIENKHOA { get; set; }
         public int HOCKY { get; set; }
-        public DateTime NGAYDONG { get; set; }
-        public float SOTIENDONG { get; set; }
     }
 }
 

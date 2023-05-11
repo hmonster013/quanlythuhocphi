@@ -93,6 +93,7 @@ namespace QuanLyThuHocPhi
             if (bus.GetDataByMASVandHOCKY(obj).Rows.Count == 0)
             {
                 bus.Insert(obj);
+                settingMaDK();
                 dgvHienThi.DataSource = bus.GetDataByMASV(MASV);
                 //Mo bang them chi tiet dang ky
                 fSinhVien_ThemCTDK ftemp = new fSinhVien_ThemCTDK(obj);
