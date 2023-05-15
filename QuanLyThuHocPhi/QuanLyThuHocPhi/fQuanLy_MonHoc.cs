@@ -29,25 +29,13 @@ namespace QuanLyThuHocPhi
             dgvHienThi.ReadOnly = true;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHienThi.Columns[0].HeaderText = "Mã môn học";
-            dgvHienThi.Columns[1].HeaderText = "Mã chuyên ngành";
-            dgvHienThi.Columns[2].HeaderText = "Tên môn học";
-            dgvHienThi.Columns[3].HeaderText = "Tên học kỳ";
-            dgvHienThi.Columns[4].HeaderText = "Số tín chỉ";
+            dgvHienThi.Columns[1].HeaderText = "Tên môn học";
+            dgvHienThi.Columns[2].HeaderText = "Tên học kỳ";
+            dgvHienThi.Columns[3].HeaderText = "Số tín chỉ";
         }
 
         public void addDataComboBox(object sender, EventArgs e)
         {
-            //combobox Chuyen Nganh
-            CHUYENNGANHBUS temp = new CHUYENNGANHBUS();
-            DataTable dt = new DataTable();
-            dt = temp.GetData();
-
-            foreach (DataRow row in dt.Rows)
-            {
-                cbMaCN.Items.Add(row[0].ToString());
-            }
-            cbMaCN.AutoCompleteMode = AutoCompleteMode.Suggest;
-            cbMaCN.AutoCompleteSource = AutoCompleteSource.ListItems;
             //combobox Hoc ky
             cbHocKy.Items.Add("1");
             cbHocKy.Items.Add("2");
@@ -58,10 +46,9 @@ namespace QuanLyThuHocPhi
         private void dgvHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txbMaMH.Text = dgvHienThi.SelectedRows[0].Cells[0].Value.ToString();
-            cbMaCN.Text = dgvHienThi.SelectedRows[0].Cells[1].Value.ToString();
-            txbTenMH.Text = dgvHienThi.SelectedRows[0].Cells[2].Value.ToString();
-            cbHocKy.Text = dgvHienThi.SelectedRows[0].Cells[3].Value.ToString();
-            txbSoTC.Text = dgvHienThi.SelectedRows[0].Cells[4].Value.ToString();
+            txbTenMH.Text = dgvHienThi.SelectedRows[0].Cells[1].Value.ToString();
+            cbHocKy.Text = dgvHienThi.SelectedRows[0].Cells[2].Value.ToString();
+            txbSoTC.Text = dgvHienThi.SelectedRows[0].Cells[3].Value.ToString();
         }
 
         private void fAdmin_MonHoc_Load(object sender, EventArgs e)
@@ -73,7 +60,6 @@ namespace QuanLyThuHocPhi
         private void btThem_Click(object sender, EventArgs e)
         {
             obj.MAMH = txbMaMH.Text;
-            obj.MACN = cbMaCN.Text;
             obj.TENMH = txbTenMH.Text;
             obj.HOCKY = int.Parse(cbHocKy.Text);
             obj.SOTINCHI = int.Parse(txbSoTC.Text);
@@ -93,7 +79,6 @@ namespace QuanLyThuHocPhi
         private void btSua_Click(object sender, EventArgs e)
         {
             obj.MAMH = txbMaMH.Text;
-            obj.MACN = cbMaCN.Text;
             obj.TENMH = txbTenMH.Text;
             obj.HOCKY = int.Parse(cbHocKy.Text);
             obj.SOTINCHI = int.Parse(txbSoTC.Text);
@@ -133,7 +118,6 @@ namespace QuanLyThuHocPhi
         private void btReset_Click(object sender, EventArgs e)
         {
             txbMaMH.Text = "";
-            cbMaCN.Text = "";
             txbTenMH.Text = "";
             cbHocKy.Text = "";
             txbSoTC.Text = "";

@@ -52,13 +52,13 @@
             this.txbMaPT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btKiemTra = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.btXóa = new System.Windows.Forms.Button();
             this.btSửa = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
-            this.btKiemTra = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -120,10 +120,10 @@
             // lbHienThi
             // 
             this.lbHienThi.AutoSize = true;
-            this.lbHienThi.Font = new System.Drawing.Font("Aachen", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHienThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHienThi.Location = new System.Drawing.Point(570, 15);
             this.lbHienThi.Name = "lbHienThi";
-            this.lbHienThi.Size = new System.Drawing.Size(276, 32);
+            this.lbHienThi.Size = new System.Drawing.Size(316, 29);
             this.lbHienThi.TabIndex = 16;
             this.lbHienThi.Text = "THÔNG TIN HOC PHÍ KỲ ";
             // 
@@ -305,6 +305,17 @@
             this.panel3.Size = new System.Drawing.Size(113, 239);
             this.panel3.TabIndex = 0;
             // 
+            // btKiemTra
+            // 
+            this.btKiemTra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btKiemTra.Location = new System.Drawing.Point(0, 180);
+            this.btKiemTra.Name = "btKiemTra";
+            this.btKiemTra.Size = new System.Drawing.Size(109, 45);
+            this.btKiemTra.TabIndex = 5;
+            this.btKiemTra.Text = "Kiểm tra";
+            this.btKiemTra.UseVisualStyleBackColor = true;
+            this.btKiemTra.Click += new System.EventHandler(this.btKiemTra_Click);
+            // 
             // btReset
             // 
             this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
@@ -368,17 +379,6 @@
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
-            // btKiemTra
-            // 
-            this.btKiemTra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btKiemTra.Location = new System.Drawing.Point(0, 180);
-            this.btKiemTra.Name = "btKiemTra";
-            this.btKiemTra.Size = new System.Drawing.Size(109, 45);
-            this.btKiemTra.TabIndex = 5;
-            this.btKiemTra.Text = "Kiểm tra";
-            this.btKiemTra.UseVisualStyleBackColor = true;
-            this.btKiemTra.Click += new System.EventHandler(this.btKiemTra_Click);
-            // 
             // fQuanLy_CTPhieuThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,6 +387,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fQuanLy_CTPhieuThu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy_TaoPhieuThu";
             this.Load += new System.EventHandler(this.fQuanLy_CTPhieuThu_Load);
             this.panel5.ResumeLayout(false);

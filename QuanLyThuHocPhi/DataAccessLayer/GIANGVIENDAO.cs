@@ -27,6 +27,15 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_GIANGVIEN_select_magv", param);
         }
 
+        public DataTable GetDataByChuyenNganh(string MACN)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MACN", MACN)
+            };
+            return _dbConnect.GetData("sp_GIANGVIEN_select_by_chuyennganh", param);
+        }
+
         public int Insert(GIANGVIEN obj)
         {
             SqlParameter[] param =

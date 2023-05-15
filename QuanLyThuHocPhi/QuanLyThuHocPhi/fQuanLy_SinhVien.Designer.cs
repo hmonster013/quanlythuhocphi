@@ -43,9 +43,6 @@
             this.rdbNu = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.rdbNam = new System.Windows.Forms.RadioButton();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.txbTenTK = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txbDiaChi = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -70,7 +67,6 @@
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -87,7 +83,6 @@
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.panel11);
             this.panel1.Controls.Add(this.panel9);
-            this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel6);
@@ -96,7 +91,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1081, 277);
+            this.panel1.Size = new System.Drawing.Size(1081, 218);
             this.panel1.TabIndex = 0;
             // 
             // panel12
@@ -243,33 +238,6 @@
             this.rdbNam.Text = "Nam";
             this.rdbNam.UseVisualStyleBackColor = true;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.txbTenTK);
-            this.panel8.Controls.Add(this.label5);
-            this.panel8.Location = new System.Drawing.Point(36, 206);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(397, 42);
-            this.panel8.TabIndex = 2;
-            // 
-            // txbTenTK
-            // 
-            this.txbTenTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTenTK.Location = new System.Drawing.Point(142, 9);
-            this.txbTenTK.Name = "txbTenTK";
-            this.txbTenTK.Size = new System.Drawing.Size(252, 26);
-            this.txbTenTK.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Tên tài khoản:";
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.txbDiaChi);
@@ -389,7 +357,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(113, 277);
+            this.panel3.Size = new System.Drawing.Size(113, 218);
             this.panel3.TabIndex = 0;
             // 
             // btReset
@@ -440,9 +408,9 @@
             // 
             this.panel2.Controls.Add(this.dgvHienThi);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 277);
+            this.panel2.Location = new System.Drawing.Point(0, 218);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1081, 357);
+            this.panel2.Size = new System.Drawing.Size(1081, 416);
             this.panel2.TabIndex = 1;
             // 
             // dgvHienThi
@@ -453,7 +421,7 @@
             this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
             this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(1081, 455);
+            this.dgvHienThi.Size = new System.Drawing.Size(1081, 514);
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
@@ -466,6 +434,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fQuanLy_SinhVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy_SinhVien";
             this.Load += new System.EventHandler(this.fAdmin_SinhVien_Load);
             this.panel1.ResumeLayout(false);
@@ -477,8 +446,6 @@
             this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -498,7 +465,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox txbTenTK;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox txbDiaChi;
@@ -507,8 +473,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;

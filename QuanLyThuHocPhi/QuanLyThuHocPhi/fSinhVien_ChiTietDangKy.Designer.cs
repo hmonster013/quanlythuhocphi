@@ -42,20 +42,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btTimKiem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvHienThi = new System.Windows.Forms.DataGridView();
+            this.btDangKyThem = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txbTenMH = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btDangKyThem = new System.Windows.Forms.Button();
-            this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -154,10 +154,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(250, 28);
+            this.label4.Size = new System.Drawing.Size(273, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "Thông tin phiếu đăng ký:";
             // 
@@ -194,6 +194,27 @@
             this.panel2.Size = new System.Drawing.Size(937, 378);
             this.panel2.TabIndex = 3;
             // 
+            // dgvHienThi
+            // 
+            this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHienThi.Location = new System.Drawing.Point(0, 41);
+            this.dgvHienThi.Name = "dgvHienThi";
+            this.dgvHienThi.Size = new System.Drawing.Size(937, 314);
+            this.dgvHienThi.TabIndex = 3;
+            this.dgvHienThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellContentClick);
+            // 
+            // btDangKyThem
+            // 
+            this.btDangKyThem.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btDangKyThem.Location = new System.Drawing.Point(0, 355);
+            this.btDangKyThem.Name = "btDangKyThem";
+            this.btDangKyThem.Size = new System.Drawing.Size(937, 23);
+            this.btDangKyThem.TabIndex = 2;
+            this.btDangKyThem.Text = "Đăng ký thêm";
+            this.btDangKyThem.UseVisualStyleBackColor = true;
+            this.btDangKyThem.Click += new System.EventHandler(this.btDangKyThem_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel8);
@@ -226,33 +247,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(358, 28);
+            this.label2.Size = new System.Drawing.Size(394, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Danh sách các môn học đã đăng ký:";
-            // 
-            // btDangKyThem
-            // 
-            this.btDangKyThem.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btDangKyThem.Location = new System.Drawing.Point(0, 355);
-            this.btDangKyThem.Name = "btDangKyThem";
-            this.btDangKyThem.Size = new System.Drawing.Size(937, 23);
-            this.btDangKyThem.TabIndex = 2;
-            this.btDangKyThem.Text = "Đăng ký thêm";
-            this.btDangKyThem.UseVisualStyleBackColor = true;
-            this.btDangKyThem.Click += new System.EventHandler(this.btDangKyThem_Click);
-            // 
-            // dgvHienThi
-            // 
-            this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHienThi.Location = new System.Drawing.Point(0, 41);
-            this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(937, 314);
-            this.dgvHienThi.TabIndex = 3;
-            this.dgvHienThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellContentClick);
             // 
             // fSinhVien_ChiTietDangKy
             // 
@@ -262,6 +262,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fSinhVien_ChiTietDangKy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fSinhVien_DKHP";
             this.Load += new System.EventHandler(this.fSinhVien_DangKyHocPhan_Load);
             this.panel1.ResumeLayout(false);
@@ -273,11 +274,11 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.ResumeLayout(false);
 
         }

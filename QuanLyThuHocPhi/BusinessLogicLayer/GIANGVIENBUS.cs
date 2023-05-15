@@ -23,6 +23,11 @@ namespace BusinessLogicLayer
             return dao.GetDataByID(ID);
         }
 
+        public DataTable GetDataByChuyenNganh(string MACN)
+        {
+            return dao.GetDataByChuyenNganh(MACN);
+        }
+
         public int Insert(GIANGVIEN obj)
         {
             return dao.Insert(obj);

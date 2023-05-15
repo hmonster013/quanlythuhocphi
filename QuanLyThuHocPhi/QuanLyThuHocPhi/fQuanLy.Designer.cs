@@ -63,7 +63,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 733);
+            this.panel1.Size = new System.Drawing.Size(200, 739);
             this.panel1.TabIndex = 0;
             // 
             // btDangXuat
@@ -71,12 +71,12 @@
             this.btDangXuat.Dock = System.Windows.Forms.DockStyle.Top;
             this.btDangXuat.FlatAppearance.BorderSize = 0;
             this.btDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btDangXuat.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDangXuat.ForeColor = System.Drawing.Color.White;
             this.btDangXuat.Location = new System.Drawing.Point(0, 660);
             this.btDangXuat.Name = "btDangXuat";
             this.btDangXuat.Size = new System.Drawing.Size(200, 70);
-            this.btDangXuat.TabIndex = 10;
+            this.btDangXuat.TabIndex = 12;
             this.btDangXuat.Text = "Đăng xuất";
             this.btDangXuat.UseVisualStyleBackColor = true;
             this.btDangXuat.Click += new System.EventHandler(this.btDangXuat_Click);
@@ -86,7 +86,7 @@
             this.btCN.Dock = System.Windows.Forms.DockStyle.Top;
             this.btCN.FlatAppearance.BorderSize = 0;
             this.btCN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCN.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCN.ForeColor = System.Drawing.Color.White;
             this.btCN.Location = new System.Drawing.Point(0, 590);
             this.btCN.Name = "btCN";
@@ -101,7 +101,7 @@
             this.btTaoPhieuThu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btTaoPhieuThu.FlatAppearance.BorderSize = 0;
             this.btTaoPhieuThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btTaoPhieuThu.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTaoPhieuThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTaoPhieuThu.ForeColor = System.Drawing.Color.White;
             this.btTaoPhieuThu.Location = new System.Drawing.Point(0, 520);
             this.btTaoPhieuThu.Name = "btTaoPhieuThu";
@@ -116,7 +116,7 @@
             this.btLopHocPhan.Dock = System.Windows.Forms.DockStyle.Top;
             this.btLopHocPhan.FlatAppearance.BorderSize = 0;
             this.btLopHocPhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btLopHocPhan.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLopHocPhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLopHocPhan.ForeColor = System.Drawing.Color.White;
             this.btLopHocPhan.Location = new System.Drawing.Point(0, 450);
             this.btLopHocPhan.Name = "btLopHocPhan";
@@ -131,7 +131,7 @@
             this.btLop.Dock = System.Windows.Forms.DockStyle.Top;
             this.btLop.FlatAppearance.BorderSize = 0;
             this.btLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btLop.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLop.ForeColor = System.Drawing.Color.White;
             this.btLop.Location = new System.Drawing.Point(0, 380);
             this.btLop.Name = "btLop";
@@ -146,7 +146,7 @@
             this.btKhoa.Dock = System.Windows.Forms.DockStyle.Top;
             this.btKhoa.FlatAppearance.BorderSize = 0;
             this.btKhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btKhoa.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btKhoa.ForeColor = System.Drawing.Color.White;
             this.btKhoa.Location = new System.Drawing.Point(0, 310);
             this.btKhoa.Name = "btKhoa";
@@ -161,7 +161,7 @@
             this.btMonHoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.btMonHoc.FlatAppearance.BorderSize = 0;
             this.btMonHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMonHoc.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMonHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMonHoc.ForeColor = System.Drawing.Color.White;
             this.btMonHoc.Location = new System.Drawing.Point(0, 240);
             this.btMonHoc.Name = "btMonHoc";
@@ -176,7 +176,7 @@
             this.btGiangVien.Dock = System.Windows.Forms.DockStyle.Top;
             this.btGiangVien.FlatAppearance.BorderSize = 0;
             this.btGiangVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGiangVien.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btGiangVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGiangVien.ForeColor = System.Drawing.Color.White;
             this.btGiangVien.Location = new System.Drawing.Point(0, 170);
             this.btGiangVien.Name = "btGiangVien";
@@ -191,7 +191,7 @@
             this.btSinhVien.Dock = System.Windows.Forms.DockStyle.Top;
             this.btSinhVien.FlatAppearance.BorderSize = 0;
             this.btSinhVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btSinhVien.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSinhVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSinhVien.ForeColor = System.Drawing.Color.White;
             this.btSinhVien.Location = new System.Drawing.Point(0, 100);
             this.btSinhVien.Name = "btSinhVien";
@@ -225,11 +225,11 @@
             // lbHienThi
             // 
             this.lbHienThi.AutoSize = true;
-            this.lbHienThi.Font = new System.Drawing.Font("Aachen", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHienThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHienThi.ForeColor = System.Drawing.Color.White;
             this.lbHienThi.Location = new System.Drawing.Point(6, 18);
             this.lbHienThi.Name = "lbHienThi";
-            this.lbHienThi.Size = new System.Drawing.Size(158, 64);
+            this.lbHienThi.Size = new System.Drawing.Size(172, 55);
             this.lbHienThi.TabIndex = 0;
             this.lbHienThi.Text = "HOME";
             // 
@@ -239,14 +239,14 @@
             this.pnHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnHienThi.Location = new System.Drawing.Point(200, 100);
             this.pnHienThi.Name = "pnHienThi";
-            this.pnHienThi.Size = new System.Drawing.Size(1070, 633);
+            this.pnHienThi.Size = new System.Drawing.Size(1070, 639);
             this.pnHienThi.TabIndex = 2;
             // 
             // fQuanLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 733);
+            this.ClientSize = new System.Drawing.Size(1270, 739);
             this.Controls.Add(this.pnHienThi);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

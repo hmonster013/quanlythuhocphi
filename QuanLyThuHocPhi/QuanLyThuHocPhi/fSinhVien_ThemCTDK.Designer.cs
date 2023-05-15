@@ -163,10 +163,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 28);
+            this.label4.Size = new System.Drawing.Size(202, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "Số phiếu đăng ký:";
             // 
@@ -189,6 +189,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fSinhVien_ThemCTDK";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fSinhVien_ThemCTDK";
             this.Load += new System.EventHandler(this.fSinhVien_ThemCTDK_Load);
             this.panel3.ResumeLayout(false);

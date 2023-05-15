@@ -49,6 +49,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvHienThi);
             this.Name = "fSinhVien_HocPhi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fSinhVien_HocPhi";
             this.Load += new System.EventHandler(this.fSinhVien_HocPhi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();

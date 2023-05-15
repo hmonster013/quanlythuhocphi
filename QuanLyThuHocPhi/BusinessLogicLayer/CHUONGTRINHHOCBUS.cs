@@ -30,5 +30,25 @@ namespace BusinessLogicLayer
         {
             return dao.GetDataByTenMH(MASV, TENMH, HOCKY);
         }
+
+        public DataTable GetDataByChuyenNganh(string MACN)
+        {
+            return dao.GetDataByChuyenNganh(MACN);
+        }
+
+        public DataTable FindByTenMHandChuyenNganh(string MACN, string TENM)
+        {
+            return dao.FindByTenMHandChuyenNganh(MACN, TENM);
+        }
+
+        public DataTable GetDataNotInChuyenNganh(string MACN)
+        {
+            return dao.GetDataNotInChuyenNganh(MACN);
+        }
+
+        public DataTable FindByTenMHNotInChuyenNganh(string MASV, string TENMH)
+        {
+            return dao.FindByTenMHNotInChuyenNganh(MASV, TENMH);
+        }
     }
 }

@@ -9,7 +9,6 @@ namespace ValueObject
     public class MONHOC
     {
         public string MAMH { get; set; }
-        public string MACN { get; set; }
         public string TENMH { get; set; }
         public int HOCKY { get; set; }
         public int SOTINCHI { get; set; }

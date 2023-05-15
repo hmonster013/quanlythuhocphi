@@ -301,6 +301,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fQuanLy_GiangVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy_GiangVien";
             this.Load += new System.EventHandler(this.fAdmin_GiangVien_Load);
             this.panel2.ResumeLayout(false);

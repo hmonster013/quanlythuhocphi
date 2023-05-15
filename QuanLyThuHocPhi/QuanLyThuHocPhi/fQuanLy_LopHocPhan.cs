@@ -16,7 +16,6 @@ namespace QuanLyThuHocPhi
     {
         private LOPHOCPHAN obj = new LOPHOCPHAN();
         private LOPHOCPHANBUS bus = new LOPHOCPHANBUS();
-
         public fQuanLy_LopHocPhan()
         {
             InitializeComponent();
@@ -197,6 +196,31 @@ namespace QuanLyThuHocPhi
             cbMaCN.Text = "";
             rdbTrue.Checked = false;
             rdbFalse.Checked = false;
+        }
+
+        private void cbMaCN_SelectedValueChanged(object sender, EventArgs e)
+        {
+            CHUONGTRINHHOCBUS bus_CTH = new CHUONGTRINHHOCBUS();
+            //Thêm lại môn học thuộc về chuyên ngành X
+            cbMaMH.Items.Clear();
+            DataTable dt = new DataTable();
+            dt = bus_CTH.GetDataByChuyenNganh(cbMaCN.Text);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                cbMaMH.Items.Add(dr["MAMH"].ToString());
+            }
+            GIANGVIENBUS bus_GV = new GIANGVIENBUS();
+            //Thêm lại các giảng viên thuộc về chuyên ngành X
+            cbMaGV.Items.Clear();
+            dt.Clear();
+            dt = bus_GV.GetDataByChuyenNganh(cbMaCN.Text);
+            foreach (DataRow dr in dt.Rows)
+            {
+                cbMaGV.Items.Add(dr["MAGV"].ToString());
+            }
+
+            dgvHienThi.DataSource = bus.GetDataByChuyenNganh(cbMaCN.Text);
         }
     }
 }

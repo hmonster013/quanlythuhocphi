@@ -23,7 +23,7 @@ namespace QuanLyThuHocPhi
             InitializeComponent();
         }
 
-        public void load_dgvHienThi(object sender, EventArgs e)
+        public void load_dgvHienThi()
         {
             dgvHienThi.DataSource = bus.GetData();
             dgvHienThi.ReadOnly = true;
@@ -32,9 +32,20 @@ namespace QuanLyThuHocPhi
             dgvHienThi.Columns[0].HeaderText = "Mã chuyên ngành";
             dgvHienThi.Columns[1].HeaderText = "Tên chuyên ngành";
             dgvHienThi.Columns[2].HeaderText = "Mã khoa";
+
+            if (dgvHienThi.Columns.Count == 3)
+            {
+                DataGridViewButtonColumn btChuongTrinhHoc = new DataGridViewButtonColumn();
+                btChuongTrinhHoc.Name = "btChuongTrinhHoc";
+                btChuongTrinhHoc.HeaderText = "";
+                btChuongTrinhHoc.Text = "Chương trình học";
+                btChuongTrinhHoc.UseColumnTextForButtonValue = true;
+
+                dgvHienThi.Columns.Add(btChuongTrinhHoc);
+            }
         }
 
-        public void addDataComboBox(object sender, EventArgs e)
+        public void addDataComboBox()
         {
             //ComboBox Ma Khoa
             KHOABUS temp = new KHOABUS();
@@ -50,15 +61,15 @@ namespace QuanLyThuHocPhi
 
         private void dgvHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txbMaCN.Text = dgvHienThi.SelectedRows[0].Cells[0].Value.ToString();
-            txbTenCN.Text = dgvHienThi.SelectedRows[0].Cells[1].Value.ToString();
-            cbMaKhoa.Text = dgvHienThi.SelectedRows[0].Cells[2].Value.ToString();
+            txbMaCN.Text = dgvHienThi.SelectedRows[0].Cells["MACN"].Value.ToString();
+            txbTenCN.Text = dgvHienThi.SelectedRows[0].Cells["TENCN"].Value.ToString();
+            cbMaKhoa.Text = dgvHienThi.SelectedRows[0].Cells["MAKHOA"].Value.ToString();
         }
 
         private void fQuanLy_ChuyenNganh_Load(object sender, EventArgs e)
         {
-            addDataComboBox(sender, e);
-            load_dgvHienThi(sender, e);
+            addDataComboBox();
+            load_dgvHienThi();
         }
 
         private void btThem_Click(object sender, EventArgs e)
@@ -70,7 +81,7 @@ namespace QuanLyThuHocPhi
             {
                 bus.Insert(obj);
                 MessageBox.Show("Thêm thành công", "Thông báo");
-                load_dgvHienThi(sender, e);
+                load_dgvHienThi();
             }
             else
             {
@@ -88,7 +99,7 @@ namespace QuanLyThuHocPhi
             {
                 bus.Update(obj);
                 MessageBox.Show("Sửa thành công", "Thông báo");
-                load_dgvHienThi(sender, e);
+                load_dgvHienThi();
             }
             else
             {
@@ -107,12 +118,12 @@ namespace QuanLyThuHocPhi
                     bus.Delete(txbMaCN.Text);
                     MessageBox.Show("Xóa thành công", "Thông báo");
                     btReset_Click(sender, e);
-                    load_dgvHienThi(sender, e);
+                    load_dgvHienThi();
                 }
             }
             else
             {
-                MessageBox.Show("Mã lớp không tồn tại, vui lòng nhập lại", "Thông báo");
+                MessageBox.Show("Mã chuyên ngành không tồn tại, vui lòng nhập lại", "Thông báo");
                 txbMaCN.Focus();
             }
         }
@@ -122,6 +133,15 @@ namespace QuanLyThuHocPhi
             txbMaCN.Text = "";
             txbTenCN.Text = "";
             cbMaKhoa.Text = "";
+        }
+
+        private void dgvHienThi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHienThi.Columns[e.ColumnIndex].Name == "btChuongTrinhHoc")
+            {
+                fQuanLy_ChuyenNganh_ChuongTrinhHoc ftemp = new fQuanLy_ChuyenNganh_ChuongTrinhHoc(dgvHienThi.Rows[e.RowIndex].Cells["MACN"].Value.ToString());
+                ftemp.ShowDialog();
+            }
         }
     }
 }

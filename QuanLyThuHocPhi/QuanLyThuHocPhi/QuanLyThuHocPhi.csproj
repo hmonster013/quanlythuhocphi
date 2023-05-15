@@ -79,6 +79,12 @@
     <Compile Include="fQuanLy_ChuyenNganh.Designer.cs">
       <DependentUpon>fQuanLy_ChuyenNganh.cs</DependentUpon>
     </Compile>
+    <Compile Include="fQuanLy_ChuyenNganh_ChuongTrinhHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fQuanLy_ChuyenNganh_ChuongTrinhHoc.Designer.cs">
+      <DependentUpon>fQuanLy_ChuyenNganh_ChuongTrinhHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="fQuanLy_GiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fQuanLy_ChuyenNganh.resx">
       <DependentUpon>fQuanLy_ChuyenNganh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fQuanLy_ChuyenNganh_ChuongTrinhHoc.resx">
+      <DependentUpon>fQuanLy_ChuyenNganh_ChuongTrinhHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fQuanLy_GiangVien.resx">
       <DependentUpon>fQuanLy_GiangVien.cs</DependentUpon>

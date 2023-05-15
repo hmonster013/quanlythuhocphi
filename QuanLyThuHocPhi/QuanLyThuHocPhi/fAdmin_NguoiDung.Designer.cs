@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvHienThi = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btReset = new System.Windows.Forms.Button();
-            this.btXoa = new System.Windows.Forms.Button();
-            this.btSua = new System.Windows.Forms.Button();
-            this.btThem = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.cbQuyen = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -45,13 +38,20 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.txbTenTK = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btReset = new System.Windows.Forms.Button();
+            this.btXoa = new System.Windows.Forms.Button();
+            this.btSua = new System.Windows.Forms.Button();
+            this.btThem = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
-            this.panel3.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,83 +65,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1081, 212);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dgvHienThi);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 212);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1081, 422);
-            this.panel2.TabIndex = 1;
-            // 
-            // dgvHienThi
-            // 
-            this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
-            this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(1081, 422);
-            this.dgvHienThi.TabIndex = 0;
-            this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.btReset);
-            this.panel3.Controls.Add(this.btXoa);
-            this.panel3.Controls.Add(this.btSua);
-            this.panel3.Controls.Add(this.btThem);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(968, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(113, 212);
-            this.panel3.TabIndex = 1;
-            // 
-            // btReset
-            // 
-            this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btReset.Location = new System.Drawing.Point(0, 135);
-            this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(109, 45);
-            this.btReset.TabIndex = 3;
-            this.btReset.Text = "Reset";
-            this.btReset.UseVisualStyleBackColor = true;
-            this.btReset.Click += new System.EventHandler(this.btReset_Click);
-            // 
-            // btXoa
-            // 
-            this.btXoa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btXoa.Location = new System.Drawing.Point(0, 90);
-            this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(109, 45);
-            this.btXoa.TabIndex = 2;
-            this.btXoa.Text = "Xóa";
-            this.btXoa.UseVisualStyleBackColor = true;
-            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
-            // 
-            // btSua
-            // 
-            this.btSua.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btSua.Location = new System.Drawing.Point(0, 45);
-            this.btSua.Name = "btSua";
-            this.btSua.Size = new System.Drawing.Size(109, 45);
-            this.btSua.TabIndex = 1;
-            this.btSua.Text = "Sửa";
-            this.btSua.UseVisualStyleBackColor = true;
-            this.btSua.Click += new System.EventHandler(this.btSua_Click);
-            // 
-            // btThem
-            // 
-            this.btThem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btThem.Location = new System.Drawing.Point(0, 0);
-            this.btThem.Name = "btThem";
-            this.btThem.Size = new System.Drawing.Size(109, 45);
-            this.btThem.TabIndex = 0;
-            this.btThem.Text = "Thêm";
-            this.btThem.UseVisualStyleBackColor = true;
-            this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // panel13
             // 
@@ -225,6 +148,83 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên tài khoản";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.btReset);
+            this.panel3.Controls.Add(this.btXoa);
+            this.panel3.Controls.Add(this.btSua);
+            this.panel3.Controls.Add(this.btThem);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(968, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(113, 212);
+            this.panel3.TabIndex = 1;
+            // 
+            // btReset
+            // 
+            this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btReset.Location = new System.Drawing.Point(0, 135);
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(109, 45);
+            this.btReset.TabIndex = 3;
+            this.btReset.Text = "Reset";
+            this.btReset.UseVisualStyleBackColor = true;
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
+            // 
+            // btXoa
+            // 
+            this.btXoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btXoa.Location = new System.Drawing.Point(0, 90);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(109, 45);
+            this.btXoa.TabIndex = 2;
+            this.btXoa.Text = "Xóa";
+            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
+            // 
+            // btSua
+            // 
+            this.btSua.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btSua.Location = new System.Drawing.Point(0, 45);
+            this.btSua.Name = "btSua";
+            this.btSua.Size = new System.Drawing.Size(109, 45);
+            this.btSua.TabIndex = 1;
+            this.btSua.Text = "Sửa";
+            this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
+            // 
+            // btThem
+            // 
+            this.btThem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btThem.Location = new System.Drawing.Point(0, 0);
+            this.btThem.Name = "btThem";
+            this.btThem.Size = new System.Drawing.Size(109, 45);
+            this.btThem.TabIndex = 0;
+            this.btThem.Text = "Thêm";
+            this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvHienThi);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 212);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1081, 422);
+            this.panel2.TabIndex = 1;
+            // 
+            // dgvHienThi
+            // 
+            this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
+            this.dgvHienThi.Name = "dgvHienThi";
+            this.dgvHienThi.Size = new System.Drawing.Size(1081, 422);
+            this.dgvHienThi.TabIndex = 0;
+            this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
+            // 
             // fAdmin_NguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,18 +233,19 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fAdmin_NguoiDung";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAdmin_NguoiDung";
             this.Load += new System.EventHandler(this.fAdmin_NguoiDung_Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.ResumeLayout(false);
 
         }

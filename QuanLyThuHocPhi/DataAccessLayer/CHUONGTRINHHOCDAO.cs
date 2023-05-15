@@ -50,5 +50,43 @@ namespace DataAccessLayer
             };
             return _dbConnect.GetData("sp_CHUONGTRINHHOC_find_tenmh_by_hocky", param);
         }
+
+        public DataTable GetDataByChuyenNganh(string MACN)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("@MACN", MACN)
+            };
+            return _dbConnect.GetData("sp_CHUONGTRINHHOC_by_chuyennganh", param);
+        }
+
+        public DataTable FindByTenMHandChuyenNganh(string MACN, string TENMH)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MACN", MACN),
+                new SqlParameter("TENMH", TENMH)
+            };
+            return _dbConnect.GetData("sp_CHUONGTRINHHOC_find_by_tenmh_chuyennganh", param);
+        }
+
+        public DataTable GetDataNotInChuyenNganh(string MACN)
+        {
+            SqlParameter[] param =
+{
+                new SqlParameter("@MACN", MACN)
+            };
+            return _dbConnect.GetData("sp_CHUONGTRINHHOC_not_in_chuyennganh", param);
+        }
+
+        public DataTable FindByTenMHNotInChuyenNganh(string MACN, string TENMH)
+        {
+            SqlParameter[] param =
+{
+                new SqlParameter("MACN", MACN),
+                new SqlParameter("TENMH", TENMH)
+            };
+            return _dbConnect.GetData("sp_CHUONGTRINHHOC_find_by_tenmh_not_in_chuyennganh", param);
+        }
     }
 }

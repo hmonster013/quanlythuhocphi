@@ -28,6 +28,10 @@ namespace BusinessLogicLayer
             return dao.GetDataMaLHP();
         }
 
+        public DataTable GetDataByChuyenNganh(string MACN)
+        {
+            return dao.GetDataByChuyenNganh(MACN);
+        }
         public int Insert(LOPHOCPHAN obj)
         {
             return dao.Insert(obj);

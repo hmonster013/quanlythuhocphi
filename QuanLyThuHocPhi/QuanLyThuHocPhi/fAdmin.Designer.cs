@@ -68,7 +68,7 @@
             this.btDangXuat.Dock = System.Windows.Forms.DockStyle.Top;
             this.btDangXuat.FlatAppearance.BorderSize = 0;
             this.btDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btDangXuat.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDangXuat.ForeColor = System.Drawing.Color.White;
             this.btDangXuat.Location = new System.Drawing.Point(0, 170);
             this.btDangXuat.Name = "btDangXuat";
@@ -83,7 +83,7 @@
             this.btTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
             this.btTaiKhoan.FlatAppearance.BorderSize = 0;
             this.btTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btTaiKhoan.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.btTaiKhoan.Location = new System.Drawing.Point(0, 100);
             this.btTaiKhoan.Name = "btTaiKhoan";
@@ -117,11 +117,11 @@
             // lbHienThi
             // 
             this.lbHienThi.AutoSize = true;
-            this.lbHienThi.Font = new System.Drawing.Font("Aachen", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHienThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHienThi.ForeColor = System.Drawing.Color.White;
             this.lbHienThi.Location = new System.Drawing.Point(3, 20);
             this.lbHienThi.Name = "lbHienThi";
-            this.lbHienThi.Size = new System.Drawing.Size(175, 64);
+            this.lbHienThi.Size = new System.Drawing.Size(184, 55);
             this.lbHienThi.TabIndex = 0;
             this.lbHienThi.Text = "ADMIN";
             // 
@@ -170,6 +170,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAdmin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fAdmin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();

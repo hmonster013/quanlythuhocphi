@@ -225,6 +225,7 @@
             this.dgvHienThi.Size = new System.Drawing.Size(1081, 431);
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
+            this.dgvHienThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellContentClick);
             // 
             // fQuanLy_ChuyenNganh
             // 

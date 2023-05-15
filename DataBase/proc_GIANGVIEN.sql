@@ -51,3 +51,18 @@ begin
 	select * from GIANGVIEN where MAGV = @MAGV
 end
 GO
+
+create procedure sp_GIANGVIEN_select_by_chuyennganh(
+	@MACN nvarchar(10)
+)
+as
+begin
+	SELECT GIANGVIEN.*
+	FROM KHOA INNER JOIN GIANGVIEN ON KHOA.MAKHOA = GIANGVIEN.MAKHOA
+	WHERE KHOA.MAKHOA IN
+	(select KHOA.MAKHOA
+	FROM KHOA INNER JOIN CHUYENNGANH ON KHOA.MAKHOA = CHUYENNGANH.MAKHOA
+	WHERE CHUYENNGANH.MACN = @MACN)
+end
+
+exec sp_GIANGVIEN_select_by_chuyennganh 'HTTT'

@@ -211,6 +211,7 @@
             this.cbMaCN.Name = "cbMaCN";
             this.cbMaCN.Size = new System.Drawing.Size(247, 28);
             this.cbMaCN.TabIndex = 1;
+            this.cbMaCN.SelectedValueChanged += new System.EventHandler(this.cbMaCN_SelectedValueChanged);
             // 
             // label5
             // 
@@ -385,6 +386,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fQuanLy_LopHocPhan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy_LopHocPhan";
             this.Load += new System.EventHandler(this.fAdmin_LopHocPhan_Load);
             this.panel2.ResumeLayout(false);

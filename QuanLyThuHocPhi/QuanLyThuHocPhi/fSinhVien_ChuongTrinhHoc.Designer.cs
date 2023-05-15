@@ -130,6 +130,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fSinhVien_ChuongTrinhHoc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fSinhVien_CTH";
             this.Load += new System.EventHandler(this.fSinhVien_ChuongTrinhHoc_Load);
             this.panel1.ResumeLayout(false);

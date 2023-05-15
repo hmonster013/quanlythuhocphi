@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CHUONGTRINHHOCDAO.cs" />
     <Compile Include="CHUYENNGANHDAO.cs" />
+    <Compile Include="CTCHUYENNGANHDAO.cs" />
     <Compile Include="CTDANGKYDAO.cs" />
     <Compile Include="CTPHIEUTHUDAO.cs" />
     <Compile Include="DANGKYDAO.cs" />

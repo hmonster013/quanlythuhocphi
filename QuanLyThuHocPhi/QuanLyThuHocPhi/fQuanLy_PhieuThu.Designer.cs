@@ -236,10 +236,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Aachen", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(615, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(234, 32);
+            this.label3.Size = new System.Drawing.Size(268, 29);
             this.label3.TabIndex = 12;
             this.label3.Text = "THÔNG TIN HOC PHÍ";
             // 
@@ -377,6 +377,7 @@
             this.Controls.Add(this.dgvHienThi);
             this.Controls.Add(this.panel1);
             this.Name = "fQuanLy_PhieuThu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy_PhieuThu";
             this.Load += new System.EventHandler(this.fQuanLy_PhieuThu_Load);
             this.panel3.ResumeLayout(false);

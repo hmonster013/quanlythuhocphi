@@ -70,7 +70,7 @@
             this.btDangXuat.Dock = System.Windows.Forms.DockStyle.Top;
             this.btDangXuat.FlatAppearance.BorderSize = 0;
             this.btDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btDangXuat.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDangXuat.ForeColor = System.Drawing.Color.White;
             this.btDangXuat.Location = new System.Drawing.Point(0, 380);
             this.btDangXuat.Name = "btDangXuat";
@@ -85,7 +85,7 @@
             this.btHocPhi.Dock = System.Windows.Forms.DockStyle.Top;
             this.btHocPhi.FlatAppearance.BorderSize = 0;
             this.btHocPhi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btHocPhi.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btHocPhi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btHocPhi.ForeColor = System.Drawing.Color.White;
             this.btHocPhi.Location = new System.Drawing.Point(0, 310);
             this.btHocPhi.Name = "btHocPhi";
@@ -100,7 +100,7 @@
             this.btDKHP.Dock = System.Windows.Forms.DockStyle.Top;
             this.btDKHP.FlatAppearance.BorderSize = 0;
             this.btDKHP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btDKHP.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDKHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDKHP.ForeColor = System.Drawing.Color.White;
             this.btDKHP.Location = new System.Drawing.Point(0, 240);
             this.btDKHP.Name = "btDKHP";
@@ -115,7 +115,7 @@
             this.btChuongTrinhHoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.btChuongTrinhHoc.FlatAppearance.BorderSize = 0;
             this.btChuongTrinhHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btChuongTrinhHoc.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btChuongTrinhHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btChuongTrinhHoc.ForeColor = System.Drawing.Color.White;
             this.btChuongTrinhHoc.Location = new System.Drawing.Point(0, 170);
             this.btChuongTrinhHoc.Name = "btChuongTrinhHoc";
@@ -130,7 +130,7 @@
             this.btTTCN.Dock = System.Windows.Forms.DockStyle.Top;
             this.btTTCN.FlatAppearance.BorderSize = 0;
             this.btTTCN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btTTCN.Font = new System.Drawing.Font("Aachen", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTTCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTTCN.ForeColor = System.Drawing.Color.White;
             this.btTTCN.Location = new System.Drawing.Point(0, 100);
             this.btTTCN.Name = "btTTCN";
@@ -164,11 +164,11 @@
             // lbHienThi
             // 
             this.lbHienThi.AutoSize = true;
-            this.lbHienThi.Font = new System.Drawing.Font("Aachen", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHienThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHienThi.ForeColor = System.Drawing.Color.White;
             this.lbHienThi.Location = new System.Drawing.Point(3, 20);
             this.lbHienThi.Name = "lbHienThi";
-            this.lbHienThi.Size = new System.Drawing.Size(219, 64);
+            this.lbHienThi.Size = new System.Drawing.Size(219, 55);
             this.lbHienThi.TabIndex = 0;
             this.lbHienThi.Text = "Xin chào";
             // 
@@ -190,6 +190,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fSinhVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sinh Viên";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fSinhVien_FormClosing);
             this.Load += new System.EventHandler(this.fSinhVien_Load);

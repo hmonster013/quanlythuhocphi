@@ -15,8 +15,10 @@ namespace QuanLyThuHocPhi
 {
     public partial class fQuanLy_SinhVien : Form
     {
-        private SINHVIEN obj = new SINHVIEN();
-        private SINHVIENBUS bus = new SINHVIENBUS();
+        private SINHVIEN obj_SV = new SINHVIEN();
+        private NGUOIDUNG obj_ND = new NGUOIDUNG();
+        private SINHVIENBUS bus_SV = new SINHVIENBUS();
+        private NGUOIDUNGBUS bus_ND = new NGUOIDUNGBUS();
         public fQuanLy_SinhVien()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace QuanLyThuHocPhi
 
         public void load_dgvHienThi(object sender, EventArgs e)
         {
-            dgvHienThi.DataSource = bus.GetData();
+            dgvHienThi.DataSource = bus_SV.GetData();
             dgvHienThi.ReadOnly = true;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -45,7 +47,7 @@ namespace QuanLyThuHocPhi
             txbHoSV.Text = dgvHienThi.SelectedRows[0].Cells[1].Value.ToString();
             txbTenSV.Text = dgvHienThi.SelectedRows[0].Cells[2].Value.ToString();
             txbDiaChi.Text = dgvHienThi.SelectedRows[0].Cells[6].Value.ToString();
-            txbTenTK.Text = dgvHienThi.SelectedRows[0].Cells[8].Value.ToString();
+            txbMaSV.Text = dgvHienThi.SelectedRows[0].Cells[8].Value.ToString();
             if (bool.Parse(dgvHienThi.SelectedRows[0].Cells[4].Value.ToString()) == true)
             {
                 rdbNu.Checked = true;
@@ -89,32 +91,38 @@ namespace QuanLyThuHocPhi
 
         private void btThem_Click(object sender, EventArgs e)
         {
-            obj.MASV = txbMaSV.Text;
-            obj.HO = txbHoSV.Text;
-            obj.TEN = txbTenSV.Text;
-            obj.DIACHI = txbDiaChi.Text;
-            obj.TENTAIKHOAN = txbTenTK.Text;
+            //Gán dữ liệu cho obj_SV
+            obj_SV.MASV = txbMaSV.Text;
+            obj_SV.HO = txbHoSV.Text;
+            obj_SV.TEN = txbTenSV.Text;
+            obj_SV.DIACHI = txbDiaChi.Text;
+            obj_SV.TENTAIKHOAN = txbMaSV.Text;
             if (rdbNam.Checked == true)
             {
-                obj.PHAI = false;
+                obj_SV.PHAI = false;
             }
             if (rdbNu.Checked == true)
             {
-                obj.PHAI = true;
+                obj_SV.PHAI = true;
             }
             if (rdbTrue.Checked == true)
             {
-                obj.DANGNGHIHOC = true;
+                obj_SV.DANGNGHIHOC = true;
             }
             if (rdbFalse.Checked == true)
             {
-                obj.DANGNGHIHOC = false;
+                obj_SV.DANGNGHIHOC = false;
             }
-            obj.NGAYSINH = dtpNgaySinh.Value;
-            obj.MALOP = cbMaLop.Text;
-            if (bus.GetData(txbMaSV.Text).Rows.Count == 0)
+            obj_SV.NGAYSINH = dtpNgaySinh.Value;
+            obj_SV.MALOP = cbMaLop.Text;
+            //Gán dữ liệu cho obj người dùng
+            obj_ND.TENTAIKHOAN = txbMaSV.Text.ToString();
+            obj_ND.MATKHAU = "1";
+            obj_ND.QUYEN = "User";
+            if (bus_SV.GetData(txbMaSV.Text).Rows.Count == 0)
             {
-                bus.Insert(obj);
+                bus_ND.Insert(obj_ND);
+                bus_SV.Insert(obj_SV);
                 MessageBox.Show("Thêm thành công", "Thông báo");
                 load_dgvHienThi(sender, e);
             }
@@ -127,32 +135,32 @@ namespace QuanLyThuHocPhi
 
         private void btSua_Click(object sender, EventArgs e)
         {
-            obj.MASV = txbMaSV.Text;
-            obj.HO = txbHoSV.Text; ;
-            obj.TEN = txbTenSV.Text;
-            obj.DIACHI = txbDiaChi.Text;
-            obj.TENTAIKHOAN = txbTenTK.Text;
+            obj_SV.MASV = txbMaSV.Text;
+            obj_SV.HO = txbHoSV.Text; ;
+            obj_SV.TEN = txbTenSV.Text;
+            obj_SV.DIACHI = txbDiaChi.Text;
+            obj_SV.TENTAIKHOAN = txbMaSV.Text;
             if (rdbNam.Checked == true)
             {
-                obj.PHAI = false;
+                obj_SV.PHAI = false;
             }
             if (rdbNu.Checked == true)
             {
-                obj.PHAI = true;
+                obj_SV.PHAI = true;
             }
             if (rdbTrue.Checked == true)
             {
-                obj.DANGNGHIHOC = true;
+                obj_SV.DANGNGHIHOC = true;
             }
             if (rdbFalse.Checked == true)
             {
-                obj.DANGNGHIHOC = false;
+                obj_SV.DANGNGHIHOC = false;
             }
-            obj.NGAYSINH = dtpNgaySinh.Value;
-            obj.MALOP = cbMaLop.Text;
-            if (bus.GetData(txbMaSV.Text).Rows.Count != 0)
+            obj_SV.NGAYSINH = dtpNgaySinh.Value;
+            obj_SV.MALOP = cbMaLop.Text;
+            if (bus_SV.GetData(txbMaSV.Text).Rows.Count != 0)
             {
-                bus.Update(obj);
+                bus_SV.Update(obj_SV);
                 MessageBox.Show("Sửa thành công", "Thông báo");
                 load_dgvHienThi(sender, e);
             }
@@ -165,12 +173,12 @@ namespace QuanLyThuHocPhi
 
         private void btXoa_Click(object sender, EventArgs e)
         {
-            if (bus.GetData(txbMaSV.Text).Rows.Count != 0)
+            if (bus_SV.GetData(txbMaSV.Text).Rows.Count != 0)
             {
                 DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa sinh viên này không?", "Thống báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (rs == DialogResult.Yes)
                 {
-                    bus.Delete(txbMaSV.Text);
+                    bus_SV.Delete(txbMaSV.Text);
                     MessageBox.Show("Xóa thành công", "Thông báo");
                     btReset_Click(sender, e);
                     load_dgvHienThi(sender, e);
@@ -189,7 +197,7 @@ namespace QuanLyThuHocPhi
             txbHoSV.Text = "";
             txbTenSV.Text = "";
             txbDiaChi.Text = "";
-            txbTenTK.Text = "";
+            txbMaSV.Text = "";
             rdbNam.Checked = false;
             rdbNu.Checked = false;
             rdbTrue.Checked = false;

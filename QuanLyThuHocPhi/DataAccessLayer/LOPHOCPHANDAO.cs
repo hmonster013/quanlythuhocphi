@@ -27,6 +27,15 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_LOPHOCPHAN_select_malhp", param);
         }
 
+        public DataTable GetDataByChuyenNganh(string MACN)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MACN", MACN)
+            };
+            return _dbConnect.GetData("sp_LOPHOCPHAN_select_by_chuyennganh", param);
+        }
+
         public DataTable GetDataMaLHP()
         {
             return _dbConnect.GetData("SELECT IDENT_CURRENT('LOPHOCPHAN') + 1");

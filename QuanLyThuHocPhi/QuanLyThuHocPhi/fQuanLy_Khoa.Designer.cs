@@ -235,6 +235,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fQuanLy_Khoa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy_Khoa";
             this.Load += new System.EventHandler(this.fAdmin_Khoa_Load);
             this.panel2.ResumeLayout(false);

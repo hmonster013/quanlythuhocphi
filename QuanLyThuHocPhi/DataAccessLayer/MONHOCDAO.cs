@@ -32,7 +32,6 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("MACN", obj.MACN),
                 new SqlParameter("TENMH", obj.TENMH),
                 new SqlParameter("HOCKY", obj.HOCKY),
                 new SqlParameter("SOTINCHI", obj.SOTINCHI)
@@ -45,7 +44,6 @@ namespace DataAccessLayer
             SqlParameter[] param =
             {
                 new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("MACN", obj.MACN),
                 new SqlParameter("TENMH", obj.TENMH),
                 new SqlParameter("HOCKY", obj.HOCKY),
                 new SqlParameter("SOTINCHI", obj.SOTINCHI)

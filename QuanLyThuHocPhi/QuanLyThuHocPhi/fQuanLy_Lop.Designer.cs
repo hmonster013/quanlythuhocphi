@@ -39,9 +39,9 @@
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cbMaCN = new System.Windows.Forms.ComboBox();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.cbMaCN = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.panel4.SuspendLayout();
@@ -168,15 +168,14 @@
             this.panel1.Size = new System.Drawing.Size(1081, 212);
             this.panel1.TabIndex = 2;
             // 
-            // label10
+            // panel13
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 12);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 20);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Mã chuyên ngành:";
+            this.panel13.Controls.Add(this.cbMaCN);
+            this.panel13.Controls.Add(this.label10);
+            this.panel13.Location = new System.Drawing.Point(514, 14);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(397, 42);
+            this.panel13.TabIndex = 2;
             // 
             // cbMaCN
             // 
@@ -187,14 +186,15 @@
             this.cbMaCN.Size = new System.Drawing.Size(247, 28);
             this.cbMaCN.TabIndex = 2;
             // 
-            // panel13
+            // label10
             // 
-            this.panel13.Controls.Add(this.cbMaCN);
-            this.panel13.Controls.Add(this.label10);
-            this.panel13.Location = new System.Drawing.Point(514, 14);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(397, 42);
-            this.panel13.TabIndex = 2;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(139, 20);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Mã chuyên ngành:";
             // 
             // fQuanLy_Lop
             // 
@@ -204,6 +204,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "fQuanLy_Lop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy_Lop";
             this.Load += new System.EventHandler(this.fAdmin_Lop_Load);
             this.panel2.ResumeLayout(false);
