@@ -108,6 +108,7 @@
             this.txbMaLHP.Name = "txbMaLHP";
             this.txbMaLHP.Size = new System.Drawing.Size(252, 26);
             this.txbMaLHP.TabIndex = 1;
+            this.txbMaLHP.TabStop = false;
             // 
             // label1
             // 
@@ -131,7 +132,7 @@
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(113, 277);
-            this.panel3.TabIndex = 0;
+            this.panel3.TabIndex = 8;
             // 
             // btReset
             // 
@@ -201,7 +202,7 @@
             this.panel8.Location = new System.Drawing.Point(507, 14);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(397, 42);
-            this.panel8.TabIndex = 3;
+            this.panel8.TabIndex = 6;
             // 
             // cbMaCN
             // 
@@ -230,7 +231,7 @@
             this.panel7.Location = new System.Drawing.Point(36, 206);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(397, 42);
-            this.panel7.TabIndex = 4;
+            this.panel7.TabIndex = 5;
             // 
             // cbMaGV
             // 
@@ -258,7 +259,7 @@
             this.panel13.Location = new System.Drawing.Point(36, 158);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(397, 42);
-            this.panel13.TabIndex = 2;
+            this.panel13.TabIndex = 4;
             // 
             // cbMaMH
             // 
@@ -286,7 +287,7 @@
             this.panel12.Location = new System.Drawing.Point(36, 110);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(397, 42);
-            this.panel12.TabIndex = 2;
+            this.panel12.TabIndex = 3;
             // 
             // cbHocKy
             // 
@@ -315,7 +316,7 @@
             this.panel9.Location = new System.Drawing.Point(507, 62);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(397, 42);
-            this.panel9.TabIndex = 3;
+            this.panel9.TabIndex = 7;
             // 
             // rdbFalse
             // 

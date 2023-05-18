@@ -68,7 +68,7 @@
             this.btDangKy.Location = new System.Drawing.Point(12, 117);
             this.btDangKy.Name = "btDangKy";
             this.btDangKy.Size = new System.Drawing.Size(77, 30);
-            this.btDangKy.TabIndex = 5;
+            this.btDangKy.TabIndex = 3;
             this.btDangKy.Text = "Đăng ký";
             this.btDangKy.UseVisualStyleBackColor = true;
             this.btDangKy.Click += new System.EventHandler(this.btDangKy_Click);
@@ -80,7 +80,7 @@
             this.panel5.Location = new System.Drawing.Point(487, 12);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 42);
-            this.panel5.TabIndex = 4;
+            this.panel5.TabIndex = 2;
             // 
             // cbHocKy
             // 
@@ -108,7 +108,7 @@
             this.panel3.Location = new System.Drawing.Point(12, 60);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(397, 42);
-            this.panel3.TabIndex = 3;
+            this.panel3.TabIndex = 1;
             // 
             // txbMaSV
             // 
@@ -135,7 +135,7 @@
             this.panel4.Location = new System.Drawing.Point(12, 12);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(397, 42);
-            this.panel4.TabIndex = 2;
+            this.panel4.TabIndex = 0;
             // 
             // txbMaDK
             // 

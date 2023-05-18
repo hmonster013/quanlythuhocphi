@@ -12,6 +12,7 @@ namespace QuanLyThuHocPhi
 {
     public partial class fQuanLy : Form
     {
+        private bool isClickbtDangXuat = false;
         public fQuanLy()
         {
             InitializeComponent();
@@ -81,7 +82,7 @@ namespace QuanLyThuHocPhi
             OpenChildForm(new fQuanLy_ChuyenNganh());
             lbHienThi.Text = btCN.Text;
         }
-        private bool isClickbtDangXuat = false;
+
         private void btDangXuat_Click(object sender, EventArgs e)
         {
             isClickbtDangXuat = true;

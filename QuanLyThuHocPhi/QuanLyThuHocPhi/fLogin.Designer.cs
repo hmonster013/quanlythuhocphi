@@ -116,9 +116,10 @@
             // lilbDoiMK
             // 
             this.lilbDoiMK.AutoSize = true;
-            this.lilbDoiMK.Location = new System.Drawing.Point(308, 0);
+            this.lilbDoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lilbDoiMK.Location = new System.Drawing.Point(281, 0);
             this.lilbDoiMK.Name = "lilbDoiMK";
-            this.lilbDoiMK.Size = new System.Drawing.Size(79, 13);
+            this.lilbDoiMK.Size = new System.Drawing.Size(116, 20);
             this.lilbDoiMK.TabIndex = 0;
             this.lilbDoiMK.TabStop = true;
             this.lilbDoiMK.Text = "Đổi mật khẩu ?";
@@ -134,6 +135,7 @@
             // 
             // btLogin
             // 
+            this.btLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin.Location = new System.Drawing.Point(3, 3);
             this.btLogin.Name = "btLogin";
             this.btLogin.Size = new System.Drawing.Size(394, 52);
@@ -154,17 +156,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(75, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mật khẩu";
             // 
             // txbMatKhau
             // 
-            this.txbMatKhau.Location = new System.Drawing.Point(94, 17);
+            this.txbMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMatKhau.Location = new System.Drawing.Point(106, 17);
             this.txbMatKhau.Name = "txbMatKhau";
-            this.txbMatKhau.Size = new System.Drawing.Size(281, 20);
+            this.txbMatKhau.Size = new System.Drawing.Size(281, 26);
             this.txbMatKhau.TabIndex = 0;
             // 
             // panel3
@@ -179,17 +183,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(78, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tài khoản";
             // 
             // txbTaiKhoan
             // 
-            this.txbTaiKhoan.Location = new System.Drawing.Point(94, 17);
+            this.txbTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTaiKhoan.Location = new System.Drawing.Point(106, 17);
             this.txbTaiKhoan.Name = "txbTaiKhoan";
-            this.txbTaiKhoan.Size = new System.Drawing.Size(281, 20);
+            this.txbTaiKhoan.Size = new System.Drawing.Size(281, 26);
             this.txbTaiKhoan.TabIndex = 0;
             // 
             // fLogin
@@ -202,6 +208,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.fLogin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fLogin_KeyDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);

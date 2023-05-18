@@ -90,7 +90,7 @@
             this.panel5.Location = new System.Drawing.Point(36, 62);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 42);
-            this.panel5.TabIndex = 2;
+            this.panel5.TabIndex = 1;
             // 
             // txbHoGV
             // 
@@ -117,7 +117,7 @@
             this.panel6.Location = new System.Drawing.Point(36, 110);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 42);
-            this.panel6.TabIndex = 2;
+            this.panel6.TabIndex = 3;
             // 
             // txbTenGV
             // 
@@ -144,7 +144,7 @@
             this.panel4.Location = new System.Drawing.Point(36, 14);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(397, 42);
-            this.panel4.TabIndex = 1;
+            this.panel4.TabIndex = 0;
             // 
             // txbMaGV
             // 
@@ -176,7 +176,7 @@
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(113, 203);
-            this.panel3.TabIndex = 0;
+            this.panel3.TabIndex = 6;
             // 
             // btReset
             // 
@@ -184,7 +184,7 @@
             this.btReset.Location = new System.Drawing.Point(0, 135);
             this.btReset.Name = "btReset";
             this.btReset.Size = new System.Drawing.Size(109, 45);
-            this.btReset.TabIndex = 3;
+            this.btReset.TabIndex = 4;
             this.btReset.Text = "Reset";
             this.btReset.UseVisualStyleBackColor = true;
             this.btReset.Click += new System.EventHandler(this.btReset_Click);
@@ -195,7 +195,7 @@
             this.btXoa.Location = new System.Drawing.Point(0, 90);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(109, 45);
-            this.btXoa.TabIndex = 2;
+            this.btXoa.TabIndex = 3;
             this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
             this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
@@ -206,7 +206,7 @@
             this.btSua.Location = new System.Drawing.Point(0, 45);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(109, 45);
-            this.btSua.TabIndex = 1;
+            this.btSua.TabIndex = 2;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
             this.btSua.Click += new System.EventHandler(this.btSua_Click);
@@ -217,7 +217,7 @@
             this.btThem.Location = new System.Drawing.Point(0, 0);
             this.btThem.Name = "btThem";
             this.btThem.Size = new System.Drawing.Size(109, 45);
-            this.btThem.TabIndex = 0;
+            this.btThem.TabIndex = 1;
             this.btThem.Text = "Thêm";
             this.btThem.UseVisualStyleBackColor = true;
             this.btThem.Click += new System.EventHandler(this.btThem_Click);
@@ -244,7 +244,7 @@
             this.panel13.Location = new System.Drawing.Point(507, 62);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(397, 42);
-            this.panel13.TabIndex = 2;
+            this.panel13.TabIndex = 5;
             // 
             // cbMaKhoa
             // 
@@ -272,7 +272,7 @@
             this.panel12.Location = new System.Drawing.Point(507, 14);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(397, 42);
-            this.panel12.TabIndex = 2;
+            this.panel12.TabIndex = 4;
             // 
             // cbHocHam
             // 

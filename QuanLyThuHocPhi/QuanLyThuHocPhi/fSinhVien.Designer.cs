@@ -149,6 +149,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 100);
             this.panel4.TabIndex = 6;
+            this.panel4.TabStop = true;
             this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
             // panel2

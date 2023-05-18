@@ -56,7 +56,7 @@
             this.txbTenMH.Location = new System.Drawing.Point(114, 7);
             this.txbTenMH.Name = "txbTenMH";
             this.txbTenMH.Size = new System.Drawing.Size(252, 26);
-            this.txbTenMH.TabIndex = 4;
+            this.txbTenMH.TabIndex = 0;
             // 
             // panel3
             // 
@@ -77,7 +77,7 @@
             this.panel8.Location = new System.Drawing.Point(469, 0);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(468, 41);
-            this.panel8.TabIndex = 5;
+            this.panel8.TabIndex = 2;
             // 
             // btTimKiem
             // 
@@ -155,7 +155,7 @@
             this.btDangKy.Location = new System.Drawing.Point(0, 1);
             this.btDangKy.Name = "btDangKy";
             this.btDangKy.Size = new System.Drawing.Size(937, 30);
-            this.btDangKy.TabIndex = 0;
+            this.btDangKy.TabIndex = 3;
             this.btDangKy.Text = "Đăng ký";
             this.btDangKy.UseVisualStyleBackColor = true;
             this.btDangKy.Click += new System.EventHandler(this.btDangKy_Click);
@@ -179,7 +179,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(937, 71);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 0;
             // 
             // fSinhVien_ThemCTDK
             // 

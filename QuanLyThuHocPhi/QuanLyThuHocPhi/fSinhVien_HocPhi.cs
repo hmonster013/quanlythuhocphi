@@ -59,8 +59,15 @@ namespace QuanLyThuHocPhi
         {
             if (dgvHienThi.Columns[e.ColumnIndex].Name == "btChiTiet")
             {
-                fSinhVien_CTHocPhi ftemp = new fSinhVien_CTHocPhi(int.Parse(dgvHienThi.Rows[e.RowIndex].Cells["MAPT"].Value.ToString()));
-                ftemp.ShowDialog();
+                if (dgvHienThi.Rows[e.RowIndex].Cells["MAPT"].Value != DBNull.Value)
+                {
+                    fSinhVien_CTHocPhi ftemp = new fSinhVien_CTHocPhi(int.Parse(dgvHienThi.Rows[e.RowIndex].Cells["MAPT"].Value.ToString()));
+                    ftemp.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu về việc nộp học phí", "Thông báo");
+                }
             }
         }
     }

@@ -95,7 +95,7 @@
             this.panel12.Location = new System.Drawing.Point(500, 191);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(397, 42);
-            this.panel12.TabIndex = 2;
+            this.panel12.TabIndex = 8;
             // 
             // cbMaLop
             // 
@@ -124,7 +124,7 @@
             this.panel10.Location = new System.Drawing.Point(500, 95);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(397, 42);
-            this.panel10.TabIndex = 3;
+            this.panel10.TabIndex = 6;
             // 
             // rdbFalse
             // 
@@ -167,7 +167,7 @@
             this.panel11.Location = new System.Drawing.Point(500, 143);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(397, 42);
-            this.panel11.TabIndex = 2;
+            this.panel11.TabIndex = 7;
             // 
             // dtpNgaySinh
             // 
@@ -196,7 +196,7 @@
             this.panel9.Location = new System.Drawing.Point(500, 47);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(397, 42);
-            this.panel9.TabIndex = 3;
+            this.panel9.TabIndex = 5;
             // 
             // rdbNu
             // 
@@ -239,7 +239,7 @@
             this.panel8.Location = new System.Drawing.Point(29, 239);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(397, 42);
-            this.panel8.TabIndex = 2;
+            this.panel8.TabIndex = 4;
             // 
             // txbTenTK
             // 
@@ -266,7 +266,7 @@
             this.panel7.Location = new System.Drawing.Point(29, 191);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(397, 42);
-            this.panel7.TabIndex = 2;
+            this.panel7.TabIndex = 3;
             // 
             // txbDiaChi
             // 
@@ -293,7 +293,7 @@
             this.panel5.Location = new System.Drawing.Point(29, 95);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 42);
-            this.panel5.TabIndex = 2;
+            this.panel5.TabIndex = 1;
             // 
             // txbHoSV
             // 
@@ -347,7 +347,7 @@
             this.panel4.Location = new System.Drawing.Point(29, 47);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(397, 42);
-            this.panel4.TabIndex = 1;
+            this.panel4.TabIndex = 0;
             // 
             // txbMaSV
             // 

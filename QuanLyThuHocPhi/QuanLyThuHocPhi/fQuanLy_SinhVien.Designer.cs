@@ -101,7 +101,7 @@
             this.panel12.Location = new System.Drawing.Point(507, 158);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(397, 42);
-            this.panel12.TabIndex = 2;
+            this.panel12.TabIndex = 8;
             // 
             // cbMaLop
             // 
@@ -130,7 +130,7 @@
             this.panel10.Location = new System.Drawing.Point(507, 62);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(397, 42);
-            this.panel10.TabIndex = 3;
+            this.panel10.TabIndex = 6;
             // 
             // rdbFalse
             // 
@@ -173,7 +173,7 @@
             this.panel11.Location = new System.Drawing.Point(507, 110);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(397, 42);
-            this.panel11.TabIndex = 2;
+            this.panel11.TabIndex = 7;
             // 
             // dtpNgaySinh
             // 
@@ -202,7 +202,7 @@
             this.panel9.Location = new System.Drawing.Point(507, 14);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(397, 42);
-            this.panel9.TabIndex = 3;
+            this.panel9.TabIndex = 5;
             // 
             // rdbNu
             // 
@@ -245,7 +245,7 @@
             this.panel7.Location = new System.Drawing.Point(36, 158);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(397, 42);
-            this.panel7.TabIndex = 2;
+            this.panel7.TabIndex = 4;
             // 
             // txbDiaChi
             // 
@@ -299,7 +299,7 @@
             this.panel6.Location = new System.Drawing.Point(36, 110);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 42);
-            this.panel6.TabIndex = 2;
+            this.panel6.TabIndex = 3;
             // 
             // txbTenSV
             // 
@@ -358,7 +358,7 @@
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(113, 218);
-            this.panel3.TabIndex = 0;
+            this.panel3.TabIndex = 9;
             // 
             // btReset
             // 

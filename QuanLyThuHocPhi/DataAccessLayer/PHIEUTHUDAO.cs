@@ -27,6 +27,15 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_PHIEUTHU_select_mapt", param);
         }
 
+        public DataTable GetDataByMASV(string MASV)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MASV", MASV)
+            };
+            return _dbConnect.GetData("sp_PHIEUTHU_select_masv", param);
+        }
+
         public DataTable GetDataByMaSVandHK(string MASV, int HOCKY) 
         {
             SqlParameter[] param =

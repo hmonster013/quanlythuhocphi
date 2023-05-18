@@ -164,6 +164,8 @@ namespace QuanLyThuHocPhi
                 txbTongHocPhi.Text = bus_XLHP.GetDataTongHocPHi(txbMaSV.Text).Rows[0].ItemArray[1].ToString();
                 txbTongDaDong.Text = bus_XLHP.GetDataTongHocPHi(txbMaSV.Text).Rows[0].ItemArray[2].ToString();
                 txbTongChuaDong.Text = bus_XLHP.GetDataTongHocPHi(txbMaSV.Text).Rows[0].ItemArray[3].ToString();
+
+                dgvHienThi.DataSource = bus_PT.GetDataByMASV(txbMaSV.Text);
             }
             else
             {

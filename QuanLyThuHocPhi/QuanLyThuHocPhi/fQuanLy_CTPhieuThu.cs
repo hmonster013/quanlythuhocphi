@@ -66,10 +66,17 @@ namespace QuanLyThuHocPhi
         
         private void btKiemTra_Click(object sender, EventArgs e)
         {
-            txbSTPhaiDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[5].ToString();
-            txbSTDaDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[6].ToString();
-            txbSTChuaDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[7].ToString();
-            dgvHienThi.DataSource = bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
+            if (bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows.Count != 0)
+            {
+                txbSTPhaiDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[5].ToString();
+                txbSTDaDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[6].ToString();
+                txbSTChuaDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[7].ToString();
+                dgvHienThi.DataSource = bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu về học phí trong học kỳ này", "Thông báo");
+            }
         }
 
         private void btThem_Click(object sender, EventArgs e)

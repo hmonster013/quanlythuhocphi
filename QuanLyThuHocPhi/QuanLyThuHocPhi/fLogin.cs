@@ -34,9 +34,15 @@ namespace QuanLyThuHocPhi
             InitializeComponent();
         }
 
+        private void settingTextBox()
+        {
+            txbMatKhau.PasswordChar = '*';
+        }
+
         private void fLogin_Load(object sender, EventArgs e)
         {
-
+            settingTextBox();
+            this.KeyPreview = true;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -89,6 +95,14 @@ namespace QuanLyThuHocPhi
             {
                 MessageBox.Show("Tài khoản không tồn tại, vui lòng nhập lại", "Thông báo");
                 txbTaiKhoan.Focus();
+            }
+        }
+
+        private void fLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btLogin.PerformClick();
             }
         }
     }

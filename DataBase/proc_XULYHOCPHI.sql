@@ -88,51 +88,6 @@ go
 exec sp_XULYHOCPHI_all '72DCHT20104'
 go
 
---Lấy ra tất cả các thông tin về tổng học phí, tổng số tiền đã đóng, tổng số tiền chưa đóng
-CREATE PROCEDURE sp_XULYHOCPHI_sum_all(
-	@MASV nvarchar(15)
-)
-as
-begin
-	CREATE TABLE #temp_hocphi(
-		MASV nvarchar(15),
-		MADK int,
-		HOCKY int,
-		TONGSOTC int,
-		HOCPHI float
-	)
-
-	INSERT INTO #temp_hocphi
-	EXEC sp_XULYHOCPHI_select_allhocphi @MASV
-
-	CREATE TABLE #temp_dadong(
-		MAPT int,
-		MASV nvarchar(15),
-		NIENKHOA nvarchar(9),
-		HOCKY int,
-		DADONG float
-	)
-
-	INSERT INTO #temp_dadong
-	EXEC sp_XULYHOCPHI_select_alldadong @MASV
-
-	SELECT  #temp_hocphi.MASV, SUM(#temp_hocphi.HOCPHI) AS TONGHOCPHI,
-			CASE 
-			WHEN SUM(#temp_dadong.DADONG) is null THEN 0
-			ELSE SUM(#temp_dadong.DADONG)
-			END AS TONGDADONG,
-			CASE 
-			WHEN SUM(#temp_dadong.DADONG) is null THEN SUM(#temp_hocphi.HOCPHI)
-			ELSE SUM(#temp_hocphi.HOCPHI) - SUM(#temp_dadong.DADONG)
-			END AS TONGCHUADONG
-	FROM #temp_hocphi LEFT JOIN #temp_dadong ON #temp_hocphi.MASV = #temp_dadong.MASV AND #temp_hocphi.HOCKY = #temp_dadong.HOCKY
-	GROUP BY #temp_hocphi.MASV
-end
-go
-
-exec sp_XULYHOCPHI_sum_all '72DCHT20104'
-go
-
 --Lấy thông tin về thông tin học phí , đã đóng, chưa đóng của một sinh viên trong học kỳ nào đó
 CREATE PROCEDURE sp_XULYHOCPHI_select_byhocky(
 	@MASV nvarchar(15),
@@ -177,4 +132,49 @@ end
 go
 
 exec sp_XULYHOCPHI_select_byhocky '72DCHT20104', 2
+go
+
+--Lấy ra tất cả các thông tin về tổng học phí, tổng số tiền đã đóng, tổng số tiền chưa đóng
+CREATE PROCEDURE sp_XULYHOCPHI_sum_all(
+	@MASV nvarchar(15)
+)
+as
+begin
+	CREATE TABLE #temp_hocphi(
+		MASV nvarchar(15),
+		MADK int,
+		HOCKY int,
+		TONGSOTC int,
+		HOCPHI float
+	)
+
+	INSERT INTO #temp_hocphi
+	EXEC sp_XULYHOCPHI_select_allhocphi @MASV
+
+	CREATE TABLE #temp_dadong(
+		MAPT int,
+		MASV nvarchar(15),
+		NIENKHOA nvarchar(9),
+		HOCKY int,
+		DADONG float
+	)
+
+	INSERT INTO #temp_dadong
+	EXEC sp_XULYHOCPHI_select_alldadong @MASV
+
+	SELECT  #temp_hocphi.MASV, SUM(#temp_hocphi.HOCPHI) AS TONGHOCPHI,
+			CASE 
+			WHEN SUM(#temp_dadong.DADONG) is null THEN 0
+			ELSE SUM(#temp_dadong.DADONG)
+			END AS TONGDADONG,
+			CASE 
+			WHEN SUM(#temp_dadong.DADONG) is null THEN SUM(#temp_hocphi.HOCPHI)
+			ELSE SUM(#temp_hocphi.HOCPHI) - SUM(#temp_dadong.DADONG)
+			END AS TONGCHUADONG
+	FROM #temp_hocphi LEFT JOIN #temp_dadong ON #temp_hocphi.MASV = #temp_dadong.MASV AND #temp_hocphi.HOCKY = #temp_dadong.HOCKY
+	GROUP BY #temp_hocphi.MASV
+end
+go
+
+exec sp_XULYHOCPHI_sum_all '72DCHT20104'
 go

@@ -50,6 +50,15 @@ END
 GO
 
 
+CREATE PROCEDURE sp_PHIEUTHU_select_masv(
+	@MASV nvarchar(15)
+)
+AS
+BEGIN
+SELECT * FROM PHIEUTHU WHERE MASV = @MASV
+END
+GO
+
 CREATE PROCEDURE sp_PHIEUTHU_select_masv_hocky(
 	@MASV nvarchar(15),
 	@HOCKY int
@@ -60,4 +69,3 @@ SELECT * FROM PHIEUTHU WHERE MASV = @MASV and HOCKY = @HOCKY
 END
 GO
 
-sp_PHIEUTHU_select_masv_hocky '72DCHT20104', 2

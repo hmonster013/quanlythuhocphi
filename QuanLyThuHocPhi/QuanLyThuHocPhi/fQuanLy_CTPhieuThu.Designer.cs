@@ -89,7 +89,7 @@
             this.panel5.Location = new System.Drawing.Point(36, 62);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(421, 42);
-            this.panel5.TabIndex = 2;
+            this.panel5.TabIndex = 1;
             // 
             // txbMaCTPT
             // 
@@ -98,6 +98,7 @@
             this.txbMaCTPT.Name = "txbMaCTPT";
             this.txbMaCTPT.Size = new System.Drawing.Size(252, 26);
             this.txbMaCTPT.TabIndex = 1;
+            this.txbMaCTPT.TabStop = false;
             // 
             // panel1
             // 
@@ -115,7 +116,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1081, 239);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 0;
             // 
             // lbHienThi
             // 
@@ -134,7 +135,7 @@
             this.panel7.Location = new System.Drawing.Point(36, 158);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(421, 42);
-            this.panel7.TabIndex = 7;
+            this.panel7.TabIndex = 3;
             // 
             // txbSoTienDong
             // 
@@ -161,7 +162,7 @@
             this.panel6.Location = new System.Drawing.Point(525, 158);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(413, 42);
-            this.panel6.TabIndex = 15;
+            this.panel6.TabIndex = 6;
             // 
             // txbSTChuaDong
             // 
@@ -170,6 +171,7 @@
             this.txbSTChuaDong.Name = "txbSTChuaDong";
             this.txbSTChuaDong.Size = new System.Drawing.Size(252, 26);
             this.txbSTChuaDong.TabIndex = 1;
+            this.txbSTChuaDong.TabStop = false;
             // 
             // lbChuaDong
             // 
@@ -188,7 +190,7 @@
             this.panel11.Location = new System.Drawing.Point(36, 110);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(421, 42);
-            this.panel11.TabIndex = 6;
+            this.panel11.TabIndex = 2;
             // 
             // dtpNgayDong
             // 
@@ -216,7 +218,7 @@
             this.panel8.Location = new System.Drawing.Point(525, 110);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(413, 42);
-            this.panel8.TabIndex = 14;
+            this.panel8.TabIndex = 5;
             // 
             // txbSTDaDong
             // 
@@ -225,6 +227,7 @@
             this.txbSTDaDong.Name = "txbSTDaDong";
             this.txbSTDaDong.Size = new System.Drawing.Size(252, 26);
             this.txbSTDaDong.TabIndex = 1;
+            this.txbSTDaDong.TabStop = false;
             // 
             // lbDaDong
             // 
@@ -243,7 +246,7 @@
             this.panel9.Location = new System.Drawing.Point(525, 62);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(413, 42);
-            this.panel9.TabIndex = 13;
+            this.panel9.TabIndex = 4;
             // 
             // txbSTPhaiDong
             // 
@@ -252,6 +255,7 @@
             this.txbSTPhaiDong.Name = "txbSTPhaiDong";
             this.txbSTPhaiDong.Size = new System.Drawing.Size(252, 26);
             this.txbSTPhaiDong.TabIndex = 1;
+            this.txbSTPhaiDong.TabStop = false;
             // 
             // lbPhaiDong
             // 
@@ -270,7 +274,7 @@
             this.panel4.Location = new System.Drawing.Point(36, 14);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(421, 42);
-            this.panel4.TabIndex = 1;
+            this.panel4.TabIndex = 0;
             // 
             // txbMaPT
             // 
@@ -279,6 +283,7 @@
             this.txbMaPT.Name = "txbMaPT";
             this.txbMaPT.Size = new System.Drawing.Size(252, 26);
             this.txbMaPT.TabIndex = 1;
+            this.txbMaPT.TabStop = false;
             // 
             // label1
             // 
@@ -303,7 +308,7 @@
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(113, 239);
-            this.panel3.TabIndex = 0;
+            this.panel3.TabIndex = 7;
             // 
             // btKiemTra
             // 

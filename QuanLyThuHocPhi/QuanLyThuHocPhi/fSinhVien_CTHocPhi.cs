@@ -25,6 +25,11 @@ namespace QuanLyThuHocPhi
         {
             dgvHienThi.DataSource = bus.GetDataByMaPT(MAPT);
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvHienThi.Columns[0].HeaderText = "Mã chi tiết phiếu thu";
+            dgvHienThi.Columns[1].HeaderText = "Mã phiếu thu";
+            dgvHienThi.Columns[2].HeaderText = "Ngày đóng";
+            dgvHienThi.Columns[3].HeaderText = "Số tiền đóng";
         }
 
         public fSinhVien_CTHocPhi(int MAPT)

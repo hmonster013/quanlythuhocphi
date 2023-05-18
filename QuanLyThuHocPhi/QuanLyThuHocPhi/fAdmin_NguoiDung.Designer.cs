@@ -73,7 +73,7 @@
             this.panel13.Location = new System.Drawing.Point(509, 12);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(397, 42);
-            this.panel13.TabIndex = 5;
+            this.panel13.TabIndex = 3;
             // 
             // cbQuyen
             // 
@@ -82,7 +82,7 @@
             this.cbQuyen.Location = new System.Drawing.Point(142, 9);
             this.cbQuyen.Name = "cbQuyen";
             this.cbQuyen.Size = new System.Drawing.Size(247, 28);
-            this.cbQuyen.TabIndex = 2;
+            this.cbQuyen.TabIndex = 0;
             // 
             // label10
             // 
@@ -101,7 +101,7 @@
             this.panel5.Location = new System.Drawing.Point(31, 60);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 42);
-            this.panel5.TabIndex = 4;
+            this.panel5.TabIndex = 2;
             // 
             // txbMatKhau
             // 
@@ -109,7 +109,7 @@
             this.txbMatKhau.Location = new System.Drawing.Point(142, 9);
             this.txbMatKhau.Name = "txbMatKhau";
             this.txbMatKhau.Size = new System.Drawing.Size(252, 26);
-            this.txbMatKhau.TabIndex = 1;
+            this.txbMatKhau.TabIndex = 0;
             // 
             // label2
             // 
@@ -128,7 +128,7 @@
             this.panel4.Location = new System.Drawing.Point(31, 12);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(397, 42);
-            this.panel4.TabIndex = 3;
+            this.panel4.TabIndex = 1;
             // 
             // txbTenTK
             // 
@@ -136,7 +136,7 @@
             this.txbTenTK.Location = new System.Drawing.Point(142, 7);
             this.txbTenTK.Name = "txbTenTK";
             this.txbTenTK.Size = new System.Drawing.Size(252, 26);
-            this.txbTenTK.TabIndex = 1;
+            this.txbTenTK.TabIndex = 0;
             // 
             // label1
             // 
@@ -160,7 +160,7 @@
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(113, 212);
-            this.panel3.TabIndex = 1;
+            this.panel3.TabIndex = 4;
             // 
             // btReset
             // 
@@ -222,7 +222,7 @@
             this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
             this.dgvHienThi.Name = "dgvHienThi";
             this.dgvHienThi.Size = new System.Drawing.Size(1081, 422);
-            this.dgvHienThi.TabIndex = 0;
+            this.dgvHienThi.TabIndex = 5;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
             // fAdmin_NguoiDung

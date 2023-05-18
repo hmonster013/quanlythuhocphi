@@ -25,6 +25,7 @@ namespace QuanLyThuHocPhi
             this.MASV = MASV;
             InitializeComponent();
         }
+
         public void addDataToForm(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -56,6 +57,17 @@ namespace QuanLyThuHocPhi
 
         private void fSinhVien_ThongTinCaNhan_Load(object sender, EventArgs e)
         {
+            txbMaSV.Enabled = false;
+            txbHoSV.Enabled = false;
+            txbTenSV.Enabled = false;
+            txbDiaChi.Enabled = false;
+            txbTenTK.Enabled = false;
+            rdbNam.Enabled = false;
+            rdbNu.Enabled = false;
+            rdbTrue.Enabled = false;
+            rdbFalse.Enabled = false;
+            dtpNgaySinh.Enabled = false;
+            cbMaLop.Enabled = false;
             addDataToForm(sender, e);
         }
     }

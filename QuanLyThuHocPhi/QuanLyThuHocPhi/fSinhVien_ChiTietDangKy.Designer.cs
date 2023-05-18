@@ -68,7 +68,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(937, 161);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 1;
             // 
             // panel5
             // 
@@ -77,7 +77,7 @@
             this.panel5.Location = new System.Drawing.Point(506, 51);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 42);
-            this.panel5.TabIndex = 8;
+            this.panel5.TabIndex = 3;
             // 
             // txbHocKy
             // 
@@ -104,7 +104,7 @@
             this.panel6.Location = new System.Drawing.Point(31, 99);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 42);
-            this.panel6.TabIndex = 7;
+            this.panel6.TabIndex = 2;
             // 
             // txbMaSV
             // 
@@ -131,7 +131,7 @@
             this.panel7.Location = new System.Drawing.Point(31, 51);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(397, 42);
-            this.panel7.TabIndex = 6;
+            this.panel7.TabIndex = 1;
             // 
             // txbMaDK
             // 
@@ -178,7 +178,7 @@
             this.btTimKiem.Location = new System.Drawing.Point(375, 5);
             this.btTimKiem.Name = "btTimKiem";
             this.btTimKiem.Size = new System.Drawing.Size(81, 30);
-            this.btTimKiem.TabIndex = 1;
+            this.btTimKiem.TabIndex = 5;
             this.btTimKiem.Text = "Tìm kiếm";
             this.btTimKiem.UseVisualStyleBackColor = true;
             this.btTimKiem.Click += new System.EventHandler(this.btTimKiem_Click);
@@ -201,7 +201,7 @@
             this.dgvHienThi.Location = new System.Drawing.Point(0, 41);
             this.dgvHienThi.Name = "dgvHienThi";
             this.dgvHienThi.Size = new System.Drawing.Size(937, 314);
-            this.dgvHienThi.TabIndex = 3;
+            this.dgvHienThi.TabIndex = 4;
             this.dgvHienThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellContentClick);
             // 
             // btDangKyThem
@@ -210,7 +210,7 @@
             this.btDangKyThem.Location = new System.Drawing.Point(0, 355);
             this.btDangKyThem.Name = "btDangKyThem";
             this.btDangKyThem.Size = new System.Drawing.Size(937, 23);
-            this.btDangKyThem.TabIndex = 2;
+            this.btDangKyThem.TabIndex = 5;
             this.btDangKyThem.Text = "Đăng ký thêm";
             this.btDangKyThem.UseVisualStyleBackColor = true;
             this.btDangKyThem.Click += new System.EventHandler(this.btDangKyThem_Click);
@@ -223,7 +223,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(937, 41);
-            this.panel3.TabIndex = 1;
+            this.panel3.TabIndex = 2;
             // 
             // panel8
             // 
@@ -234,7 +234,7 @@
             this.panel8.Location = new System.Drawing.Point(469, 0);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(468, 41);
-            this.panel8.TabIndex = 5;
+            this.panel8.TabIndex = 3;
             // 
             // txbTenMH
             // 

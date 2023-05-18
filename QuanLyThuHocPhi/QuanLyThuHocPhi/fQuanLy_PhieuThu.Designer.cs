@@ -76,7 +76,7 @@
             this.btKiemTra.Location = new System.Drawing.Point(0, 180);
             this.btKiemTra.Name = "btKiemTra";
             this.btKiemTra.Size = new System.Drawing.Size(109, 45);
-            this.btKiemTra.TabIndex = 5;
+            this.btKiemTra.TabIndex = 4;
             this.btKiemTra.Text = "Kiểm tra";
             this.btKiemTra.UseVisualStyleBackColor = true;
             this.btKiemTra.Click += new System.EventHandler(this.btKiemTra_Click);
@@ -87,7 +87,7 @@
             this.btReset.Location = new System.Drawing.Point(0, 135);
             this.btReset.Name = "btReset";
             this.btReset.Size = new System.Drawing.Size(109, 45);
-            this.btReset.TabIndex = 4;
+            this.btReset.TabIndex = 3;
             this.btReset.Text = "Reset";
             this.btReset.UseVisualStyleBackColor = true;
             this.btReset.Click += new System.EventHandler(this.btReset_Click);
@@ -138,7 +138,7 @@
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(113, 231);
-            this.panel3.TabIndex = 0;
+            this.panel3.TabIndex = 8;
             // 
             // txbMaPT
             // 
@@ -147,6 +147,7 @@
             this.txbMaPT.Name = "txbMaPT";
             this.txbMaPT.Size = new System.Drawing.Size(252, 26);
             this.txbMaPT.TabIndex = 1;
+            this.txbMaPT.TabStop = false;
             // 
             // label1
             // 
@@ -213,7 +214,7 @@
             this.panel8.Location = new System.Drawing.Point(36, 158);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(397, 42);
-            this.panel8.TabIndex = 3;
+            this.panel8.TabIndex = 4;
             // 
             // panel1
             // 
@@ -250,7 +251,7 @@
             this.panel7.Location = new System.Drawing.Point(521, 158);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(413, 42);
-            this.panel7.TabIndex = 11;
+            this.panel7.TabIndex = 7;
             // 
             // txbTongChuaDong
             // 
@@ -259,6 +260,7 @@
             this.txbTongChuaDong.Name = "txbTongChuaDong";
             this.txbTongChuaDong.Size = new System.Drawing.Size(252, 26);
             this.txbTongChuaDong.TabIndex = 1;
+            this.txbTongChuaDong.TabStop = false;
             // 
             // lbChuaDong
             // 
@@ -277,7 +279,7 @@
             this.panel6.Location = new System.Drawing.Point(521, 110);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(413, 42);
-            this.panel6.TabIndex = 9;
+            this.panel6.TabIndex = 6;
             // 
             // txbTongDaDong
             // 
@@ -286,6 +288,7 @@
             this.txbTongDaDong.Name = "txbTongDaDong";
             this.txbTongDaDong.Size = new System.Drawing.Size(252, 26);
             this.txbTongDaDong.TabIndex = 1;
+            this.txbTongDaDong.TabStop = false;
             // 
             // panel2
             // 
@@ -294,7 +297,7 @@
             this.panel2.Location = new System.Drawing.Point(521, 62);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(413, 42);
-            this.panel2.TabIndex = 2;
+            this.panel2.TabIndex = 5;
             // 
             // txbTongHocPhi
             // 
@@ -303,6 +306,7 @@
             this.txbTongHocPhi.Name = "txbTongHocPhi";
             this.txbTongHocPhi.Size = new System.Drawing.Size(252, 26);
             this.txbTongHocPhi.TabIndex = 1;
+            this.txbTongHocPhi.TabStop = false;
             // 
             // panel12
             // 
@@ -311,7 +315,7 @@
             this.panel12.Location = new System.Drawing.Point(36, 110);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(397, 42);
-            this.panel12.TabIndex = 2;
+            this.panel12.TabIndex = 3;
             // 
             // txbNienKhoa
             // 
