@@ -39,7 +39,6 @@
             this.pnHienThi = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -137,8 +136,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quảnLýToolStripMenuItem,
-            this.sinhViênToolStripMenuItem});
+            this.quảnLýToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1270, 24);
@@ -151,13 +149,6 @@
             this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.quảnLýToolStripMenuItem.Text = "Quản lý";
             this.quảnLýToolStripMenuItem.Click += new System.EventHandler(this.quảnLýToolStripMenuItem_Click);
-            // 
-            // sinhViênToolStripMenuItem
-            // 
-            this.sinhViênToolStripMenuItem.Name = "sinhViênToolStripMenuItem";
-            this.sinhViênToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.sinhViênToolStripMenuItem.Text = "Sinh viên";
-            this.sinhViênToolStripMenuItem.Click += new System.EventHandler(this.sinhViênToolStripMenuItem_Click);
             // 
             // fAdmin
             // 
@@ -195,7 +186,6 @@
         private System.Windows.Forms.Panel pnHienThi;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sinhViênToolStripMenuItem;
         private System.Windows.Forms.Button btDangXuat;
     }
 }

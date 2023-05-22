@@ -27,6 +27,17 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_SINHVIEN_select_masv", param);
         }
 
+        public DataTable GetDataByCondition(string MAKHOA, string MACN, string MALOP)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MAKHOA", MAKHOA),
+                new SqlParameter("MACN", MACN),
+                new SqlParameter("MALOP", MALOP)
+            };
+            return _dbConnect.GetData("sp_SINHVIEN_select_by_khoa_chuyennganh_lop", param);
+        }
+
         public int Insert(SINHVIEN obj)
         {
             SqlParameter[] param =

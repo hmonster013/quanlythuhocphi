@@ -38,5 +38,27 @@ namespace DataAccessLayer
             };
             return _dbConnect.GetData("sp_XULYHOCPHI_select_byhocky", param);
         }
+
+        public DataTable GetAllDataHocPhi(string MAKHOA, string MACN, string MALOP)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MAKHOA", MAKHOA),
+                new SqlParameter("MACN", MACN),
+                new SqlParameter("MALOP", MALOP)
+            };
+            return _dbConnect.GetData("sp_XULYHOCPHI_ds_all", param);
+        }
+
+        public DataTable GetAllDataTongHocPhi(string MAKHOA, string MACN, string MALOP)
+        {
+            SqlParameter[] param =
+{
+                new SqlParameter("MAKHOA", MAKHOA),
+                new SqlParameter("MACN", MACN),
+                new SqlParameter("MALOP", MALOP)
+            };
+            return _dbConnect.GetData("sp_XULYHOCPHI_ds_sum_all", param);
+        }
     }
 }

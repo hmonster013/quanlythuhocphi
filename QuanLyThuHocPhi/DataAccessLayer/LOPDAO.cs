@@ -27,6 +27,24 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_LOP_select_malop", param);
         }
 
+        public DataTable GetDataByMAKHOA(string MAKHOA)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MAKHOA", MAKHOA)
+            };
+            return _dbConnect.GetData("sp_LOP_select_by_makhoa", param);
+        }
+
+        public DataTable GetDataByMACN(string MACN) 
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MACN", MACN)
+            };
+            return _dbConnect.GetData("sp_LOP_select_by_macn", param);
+        }
+
         public int Insert(LOP obj)
         {
             SqlParameter[] param =

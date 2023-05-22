@@ -242,7 +242,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(268, 29);
             this.label3.TabIndex = 12;
-            this.label3.Text = "THÔNG TIN HOC PHÍ";
+            this.label3.Text = "THÔNG TIN HỌC PHÍ";
             // 
             // panel7
             // 

@@ -106,5 +106,11 @@ namespace QuanLyThuHocPhi
                 Application.Exit();
             }
         }
+
+        private void btBaoCao_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fQuanLy_BaoCao());
+            lbHienThi.Text = btBaoCao.Text;
+        }
     }
 }

@@ -126,7 +126,7 @@
             this.lbHienThi.Name = "lbHienThi";
             this.lbHienThi.Size = new System.Drawing.Size(316, 29);
             this.lbHienThi.TabIndex = 16;
-            this.lbHienThi.Text = "THÔNG TIN HOC PHÍ KỲ ";
+            this.lbHienThi.Text = "THÔNG TIN HỌC PHÍ KỲ ";
             // 
             // panel7
             // 

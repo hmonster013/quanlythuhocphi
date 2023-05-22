@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fQuanLy));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btDangXuat = new System.Windows.Forms.Button();
+            this.btBaoCao = new System.Windows.Forms.Button();
             this.btTaoPhieuThu = new System.Windows.Forms.Button();
             this.btSinhVien = new System.Windows.Forms.Button();
             this.btLopHocPhan = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Coral;
             this.panel1.Controls.Add(this.btDangXuat);
+            this.panel1.Controls.Add(this.btBaoCao);
             this.panel1.Controls.Add(this.btTaoPhieuThu);
             this.panel1.Controls.Add(this.btSinhVien);
             this.panel1.Controls.Add(this.btLopHocPhan);
@@ -63,7 +65,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 739);
+            this.panel1.Size = new System.Drawing.Size(200, 818);
             this.panel1.TabIndex = 0;
             // 
             // btDangXuat
@@ -73,13 +75,28 @@
             this.btDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btDangXuat.Location = new System.Drawing.Point(0, 660);
+            this.btDangXuat.Location = new System.Drawing.Point(0, 730);
             this.btDangXuat.Name = "btDangXuat";
             this.btDangXuat.Size = new System.Drawing.Size(200, 70);
-            this.btDangXuat.TabIndex = 29;
+            this.btDangXuat.TabIndex = 32;
             this.btDangXuat.Text = "Đăng xuất";
             this.btDangXuat.UseVisualStyleBackColor = true;
             this.btDangXuat.Click += new System.EventHandler(this.btDangXuat_Click);
+            // 
+            // btBaoCao
+            // 
+            this.btBaoCao.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btBaoCao.FlatAppearance.BorderSize = 0;
+            this.btBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBaoCao.ForeColor = System.Drawing.Color.White;
+            this.btBaoCao.Location = new System.Drawing.Point(0, 660);
+            this.btBaoCao.Name = "btBaoCao";
+            this.btBaoCao.Size = new System.Drawing.Size(200, 70);
+            this.btBaoCao.TabIndex = 31;
+            this.btBaoCao.Text = "Báo cáo";
+            this.btBaoCao.UseVisualStyleBackColor = true;
+            this.btBaoCao.Click += new System.EventHandler(this.btBaoCao_Click);
             // 
             // btTaoPhieuThu
             // 
@@ -239,14 +256,14 @@
             this.pnHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnHienThi.Location = new System.Drawing.Point(200, 100);
             this.pnHienThi.Name = "pnHienThi";
-            this.pnHienThi.Size = new System.Drawing.Size(1070, 639);
+            this.pnHienThi.Size = new System.Drawing.Size(1070, 718);
             this.pnHienThi.TabIndex = 2;
             // 
             // fQuanLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 739);
+            this.ClientSize = new System.Drawing.Size(1270, 818);
             this.Controls.Add(this.pnHienThi);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -267,7 +284,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnHienThi;
         private System.Windows.Forms.Label lbHienThi;
-        private System.Windows.Forms.Button btDangXuat;
         private System.Windows.Forms.Button btTaoPhieuThu;
         private System.Windows.Forms.Button btSinhVien;
         private System.Windows.Forms.Button btLopHocPhan;
@@ -277,5 +293,7 @@
         private System.Windows.Forms.Button btCN;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btKhoa;
+        private System.Windows.Forms.Button btDangXuat;
+        private System.Windows.Forms.Button btBaoCao;
     }
 }

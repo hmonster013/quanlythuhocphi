@@ -27,6 +27,15 @@ namespace DataAccessLayer
             return _dbConnect.GetData("sp_CHUYENNGANH_select_macn", param);
         }
 
+        public DataTable GetDataByMAKHOA(string MAKHOA)
+        {
+            SqlParameter[] param =
+            {
+                new SqlParameter("MAKHOA", MAKHOA)
+            };
+            return _dbConnect.GetData("sp_CHUYENNGANH_select_by_makhoa", param);
+        }
+
         public int Insert(CHUYENNGANH obj)
         {
             SqlParameter[] param =

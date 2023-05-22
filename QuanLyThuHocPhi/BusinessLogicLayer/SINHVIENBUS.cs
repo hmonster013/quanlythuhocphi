@@ -23,6 +23,11 @@ namespace BusinessLogicLayer
             return dao.GetDataByID(ID);
         }
 
+        public DataTable GetDataByCondition(string MAKHOA, string MACN, string MALOP)
+        {
+            return dao.GetDataByCondition(MAKHOA, MACN, MALOP);
+        }
+
         public int Insert(SINHVIEN obj)
         {
             return dao.Insert(obj);

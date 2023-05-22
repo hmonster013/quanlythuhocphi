@@ -45,3 +45,23 @@ begin
 	select * from LOP where MALOP = @MALOP
 end
 GO
+
+CREATE PROCEDURE sp_LOP_select_by_makhoa(
+	@MAKHOA nvarchar(10)
+)
+as
+begin
+	select * from LOP inner join CHUYENNGANH ON CHUYENNGANH.MACN = LOP.MACN 
+	WHERE CHUYENNGANH.MAKHOA = @MAKHOA
+end
+go
+
+CREATE PROCEDURE sp_LOP_select_by_macn(
+	@MACN nvarchar(10)
+)
+as
+begin
+	select * from LOP where LOP.MACN = @MACN
+end
+go
+

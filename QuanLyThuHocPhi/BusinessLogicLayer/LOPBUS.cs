@@ -23,6 +23,15 @@ namespace BusinessLogicLayer
             return dao.GetDataByID(ID);
         }
 
+        public DataTable GetDataByMAKHOA(string MAKHOA)
+        {
+            return dao.GetDataByMAKHOA(MAKHOA);
+        }
+
+        public DataTable GetdataByMACN(string MACN)
+        {
+            return dao.GetDataByMACN(MACN);
+        }
         public int Insert(LOP obj)
         {
             return dao.Insert(obj);

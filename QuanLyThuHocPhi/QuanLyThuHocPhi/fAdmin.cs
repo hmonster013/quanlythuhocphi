@@ -52,11 +52,7 @@ namespace QuanLyThuHocPhi
             fQuanLy ftempQuanLy = new fQuanLy();
             ftempQuanLy.ShowDialog();
         }
-        private void sinhViênToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fSinhVien ftempSinhVien = new fSinhVien("Admin");
-            ftempSinhVien.ShowDialog();
-        }
+
         private void panel4_Click(object sender, EventArgs e)
         {
             if (currentFormChild != null)
