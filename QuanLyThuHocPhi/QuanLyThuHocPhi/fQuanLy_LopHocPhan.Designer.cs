@@ -34,6 +34,8 @@
             this.txbMaLHP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btNhapExcel = new System.Windows.Forms.Button();
+            this.btXuatExcel = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
@@ -124,6 +126,8 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.btNhapExcel);
+            this.panel3.Controls.Add(this.btXuatExcel);
             this.panel3.Controls.Add(this.btReset);
             this.panel3.Controls.Add(this.btXoa);
             this.panel3.Controls.Add(this.btSua);
@@ -133,6 +137,28 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(113, 277);
             this.panel3.TabIndex = 8;
+            // 
+            // btNhapExcel
+            // 
+            this.btNhapExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btNhapExcel.Location = new System.Drawing.Point(0, 225);
+            this.btNhapExcel.Name = "btNhapExcel";
+            this.btNhapExcel.Size = new System.Drawing.Size(109, 45);
+            this.btNhapExcel.TabIndex = 5;
+            this.btNhapExcel.Text = "Nhập Excel";
+            this.btNhapExcel.UseVisualStyleBackColor = true;
+            this.btNhapExcel.Click += new System.EventHandler(this.btNhapExcel_Click);
+            // 
+            // btXuatExcel
+            // 
+            this.btXuatExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btXuatExcel.Location = new System.Drawing.Point(0, 180);
+            this.btXuatExcel.Name = "btXuatExcel";
+            this.btXuatExcel.Size = new System.Drawing.Size(109, 45);
+            this.btXuatExcel.TabIndex = 4;
+            this.btXuatExcel.Text = "Xuất Excel";
+            this.btXuatExcel.UseVisualStyleBackColor = true;
+            this.btXuatExcel.Click += new System.EventHandler(this.btXuatExcel_Click);
             // 
             // btReset
             // 
@@ -444,5 +470,7 @@
         private System.Windows.Forms.TextBox txbNienKhoa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btReset;
+        private System.Windows.Forms.Button btNhapExcel;
+        private System.Windows.Forms.Button btXuatExcel;
     }
 }

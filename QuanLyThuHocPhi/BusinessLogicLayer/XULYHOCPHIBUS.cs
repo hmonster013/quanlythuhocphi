@@ -36,5 +36,10 @@ namespace BusinessLogicLayer
         {
             return dao.GetAllDataTongHocPhi(MAKHOA, MACN, MALOP);
         }
+
+        public DataTable GetAllDataNoHocPhi(string MAKHOA, string MACN, string MALOP)
+        {
+            return dao.GetAllDataNoHocPhi(MAKHOA , MACN, MALOP);
+        }
     }
 }

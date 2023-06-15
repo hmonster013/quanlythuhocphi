@@ -203,7 +203,7 @@ GO
 
 EXEC sp_XULYHOCPHI_dshocphi '', '', ''
 GO
---Lấy danh sách học phí, số tiền đã đóng, số tiền chưa đóng
+--Lấy danh sách học phí, số tiền đã đóng, số tiền chưa đóng của tất cả học sinh
 CREATE PROCEDURE sp_XULYHOCPHI_ds_all(
 	@MAKHOA nvarchar(10),
 	@MACN nvarchar(10),
@@ -220,7 +220,7 @@ BEGIN
 	INSERT INTO #temp
 	EXEC sp_XULYHOCPHI_dshocphi @MAKHOA, @MACN, @MALOP
 
-	SELECT  #temp.MASV, #temp.TONGSOTC, #temp.HOCPHI,
+	SELECT  #temp.MASV, SINHVIEN.HO + ' ' + SINHVIEN.TEN AS FULLNAME, SINHVIEN.DANGNGHIHOC, SINHVIEN.MALOP, #temp.TONGSOTC, #temp.HOCPHI,
 		CASE 
 		WHEN temp1.TONGDADONG is null THEN 0
 		ELSE temp1.TONGDADONG
@@ -229,7 +229,8 @@ BEGIN
 		WHEN temp1.TONGDADONG is null THEN #temp.HOCPHI
 		ELSE #temp.HOCPHI - temp1.TONGDADONG
 		END AS TONGCHUADONG
-	FROM #temp LEFT JOIN 
+	FROM #temp LEFT JOIN SINHVIEN ON #temp.MASV = SINHVIEN.MASV
+	LEFT JOIN
 	(
 	SELECT SINHVIEN.MASV, SUM(SOTIENDONG) AS TONGDADONG
 	FROM SINHVIEN INNER JOIN PHIEUTHU ON SINHVIEN.MASV = PHIEUTHU.MASV
@@ -237,11 +238,53 @@ BEGIN
 	GROUP BY SINHVIEN.MASV
 	) as temp1 
 	on #temp.MASV = temp1.MASV
-
+	
 END
 GO
 
 EXEC sp_XULYHOCPHI_ds_all '', '', ''
+GO
+
+--Lấy danh sách học phí, số tiền đã đóng, số tiền chưa đóng của tất cả học sinh chưa đóng đủ học phí
+CREATE PROCEDURE sp_XULYHOCPHI_ds_nohp_all(
+	@MAKHOA nvarchar(10),
+	@MACN nvarchar(10),
+	@MALOP nvarchar(10)
+)
+AS
+BEGIN
+	CREATE TABLE #temp(
+		MASV nvarchar(15),
+		TONGSOTC int,
+		HOCPHI float
+	)
+
+	INSERT INTO #temp
+	EXEC sp_XULYHOCPHI_dshocphi @MAKHOA, @MACN, @MALOP
+
+	SELECT  #temp.MASV, SINHVIEN.HO + ' ' + SINHVIEN.TEN AS FULLNAME, SINHVIEN.DANGNGHIHOC, SINHVIEN.MALOP, #temp.TONGSOTC, #temp.HOCPHI,
+		CASE 
+		WHEN temp1.TONGDADONG is null THEN 0
+		ELSE temp1.TONGDADONG
+		END AS TONGDADONG,
+		CASE 
+		WHEN temp1.TONGDADONG is null THEN #temp.HOCPHI
+		ELSE #temp.HOCPHI - temp1.TONGDADONG
+		END AS TONGCHUADONG
+	FROM #temp LEFT JOIN SINHVIEN ON #temp.MASV = SINHVIEN.MASV
+	LEFT JOIN
+	(
+	SELECT SINHVIEN.MASV, SUM(SOTIENDONG) AS TONGDADONG
+	FROM SINHVIEN INNER JOIN PHIEUTHU ON SINHVIEN.MASV = PHIEUTHU.MASV
+				INNER JOIN CTPHIEUTHU ON PHIEUTHU.MAPT = CTPHIEUTHU.MAPT
+	GROUP BY SINHVIEN.MASV
+	) as temp1 
+	on #temp.MASV = temp1.MASV
+	WHERE temp1.TONGDADONG < #temp.HOCPHI OR temp1.TONGDADONG is null
+END
+GO
+
+EXEC sp_XULYHOCPHI_ds_nohp_all '', '', ''
 GO
 
 --Lấy ra tổng học phí, tổng số tiền đã đóng, tổng số tiền chưa đóng của tất cả học sinh

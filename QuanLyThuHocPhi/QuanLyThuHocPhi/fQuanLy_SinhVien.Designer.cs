@@ -56,13 +56,14 @@
             this.txbMaSV = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btXuatExcel = new System.Windows.Forms.Button();
+            this.btReset = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.btNhapExcel = new System.Windows.Forms.Button();
-            this.btReset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -92,7 +93,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1081, 231);
+            this.panel1.Size = new System.Drawing.Size(1081, 277);
             this.panel1.TabIndex = 0;
             // 
             // panel12
@@ -351,16 +352,38 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.btReset);
             this.panel3.Controls.Add(this.btNhapExcel);
+            this.panel3.Controls.Add(this.btXuatExcel);
+            this.panel3.Controls.Add(this.btReset);
             this.panel3.Controls.Add(this.btXoa);
             this.panel3.Controls.Add(this.btSua);
             this.panel3.Controls.Add(this.btThem);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(113, 231);
+            this.panel3.Size = new System.Drawing.Size(113, 277);
             this.panel3.TabIndex = 9;
+            // 
+            // btXuatExcel
+            // 
+            this.btXuatExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btXuatExcel.Location = new System.Drawing.Point(0, 180);
+            this.btXuatExcel.Name = "btXuatExcel";
+            this.btXuatExcel.Size = new System.Drawing.Size(109, 45);
+            this.btXuatExcel.TabIndex = 7;
+            this.btXuatExcel.Text = "Xuất Excel";
+            this.btXuatExcel.UseVisualStyleBackColor = true;
+            this.btXuatExcel.Click += new System.EventHandler(this.btXuatExcel_Click);
+            // 
+            // btReset
+            // 
+            this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btReset.Location = new System.Drawing.Point(0, 135);
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(109, 45);
+            this.btReset.TabIndex = 5;
+            this.btReset.Text = "Reset";
+            this.btReset.UseVisualStyleBackColor = true;
             // 
             // btXoa
             // 
@@ -399,9 +422,9 @@
             // 
             this.panel2.Controls.Add(this.dgvHienThi);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 231);
+            this.panel2.Location = new System.Drawing.Point(0, 277);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1081, 403);
+            this.panel2.Size = new System.Drawing.Size(1081, 357);
             this.panel2.TabIndex = 1;
             // 
             // dgvHienThi
@@ -412,29 +435,20 @@
             this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
             this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(1081, 501);
+            this.dgvHienThi.Size = new System.Drawing.Size(1081, 455);
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
             // btNhapExcel
             // 
             this.btNhapExcel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btNhapExcel.Location = new System.Drawing.Point(0, 135);
+            this.btNhapExcel.Location = new System.Drawing.Point(0, 225);
             this.btNhapExcel.Name = "btNhapExcel";
             this.btNhapExcel.Size = new System.Drawing.Size(109, 45);
-            this.btNhapExcel.TabIndex = 4;
+            this.btNhapExcel.TabIndex = 8;
             this.btNhapExcel.Text = "Nhập Excel";
             this.btNhapExcel.UseVisualStyleBackColor = true;
-            // 
-            // btReset
-            // 
-            this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btReset.Location = new System.Drawing.Point(0, 180);
-            this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(109, 45);
-            this.btReset.TabIndex = 5;
-            this.btReset.Text = "Reset";
-            this.btReset.UseVisualStyleBackColor = true;
+            this.btNhapExcel.Click += new System.EventHandler(this.btNhapExcel_Click_1);
             // 
             // fQuanLy_SinhVien
             // 
@@ -507,7 +521,8 @@
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.RadioButton rdbFalse;
         private System.Windows.Forms.RadioButton rdbTrue;
-        private System.Windows.Forms.Button btNhapExcel;
         private System.Windows.Forms.Button btReset;
+        private System.Windows.Forms.Button btXuatExcel;
+        private System.Windows.Forms.Button btNhapExcel;
     }
 }

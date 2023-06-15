@@ -115,7 +115,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1081, 239);
+            this.panel1.Size = new System.Drawing.Size(1081, 230);
             this.panel1.TabIndex = 0;
             // 
             // lbHienThi
@@ -307,7 +307,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(113, 239);
+            this.panel3.Size = new System.Drawing.Size(113, 230);
             this.panel3.TabIndex = 7;
             // 
             // btKiemTra
@@ -369,9 +369,9 @@
             // 
             this.panel2.Controls.Add(this.dgvHienThi);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 239);
+            this.panel2.Location = new System.Drawing.Point(0, 230);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1081, 395);
+            this.panel2.Size = new System.Drawing.Size(1081, 404);
             this.panel2.TabIndex = 5;
             // 
             // dgvHienThi
@@ -380,7 +380,7 @@
             this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
             this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(1081, 395);
+            this.dgvHienThi.Size = new System.Drawing.Size(1081, 404);
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 

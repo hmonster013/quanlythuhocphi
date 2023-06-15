@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txbTenMH = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,6 +39,8 @@
             this.txbMaMH = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btNhapExcel = new System.Windows.Forms.Button();
+            this.btXuatExcel = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
@@ -48,36 +49,25 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.cbHocKy = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvHienThi);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 209);
+            this.panel2.Location = new System.Drawing.Point(0, 276);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1081, 425);
+            this.panel2.Size = new System.Drawing.Size(1081, 358);
             this.panel2.TabIndex = 5;
-            // 
-            // dgvHienThi
-            // 
-            this.dgvHienThi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
-            this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(1081, 523);
-            this.dgvHienThi.TabIndex = 0;
-            this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
             // panel5
             // 
@@ -164,6 +154,8 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.btNhapExcel);
+            this.panel3.Controls.Add(this.btXuatExcel);
             this.panel3.Controls.Add(this.btReset);
             this.panel3.Controls.Add(this.btXoa);
             this.panel3.Controls.Add(this.btSua);
@@ -171,8 +163,30 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(113, 209);
+            this.panel3.Size = new System.Drawing.Size(113, 276);
             this.panel3.TabIndex = 4;
+            // 
+            // btNhapExcel
+            // 
+            this.btNhapExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btNhapExcel.Location = new System.Drawing.Point(0, 225);
+            this.btNhapExcel.Name = "btNhapExcel";
+            this.btNhapExcel.Size = new System.Drawing.Size(109, 45);
+            this.btNhapExcel.TabIndex = 5;
+            this.btNhapExcel.Text = "Nhập Excel";
+            this.btNhapExcel.UseVisualStyleBackColor = true;
+            this.btNhapExcel.Click += new System.EventHandler(this.btNhapExcel_Click);
+            // 
+            // btXuatExcel
+            // 
+            this.btXuatExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btXuatExcel.Location = new System.Drawing.Point(0, 180);
+            this.btXuatExcel.Name = "btXuatExcel";
+            this.btXuatExcel.Size = new System.Drawing.Size(109, 45);
+            this.btXuatExcel.TabIndex = 4;
+            this.btXuatExcel.Text = "Xuất Excel";
+            this.btXuatExcel.UseVisualStyleBackColor = true;
+            this.btXuatExcel.Click += new System.EventHandler(this.btXuatExcel_Click);
             // 
             // btReset
             // 
@@ -229,7 +243,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1081, 209);
+            this.panel1.Size = new System.Drawing.Size(1081, 276);
             this.panel1.TabIndex = 4;
             // 
             // panel12
@@ -260,6 +274,16 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Học kỳ:";
             // 
+            // dgvHienThi
+            // 
+            this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
+            this.dgvHienThi.Name = "dgvHienThi";
+            this.dgvHienThi.Size = new System.Drawing.Size(1081, 358);
+            this.dgvHienThi.TabIndex = 0;
+            this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
+            // 
             // fQuanLy_MonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,7 +296,6 @@
             this.Text = "fQuanLy_MonHoc";
             this.Load += new System.EventHandler(this.fAdmin_MonHoc_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -283,6 +306,7 @@
             this.panel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,7 +314,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvHienThi;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txbTenMH;
         private System.Windows.Forms.Label label2;
@@ -309,5 +332,8 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.ComboBox cbHocKy;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btNhapExcel;
+        private System.Windows.Forms.Button btXuatExcel;
+        private System.Windows.Forms.DataGridView dgvHienThi;
     }
 }

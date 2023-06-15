@@ -39,6 +39,8 @@
             this.txbTenTK = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btNhapExcel = new System.Windows.Forms.Button();
+            this.btXuatExcel = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
@@ -63,7 +65,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1081, 212);
+            this.panel1.Size = new System.Drawing.Size(1081, 283);
             this.panel1.TabIndex = 0;
             // 
             // panel13
@@ -152,6 +154,8 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.btNhapExcel);
+            this.panel3.Controls.Add(this.btXuatExcel);
             this.panel3.Controls.Add(this.btReset);
             this.panel3.Controls.Add(this.btXoa);
             this.panel3.Controls.Add(this.btSua);
@@ -159,8 +163,30 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(968, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(113, 212);
+            this.panel3.Size = new System.Drawing.Size(113, 283);
             this.panel3.TabIndex = 4;
+            // 
+            // btNhapExcel
+            // 
+            this.btNhapExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btNhapExcel.Location = new System.Drawing.Point(0, 225);
+            this.btNhapExcel.Name = "btNhapExcel";
+            this.btNhapExcel.Size = new System.Drawing.Size(109, 45);
+            this.btNhapExcel.TabIndex = 5;
+            this.btNhapExcel.Text = "Nhập Excel";
+            this.btNhapExcel.UseVisualStyleBackColor = true;
+            this.btNhapExcel.Click += new System.EventHandler(this.btNhapExcel_Click);
+            // 
+            // btXuatExcel
+            // 
+            this.btXuatExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btXuatExcel.Location = new System.Drawing.Point(0, 180);
+            this.btXuatExcel.Name = "btXuatExcel";
+            this.btXuatExcel.Size = new System.Drawing.Size(109, 45);
+            this.btXuatExcel.TabIndex = 4;
+            this.btXuatExcel.Text = "Xuất Excel";
+            this.btXuatExcel.UseVisualStyleBackColor = true;
+            this.btXuatExcel.Click += new System.EventHandler(this.btXuatExcel_Click);
             // 
             // btReset
             // 
@@ -210,9 +236,9 @@
             // 
             this.panel2.Controls.Add(this.dgvHienThi);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 212);
+            this.panel2.Location = new System.Drawing.Point(0, 283);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1081, 422);
+            this.panel2.Size = new System.Drawing.Size(1081, 351);
             this.panel2.TabIndex = 1;
             // 
             // dgvHienThi
@@ -221,7 +247,7 @@
             this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
             this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(1081, 422);
+            this.dgvHienThi.Size = new System.Drawing.Size(1081, 351);
             this.dgvHienThi.TabIndex = 5;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
@@ -269,5 +295,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txbTenTK;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btNhapExcel;
+        private System.Windows.Forms.Button btXuatExcel;
     }
 }
