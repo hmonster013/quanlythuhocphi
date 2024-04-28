@@ -5,74 +5,81 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.Lop;
+using System.Net.Http;
+using System.Net.Http.Json;
+using ValueObject.Khoa;
 
 namespace DataAccessLayer
 {
     public class LOPDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/lop";
 
-        public DataTable GetData()
+        public LOPDAO()
         {
-            return _dbConnect.GetData("sp_LOP_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(string ID)
+        public async Task<List<LOP>> GetData()
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<LOP>>();
+        }
+
+        public async Task<LOP> GetDataByID(string maLop)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maLop}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MALOP", ID)
-            };
-            return _dbConnect.GetData("sp_LOP_select_malop", param);
+                return await response.Content.ReadFromJsonAsync<LOP>();
+            }
+
+            return null;
         }
 
-        public DataTable GetDataByMAKHOA(string MAKHOA)
+        public async Task<List<LOP>> GetDataByMAKHOA(string MAKHOA)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAKHOA", MAKHOA)
-            };
-            return _dbConnect.GetData("sp_LOP_select_by_makhoa", param);
+            var response = await _httpClient.GetAsync($"{BASE_URL}/khoa/{MAKHOA}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<LOP>>();
         }
 
-        public DataTable GetDataByMACN(string MACN) 
+        public async Task<List<LOP>> GetDataByMACN(string MACN) 
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", MACN)
-            };
-            return _dbConnect.GetData("sp_LOP_select_by_macn", param);
+            var response = await _httpClient.GetAsync($"{BASE_URL}/chuyennganh/{MACN}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<LOP>>();
         }
 
-        public int Insert(LOP obj)
+        public async Task<int> Insert(CreateLopRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MALOP", obj.MALOP),
-                new SqlParameter("MACN", obj.MACN)
-            };
-            return _dbConnect.ExecuteSQL("sp_LOP_insert", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Update(LOP obj)
+        public async Task<int> Update(String maLop, UpdateLopRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MALOP", obj.MALOP),
-                new SqlParameter("MACN", obj.MACN)
-            };
-            return _dbConnect.ExecuteSQL("sp_LOP_update", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maLop}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Delete(string ID)
+        public async Task<int> Delete(string maLop)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MALOP", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_LOP_delete", param);
-        }
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maLop}");
+            response.EnsureSuccessStatusCode();
 
+            return 1;
+        }
     }
 }

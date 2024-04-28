@@ -40,7 +40,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btTimKiem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.btDangKyThem = new System.Windows.Forms.Button();
@@ -171,18 +170,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên môn học:";
             // 
-            // btTimKiem
-            // 
-            this.btTimKiem.AutoSize = true;
-            this.btTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTimKiem.Location = new System.Drawing.Point(375, 5);
-            this.btTimKiem.Name = "btTimKiem";
-            this.btTimKiem.Size = new System.Drawing.Size(81, 30);
-            this.btTimKiem.TabIndex = 5;
-            this.btTimKiem.Text = "Tìm kiếm";
-            this.btTimKiem.UseVisualStyleBackColor = true;
-            this.btTimKiem.Click += new System.EventHandler(this.btTimKiem_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvHienThi);
@@ -228,12 +215,11 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.txbTenMH);
-            this.panel8.Controls.Add(this.btTimKiem);
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(469, 0);
+            this.panel8.Location = new System.Drawing.Point(559, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(468, 41);
+            this.panel8.Size = new System.Drawing.Size(378, 41);
             this.panel8.TabIndex = 3;
             // 
             // txbTenMH
@@ -243,6 +229,7 @@
             this.txbTenMH.Name = "txbTenMH";
             this.txbTenMH.Size = new System.Drawing.Size(252, 26);
             this.txbTenMH.TabIndex = 4;
+            this.txbTenMH.TextChanged += new System.EventHandler(this.txbTenMH_TextChanged);
             // 
             // label2
             // 
@@ -286,7 +273,6 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btTimKiem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;

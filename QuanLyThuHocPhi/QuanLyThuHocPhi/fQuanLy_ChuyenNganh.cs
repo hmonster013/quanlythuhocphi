@@ -8,25 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
-using BusinessLogicLayer;
+using ValueObject.ChuyenNganh;
+using ValueObject.Khoa;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace QuanLyThuHocPhi
 {
     public partial class fQuanLy_ChuyenNganh : Form
     {
-        private CHUYENNGANH obj = new CHUYENNGANH();
-        private CHUYENNGANHBUS bus = new CHUYENNGANHBUS();
+        private CHUYENNGANH obj;
+        private CHUYENNGANHBUS bus;
 
         public fQuanLy_ChuyenNganh()
         {
+            bus = new CHUYENNGANHBUS();
+            obj = new CHUYENNGANH();
             InitializeComponent();
         }
 
-        public void load_dgvHienThi()
+        public async void load_dgvHienThi()
         {
-            dgvHienThi.DataSource = bus.GetData();
+            dgvHienThi.DataSource = await bus.GetData();
             dgvHienThi.ReadOnly = true;
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -46,15 +48,14 @@ namespace QuanLyThuHocPhi
             }
         }
 
-        public void addDataComboBox()
+        public async void addDataComboBox()
         {
             //ComboBox Ma Khoa
             KHOABUS temp = new KHOABUS();
-            DataTable tb = new DataTable();
-            tb = temp.GetData();
-            foreach (DataRow row in tb.Rows)
+            List<KHOA> dsKhoa = await temp.GetData();
+            foreach (KHOA khoa in dsKhoa)
             {
-                cbMaKhoa.Items.Add(row[0].ToString());
+                cbMaKhoa.Items.Add(khoa.MAKHOA);
             }
             cbMaKhoa.AutoCompleteMode = AutoCompleteMode.Suggest;
             cbMaKhoa.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -73,59 +74,80 @@ namespace QuanLyThuHocPhi
             load_dgvHienThi();
         }
 
-        private void btThem_Click(object sender, EventArgs e)
+        private async void btThem_Click(object sender, EventArgs e)
         {
-            obj.MACN = txbMaCN.Text;
-            obj.TENCN = txbTenCN.Text;
-            obj.MAKHOA = cbMaKhoa.Text;
-            if (bus.GetData(txbMaCN.Text).Rows.Count == 0)
+            if (txbMaCN.Text == "" || txbTenCN.Text == "" || cbMaKhoa.Text == "")
             {
-                bus.Insert(obj);
-                MessageBox.Show("Thêm thành công", "Thông báo");
-                load_dgvHienThi();
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Mã chuyên ngành đã tồn tại, vui lòng nhập lại", "Thông báo");
-                txbMaCN.Focus();
-            }
-        }
-
-        private void btSua_Click(object sender, EventArgs e)
-        {
-            obj.MACN = txbMaCN.Text;
-            obj.TENCN = txbTenCN.Text;
-            obj.MAKHOA = cbMaKhoa.Text;
-            if (bus.GetData(txbMaCN.Text).Rows.Count != 0)
-            {
-                bus.Update(obj);
-                MessageBox.Show("Sửa thành công", "Thông báo");
-                load_dgvHienThi();
-            }
-            else
-            {
-                MessageBox.Show("Mã chuyên ngành không tồn tại, vui lòng nhập lại", "Thông báo");
-                txbMaCN.Focus();
-            }
-        }
-
-        private void btXoa_Click(object sender, EventArgs e)
-        {
-            if (bus.GetData(txbMaCN.Text).Rows.Count != 0)
-            {
-                DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa chuyên ngành này không?", "Thống báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (rs == DialogResult.Yes)
+                obj.MACN = txbMaCN.Text;
+                obj.TENCN = txbTenCN.Text;
+                obj.MAKHOA = cbMaKhoa.Text;
+                if (await bus.GetData(txbMaCN.Text) == null)
                 {
-                    bus.Delete(txbMaCN.Text);
-                    MessageBox.Show("Xóa thành công", "Thông báo");
-                    btReset_Click(sender, e);
+                    await bus.Insert(obj);
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     load_dgvHienThi();
                 }
+                else
+                {
+                    MessageBox.Show("Mã chuyên ngành đã tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbMaCN.Focus();
+                }
+            }
+        }
+
+        private async void btSua_Click(object sender, EventArgs e)
+        {
+            if (txbMaCN.Text == "" || txbTenCN.Text == "" || cbMaKhoa.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Mã chuyên ngành không tồn tại, vui lòng nhập lại", "Thông báo");
-                txbMaCN.Focus();
+                obj.MACN = txbMaCN.Text;
+                obj.TENCN = txbTenCN.Text;
+                obj.MAKHOA = cbMaKhoa.Text;
+                if (await bus.GetData(txbMaCN.Text) != null)
+                {
+                    await bus.Update(obj);
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    load_dgvHienThi();
+                }
+                else
+                {
+                    MessageBox.Show("Mã chuyên ngành không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbMaCN.Focus();
+                }
+            }
+        }
+
+        private async void btXoa_Click(object sender, EventArgs e)
+        {
+            if (txbMaCN.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (await bus.GetData(txbMaCN.Text) != null)
+                {
+                    DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa chuyên ngành này không?", "Thống báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (rs == DialogResult.Yes)
+                    {
+                        await bus.Delete(txbMaCN.Text);
+                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btReset_Click(sender, e);
+                        load_dgvHienThi();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mã chuyên ngành không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbMaCN.Focus();
+                }
             }
         }
 
@@ -205,7 +227,7 @@ namespace QuanLyThuHocPhi
             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
         }
 
-        private void btNhapExcel_Click(object sender, EventArgs e)
+        private async void btNhapExcel_Click(object sender, EventArgs e)
         {
             // Tạo một OpenFileDialog để chọn file Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -215,40 +237,40 @@ namespace QuanLyThuHocPhi
             {
                 // Lấy đường dẫn của file Excel đã chọn
                 filePath = openFileDialog.FileName;
-            }
 
-            // Khởi tạo một đối tượng Excel.Application
-            Excel.Application excelApp = new Excel.Application();
+                // Khởi tạo một đối tượng Excel.Application
+                Excel.Application excelApp = new Excel.Application();
 
-            // Mở file Excel
-            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+                // Mở file Excel
+                Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
 
-            // Lấy Sheet đầu tiên từ Workbook
-            Excel.Worksheet worksheet = workbook.Sheets[1];
+                // Lấy Sheet đầu tiên từ Workbook
+                Excel.Worksheet worksheet = workbook.Sheets[1];
 
-            // Đọc dữ liệu từ Sheet
-            int row = 3;
-            while (worksheet.Cells[row, 1].Value != null)
-            {
-
-                obj.MACN = worksheet.Cells[row, 1].Value.ToString();
-                obj.TENCN = worksheet.Cells[row, 2].Value.ToString();
-                obj.MAKHOA = worksheet.Cells[row, 3].Value.ToString();
-                if (bus.GetData(obj.MACN).Rows.Count == 0)
+                // Đọc dữ liệu từ Sheet
+                int row = 3;
+                while (worksheet.Cells[row, 1].Value != null)
                 {
-                    bus.Insert(obj);
-                }
-                row++;
-            }
-            load_dgvHienThi();
-            // Đóng Workbook và thoát khỏi ứng dụng Excel
-            workbook.Close();
-            excelApp.Quit();
 
-            // Giải phóng bộ nhớ
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                    obj.MACN = worksheet.Cells[row, 1].Value.ToString();
+                    obj.TENCN = worksheet.Cells[row, 2].Value.ToString();
+                    obj.MAKHOA = worksheet.Cells[row, 3].Value.ToString();
+                    if (await bus.GetData(txbMaCN.Text) == null)
+                    {
+                        await bus.Insert(obj);
+                    }
+                    row++;
+                }
+                load_dgvHienThi();
+                // Đóng Workbook và thoát khỏi ứng dụng Excel
+                workbook.Close();
+                excelApp.Quit();
+
+                // Giải phóng bộ nhớ
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            }
         }
     }
 }

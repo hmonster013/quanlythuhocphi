@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using ValueObject.PhieuThu;
 
 namespace BusinessLogicLayer
 {
@@ -13,44 +15,39 @@ namespace BusinessLogicLayer
     {
         PHIEUTHUDAO dao = new PHIEUTHUDAO();
 
-        public DataTable GetData()
+        public async Task<List<PHIEUTHU>> GetData()
         {
-            return dao.GetData();
+            return await dao.GetData();
         }
 
-        public DataTable GetData(int ID)
+        public async Task<PHIEUTHU> GetData(int maPT)
         {
-            return dao.GetDataByID(ID);
+            return await dao.GetDataByID(maPT);
         }
 
-        public DataTable GetDataSTTPT()
+        public async Task<List<PHIEUTHU>> GetDataByMASV(string MASV)
         {
-            return dao.GetDataSTTPT();
+            return await dao.GetDataByMASV(MASV);
         }
 
-        public DataTable GetDataByMASV(string MASV)
+        public async Task<PHIEUTHU> GetDataByMaSVandHK(string MASV, int HOCKY)
         {
-            return dao.GetDataByMASV(MASV);
+            return await dao.GetDataByMaSVandHK(MASV, HOCKY);
         }
 
-        public DataTable GetDataByMaSVandHK(string MASV, int HOCKY)
+        public async Task<int> Insert(PHIEUTHU obj)
         {
-            return dao.GetDataByMaSVandHK(MASV, HOCKY);
+            return await dao.Insert(obj.ToCreateDTOFromPhieuThu());
         }
 
-        public int Insert(ValueObject.PHIEUTHU obj)
+        public async Task<int> Update(PHIEUTHU obj)
         {
-            return dao.Insert(obj);
+            return await dao.Update(obj.MAPT, obj.ToUpdateDTOFromPhieuThu());
         }
 
-        public int Update(ValueObject.PHIEUTHU obj)
+        public async Task<int> Delete(int maPT)
         {
-            return dao.Update(obj);
-        }
-
-        public int Delete(int ID)
-        {
-            return dao.Delete(ID);
+            return await dao.Delete(maPT);
         }
     }
 }

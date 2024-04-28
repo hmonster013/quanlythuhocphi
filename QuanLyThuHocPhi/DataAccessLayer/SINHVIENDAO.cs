@@ -6,79 +6,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using System.Net.Http;
+using System.Net.Http.Json;
+using ValueObject.SinhVien;
 
 namespace DataAccessLayer
 {
     public class SINHVIENDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/sinhvien";
 
-        public DataTable GetData()
+        public SINHVIENDAO()
         {
-            return _dbConnect.GetData("sp_SINHVIEN_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(string ID)
+        public async Task<List<SINHVIEN>> GetData()
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", ID)
-            };
-            return _dbConnect.GetData("sp_SINHVIEN_select_masv", param);
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<SINHVIEN>>();
         }
 
-        public DataTable GetDataByCondition(string MAKHOA, string MACN, string MALOP)
+        public async Task<SINHVIEN> GetDataByID(string maSV)
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maSV}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MAKHOA", MAKHOA),
-                new SqlParameter("MACN", MACN),
-                new SqlParameter("MALOP", MALOP)
-            };
-            return _dbConnect.GetData("sp_SINHVIEN_select_by_khoa_chuyennganh_lop", param);
+                return await response.Content.ReadFromJsonAsync<SINHVIEN>();
+            }
+
+            return null;
         }
 
-        public int Insert(SINHVIEN obj)
+        public async Task<int> Insert(CreateSinhVienRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("HO", obj.HO),
-                new SqlParameter("TEN", obj.TEN),
-                new SqlParameter("MALOP", obj.MALOP),
-                new SqlParameter("PHAI", obj.PHAI),
-                new SqlParameter("NGAYSINH", obj.NGAYSINH),
-                new SqlParameter("DIACHI", obj.DIACHI),
-                new SqlParameter("DANGNGHIHOC", obj.DANGNGHIHOC),
-                new SqlParameter("TENTAIKHOAN", obj.TENTAIKHOAN)
-            };
-            return _dbConnect.ExecuteSQL("sp_SINHVIEN_insert", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Update(SINHVIEN obj)
+        public async Task<int> Update(string maSV, UpdateSinhVienRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("HO", obj.HO),
-                new SqlParameter("TEN", obj.TEN),
-                new SqlParameter("MALOP", obj.MALOP),
-                new SqlParameter("PHAI", obj.PHAI),
-                new SqlParameter("NGAYSINH", obj.NGAYSINH),
-                new SqlParameter("DIACHI", obj.DIACHI),
-                new SqlParameter("DANGNGHIHOC", obj.DANGNGHIHOC),
-                new SqlParameter("TENTAIKHOAN", obj.TENTAIKHOAN)
-            };
-            return _dbConnect.ExecuteSQL("sp_SINHVIEN_update", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maSV}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Delete(string ID)
+        public async Task<int> Delete(string maSV)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_SINHVIEN_delete", param);
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maSV}");
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
     }
 }

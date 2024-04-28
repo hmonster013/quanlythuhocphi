@@ -1,0 +1,9 @@
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\obj\Debug\Mappers.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\obj\Debug\Mappers.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\bin\Debug\Mappers.dll
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\bin\Debug\Mappers.pdb
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\bin\Debug\ValueObject.dll
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\bin\Debug\ValueObject.pdb
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\obj\Debug\Mappers.csproj.Up2Date
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\obj\Debug\Mappers.dll
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\Mappers\obj\Debug\Mappers.pdb

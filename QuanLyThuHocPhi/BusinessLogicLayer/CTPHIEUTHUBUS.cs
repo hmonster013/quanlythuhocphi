@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,44 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using ValueObject.CTPhieuThu;
 
 namespace BusinessLogicLayer
 {
     public class CTPHIEUTHUBUS
     {
-        private CTPHIEUTHUDAO dao = new CTPHIEUTHUDAO();
-        public DataTable GetData()
+        private readonly CTPHIEUTHUDAO dao = new CTPHIEUTHUDAO();
+
+        public async Task<List<CTPHIEUTHU>> GetData()
         {
-            return dao.GetData();
+            return await dao.GetData();
         }
 
-        public DataTable GetData(int MACTPT)
+        public async Task<CTPHIEUTHU> GetData(int maCTPT)
         {
-            return dao.GetDataByMACTPT(MACTPT);
+            return await dao.GetDataByMaCTPT(maCTPT);
         }
 
-        public DataTable GetDataByMaPT(int MAPT)
+        public async Task<List<CTPHIEUTHU>> GetDataByMaPT(int MAPT)
         {
-            return dao.GetDataByMaPT(MAPT);
+            return await dao.GetDataByMaPT(MAPT);
         }
 
-        public DataTable GetDataSTTCTPT()
+        public async Task<int> Insert(CTPHIEUTHU obj)
         {
-            return dao.GetDataSTTCTPT();
+            return await dao.Insert(obj.ToCreateDTOFromCTPhieuThu());
         }
 
-        public int Insert(CTPHIEUTHU obj)
+        public async Task<int> Update(CTPHIEUTHU obj)
         {
-            return dao.Insert(obj);
+            return await dao.Update(obj.MACTPT, obj.ToUpdateDTOFromCTPhieuThu());
         }
 
-        public int Update(CTPHIEUTHU obj)
+        public async Task<int> Delete(int maCTPT)
         {
-            return dao.Update(obj);
-        }
-        public int Delete(int MACTPT)
-        {
-            return dao.Delete(MACTPT);
+            return await dao.Delete(maCTPT);
         }
     }
 }

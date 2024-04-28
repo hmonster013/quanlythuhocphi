@@ -34,6 +34,7 @@
             this.txbMaLop = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btNhapExcel = new System.Windows.Forms.Button();
             this.btXuatExcel = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.cbMaCN = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btNhapExcel = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.panel4.SuspendLayout();
@@ -69,7 +69,7 @@
             this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
             this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(1081, 456);
+            this.dgvHienThi.Size = new System.Drawing.Size(1081, 358);
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 
@@ -115,6 +115,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(113, 276);
             this.panel3.TabIndex = 2;
+            // 
+            // btNhapExcel
+            // 
+            this.btNhapExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btNhapExcel.Location = new System.Drawing.Point(0, 225);
+            this.btNhapExcel.Name = "btNhapExcel";
+            this.btNhapExcel.Size = new System.Drawing.Size(109, 45);
+            this.btNhapExcel.TabIndex = 6;
+            this.btNhapExcel.Text = "Nhập Excel";
+            this.btNhapExcel.UseVisualStyleBackColor = true;
+            this.btNhapExcel.Click += new System.EventHandler(this.btNhapExcel_Click);
             // 
             // btXuatExcel
             // 
@@ -210,17 +221,6 @@
             this.label10.Size = new System.Drawing.Size(139, 20);
             this.label10.TabIndex = 0;
             this.label10.Text = "Mã chuyên ngành:";
-            // 
-            // btNhapExcel
-            // 
-            this.btNhapExcel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btNhapExcel.Location = new System.Drawing.Point(0, 225);
-            this.btNhapExcel.Name = "btNhapExcel";
-            this.btNhapExcel.Size = new System.Drawing.Size(109, 45);
-            this.btNhapExcel.TabIndex = 6;
-            this.btNhapExcel.Text = "Nhập Excel";
-            this.btNhapExcel.UseVisualStyleBackColor = true;
-            this.btNhapExcel.Click += new System.EventHandler(this.btNhapExcel_Click);
             // 
             // fQuanLy_Lop
             // 

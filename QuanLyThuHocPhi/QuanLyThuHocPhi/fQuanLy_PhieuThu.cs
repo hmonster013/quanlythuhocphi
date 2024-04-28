@@ -8,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
+using ValueObject.PhieuThu;
+using ValueObject.XuLyHocPhi;
 
 namespace QuanLyThuHocPhi
 {
@@ -37,16 +38,14 @@ namespace QuanLyThuHocPhi
 
         public void settingTextBox()
         {
-            txbMaPT.Text = bus_PT.GetDataSTTPT().Rows[0].ItemArray[0].ToString();;
-            txbMaPT.ReadOnly = true;
             txbTongHocPhi.ReadOnly = true;
             txbTongChuaDong.ReadOnly = true;
             txbTongDaDong.ReadOnly = true;
         }
 
-        public void load_dgvHienThi()
+        public async void load_dgvHienThi()
         {
-            dgvHienThi.DataSource = bus_PT.GetData();
+            dgvHienThi.DataSource = await bus_PT.GetData();
             dgvHienThi.ReadOnly = true;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -78,99 +77,127 @@ namespace QuanLyThuHocPhi
             load_dgvHienThi();
         }
 
-        private void btThem_Click(object sender, EventArgs e)
+        private async void btThem_Click(object sender, EventArgs e)
         {
-            obj.MAPT = int.Parse(txbMaPT.Text);
-            obj.MASV = txbMaSV.Text;
-            obj.NIENKHOA = txbNienKhoa.Text;
-            obj.HOCKY = int.Parse(cbHocKy.Text);
-            if (bus_PT.GetData(int.Parse(txbMaPT.Text)).Rows.Count == 0)
+            if (txbMaSV.Text == "" || txbNienKhoa.Text == "" || cbHocKy.Text == "")
             {
-                if (bus_PT.GetDataByMaSVandHK(txbMaSV.Text, int.Parse(cbHocKy.Text)).Rows.Count == 0)
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                obj.MAPT = int.Parse(txbMaPT.Text);
+                obj.MASV = txbMaSV.Text;
+                obj.NIENKHOA = txbNienKhoa.Text;
+                obj.HOCKY = int.Parse(cbHocKy.Text);
+                if (await bus_PT.GetData(int.Parse(txbMaPT.Text)) == null)
                 {
-                    bus_PT.Insert(obj);
-                    MessageBox.Show("Thêm thành công", "Thông báo");
-                    dgvHienThi.DataSource = bus_PT.GetData();
+                    if (await bus_PT.GetDataByMaSVandHK(txbMaSV.Text, int.Parse(cbHocKy.Text)) == null)
+                    {
+                        await bus_PT.Insert(obj);
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dgvHienThi.DataSource = await bus_PT.GetData();
 
-                    fQuanLy_CTPhieuThu ftemp = new fQuanLy_CTPhieuThu(obj);
-                    ftemp.ShowDialog();
+                        fQuanLy_CTPhieuThu ftemp = new fQuanLy_CTPhieuThu(obj);
+                        ftemp.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thông tin không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin không hợp lệ", "Thông báo");
+                    MessageBox.Show("Mã phiếu thu đã tồn tại, vui lòng reset", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
-            {
-                MessageBox.Show("Mã phiếu thu đã tồn tại, vui lòng reset", "Thông báo");
-            }
         }
 
-        private void btSửa_Click(object sender, EventArgs e)
+        private async void btSửa_Click(object sender, EventArgs e)
         {
-            obj.MAPT = int.Parse(txbMaPT.Text);
-            obj.MASV = txbMaSV.Text;
-            obj.NIENKHOA = txbNienKhoa.Text;
-            obj.HOCKY = int.Parse(cbHocKy.Text);
-            if (bus_PT.GetData(int.Parse(txbMaPT.Text)).Rows.Count != 0)
+            if (txbMaPT.Text == "" || txbMaSV.Text == "" || txbNienKhoa.Text == "" || cbHocKy.Text == "")
             {
-                bus_PT.Update(obj);
-                MessageBox.Show("Sửa thành công", "Thông báo");
-                dgvHienThi.DataSource = bus_PT.GetData();
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Mã phiếu thu không tồn tại, vui lòng nhập lại", "Thông báo");
-                txbMaPT.Focus();
-            }
-        }
-
-        private void btXóa_Click(object sender, EventArgs e)
-        {
-            if (bus_PT.GetData(int.Parse(txbMaPT.Text)).Rows.Count != 0)
-            {
-                DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa phiếu thu này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (rs == DialogResult.Yes)
+                obj.MAPT = int.Parse(txbMaPT.Text);
+                obj.MASV = txbMaSV.Text;
+                obj.NIENKHOA = txbNienKhoa.Text;
+                obj.HOCKY = int.Parse(cbHocKy.Text);
+                if (await bus_PT.GetData(int.Parse(txbMaPT.Text)) != null)
                 {
-                    bus_PT.Delete(int.Parse(txbMaPT.Text));
-                    MessageBox.Show("Xóa thành công", "Thông báo");
-                    btReset_Click(sender, e);
-                    dgvHienThi.DataSource = bus_PT.GetData();
+                    await bus_PT.Update(obj);
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dgvHienThi.DataSource = await bus_PT.GetData();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Mã phiếu thu không tồn tại, vui lòng nhập lại", "Thông báo");
-                txbMaPT.Focus();
+                else
+                {
+                    MessageBox.Show("Mã phiếu thu không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbMaPT.Focus();
+                }
             }
         }
 
-        private void btReset_Click(object sender, EventArgs e)
+        private async void btXóa_Click(object sender, EventArgs e)
         {
-            txbMaPT.Text = bus_PT.GetDataSTTPT().Rows[0].ItemArray[0].ToString();
+            if (txbMaPT.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (await bus_PT.GetData(int.Parse(txbMaPT.Text)) != null)
+                {
+                    DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa phiếu thu này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (rs == DialogResult.Yes)
+                    {
+                        await bus_PT.Delete(int.Parse(txbMaPT.Text));
+                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btReset_Click(sender, e);
+                        dgvHienThi.DataSource = await bus_PT.GetData();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mã phiếu thu không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbMaPT.Focus();
+                }
+            }
+        }
+
+        private async void btReset_Click(object sender, EventArgs e)
+        {
             txbMaSV.Text = "";
             txbNienKhoa.Text = "";
             cbHocKy.Text = "";
             txbTongHocPhi.Text = "";
             txbTongDaDong.Text = "";
             txbTongChuaDong.Text = "";
-            dgvHienThi.DataSource = bus_PT.GetData();
+            dgvHienThi.DataSource = await bus_PT.GetData();
         }
 
-        private void btKiemTra_Click(object sender, EventArgs e)
+        private async void btKiemTra_Click(object sender, EventArgs e)
         {
-            if(bus_SV.GetData(txbMaSV.Text).Rows.Count != 0)
+            if (txbMaSV.Text == "")
             {
-                txbTongHocPhi.Text = bus_XLHP.GetDataTongHocPHi(txbMaSV.Text).Rows[0].ItemArray[1].ToString();
-                txbTongDaDong.Text = bus_XLHP.GetDataTongHocPHi(txbMaSV.Text).Rows[0].ItemArray[2].ToString();
-                txbTongChuaDong.Text = bus_XLHP.GetDataTongHocPHi(txbMaSV.Text).Rows[0].ItemArray[3].ToString();
-
-                dgvHienThi.DataSource = bus_PT.GetDataByMASV(txbMaSV.Text);
-            }
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } 
             else
             {
-                MessageBox.Show("Mã sinh viên không tồn tại", "Thông báo");
-                txbMaSV.Focus();
+                if (await bus_SV.GetData(txbMaSV.Text) != null)
+                {
+                    HocPhiDto temp = await bus_XLHP.GetDataTongHocPhiOfSV(txbMaSV.Text);
+                    txbTongHocPhi.Text = temp.TONGHOCPHI.ToString();
+                    txbTongDaDong.Text = temp.TONGDADONG.ToString();
+                    txbTongChuaDong.Text = temp.TONGCHUADONG.ToString();
+
+                    dgvHienThi.DataSource = await bus_PT.GetDataByMASV(txbMaSV.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Mã sinh viên không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbMaSV.Focus();
+                }
             }
         }
 

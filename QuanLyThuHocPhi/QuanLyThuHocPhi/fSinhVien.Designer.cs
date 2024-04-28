@@ -193,7 +193,7 @@
             this.Name = "fSinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sinh Viên";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fSinhVien_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fSinhVien_FormClosed);
             this.Load += new System.EventHandler(this.fSinhVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panel1.ResumeLayout(false);

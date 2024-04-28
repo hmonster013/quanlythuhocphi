@@ -3,82 +3,87 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using ValueObject.DangKy;
 
 namespace DataAccessLayer
 {
     public class DANGKYDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/dangky";
 
-        public DataTable GetData()
+        public DANGKYDAO()
         {
-            return _dbConnect.GetData("sp_DANGKY_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(int ID)
+        public async Task<List<DANGKY>> GetData()
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<DANGKY>>();
+        }
+
+        public async Task<DANGKY> GetDataByID(int maDK)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maDK}");
+            
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MADK", ID)
-            };
-            return _dbConnect.GetData("sp_DANGKY_select_madk", param);
+                return await response.Content.ReadFromJsonAsync<DANGKY>();
+            }
+
+            return null;
         }
 
-        public DataTable GetDataByMASV(string MASV)
+        public async Task<List<DANGKY>> GetDataByMASV(string MASV)
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync($"{BASE_URL}/sinhvien/{MASV}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<DANGKY>>();
+        }
+
+        public async Task<DANGKY> GetDataByMASVandHOCKY(string MASV, int HOCKY)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/sinhvien/{MASV}/{HOCKY}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MASV", MASV)
-            };
-            return _dbConnect.GetData("sp_DANGKY_select_masv", param);
+                return await response.Content.ReadFromJsonAsync<DANGKY>();
+            }
+
+            return null;
         }
 
-        public DataTable GetDataByMASVandHOCKY(DANGKY obj)
+        public async Task<int> Insert(CreateDangKyRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("HOCKY", obj.HOCKY)
-            };
-            return _dbConnect.GetData("sp_DANGKY_select_masv_hocky", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public DataTable GetDataSTTMaDK()
+        public async Task<int> Update(int maDK, UpdateDangKyRequestDto obj)
         {
-            return _dbConnect.GetData("SELECT IDENT_CURRENT('DANGKY') + 1");
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maDK}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Insert(DANGKY obj)
+        public async Task<int> Delete(int maDK)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("HOCKY", obj.HOCKY)
-            };
-            return _dbConnect.ExecuteSQL("sp_DANGKY_insert", param);
-        }
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maDK}");
+            response.EnsureSuccessStatusCode();
 
-        public int Update(DANGKY obj)
-        {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MADK", obj.MADK),
-                new SqlParameter("MASV", obj.MASV),
-                new SqlParameter("HOCKY", obj.HOCKY)
-            };
-            return _dbConnect.ExecuteSQL("sp_DANGKY_update", param);
-        }
-
-        public int Delete(int ID)
-        {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MADK", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_DANGKY_delete", param);
+            return 1;
         }
     }
 }

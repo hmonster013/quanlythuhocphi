@@ -5,66 +5,72 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.ChuyenNganh;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace DataAccessLayer
 {
     public class CHUYENNGANHDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/chuyennganh";
 
-        public DataTable GetData()
+        public CHUYENNGANHDAO()
         {
-            return _dbConnect.GetData("sp_CHUYENNGANH_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(string ID)
+        public async Task<List<CHUYENNGANH>> GetData()
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", ID)
-            };
-            return _dbConnect.GetData("sp_CHUYENNGANH_select_macn", param);
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<CHUYENNGANH>>();
         }
 
-        public DataTable GetDataByMAKHOA(string MAKHOA)
+        public async Task<CHUYENNGANH> GetDataByID(string maCN)
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maCN}");
+            
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MAKHOA", MAKHOA)
-            };
-            return _dbConnect.GetData("sp_CHUYENNGANH_select_by_makhoa", param);
+                return await response.Content.ReadFromJsonAsync<CHUYENNGANH>();
+            }
+
+            return null;
         }
 
-        public int Insert(CHUYENNGANH obj)
+        public async Task<List<CHUYENNGANH>> GetDataByMAKHOA(string MAKHOA)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", obj.MACN),
-                new SqlParameter("TENCN", obj.TENCN),
-                new SqlParameter("MAKHOA", obj.MAKHOA)
-            };
-            return _dbConnect.ExecuteSQL("sp_CHUYENNGANH_insert", param);
+            var response = await _httpClient.GetAsync($"{BASE_URL}/khoa/{MAKHOA}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<CHUYENNGANH>>();
         }
 
-        public int Update(CHUYENNGANH obj)
+        public async Task<int> Insert(CreateChuyenNganhRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", obj.MACN),
-                new SqlParameter("TENCN", obj.TENCN),
-                new SqlParameter("MAKHOA", obj.MAKHOA)
-            };
-            return _dbConnect.ExecuteSQL("sp_CHUYENNGANH_update", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Delete(string ID)
+        public async Task<int> Update(string maCN, UpdateChuyenNganhRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_CHUYENNGANH_delete", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maCN}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
+        }
+
+        public async Task<int> Delete(string maCN)
+        {
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maCN}");
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
     }
 }

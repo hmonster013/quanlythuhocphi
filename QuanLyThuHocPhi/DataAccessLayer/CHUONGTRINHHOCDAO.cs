@@ -3,90 +3,55 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Cache;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
+using ValueObject.MonHoc;
 
 namespace DataAccessLayer
 {
     public class CHUONGTRINHHOCDAO
     {
-        private dbConnect _dbConnect = new dbConnect();
-        public DataTable GetData(string MASV)
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/chuongtrinhhoc";
+
+        public CHUONGTRINHHOCDAO()
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", MASV)
-            };
-            return _dbConnect.GetData("sp_CHUONGTRINHHOC_select_all", param);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetData(string MASV, int HOCKY) 
+        public async Task<List<MONHOC>> GetDataBySinhVien(string MASV)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", MASV),
-                new SqlParameter("HOCKY", HOCKY)
-            };
-            return _dbConnect.GetData("sp_CHUONGTRINHHOC_find_hocky", param);
+            var response = await _httpClient.GetAsync($"{BASE_URL}/sinhvien/{MASV}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<MONHOC>>();
         }
 
-        public DataTable GetDataByTenMH(string MASV, string TENMH)
+        public async Task<List<MONHOC>> GetDataBySVHocKy(string MASV, int HOCKY) 
         {
-            SqlParameter[] param =
-{
-                new SqlParameter("MASV", MASV),
-                new SqlParameter("TENMH", TENMH)
-            };
-            return _dbConnect.GetData("sp_CHUONGTRINHHOC_find_tenmh", param);
+            var response = await _httpClient.GetAsync($"{BASE_URL}/sinhvienandhocky/{MASV}/{HOCKY}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<MONHOC>>();
         }
 
-        public DataTable GetDataByTenMH(string MASV, string TENMH, int HOCKY)
+        public async Task<List<MONHOC>> GetDataByChuyenNganh(string MACN)
         {
-            SqlParameter[] param =
-{
-                new SqlParameter("MASV", MASV),
-                new SqlParameter("TENMH", TENMH),
-                new SqlParameter("HOCKY", HOCKY)
-            };
-            return _dbConnect.GetData("sp_CHUONGTRINHHOC_find_tenmh_by_hocky", param);
+            var response = await _httpClient.GetAsync($"{BASE_URL}/1/{MACN}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<MONHOC>>();
         }
 
-        public DataTable GetDataByChuyenNganh(string MACN)
+        public async Task<List<MONHOC>> GetDataNotInChuyenNganh(string MACN)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("@MACN", MACN)
-            };
-            return _dbConnect.GetData("sp_CHUONGTRINHHOC_by_chuyennganh", param);
-        }
+            var response = await _httpClient.GetAsync($"{BASE_URL}/0/{MACN}");
+            response.EnsureSuccessStatusCode();
 
-        public DataTable FindByTenMHandChuyenNganh(string MACN, string TENMH)
-        {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", MACN),
-                new SqlParameter("TENMH", TENMH)
-            };
-            return _dbConnect.GetData("sp_CHUONGTRINHHOC_find_by_tenmh_chuyennganh", param);
-        }
-
-        public DataTable GetDataNotInChuyenNganh(string MACN)
-        {
-            SqlParameter[] param =
-{
-                new SqlParameter("@MACN", MACN)
-            };
-            return _dbConnect.GetData("sp_CHUONGTRINHHOC_not_in_chuyennganh", param);
-        }
-
-        public DataTable FindByTenMHNotInChuyenNganh(string MACN, string TENMH)
-        {
-            SqlParameter[] param =
-{
-                new SqlParameter("MACN", MACN),
-                new SqlParameter("TENMH", TENMH)
-            };
-            return _dbConnect.GetData("sp_CHUONGTRINHHOC_find_by_tenmh_not_in_chuyennganh", param);
+            return await response.Content.ReadFromJsonAsync<List<MONHOC>>();
         }
     }
 }

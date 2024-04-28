@@ -1,50 +1,47 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.LopHocPhan;
 
 namespace BusinessLogicLayer
 {
     public class LOPHOCPHANBUS
     {
-        LOPHOCPHANDAO dao = new LOPHOCPHANDAO();
+        private readonly LOPHOCPHANDAO _dao = new LOPHOCPHANDAO();
 
-        public DataTable GetData()
+        public async Task<List<LOPHOCPHAN>> GetData()
         {
-            return dao.GetData();
+            return await _dao.GetData();
         }
 
-        public DataTable GetData(int ID)
+        public async Task<LOPHOCPHAN> GetData(int maLHP)
         {
-            return dao.GetDataByID(ID);
+            return await _dao.GetDataByID(maLHP);
         }
 
-        public DataTable GetDataMaLHP()
+        public async Task<List<LOPHOCPHAN>> GetDataByChuyenNganh(string MACN)
         {
-            return dao.GetDataMaLHP();
+            return await _dao.GetDataByChuyenNganh(MACN);
         }
 
-        public DataTable GetDataByChuyenNganh(string MACN)
+        public async Task<int> Insert(LOPHOCPHAN obj)
         {
-            return dao.GetDataByChuyenNganh(MACN);
-        }
-        public int Insert(LOPHOCPHAN obj)
-        {
-            return dao.Insert(obj);
+            return await _dao.Insert(obj.ToCreateDTOFromLopHocPhan());
         }
 
-        public int Update(LOPHOCPHAN obj)
+        public async Task<int> Update(LOPHOCPHAN obj)
         {
-            return dao.Update(obj);
+            return await _dao.Update(obj.MALHP, obj.ToUpdateDTOFromLopHocPhan());
         }
 
-        public int Delete(int ID)
+        public async Task<int> Delete(int maLHP)
         {
-            return dao.Delete(ID);
+            return await _dao.Delete(maLHP);
         }
     }
 }

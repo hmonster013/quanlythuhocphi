@@ -6,70 +6,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using System.Net.Http;
+using System.Net.Http.Json;
+using ValueObject.GiangVien;
 
 namespace DataAccessLayer
 {
     public class GIANGVIENDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/giangvien";
 
-        public DataTable GetData()
+        public GIANGVIENDAO()
         {
-            return _dbConnect.GetData("sp_GIANGVIEN_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(string ID)
+        public async Task<List<GIANGVIEN>> GetData()
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<GIANGVIEN>>();
+        }
+
+        public async Task<GIANGVIEN> GetDataByID(string maGV)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maGV}");
+            
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MAGV", ID)
-            };
-            return _dbConnect.GetData("sp_GIANGVIEN_select_magv", param);
+                return await response.Content.ReadFromJsonAsync<GIANGVIEN>();
+            }
+
+            return null;
         }
 
-        public DataTable GetDataByChuyenNganh(string MACN)
+        public async Task<int> Insert(CreateGiangVienRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", MACN)
-            };
-            return _dbConnect.GetData("sp_GIANGVIEN_select_by_chuyennganh", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Insert(GIANGVIEN obj)
+        public async Task<int> Update(string maGV, UpdateGiangVienRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAGV", obj.MAGV),
-                new SqlParameter("HO", obj.HO),
-                new SqlParameter("TEN", obj.TEN),
-                new SqlParameter("HOCHAM", obj.HOCHAM),
-                new SqlParameter("MAKHOA", obj.MAKHOA)
-            };
-            return _dbConnect.ExecuteSQL("sp_GIANGVIEN_insert", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maGV}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Update(GIANGVIEN obj)
+        public async Task<int> Delete(string maGV)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAGV", obj.MAGV),
-                new SqlParameter("HO", obj.HO),
-                new SqlParameter("TEN", obj.TEN),
-                new SqlParameter("HOCHAM", obj.HOCHAM),
-                new SqlParameter("MAKHOA", obj.MAKHOA)
-            };
-            return _dbConnect.ExecuteSQL("sp_GIANGVIEN_update", param);
-        }
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maGV}");
+            response.EnsureSuccessStatusCode();
 
-        public int Delete(string ID)
-        {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAGV", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_GIANGVIEN_delete", param);
+            return 1;
         }
-
     }
 }

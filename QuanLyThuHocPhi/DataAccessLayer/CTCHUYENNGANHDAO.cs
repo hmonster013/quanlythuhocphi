@@ -5,65 +5,77 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.CTChuyenNganh;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+using System.Net.Cache;
 
 namespace DataAccessLayer
 {
     public class CTCHUYENNGANHDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/ctchuyennganh";
 
-        public DataTable GetData()
+        public CTCHUYENNGANHDAO()
         {
-            return _dbConnect.GetData("sp_CTCHUYENNGANH_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(string ID)
+        public async Task<List<CTCHUYENNGANH>> GetData()
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", ID)
-            };
-            return _dbConnect.GetData("sp_CTCHUYENNGANH_select_mactcn", param);
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<CTCHUYENNGANH>>();
         }
 
-        public int Insert(CTCHUYENNGANH obj)
+        public async Task<CTCHUYENNGANH> GetDataByID(int maCTCN)
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maCTCN}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MACN", obj.MACN),
-                new SqlParameter("MAMH", obj.MAMH)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTCHUYENNGANH_insert", param);
+                return await response.Content.ReadFromJsonAsync<CTCHUYENNGANH>();
+            }
+
+            return null;
         }
 
-        public int Update(CTCHUYENNGANH obj)
+        public async Task<int> Insert(CreateCTChuyenNganhRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", obj.MACN),
-                new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("MACTCN", obj.MACTCN)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTCHUYENNGANH_update", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Delete(int ID)
+        public async Task<int> Update(int maCTCN, UpdateCTChuyenNganhRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTCHUYENNGANH_delete", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maCTCN}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int DeleteByMaMH(string MAMH)
+        public async Task<int> Delete(int maCTCN)
         {
-            SqlParameter[] param =
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maCTCN}");
+            response.EnsureSuccessStatusCode();
+
+            return 1;
+        }
+
+        public async Task<int> DeleteByMaMH(string MAMH)
+        {
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/monhoc/{MAMH}");
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MAMH", MAMH)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTCHUYENNGANH_delete_by_mamh", param);
+                return 1;
+            }
+
+            return 0;
         }
     }
 }

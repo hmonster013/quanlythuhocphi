@@ -1,0 +1,6 @@
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\ValueObject\obj\Debug\DTOs.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\ValueObject\obj\Debug\DTOs.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\ValueObject\bin\Debug\ValueObject.dll
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\ValueObject\bin\Debug\ValueObject.pdb
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\ValueObject\obj\Debug\ValueObject.dll
+C:\Users\ACER\Desktop\KTTKPM\quanlythuhocphi\QuanLyThuHocPhi\ValueObject\obj\Debug\ValueObject.pdb

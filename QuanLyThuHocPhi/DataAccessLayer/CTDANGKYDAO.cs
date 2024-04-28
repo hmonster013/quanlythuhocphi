@@ -5,66 +5,72 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.CTDangKy;
+using System.Net.Http;
+using System.Net.Http.Json;
+using ValueObject.DangKy;
 
 namespace DataAccessLayer
 {
     public class CTDANGKYDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/ctdangky";
 
-        public DataTable GetData()
+        public CTDANGKYDAO()
         {
-            return _dbConnect.GetData("sp_CTDANGKY_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(int ID)
+        public async Task<List<CTDANGKY>> GetData()
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACTDK", ID)
-            };
-            return _dbConnect.GetData("sp_CTDANGKY_select_mactdk", param);
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<CTDANGKY>>();
         }
 
-        public int Insert(CTDANGKY obj)
+        public async Task<CTDANGKY> GetDataByID(int maCTDK)
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maCTDK}");
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MALHP", obj.MALHP),
-                new SqlParameter("MADK", obj.MADK)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTDANGKY_insert", param);
+                return await response.Content.ReadFromJsonAsync<CTDANGKY>();
+            }
+
+            return null;
         }
 
-        public int Update(CTDANGKY obj)
+        public async Task<int> Insert(CreateCTDangKyRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACTDK", obj.MACTDK),
-                new SqlParameter("MALHP", obj.MALHP),
-                new SqlParameter("MADK", obj.MADK)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTDANGKY_update", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Delete(int ID)
+        public async Task<int> Update(int maCTDK, UpdateCTDangKyRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACTDK", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTDANGKY_delete", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maCTDK}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Delete(CTDANGKY obj)
+        public async Task<int> Delete(int maCTDK)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MALHP", obj.MALHP),
-                new SqlParameter("MADK", obj.MADK)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTDANGKY_delete_bysv", param);
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maCTDK}");
+            response.EnsureSuccessStatusCode();
+
+            return 1;
+        }
+
+        public async Task<int> DeleteByCondition(int maDangKy, int maLopHocPhan)
+        {
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maDangKy}/{maLopHocPhan}");
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
     }
 }

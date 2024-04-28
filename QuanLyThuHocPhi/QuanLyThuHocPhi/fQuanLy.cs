@@ -12,7 +12,6 @@ namespace QuanLyThuHocPhi
 {
     public partial class fQuanLy : Form
     {
-        private bool isClickbtDangXuat = false;
         public fQuanLy()
         {
             InitializeComponent();
@@ -85,9 +84,8 @@ namespace QuanLyThuHocPhi
 
         private void btDangXuat_Click(object sender, EventArgs e)
         {
-            isClickbtDangXuat = true;
-            this.Close();
             fLogin.Instance.Show();
+            this.Dispose();
         }
 
         private void panel4_Click(object sender, EventArgs e)
@@ -99,18 +97,21 @@ namespace QuanLyThuHocPhi
             lbHienThi.Text = "HOME";
         }
 
-        private void fQuanLy_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!isClickbtDangXuat)
-            {
-                Application.Exit();
-            }
-        }
-
         private void btBaoCao_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fQuanLy_BaoCao());
             lbHienThi.Text = btBaoCao.Text;
+        }
+
+        private void fQuanLy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Modal)
+            {
+                this.Close();
+            } else
+            {
+                Application.Exit();
+            }
         }
     }
 }

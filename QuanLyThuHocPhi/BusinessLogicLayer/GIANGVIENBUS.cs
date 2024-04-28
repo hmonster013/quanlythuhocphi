@@ -1,11 +1,12 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.GiangVien;
 
 namespace BusinessLogicLayer
 {
@@ -13,34 +14,29 @@ namespace BusinessLogicLayer
     {
         GIANGVIENDAO dao = new GIANGVIENDAO();
 
-        public DataTable GetData()
+        public async Task<List<GIANGVIEN>> GetData()
         {
-            return dao.GetData();
+            return await dao.GetData();
         }
 
-        public DataTable GetData(string ID)
+        public async Task<GIANGVIEN> GetData(string maSV)
         {
-            return dao.GetDataByID(ID);
+            return await dao.GetDataByID(maSV);
         }
 
-        public DataTable GetDataByChuyenNganh(string MACN)
+        public async Task<int> Insert(GIANGVIEN obj)
         {
-            return dao.GetDataByChuyenNganh(MACN);
+            return await dao.Insert(obj.ToCreateDTOFromGiangVien());
         }
 
-        public int Insert(GIANGVIEN obj)
+        public async Task<int> Update(GIANGVIEN obj)
         {
-            return dao.Insert(obj);
+            return await dao.Update(obj.MAGV, obj.ToUpdateDTOFromGiangVien());
         }
 
-        public int Update(GIANGVIEN obj)
+        public async Task<int> Delete(string MACN)
         {
-            return dao.Update(obj);
-        }
-
-        public int Delete(string ID)
-        {
-            return dao.Delete(ID);
+            return await dao.Delete(MACN);
         }
     }
 }

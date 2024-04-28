@@ -1,11 +1,12 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.CTChuyenNganh;
 
 namespace BusinessLogicLayer
 {
@@ -13,34 +14,34 @@ namespace BusinessLogicLayer
     {
         CTCHUYENNGANHDAO dao = new CTCHUYENNGANHDAO();
 
-        public DataTable GetData()
+        public Task<List<CTCHUYENNGANH>> GetData()
         {
             return dao.GetData();
         }
 
-        public DataTable GetData(string ID)
+        public async Task<CTCHUYENNGANH> GetData(int maCTCN)
         {
-            return dao.GetDataByID(ID);
+            return await dao.GetDataByID(maCTCN);
         }
 
-        public int Insert(CTCHUYENNGANH obj)
+        public async Task<int> Insert(CTCHUYENNGANH obj)
         {
-            return dao.Insert(obj);
+            return await dao.Insert(obj.ToCreateDTOFromCTChuyenNganh());
         }
 
-        public int Update(CTCHUYENNGANH obj)
+        public async Task<int> Update(CTCHUYENNGANH obj)
         {
-            return dao.Update(obj);
+            return await dao.Update(obj.MACTCN, obj.ToUpdateDTOFromCTChuyenNganh());
         }
 
-        public int Delete(int ID)
+        public async Task<int> Delete(int maCTCN)
         {
-            return dao.Delete(ID);
+            return await dao.Delete(maCTCN);
         }
 
-        public int DeleteByMaMH(string MAMH)
+        public async Task<int> DeleteByMaMH(string MAMH)
         {
-            return dao.DeleteByMaMH(MAMH);
+            return await dao.DeleteByMaMH(MAMH);
         }
     }
 }

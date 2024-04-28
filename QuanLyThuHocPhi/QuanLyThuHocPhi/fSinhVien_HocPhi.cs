@@ -66,7 +66,7 @@ namespace QuanLyThuHocPhi
                 }
                 else
                 {
-                    MessageBox.Show("Không có dữ liệu về việc nộp học phí", "Thông báo");
+                    MessageBox.Show("Không có dữ liệu về việc nộp học phí", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }

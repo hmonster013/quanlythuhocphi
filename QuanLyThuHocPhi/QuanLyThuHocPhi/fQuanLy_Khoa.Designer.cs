@@ -73,7 +73,7 @@
             this.dgvHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
             this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(1081, 457);
+            this.dgvHienThi.Size = new System.Drawing.Size(1081, 359);
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellClick);
             // 

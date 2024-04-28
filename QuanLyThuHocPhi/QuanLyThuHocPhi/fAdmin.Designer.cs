@@ -163,7 +163,8 @@
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAdmin";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fAdmin_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fAdmin_FormClosed);
+            this.Load += new System.EventHandler(this.fAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

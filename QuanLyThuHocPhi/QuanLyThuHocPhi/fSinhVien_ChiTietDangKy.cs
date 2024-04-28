@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
+using ValueObject.DangKy;
+using ValueObject.CTDangKy;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
@@ -30,19 +31,20 @@ namespace QuanLyThuHocPhi
             InitializeComponent();
         }
 
-        public void load_ThongTinPhieuDK()
+        public async void load_ThongTinPhieuDK()
         {
-            txbMaDK.Text = bus_DK.GetData(obj.MADK).Rows[0].ItemArray[0].ToString();
-            txbMaSV.Text = bus_DK.GetData(obj.MADK).Rows[0].ItemArray[1].ToString();
-            txbHocKy.Text = bus_DK.GetData(obj.MADK).Rows[0].ItemArray[2].ToString();
+            DANGKY temp = await bus_DK.GetData(obj.MADK);
+            txbMaDK.Text = temp.MADK.ToString();
+            txbMaSV.Text = temp.MASV;
+            txbHocKy.Text = temp.HOCKY.ToString();
             txbMaDK.ReadOnly = true;
             txbMaSV.ReadOnly = true;
             txbHocKy.ReadOnly = true;
         }
 
-        public void load_dgvHienThi()
+        public async void load_dgvHienThi()
         {
-            dgvHienThi.DataSource = bus_XLDK.GetData(obj);
+            dgvHienThi.DataSource = await bus_XLDK.GetDataLHPDaDK(obj);
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHienThi.Columns[0].HeaderText = "Mã lớp học phần";
             dgvHienThi.Columns[1].HeaderText = "Mã môn học";
@@ -68,11 +70,6 @@ namespace QuanLyThuHocPhi
             load_ThongTinPhieuDK();
         }
 
-        private void btTimKiem_Click(object sender, EventArgs e)
-        {
-            dgvHienThi.DataSource = bus_XLDK.GetData(obj, txbTenMH.Text);
-        }
-
         private void btDangKyThem_Click(object sender, EventArgs e)
         {
             fSinhVien_ThemCTDK ftemp = new fSinhVien_ThemCTDK(obj);
@@ -80,21 +77,42 @@ namespace QuanLyThuHocPhi
             ftemp.ShowDialog();
         }
 
-        private void Ftemp_FormClosed(object sender, FormClosedEventArgs e)
+        private async void Ftemp_FormClosed(object sender, FormClosedEventArgs e)
         {
-            dgvHienThi.DataSource = bus_XLDK.GetData(obj); // Gán giá trị mới cho DataSource của DataGridView
+            dgvHienThi.DataSource = await bus_XLDK.GetDataLHPDaDK(obj); // Gán giá trị mới cho DataSource của DataGridView
         }
 
-        private void dgvHienThi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvHienThi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvHienThi.Columns[e.ColumnIndex].Name == "btHuyDK")
             {
-                CTDANGKY temp = new CTDANGKY();
-                temp.MALHP = int.Parse(dgvHienThi.Rows[e.RowIndex].Cells["MALHP"].Value.ToString());
-                temp.MADK = int.Parse(txbMaDK.Text);
-                bus_CTDK.Delete(temp);
-                dgvHienThi.DataSource = bus_XLDK.GetData(obj);
+                await bus_CTDK.DeleteByCondition(int.Parse(txbMaDK.Text), int.Parse(dgvHienThi.Rows[e.RowIndex].Cells["MALHP"].Value.ToString()));
+                dgvHienThi.DataSource = await bus_XLDK.GetDataLHPDaDK(obj);
             }
+        }
+
+        private void txbTenMH_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txbTenMH.Text.Trim().ToLower();
+
+            dgvHienThi.BindingContext[dgvHienThi.DataSource].SuspendBinding();
+
+            foreach (DataGridViewRow row in dgvHienThi.Rows)
+            {
+                row.Visible = true;
+            }
+
+            foreach (DataGridViewRow row in dgvHienThi.Rows)
+            {
+                bool found = string.IsNullOrEmpty(keyword) || row.Cells[2].Value?.ToString().ToLower().Contains(keyword) == true;
+
+                if (row.Visible != found)
+                {
+                    row.Visible = found;
+                }
+            }
+
+            dgvHienThi.BindingContext[dgvHienThi.DataSource].ResumeBinding();
         }
     }
 }

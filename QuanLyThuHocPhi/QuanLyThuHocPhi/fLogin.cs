@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
 using BusinessLogicLayer;
 using static System.Net.WebRequestMethods;
 
@@ -15,7 +14,6 @@ namespace QuanLyThuHocPhi
 {
     public partial class fLogin : Form
     {
-        private NGUOIDUNG obj = new NGUOIDUNG();
         private NGUOIDUNGBUS bus = new NGUOIDUNGBUS();
         private static fLogin instance;
         public static fLogin Instance
@@ -36,7 +34,7 @@ namespace QuanLyThuHocPhi
 
         private void settingTextBox()
         {
-            txbMatKhau.PasswordChar = '*';
+            txbMatKhau.UseSystemPasswordChar = true;
         }
 
         private void fLogin_Load(object sender, EventArgs e)
@@ -45,56 +43,68 @@ namespace QuanLyThuHocPhi
             this.KeyPreview = true;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            DataTable dt = new DataTable();
-            dt = bus.GetData(txbTaiKhoan.Text);
-            if (dt.Rows.Count > 0)
+            if (txbTaiKhoan.Text == "")
             {
-                fChangePassword fcp = new fChangePassword(txbTaiKhoan.Text);
-                fcp.ShowDialog();
+                MessageBox.Show("Vui lòng nhập thông tin hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Tài khoản không tồn tại, vui lòng nhập lại", "Thông báo");
-                txbTaiKhoan.Focus();
+                var nguoidung = await bus.GetDataByID(txbTaiKhoan.Text);
+                if (nguoidung != null)
+                {
+                    fChangePassword fcp = new fChangePassword(txbTaiKhoan.Text);
+                    fcp.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbTaiKhoan.Focus();
+                }
             }
         }
 
-        private void btLogin_Click(object sender, EventArgs e)
+        private async void btLogin_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            dt = bus.GetData(txbTaiKhoan.Text);
-            if (dt.Rows.Count > 0)
+            if (txbTaiKhoan.Text == "" || txbMatKhau.Text == "")
             {
-                if (dt.Rows[0].ItemArray[1].ToString() == txbMatKhau.Text)
+                MessageBox.Show("Vui lòng nhập thông tin hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var nguoidung = await bus.GetDataByID(txbTaiKhoan.Text);
+                if (nguoidung != null)
                 {
-                    this.Visible = false;
-                    if (dt.Rows[0].ItemArray[2].ToString() == "Admin")
+                    if (nguoidung.MATKHAU == txbMatKhau.Text)
                     {
-                        fAdmin fm = new fAdmin();
-                        fm.Show();
+                        this.Visible = false;
+                        if (nguoidung.QUYEN == "Admin")
+                        {
+                            fAdmin fm = new fAdmin();
+                            fm.Show();
+                        }
+                        if (nguoidung.QUYEN == "User")
+                        {
+                            fSinhVien fm = new fSinhVien(txbTaiKhoan.Text);
+                            fm.Show();
+                        }
+                        if (nguoidung.QUYEN == "QuanLy")
+                        {
+                            fQuanLy fm = new fQuanLy();
+                            fm.Show();
+                        }
                     }
-                    if (dt.Rows[0].ItemArray[2].ToString() == "User")
+                    else
                     {
-                        fSinhVien fm = new fSinhVien(txbTaiKhoan.Text);
-                        fm.Show();
-                    }
-                    if (dt.Rows[0].ItemArray[2].ToString() == "QuanLy")
-                    {
-                        fQuanLy fm = new fQuanLy();
-                        fm.Show();
+                        MessageBox.Show("Mật khẩu sai, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Mật khẩu sai, vui lòng nhập lại", "Thông báo");
+                    MessageBox.Show("Tài khoản không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txbTaiKhoan.Focus();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Tài khoản không tồn tại, vui lòng nhập lại", "Thông báo");
-                txbTaiKhoan.Focus();
             }
         }
 
@@ -103,6 +113,18 @@ namespace QuanLyThuHocPhi
             if(e.KeyCode == Keys.Enter)
             {
                 btLogin.PerformClick();
+            }
+        }
+
+        private void cbShowPassword_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (cbShowPassword.Checked)
+            {
+                txbMatKhau.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txbMatKhau.UseSystemPasswordChar = true;
             }
         }
     }

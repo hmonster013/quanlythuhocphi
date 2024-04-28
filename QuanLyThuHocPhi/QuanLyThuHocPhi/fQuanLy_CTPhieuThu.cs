@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
+using ValueObject.CTPhieuThu;
+using ValueObject.PhieuThu;
 using BusinessLogicLayer;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using System.Drawing.Printing;
+using ValueObject.SinhVien;
+using ValueObject.XuLyHocPhi;
 
 namespace QuanLyThuHocPhi
 {
@@ -22,6 +25,7 @@ namespace QuanLyThuHocPhi
         private CTPHIEUTHUBUS bus_CTPT = new CTPHIEUTHUBUS();
         private XULYHOCPHIBUS bus_XLHP = new XULYHOCPHIBUS();
         private SINHVIENBUS bus_SV = new SINHVIENBUS();
+
         public fQuanLy_CTPhieuThu()
         {
             InitializeComponent();
@@ -33,9 +37,9 @@ namespace QuanLyThuHocPhi
             InitializeComponent();
         }
         
-        public void load_dgvHienThi()
+        public async void load_dgvHienThi()
         {
-            dgvHienThi.DataSource = bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
+            dgvHienThi.DataSource = await bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
             dgvHienThi.ReadOnly = true;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -46,10 +50,8 @@ namespace QuanLyThuHocPhi
         }
 
         public void settingTextBox() 
-        { 
-            txbMaCTPT.Text = bus_CTPT.GetDataSTTCTPT().Rows[0].ItemArray[0].ToString();
+        {
             txbMaPT.Text = obj_PT.MAPT.ToString();
-            txbMaCTPT.ReadOnly = true;
             txbMaPT.ReadOnly = true;
             txbSTDaDong.ReadOnly = true;
             txbSTChuaDong.ReadOnly = true;
@@ -68,22 +70,23 @@ namespace QuanLyThuHocPhi
             load_dgvHienThi();
         }
         
-        private void btKiemTra_Click(object sender, EventArgs e)
+        private async void btKiemTra_Click(object sender, EventArgs e)
         {
-            if (bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows.Count != 0)
+            if (await bus_XLHP.GetDataBySVandHK(obj_PT.MASV, obj_PT.HOCKY) != null)
             {
-                txbSTPhaiDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[5].ToString();
-                txbSTDaDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[6].ToString();
-                txbSTChuaDong.Text = bus_XLHP.GetDataByHOCKY(obj_PT.MASV, obj_PT.HOCKY).Rows[0].ItemArray[7].ToString();
-                dgvHienThi.DataSource = bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
+                HocPhiDto temp = await bus_XLHP.GetDataBySVandHK(obj_PT.MASV, obj_PT.HOCKY);
+                txbSTPhaiDong.Text = temp.TONGHOCPHI.ToString();
+                txbSTDaDong.Text = temp.TONGDADONG.ToString();
+                txbSTChuaDong.Text = temp.TONGCHUADONG.ToString();
+                dgvHienThi.DataSource = await bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
             }
             else
             {
-                MessageBox.Show("Không có dữ liệu về học phí trong học kỳ này", "Thông báo");
+                MessageBox.Show("Không có dữ liệu về học phí trong học kỳ này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        public void xuatHoaDon()
+        public async void xuatHoaDon()
         {
             Excel.Application application = new Excel.Application();
             Excel.Workbook wb = application.Workbooks.Add();
@@ -142,9 +145,10 @@ namespace QuanLyThuHocPhi
             Excel.Range tt1 = ws.Range["C6"];
             tt1.Font.Size = 11;
 
+            SINHVIEN temp = await bus_SV.GetData(obj_PT.MASV);
             tt1.Cells[2, 1].Value = obj_PT.MASV;
-            tt1.Cells[3, 1].Value = bus_SV.GetData(obj_PT.MASV).Rows[0].ItemArray[1].ToString() + " " + bus_SV.GetData(obj_PT.MASV).Rows[0].ItemArray[2].ToString();
-            tt1.Cells[4, 1].Value = bus_SV.GetData(obj_PT.MASV).Rows[0].ItemArray[3];
+            tt1.Cells[3, 1].Value = temp.HO + " " + temp.TEN;
+            tt1.Cells[4, 1].Value = temp.MALOP;
             tt1.Cells[5, 1].Value = obj_PT.NIENKHOA;
             tt1.Cells[6, 1].Value = "'" + obj_PT.HOCKY.ToString();
             tt1.Cells[7, 1].Value = obj_CTPT.SOTIENDONG.ToString() + " VND";
@@ -175,89 +179,111 @@ namespace QuanLyThuHocPhi
             System.Runtime.InteropServices.Marshal.ReleaseComObject(application);
         }
 
-        private void btThem_Click(object sender, EventArgs e)
+        private async void btThem_Click(object sender, EventArgs e)
         {
-            obj_CTPT.MACTPT = int.Parse(txbMaCTPT.Text);
-            obj_CTPT.MAPT = int.Parse(txbMaPT.Text);
-            obj_CTPT.NGAYDONG = dtpNgayDong.Value;
-            obj_CTPT.SOTIENDONG = float.Parse(txbSoTienDong.Text);
-            if (float.Parse(txbSoTienDong.Text) < 0 || float.Parse(txbSoTienDong.Text) > float.Parse(txbSTChuaDong.Text)) {
-                txbSoTienDong.Text = "";
-                txbSoTienDong.Focus();
-                MessageBox.Show("Số tiền đóng không hợp lệ, vui lòng nhập lại", "Thông báo");
+            if (txbSoTienDong.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (bus_CTPT.GetData(int.Parse(txbMaCTPT.Text)).Rows.Count == 0)
+                obj_CTPT.MACTPT = int.Parse(txbMaCTPT.Text);
+                obj_CTPT.MAPT = int.Parse(txbMaPT.Text);
+                obj_CTPT.NGAYDONG = dtpNgayDong.Value;
+                obj_CTPT.SOTIENDONG = float.Parse(txbSoTienDong.Text);
+                if (float.Parse(txbSoTienDong.Text) < 0 || float.Parse(txbSoTienDong.Text) > float.Parse(txbSTChuaDong.Text))
                 {
-                    bus_CTPT.Insert(obj_CTPT);
-                    MessageBox.Show("Thêm thành công", "Thông báo");
-                    dgvHienThi.DataSource = bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
-                    btKiemTra_Click(sender, e);
-                    DialogResult result = MessageBox.Show("Bạn có muốn xuất hóa đơn không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        xuatHoaDon();
-                    }
+                    txbSoTienDong.Text = "";
+                    txbSoTienDong.Focus();
+                    MessageBox.Show("Số tiền đóng không hợp lệ, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin không hợp lệ", "Thông báo");
+                    if (await bus_CTPT.GetData(int.Parse(txbMaCTPT.Text)) == null)
+                    {
+                        await bus_CTPT.Insert(obj_CTPT);
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dgvHienThi.DataSource = await bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
+                        btKiemTra_Click(sender, e);
+                        DialogResult result = MessageBox.Show("Bạn có muốn xuất hóa đơn không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            xuatHoaDon();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thông tin không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
         }
 
-        private void btSửa_Click(object sender, EventArgs e)
+        private async void btSửa_Click(object sender, EventArgs e)
         {
-            obj_CTPT.MACTPT = int.Parse(txbMaCTPT.Text);
-            obj_CTPT.MAPT = int.Parse(txbMaPT.Text);
-            obj_CTPT.NGAYDONG = dtpNgayDong.Value;
-            obj_CTPT.SOTIENDONG = float.Parse(txbSoTienDong.Text);
-            if (float.Parse(txbSoTienDong.Text) < 0 || float.Parse(txbSoTienDong.Text) > float.Parse(txbSTChuaDong.Text))
+            if (txbMaCTPT.Text == "" || txbSoTienDong.Text == "")
             {
-                txbSoTienDong.Text = "";
-                txbSoTienDong.Focus();
-                MessageBox.Show("Số tiền đóng không hợp lệ, vui lòng nhập lại", "Thông báo");
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (bus_CTPT.GetData(int.Parse(txbMaCTPT.Text)).Rows.Count != 0)
+                obj_CTPT.MACTPT = int.Parse(txbMaCTPT.Text);
+                obj_CTPT.MAPT = int.Parse(txbMaPT.Text);
+                obj_CTPT.NGAYDONG = dtpNgayDong.Value;
+                obj_CTPT.SOTIENDONG = float.Parse(txbSoTienDong.Text);
+                if (float.Parse(txbSoTienDong.Text) < 0 || float.Parse(txbSoTienDong.Text) > float.Parse(txbSTChuaDong.Text))
                 {
-                    bus_CTPT.Update(obj_CTPT);
-                    MessageBox.Show("Sửa thành công", "Thông báo");
-                    dgvHienThi.DataSource = bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
-                    btKiemTra_Click(sender, e);
+                    txbSoTienDong.Text = "";
+                    txbSoTienDong.Focus();
+                    MessageBox.Show("Số tiền đóng không hợp lệ, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Mã phiếu thu không tồn tại, vui lòng nhập lại", "Thông báo");
+                    if (await bus_CTPT.GetData(int.Parse(txbMaCTPT.Text)) != null)
+                    {
+                        await bus_CTPT.Update(obj_CTPT);
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dgvHienThi.DataSource = await bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
+                        btKiemTra_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã phiếu thu không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txbMaPT.Focus();
+                    }
+                }
+            }
+        }
+
+        private async void btXóa_Click(object sender, EventArgs e)
+        {
+            if (txbMaCTPT.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (await bus_CTPT.GetData(int.Parse(txbMaCTPT.Text)) != null)
+                {
+                    DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa phiếu thu này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (rs == DialogResult.Yes)
+                    {
+                        await bus_CTPT.Delete(int.Parse(txbMaCTPT.Text));
+                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btReset_Click(sender, e);
+                        dgvHienThi.DataSource = await bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
+                        btKiemTra_Click(sender, e);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mã phiếu thu không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txbMaPT.Focus();
                 }
             }
         }
 
-        private void btXóa_Click(object sender, EventArgs e)
-        {
-            if (bus_CTPT.GetData(int.Parse(txbMaCTPT.Text)).Rows.Count != 0)
-            {
-                DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa phiếu thu này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (rs == DialogResult.Yes)
-                {
-                    bus_CTPT.Delete(int.Parse(txbMaCTPT.Text));
-                    MessageBox.Show("Xóa thành công", "Thông báo");
-                    btReset_Click(sender, e);
-                    dgvHienThi.DataSource = bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
-                    btKiemTra_Click(sender, e);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Mã phiếu thu không tồn tại, vui lòng nhập lại", "Thông báo");
-                txbMaPT.Focus();
-            }
-        }
-
-        private void btReset_Click(object sender, EventArgs e)
+        private async void btReset_Click(object sender, EventArgs e)
         {
             txbMaCTPT.Text = "";
             txbMaPT.Text = "";
@@ -267,7 +293,7 @@ namespace QuanLyThuHocPhi
             txbSTDaDong.Text = "";
             txbSTChuaDong.Text = "";
             settingTextBox();
-            dgvHienThi.DataSource = bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
+            dgvHienThi.DataSource = await bus_CTPT.GetDataByMaPT(obj_PT.MAPT);
         }
 
         private void dgvHienThi_CellClick(object sender, DataGridViewCellEventArgs e)

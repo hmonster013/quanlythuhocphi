@@ -8,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
+using ValueObject.DangKy;
+using ValueObject.CTDangKy;
 
 namespace QuanLyThuHocPhi
 {
@@ -29,9 +30,9 @@ namespace QuanLyThuHocPhi
             InitializeComponent();
         }
         
-        public void load_dgvHienThi()
+        public async void load_dgvHienThi()
         {
-            dgvHienThi.DataSource = bus_XLDK.GetDataLHPChuaDK(obj);
+            dgvHienThi.DataSource = await bus_XLDK.GetDataLHPChuaDK(obj);
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHienThi.Columns[0].HeaderText = "Mã lớp học phần";
             dgvHienThi.Columns[1].HeaderText = "Mã môn học";
@@ -48,9 +49,9 @@ namespace QuanLyThuHocPhi
             dgvHienThi.Columns.Add(dgvcheckbox);
         }
 
-        public void load_ThongTinPhieuDK()
+        public async void load_ThongTinPhieuDK()
         {
-            txbMaDK.Text = bus_DK.GetData(obj.MADK).Rows[0].ItemArray[0].ToString();
+            txbMaDK.Text = (await bus_DK.GetData(obj.MADK)).MADK.ToString();
             txbMaDK.ReadOnly = true;
         }
 
@@ -60,20 +61,43 @@ namespace QuanLyThuHocPhi
             load_ThongTinPhieuDK();
         }
 
-        private void btDangKy_Click(object sender, EventArgs e)
+        private async void btDangKy_Click(object sender, EventArgs e)
         {
             CTDANGKY temp = new CTDANGKY();
-            temp.MACTDK = int.Parse(bus_DK.GetDataSTTMaDK().Rows[0].ItemArray[0].ToString());
             temp.MADK = obj.MADK;
             foreach (DataGridViewRow row in dgvHienThi.Rows)
             {
                 if (row.Cells[8].Value != null && bool.Parse(row.Cells[8].Value.ToString()))
                 {
                     temp.MALHP = int.Parse(row.Cells[0].Value.ToString());
-                    bus_CTDK.Insert(temp);
+                    await bus_CTDK.Insert(temp);
                 }
             }
-            dgvHienThi.DataSource = bus_XLDK.GetDataLHPChuaDK(obj);
+            dgvHienThi.DataSource = await bus_XLDK.GetDataLHPChuaDK(obj);
+        }
+
+        private void txbTenMH_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txbTenMH.Text.Trim().ToLower();
+
+            dgvHienThi.BindingContext[dgvHienThi.DataSource].SuspendBinding();
+
+            foreach (DataGridViewRow row in dgvHienThi.Rows)
+            {
+                row.Visible = true;
+            }
+
+            foreach (DataGridViewRow row in dgvHienThi.Rows)
+            {
+                bool found = string.IsNullOrEmpty(keyword) || row.Cells[2].Value?.ToString().ToLower().Contains(keyword) == true;
+
+                if (row.Visible != found)
+                {
+                    row.Visible = found;
+                }
+            }
+
+            dgvHienThi.BindingContext[dgvHienThi.DataSource].ResumeBinding();
         }
     }
 }

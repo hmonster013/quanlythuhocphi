@@ -1,46 +1,42 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.SinhVien;
 
 namespace BusinessLogicLayer
 {
     public class SINHVIENBUS
     {
-        SINHVIENDAO dao = new SINHVIENDAO();
+        private readonly SINHVIENDAO _dao = new SINHVIENDAO();
 
-        public DataTable GetData()
+        public async Task<List<SINHVIEN>> GetData()
         {
-            return dao.GetData();
+            return await _dao.GetData();
         }
 
-        public DataTable GetData(string ID)
+        public async Task<SINHVIEN> GetData(string maSV)
         {
-            return dao.GetDataByID(ID);
+            return await _dao.GetDataByID(maSV);
         }
 
-        public DataTable GetDataByCondition(string MAKHOA, string MACN, string MALOP)
+        public async Task<int> Insert(SINHVIEN obj)
         {
-            return dao.GetDataByCondition(MAKHOA, MACN, MALOP);
+            return await _dao.Insert(obj.ToCreateDtoFromSinhVien());
         }
 
-        public int Insert(SINHVIEN obj)
+        public async Task<int> Update(SINHVIEN obj)
         {
-            return dao.Insert(obj);
+            return await _dao.Update(obj.MASV, obj.ToUpdateDtoFromSinhVien());
         }
 
-        public int Update(SINHVIEN obj)
+        public async Task<int> Delete(string maSV)
         {
-            return dao.Update(obj);
-        }
-
-        public int Delete(string ID)
-        {
-            return dao.Delete(ID);
+            return await _dao.Delete(maSV);
         }
     }
 }

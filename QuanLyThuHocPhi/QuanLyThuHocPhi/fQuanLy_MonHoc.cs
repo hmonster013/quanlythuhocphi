@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
+using ValueObject.MonHoc;
 using BusinessLogicLayer;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -23,9 +23,9 @@ namespace QuanLyThuHocPhi
             InitializeComponent();
         }
 
-        public void load_dgvHienThi(object sender, EventArgs e)
+        public async void load_dgvHienThi(object sender, EventArgs e)
         {
-            dgvHienThi.DataSource = bus.GetData();
+            dgvHienThi.DataSource = await bus.GetData();
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHienThi.ReadOnly = true;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -58,60 +58,60 @@ namespace QuanLyThuHocPhi
             load_dgvHienThi(sender, e);
         }
 
-        private void btThem_Click(object sender, EventArgs e)
+        private async void btThem_Click(object sender, EventArgs e)
         {
             obj.MAMH = txbMaMH.Text;
             obj.TENMH = txbTenMH.Text;
             obj.HOCKY = int.Parse(cbHocKy.Text);
             obj.SOTINCHI = int.Parse(txbSoTC.Text);
-            if (bus.GetData(txbMaMH.Text).Rows.Count == 0)
+            if (await bus.GetData(txbMaMH.Text) == null)
             {
-                bus.Insert(obj);
-                MessageBox.Show("Thêm thành công", "Thông báo");
+                await bus.Insert(obj);
+                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 load_dgvHienThi(sender, e);
             }
             else
             {
-                MessageBox.Show("Mã môn học đã tồn tại, vui lòng nhập mã môn học khác", "Thông báo");
+                MessageBox.Show("Mã môn học đã tồn tại, vui lòng nhập mã môn học khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbMaMH.Focus();
             }
         }
 
-        private void btSua_Click(object sender, EventArgs e)
+        private async void btSua_Click(object sender, EventArgs e)
         {
             obj.MAMH = txbMaMH.Text;
             obj.TENMH = txbTenMH.Text;
             obj.HOCKY = int.Parse(cbHocKy.Text);
             obj.SOTINCHI = int.Parse(txbSoTC.Text);
-            if (bus.GetData(txbMaMH.Text).Rows.Count != 0)
+            if (await bus.GetData(txbMaMH.Text) != null)
             {
-                bus.Update(obj);
-                MessageBox.Show("Sửa thành công", "Thông báo");
+                await bus.Update(obj);
+                MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 load_dgvHienThi(sender, e);
             }
             else
             {
-                MessageBox.Show("Mã môn học không tồn tại, vui lòng nhập lại", "Thông báo");
+                MessageBox.Show("Mã môn học không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbMaMH.Focus();
             }
         }
 
-        private void btXoa_Click(object sender, EventArgs e)
+        private async void btXoa_Click(object sender, EventArgs e)
         {
-            if (bus.GetData(txbMaMH.Text).Rows.Count != 0)
+            if (await bus.GetData(txbMaMH.Text) != null)
             {
                 DialogResult rs = MessageBox.Show("Bạn có chắc chắn xóa môn học này không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (rs == DialogResult.Yes)
                 {
-                    bus.Delete(txbMaMH.Text);
-                    MessageBox.Show("Xóa thành công", "Thông báo");
+                    await bus.Delete(txbMaMH.Text);
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     btReset_Click(sender, e);
                     load_dgvHienThi(sender, e);
                 }
             }
             else
             {
-                MessageBox.Show("Mã môn học không tồn tại, vui lòng nhập mã môn học khác", "Thông báo");
+                MessageBox.Show("Mã môn học không tồn tại, vui lòng nhập mã môn học khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbMaMH.Focus();
             }
         }
@@ -186,7 +186,7 @@ namespace QuanLyThuHocPhi
             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
         }
 
-        private void btNhapExcel_Click(object sender, EventArgs e)
+        private async void btNhapExcel_Click(object sender, EventArgs e)
         {
             // Tạo một OpenFileDialog để chọn file Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -196,41 +196,41 @@ namespace QuanLyThuHocPhi
             {
                 // Lấy đường dẫn của file Excel đã chọn
                 filePath = openFileDialog.FileName;
-            }
 
-            // Khởi tạo một đối tượng Excel.Application
-            Excel.Application excelApp = new Excel.Application();
+                // Khởi tạo một đối tượng Excel.Application
+                Excel.Application excelApp = new Excel.Application();
 
-            // Mở file Excel
-            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+                // Mở file Excel
+                Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
 
-            // Lấy Sheet đầu tiên từ Workbook
-            Excel.Worksheet worksheet = workbook.Sheets[1];
+                // Lấy Sheet đầu tiên từ Workbook
+                Excel.Worksheet worksheet = workbook.Sheets[1];
 
-            // Đọc dữ liệu từ Sheet
-            int row = 3;
-            while (worksheet.Cells[row, 1].Value != null)
-            {
-
-                obj.MAMH = worksheet.Cells[row, 1].Value.ToString();
-                obj.TENMH = worksheet.Cells[row, 2].Value.ToString();
-                obj.HOCKY = int.Parse(worksheet.Cells[row, 3].Value.ToString());
-                obj.SOTINCHI = int.Parse(worksheet.Cells[row, 4].Value.ToString());
-                if (bus.GetData(obj.MAMH).Rows.Count == 0)
+                // Đọc dữ liệu từ Sheet
+                int row = 3;
+                while (worksheet.Cells[row, 1].Value != null)
                 {
-                    bus.Insert(obj);
-                }
-                row++;
-            }
-            load_dgvHienThi(sender, e);
-            // Đóng Workbook và thoát khỏi ứng dụng Excel
-            workbook.Close();
-            excelApp.Quit();
 
-            // Giải phóng bộ nhớ
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                    obj.MAMH = worksheet.Cells[row, 1].Value.ToString();
+                    obj.TENMH = worksheet.Cells[row, 2].Value.ToString();
+                    obj.HOCKY = int.Parse(worksheet.Cells[row, 3].Value.ToString());
+                    obj.SOTINCHI = int.Parse(worksheet.Cells[row, 4].Value.ToString());
+                    if (await bus.GetData(obj.MAMH) == null)
+                    {
+                        await bus.Insert(obj);
+                    }
+                    row++;
+                }
+                load_dgvHienThi(sender, e);
+                // Đóng Workbook và thoát khỏi ứng dụng Excel
+                workbook.Close();
+                excelApp.Quit();
+
+                // Giải phóng bộ nhớ
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            }
         }
     }
 }

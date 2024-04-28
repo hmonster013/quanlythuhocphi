@@ -3,73 +3,74 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using ValueObject.CTPhieuThu;
 
 namespace DataAccessLayer
 {
     public class CTPHIEUTHUDAO
     {
-        private dbConnect _dbConnect = new dbConnect();
-        public DataTable GetData()
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/ctphieuthu";
+
+        public CTPHIEUTHUDAO()
         {
-            return _dbConnect.GetData("sp_CTPHIEUTHU_select_all");
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByMACTPT(int MACTPT)
+        public async Task<List<CTPHIEUTHU>> GetData()
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<CTPHIEUTHU>>();
+        }
+
+        public async Task<CTPHIEUTHU> GetDataByMaCTPT(int maCTPT)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maCTPT}");
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MACTPT", MACTPT)
-            };
-            return _dbConnect.GetData("sp_CTPHIEUTHU_select_mactpt", param);
+                return await response.Content.ReadFromJsonAsync<CTPHIEUTHU>();
+            }
+
+            return null;
         }
 
-        public DataTable GetDataByMaPT(int MAPT)
+        public async Task<List<CTPHIEUTHU>> GetDataByMaPT(int MAPT)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAPT", MAPT)
-            };
-            return _dbConnect.GetData("sp_CTPHIEUTHU_select_mapt", param);
+            var response = await _httpClient.GetAsync($"{BASE_URL}/phieuthu/{MAPT}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<CTPHIEUTHU>>();
         }
 
-        public DataTable GetDataSTTCTPT()
+        public async Task<int> Insert(CreateCTPhieuThuRequestDto obj)
         {
-            return _dbConnect.GetData("SELECT IDENT_CURRENT('CTPHIEUTHU') + 1");
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Insert(CTPHIEUTHU obj)
+        public async Task<int> Update(int maCTPT, UpdateCTPhieuThuRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAPT", obj.MAPT),
-                new SqlParameter("NGAYDONG", obj.NGAYDONG),
-                new SqlParameter("SOTIENDONG", obj.SOTIENDONG)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTPHIEUTHU_insert", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maCTPT}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Update(CTPHIEUTHU obj)
+        public async Task<int> Delete(int maCTPT)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACTPT", obj.MACTPT),
-                new SqlParameter("MAPT", obj.MAPT),
-                new SqlParameter("NGAYDONG", obj.NGAYDONG),
-                new SqlParameter("SOTIENDONG", obj.SOTIENDONG)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTPHIEUTHU_update", param);
-        }
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maCTPT}");
+            response.EnsureSuccessStatusCode();
 
-        public int Delete(int MACTPT)
-        {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACTPT", MACTPT)
-            };
-            return _dbConnect.ExecuteSQL("sp_CTPHIEUTHU_delete", param);
+            return 1;
         }
     }
 }

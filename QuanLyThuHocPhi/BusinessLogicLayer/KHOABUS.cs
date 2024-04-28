@@ -1,41 +1,42 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.Khoa;
 
 namespace BusinessLogicLayer
 {
     public class KHOABUS
     {
-        KHOADAO dao = new KHOADAO();
+        private readonly KHOADAO _dao = new KHOADAO();
 
-        public DataTable GetData()
+        public async Task<List<KHOA>> GetData()
         {
-            return dao.GetData();
+            return await _dao.GetData();
         }
 
-        public DataTable GetData(string ID)
+        public async Task<KHOA> GetData(string maKhoa)
         {
-            return dao.GetDataByID(ID);
+            return await _dao.GetDataByID(maKhoa);
         }
 
-        public int Insert(KHOA obj)
+        public async Task<int> Insert(KHOA obj)
         {
-            return dao.Insert(obj);
+            return await _dao.Insert(obj.ToCreateDTOFromKhoa());
         }
 
-        public int Update(KHOA obj)
+        public async Task<int> Update(KHOA obj)
         {
-            return dao.Update(obj);
+            return await _dao.Update(obj.MAKHOA, obj.ToUpdateDTOFromKhoa());
         }
 
-        public int Delete(string ID)
+        public async Task<int> Delete(string maKhoa)
         {
-            return dao.Delete(ID);
+            return await _dao.Delete(maKhoa);
         }
     }
 }

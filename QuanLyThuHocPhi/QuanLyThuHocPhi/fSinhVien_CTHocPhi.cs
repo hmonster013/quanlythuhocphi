@@ -21,9 +21,9 @@ namespace QuanLyThuHocPhi
             InitializeComponent();
         }
 
-        public void load_dgvHienThi()
+        public async void load_dgvHienThi()
         {
-            dgvHienThi.DataSource = bus.GetDataByMaPT(MAPT);
+            dgvHienThi.DataSource = await bus.GetDataByMaPT(MAPT);
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dgvHienThi.Columns[0].HeaderText = "Mã chi tiết phiếu thu";

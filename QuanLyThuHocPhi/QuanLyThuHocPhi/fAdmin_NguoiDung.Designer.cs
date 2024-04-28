@@ -146,9 +146,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(2, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 20);
+            this.label1.Size = new System.Drawing.Size(109, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tên tài khoản";
+            this.label1.Text = "Tên tài khoản:";
             // 
             // panel3
             // 
@@ -169,6 +169,7 @@
             // btNhapExcel
             // 
             this.btNhapExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btNhapExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNhapExcel.Location = new System.Drawing.Point(0, 225);
             this.btNhapExcel.Name = "btNhapExcel";
             this.btNhapExcel.Size = new System.Drawing.Size(109, 45);
@@ -180,6 +181,7 @@
             // btXuatExcel
             // 
             this.btXuatExcel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btXuatExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btXuatExcel.Location = new System.Drawing.Point(0, 180);
             this.btXuatExcel.Name = "btXuatExcel";
             this.btXuatExcel.Size = new System.Drawing.Size(109, 45);
@@ -191,6 +193,7 @@
             // btReset
             // 
             this.btReset.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btReset.Location = new System.Drawing.Point(0, 135);
             this.btReset.Name = "btReset";
             this.btReset.Size = new System.Drawing.Size(109, 45);
@@ -202,6 +205,7 @@
             // btXoa
             // 
             this.btXoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btXoa.Location = new System.Drawing.Point(0, 90);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(109, 45);
@@ -213,6 +217,7 @@
             // btSua
             // 
             this.btSua.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSua.Location = new System.Drawing.Point(0, 45);
             this.btSua.Name = "btSua";
             this.btSua.Size = new System.Drawing.Size(109, 45);
@@ -224,6 +229,7 @@
             // btThem
             // 
             this.btThem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.Location = new System.Drawing.Point(0, 0);
             this.btThem.Name = "btThem";
             this.btThem.Size = new System.Drawing.Size(109, 45);

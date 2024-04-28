@@ -5,82 +5,84 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.PhieuThu;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace DataAccessLayer
 {
     public class PHIEUTHUDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/phieuthu";
 
-        public DataTable GetData()
+        public PHIEUTHUDAO()
         {
-            return _dbConnect.GetData("sp_PHIEUTHU_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(int ID)
+        public async Task<List<PHIEUTHU>> GetData()
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<PHIEUTHU>>();
+        }
+
+        public async Task<PHIEUTHU> GetDataByID(int maPT)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maPT}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("@MAPT", ID)
-            };
-            return _dbConnect.GetData("sp_PHIEUTHU_select_mapt", param);
+                return await response.Content.ReadFromJsonAsync<PHIEUTHU>();
+            }
+
+            return null;
         }
 
-        public DataTable GetDataByMASV(string MASV)
+        public async Task<List<PHIEUTHU>> GetDataByMASV(string MASV)
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync($"{BASE_URL}/sinhvien/{MASV}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<PHIEUTHU>>();
+        }
+
+        public async Task<PHIEUTHU> GetDataByMaSVandHK(string MASV, int HOCKY) 
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/sinhvienandhocky/{MASV}/{HOCKY}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MASV", MASV)
-            };
-            return _dbConnect.GetData("sp_PHIEUTHU_select_masv", param);
+                return await response.Content.ReadFromJsonAsync<PHIEUTHU>();
+            }
+
+            return null;
         }
 
-        public DataTable GetDataByMaSVandHK(string MASV, int HOCKY) 
+        public async Task<int> Insert(CreatePhieuThuRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MASV", MASV),
-                new SqlParameter("HOCKY", HOCKY)
-            };
-            return _dbConnect.GetData("sp_PHIEUTHU_select_masv_hocky", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public DataTable GetDataSTTPT() 
+        public async Task<int> Update(int maPT, UpdatePhieuThuRequestDto obj)
         {
-            return _dbConnect.GetData("SELECT IDENT_CURRENT('PHIEUTHU') + 1");
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maPT}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Insert(PHIEUTHU obj)
+        public async Task<int> Delete(int maPT)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("@MASV", obj.MASV),
-                new SqlParameter("@NIENKHOA", obj.NIENKHOA),
-                new SqlParameter("@HOCKY", obj.HOCKY)
-            };
-            return _dbConnect.ExecuteSQL("sp_PHIEUTHU_insert", param);
-        }
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maPT}");
+            response.EnsureSuccessStatusCode();
 
-        public int Update(PHIEUTHU obj)
-        {
-            SqlParameter[] param =
-            {
-                new SqlParameter("@MAPT", obj.MAPT),
-                new SqlParameter("@MASV", obj.MASV),
-                new SqlParameter("@NIENKHOA", obj.NIENKHOA),
-                new SqlParameter("@HOCKY", obj.HOCKY)
-            };
-            return _dbConnect.ExecuteSQL("sp_PHIEUTHU_update", param);
-        }
-
-        public int Delete(int ID)
-        {
-            SqlParameter[] param =
-            {
-                new SqlParameter("@MAPT", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_PHIEUTHU_delete", param);
+            return 1;
         }
     }
 }

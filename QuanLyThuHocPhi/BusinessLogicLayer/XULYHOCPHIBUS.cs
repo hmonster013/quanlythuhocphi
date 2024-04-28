@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
+using ValueObject.XuLyHocPhi;
 
 namespace BusinessLogicLayer
 {
@@ -17,14 +18,14 @@ namespace BusinessLogicLayer
             return dao.GetDataHocPhi(MASV);
         }
 
-        public DataTable GetDataTongHocPHi(string MASV)
+        public async Task<HocPhiDto> GetDataTongHocPhiOfSV(string MASV)
         {
-            return dao.GetDataTongHocPhi(MASV);
+            return await dao.GetDataTongHocPhiOfSV(MASV);
         }
 
-        public DataTable GetDataByHOCKY(string MASV, int HOCKY)
+        public async Task<HocPhiDto> GetDataBySVandHK(string MASV, int HOCKY)
         {
-            return dao.GetDataByHOCKY(MASV, HOCKY);
+            return await dao.GetDataBySVandHK(MASV, HOCKY);
         }
         
         public DataTable GetAllDataHocPhi(string MAKHOA, string MACN, string MALOP)

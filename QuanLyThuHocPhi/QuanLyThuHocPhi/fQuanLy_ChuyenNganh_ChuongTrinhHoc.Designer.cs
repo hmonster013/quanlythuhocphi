@@ -32,12 +32,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txbTimKiemdgv2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txbMonHocdgv2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txbTimKiemdgv1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txbMonHocdgv1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -94,7 +92,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Tomato;
-            this.panel3.Controls.Add(this.txbTimKiemdgv2);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.txbMonHocdgv2);
             this.panel3.Controls.Add(this.label4);
@@ -103,16 +100,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(535, 72);
             this.panel3.TabIndex = 1;
-            // 
-            // txbTimKiemdgv2
-            // 
-            this.txbTimKiemdgv2.Location = new System.Drawing.Point(235, 44);
-            this.txbTimKiemdgv2.Name = "txbTimKiemdgv2";
-            this.txbTimKiemdgv2.Size = new System.Drawing.Size(75, 23);
-            this.txbTimKiemdgv2.TabIndex = 3;
-            this.txbTimKiemdgv2.Text = "Tìm kiếm";
-            this.txbTimKiemdgv2.UseVisualStyleBackColor = true;
-            this.txbTimKiemdgv2.Click += new System.EventHandler(this.txbTimKiemdgv2_Click);
             // 
             // label3
             // 
@@ -131,6 +118,7 @@
             this.txbMonHocdgv2.Name = "txbMonHocdgv2";
             this.txbMonHocdgv2.Size = new System.Drawing.Size(125, 20);
             this.txbMonHocdgv2.TabIndex = 1;
+            this.txbMonHocdgv2.TextChanged += new System.EventHandler(this.txbMonHocdgv2_TextChanged);
             // 
             // label4
             // 
@@ -146,7 +134,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Tomato;
-            this.panel2.Controls.Add(this.txbTimKiemdgv1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txbMonHocdgv1);
             this.panel2.Controls.Add(this.label1);
@@ -155,16 +142,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(534, 72);
             this.panel2.TabIndex = 0;
-            // 
-            // txbTimKiemdgv1
-            // 
-            this.txbTimKiemdgv1.Location = new System.Drawing.Point(234, 46);
-            this.txbTimKiemdgv1.Name = "txbTimKiemdgv1";
-            this.txbTimKiemdgv1.Size = new System.Drawing.Size(75, 23);
-            this.txbTimKiemdgv1.TabIndex = 3;
-            this.txbTimKiemdgv1.Text = "Tìm kiếm";
-            this.txbTimKiemdgv1.UseVisualStyleBackColor = true;
-            this.txbTimKiemdgv1.Click += new System.EventHandler(this.txbTimKiemdgv1_Click);
             // 
             // label2
             // 
@@ -183,6 +160,7 @@
             this.txbMonHocdgv1.Name = "txbMonHocdgv1";
             this.txbMonHocdgv1.Size = new System.Drawing.Size(125, 20);
             this.txbMonHocdgv1.TabIndex = 1;
+            this.txbMonHocdgv1.TextChanged += new System.EventHandler(this.txbMonHocdgv1_TextChanged);
             // 
             // label1
             // 
@@ -265,10 +243,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txbMonHocdgv1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button txbTimKiemdgv1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button txbTimKiemdgv2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbMonHocdgv2;
         private System.Windows.Forms.Label label4;

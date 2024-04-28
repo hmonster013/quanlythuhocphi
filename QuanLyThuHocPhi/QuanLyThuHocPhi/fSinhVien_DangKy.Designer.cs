@@ -36,15 +36,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txbMaSV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txbMaDK = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.SuspendLayout();
@@ -54,18 +50,17 @@
             this.panel1.Controls.Add(this.btDangKy);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(937, 153);
+            this.panel1.Size = new System.Drawing.Size(937, 125);
             this.panel1.TabIndex = 0;
             // 
             // btDangKy
             // 
             this.btDangKy.AutoSize = true;
             this.btDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDangKy.Location = new System.Drawing.Point(12, 117);
+            this.btDangKy.Location = new System.Drawing.Point(12, 89);
             this.btDangKy.Name = "btDangKy";
             this.btDangKy.Size = new System.Drawing.Size(77, 30);
             this.btDangKy.TabIndex = 3;
@@ -105,7 +100,7 @@
             // 
             this.panel3.Controls.Add(this.txbMaSV);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(12, 60);
+            this.panel3.Location = new System.Drawing.Point(12, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(397, 42);
             this.panel3.TabIndex = 1;
@@ -128,40 +123,13 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã sinh viên:";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.txbMaDK);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(12, 12);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(397, 42);
-            this.panel4.TabIndex = 0;
-            // 
-            // txbMaDK
-            // 
-            this.txbMaDK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMaDK.Location = new System.Drawing.Point(142, 7);
-            this.txbMaDK.Name = "txbMaDK";
-            this.txbMaDK.Size = new System.Drawing.Size(252, 26);
-            this.txbMaDK.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã đăng ký:";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvHienThi);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 153);
+            this.panel2.Location = new System.Drawing.Point(0, 125);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(937, 297);
+            this.panel2.Size = new System.Drawing.Size(937, 325);
             this.panel2.TabIndex = 1;
             // 
             // dgvHienThi
@@ -170,7 +138,7 @@
             this.dgvHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHienThi.Location = new System.Drawing.Point(0, 0);
             this.dgvHienThi.Name = "dgvHienThi";
-            this.dgvHienThi.Size = new System.Drawing.Size(937, 297);
+            this.dgvHienThi.Size = new System.Drawing.Size(937, 325);
             this.dgvHienThi.TabIndex = 0;
             this.dgvHienThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellContentClick);
             // 
@@ -191,8 +159,6 @@
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).EndInit();
             this.ResumeLayout(false);
@@ -210,9 +176,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txbMaSV;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txbMaDK;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbHocKy;
     }
 }

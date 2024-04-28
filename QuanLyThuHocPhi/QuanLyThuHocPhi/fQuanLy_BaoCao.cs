@@ -1,4 +1,4 @@
-﻿    using BusinessLogicLayer;
+﻿using BusinessLogicLayer;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,9 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Char = System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms.DataVisualization.Charting;
+using ValueObject.ChuyenNganh;
+using ValueObject.Khoa;
+using ValueObject.Lop;
 
 namespace QuanLyThuHocPhi
 {
@@ -52,7 +55,7 @@ namespace QuanLyThuHocPhi
         //THEM DU LIEU VAO COMBO BOX
         //==========================
 
-        public void addDataComboBox()
+        public async void addDataComboBox()
         {
             HocPhi_cbKhoa.Items.Clear();
             HocPhi_cbChuyenNganh.Items.Clear();
@@ -61,22 +64,24 @@ namespace QuanLyThuHocPhi
             BieuDo_cbChuyenNganh.Items.Clear();
             BieuDo_cbLop.Items.Clear();
             //Them ma khoa vao combo box khoa
-            foreach (DataRow row in bus_KHOA.GetData().Rows)
+            foreach (KHOA khoa in await bus_KHOA.GetData())
             {
-                HocPhi_cbKhoa.Items.Add(row[0]);
-                BieuDo_cbKhoa.Items.Add(row[0]);
+                HocPhi_cbKhoa.Items.Add(khoa.MAKHOA);
+                BieuDo_cbKhoa.Items.Add(khoa.MAKHOA);
             }
+
             //Them ma chuyen nganh vao combo box chuyen nganh
-            foreach (DataRow row in bus_CN.GetData().Rows)
+            foreach (CHUYENNGANH chuyennganh in await bus_CN.GetData())
             {
-                HocPhi_cbChuyenNganh.Items.Add(row[0]);
-                BieuDo_cbChuyenNganh.Items.Add(row[0]);
+                HocPhi_cbChuyenNganh.Items.Add(chuyennganh.MACN);
+                BieuDo_cbChuyenNganh.Items.Add(chuyennganh.MACN);
             }
+
             //Them ma lop vao combo box lop
-            foreach (DataRow row in bus_LOP.GetData().Rows)
+            foreach (LOP lop in await bus_LOP.GetData())
             {
-                HocPhi_cbLop.Items.Add(row[0]);
-                BieuDo_cbLop.Items.Add(row[0]);
+                HocPhi_cbLop.Items.Add(lop.MALOP);
+                BieuDo_cbLop.Items.Add(lop.MALOP);
             }
 
             BieuDo_cbTypeBieuDo.Items.Clear();
@@ -99,29 +104,29 @@ namespace QuanLyThuHocPhi
         //XU LY SU KIEN VALUE CHANGE COMBO BOX
         //====================================
 
-        private void HocPhi_cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        private async void HocPhi_cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             HocPhi_dgvHienThi.DataSource = bus_XLHP.GetAllDataHocPhi(HocPhi_cbKhoa.Text, HocPhi_cbChuyenNganh.Text, HocPhi_cbLop.Text);
             HocPhi_cbChuyenNganh.Items.Clear();
             HocPhi_cbLop.Items.Clear();
-            foreach (DataRow row in bus_CN.GetDataByMAKHOA(HocPhi_cbKhoa.Text).Rows)
+            foreach (CHUYENNGANH chuyennganh in await bus_CN.GetDataByMAKHOA(HocPhi_cbKhoa.Text))
             {
-                HocPhi_cbChuyenNganh.Items.Add(row[0]);
+                HocPhi_cbChuyenNganh.Items.Add(chuyennganh.MACN);
             }
             //Them ma lop vao combo box lop
-            foreach (DataRow row in bus_LOP.GetDataByMAKHOA(HocPhi_cbKhoa.Text).Rows)
+            foreach (LOP lop in await bus_LOP.GetDataByMAKHOA(HocPhi_cbKhoa.Text))
             {
-                HocPhi_cbLop.Items.Add(row[0]);
+                HocPhi_cbLop.Items.Add(lop.MALOP);
             }
         }
 
-        private void HocPhi_cbChuyenNganh_SelectedValueChanged(object sender, EventArgs e)
+        private async void HocPhi_cbChuyenNganh_SelectedValueChanged(object sender, EventArgs e)
         {
             HocPhi_dgvHienThi.DataSource = bus_XLHP.GetAllDataHocPhi(HocPhi_cbKhoa.Text, HocPhi_cbChuyenNganh.Text, HocPhi_cbLop.Text);
             HocPhi_cbLop.Items.Clear();
-            foreach (DataRow row in bus_LOP.GetdataByMACN(HocPhi_cbChuyenNganh.Text).Rows)
+            foreach (LOP lop in await bus_LOP.GetdataByMACN(HocPhi_cbChuyenNganh.Text))
             {
-                HocPhi_cbLop.Items.Add(row[0]);
+                HocPhi_cbLop.Items.Add(lop.MALOP);
             }
         }
 
@@ -130,27 +135,27 @@ namespace QuanLyThuHocPhi
             HocPhi_dgvHienThi.DataSource = bus_XLHP.GetAllDataHocPhi(HocPhi_cbKhoa.Text, HocPhi_cbChuyenNganh.Text, HocPhi_cbLop.Text);
         }
 
-        private void BieuDo_cbKhoa_SelectedValueChanged(object sender, EventArgs e)
+        private async void BieuDo_cbKhoa_SelectedValueChanged(object sender, EventArgs e)
         {
             BieuDo_cbChuyenNganh.Items.Clear();
             BieuDo_cbLop.Items.Clear();
-            foreach (DataRow row in bus_CN.GetDataByMAKHOA(BieuDo_cbKhoa.Text).Rows)
+            foreach (CHUYENNGANH chuyennganh in await bus_CN.GetDataByMAKHOA(BieuDo_cbKhoa.Text))
             {
-                BieuDo_cbChuyenNganh.Items.Add(row[0]);
+                BieuDo_cbChuyenNganh.Items.Add(chuyennganh.MACN);
             }
             //Them ma lop vao combo box lop
-            foreach (DataRow row in bus_LOP.GetDataByMAKHOA(BieuDo_cbKhoa.Text).Rows)
+            foreach (LOP lop in await bus_LOP.GetDataByMAKHOA(BieuDo_cbKhoa.Text))
             {
-                BieuDo_cbLop.Items.Add(row[0]);
+                BieuDo_cbLop.Items.Add(lop.MALOP);
             }
         }
 
-        private void BieuDo_cbChuyenNganh_SelectedValueChanged(object sender, EventArgs e)
+        private async void BieuDo_cbChuyenNganh_SelectedValueChanged(object sender, EventArgs e)
         {
             BieuDo_cbLop.Items.Clear();
-            foreach (DataRow row in bus_LOP.GetdataByMACN(BieuDo_cbChuyenNganh.Text).Rows)
+            foreach (LOP lop in await bus_LOP.GetdataByMACN(BieuDo_cbChuyenNganh.Text))
             {
-                BieuDo_cbLop.Items.Add(row[0]);
+                BieuDo_cbLop.Items.Add(lop.MALOP);
             }
         }
 

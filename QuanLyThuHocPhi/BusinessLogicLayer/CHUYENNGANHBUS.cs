@@ -5,43 +5,49 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.ChuyenNganh;
 using DataAccessLayer;
+using Mappers;
 
 namespace BusinessLogicLayer
 {
     public class CHUYENNGANHBUS
     {
-        CHUYENNGANHDAO dao = new CHUYENNGANHDAO();
+        private readonly CHUYENNGANHDAO _dao;
 
-        public DataTable GetData()
+        public CHUYENNGANHBUS()
         {
-            return dao.GetData();
+            _dao = new CHUYENNGANHDAO();
         }
 
-        public DataTable GetData(string ID)
+        public async Task<List<CHUYENNGANH>> GetData()
         {
-            return dao.GetDataByID(ID);
+            return await _dao.GetData();
         }
 
-        public DataTable GetDataByMAKHOA(string MAKHOA)
+        public async Task<CHUYENNGANH> GetData(string maCN)
         {
-            return dao.GetDataByMAKHOA(MAKHOA);
+            return await _dao.GetDataByID(maCN);
         }
 
-        public int Insert(CHUYENNGANH obj)
+        public async Task<List<CHUYENNGANH>> GetDataByMAKHOA(string MAKHOA)
         {
-            return dao.Insert(obj);
+            return await _dao.GetDataByMAKHOA(MAKHOA);
         }
 
-        public int Update(CHUYENNGANH obj)
+        public async Task<int> Insert(CHUYENNGANH obj)
         {
-            return dao.Update(obj);
+            return await _dao.Insert(obj.ToCreateDTOFromChuyenNganh());
         }
 
-        public int Delete(string ID)
+        public async Task<int> Update(CHUYENNGANH obj)
         {
-            return dao.Delete(ID);
+            return await _dao.Update(obj.MACN, obj.ToUpdateDTOFromChuyenNganh());
+        }
+
+        public async Task<int> Delete(string maCN)
+        {
+            return await _dao.Delete(maCN);
         }
     }
 }

@@ -73,30 +73,25 @@ namespace QuanLyThuHocPhi
             lbHienThi.Text = btHocPhi.Text;
         }
 
-        private bool isClickbtDangXuat = false;
         private void btDangXuat_Click(object sender, EventArgs e)
         {
-            isClickbtDangXuat = true;
-            this.Close();
             fLogin.Instance.Show();
+            this.Dispose();
         }
 
-        private void panel4_Click(object sender, EventArgs e)
+        private async void panel4_Click(object sender, EventArgs e)
         {
             SINHVIENBUS bus = new SINHVIENBUS();
             if (currentFormChild != null)
             {
                 currentFormChild.Close();
             }
-            lbHienThi.Text = "Xin chào " + bus.GetData(MASV).Rows[0].ItemArray[2].ToString();
+            lbHienThi.Text = "Xin chào " + (await bus.GetData(MASV)).TEN;
         }
 
-        private void fSinhVien_FormClosing(object sender, FormClosingEventArgs e)
+        private void fSinhVien_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!isClickbtDangXuat)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
         }
     }
 }

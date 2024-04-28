@@ -1,41 +1,45 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.NguoiDung;
 
 namespace BusinessLogicLayer
 {
     public class NGUOIDUNGBUS
     {
-        NGUOIDUNGDAO dao = new NGUOIDUNGDAO();
+        private readonly NGUOIDUNGDAO _dao;
 
-        public DataTable GetData()
+        public NGUOIDUNGBUS()
         {
-            return dao.GetData();
+            _dao = new NGUOIDUNGDAO();
         }
 
-        public DataTable GetData(string ID)
+        public async Task<List<NGUOIDUNG>> GetData()
         {
-            return dao.GetDataByID(ID);
+            return await _dao.GetData();
         }
 
-        public int Insert(NGUOIDUNG obj)
+        public async Task<NGUOIDUNG> GetDataByID(string ID)
         {
-            return dao.Insert(obj);
+            return await _dao.GetDataByID(ID);
         }
 
-        public int Update(NGUOIDUNG obj)
+        public async Task<int> Insert(NGUOIDUNG obj)
         {
-            return dao.Update(obj);
+            return await _dao.Insert(obj.ToCreateDTOFromNguoiDung());
         }
 
-        public int Delete(string ID)
+        public async Task<int> Update(NGUOIDUNG obj)
         {
-            return dao.Delete(ID);
+            return await _dao.Update(obj.TENTAIKHOAN, obj.ToUpdateDTOFromNguoiDung());
+        }
+
+        public async Task<int> Delete(string ID)
+        {
+            return await _dao.Delete(ID);
         }
     }
 }

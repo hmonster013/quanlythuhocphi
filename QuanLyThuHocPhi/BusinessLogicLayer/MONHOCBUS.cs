@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,36 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using ValueObject.MonHoc;
 
 namespace BusinessLogicLayer
 {
     public class MONHOCBUS
     {
-        MONHOCDAO dao = new MONHOCDAO();
+        private MONHOCDAO dao = new MONHOCDAO();
 
-        public DataTable GetData()
+        public async Task<List<MONHOC>> GetData()
         {
-            return dao.GetData();
+            return await dao.GetData();
         }
 
-        public DataTable GetData(string ID)
+        public async Task<MONHOC> GetData(string maMH)
         {
-            return dao.GetDataByID(ID);
+            return await dao.GetDataByID(maMH);
         }
 
-        public int Insert(MONHOC obj)
+        public async Task<int> Insert(MONHOC obj)
         {
-            return dao.Insert(obj);
+            return await dao.Insert(obj.ToCreateDTOFromMonHoc());
         }
 
-        public int Update(MONHOC obj)
+        public async Task<int> Update(MONHOC obj)
         {
-            return dao.Update(obj);
+            return await dao.Update(obj.MAMH, obj.ToUpdateDTOFromMonHoc());
         }
 
-        public int Delete(string ID)
+        public async Task<int> Delete(string maMH)
         {
-            return dao.Delete(ID);
+            return await dao.Delete(maMH);
         }
     }
 }

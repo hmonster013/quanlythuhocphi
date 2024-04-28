@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
+using ValueObject.NguoiDung;
 using BusinessLogicLayer;
 
 namespace QuanLyThuHocPhi
@@ -17,6 +17,7 @@ namespace QuanLyThuHocPhi
         private string tentaikhoan;
         private NGUOIDUNG obj = new NGUOIDUNG();
         private NGUOIDUNGBUS bus = new NGUOIDUNGBUS();
+
         public fChangePassword()
         {
             InitializeComponent();
@@ -33,28 +34,33 @@ namespace QuanLyThuHocPhi
             this.Close();
         }
 
-        private void btLuu_Click(object sender, EventArgs e)
+        private async void btLuu_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            dt = bus.GetData(tentaikhoan);
-            if (txbMKHT.Text == dt.Rows[0].ItemArray[1].ToString())
+            var nguoidung = await bus.GetDataByID(tentaikhoan);
+            if (txbMKHT.Text == nguoidung.MATKHAU)
             {
                 if (txbNMKM.Text == txbNLMK.Text)
                 {
                     obj.TENTAIKHOAN = tentaikhoan;
                     obj.MATKHAU = txbNMKM.Text;
-                    obj.QUYEN = dt.Rows[0].ItemArray[2].ToString();
-                    bus.Update(obj);
-                    MessageBox.Show("Đổi mật khẩu thành công", "Thông báo");
+                    obj.QUYEN = nguoidung.QUYEN;
+
+                    if (await bus.Update(obj) == 1)
+                    {
+                        MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    } else
+                    {
+                        MessageBox.Show("Đổi mật khẩu không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Mật khẩu mới không khớp, vui lòng nhập lại", "Thông báo");
+                    MessageBox.Show("Mật khẩu mới không khớp, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Mật khẩu hiện tại không đúng, vui lòng nhập lại", "Thông báo");
+                MessageBox.Show("Mật khẩu hiện tại không đúng, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbMKHT.Focus();
             }
         }

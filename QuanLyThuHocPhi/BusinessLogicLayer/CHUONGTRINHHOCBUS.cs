@@ -5,50 +5,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
+using ValueObject.MonHoc;
 
 namespace BusinessLogicLayer
 {
     public class CHUONGTRINHHOCBUS
     {
         private CHUONGTRINHHOCDAO dao = new CHUONGTRINHHOCDAO();
-        public DataTable GetData(string MASV)
+
+        public async Task<List<MONHOC>> GetDataBySinhVien(string MASV)
         {
-            return dao.GetData(MASV);
+            return await dao.GetDataBySinhVien(MASV);
         }
 
-        public DataTable GetData(string MASV, int HOCKY)
+        public async Task<List<MONHOC>> GetDataBySVHocKy(string MASV, int HOCKY)
         {
-            return dao.GetData(MASV, HOCKY);
+            return await dao.GetDataBySVHocKy(MASV, HOCKY);
         }
 
-        public DataTable GetDataByTenMH(string  MASV, string TENMH)
+        public async Task<List<MONHOC>> GetDataByChuyenNganh(string MACN)
         {
-            return dao.GetDataByTenMH(MASV, TENMH);
+            return await dao.GetDataByChuyenNganh(MACN);
         }
 
-        public DataTable GetDataByTenMH(string MASV, string TENMH, int HOCKY)
+        public async Task<List<MONHOC>> GetDataNotInChuyenNganh(string MACN)
         {
-            return dao.GetDataByTenMH(MASV, TENMH, HOCKY);
-        }
-
-        public DataTable GetDataByChuyenNganh(string MACN)
-        {
-            return dao.GetDataByChuyenNganh(MACN);
-        }
-
-        public DataTable FindByTenMHandChuyenNganh(string MACN, string TENM)
-        {
-            return dao.FindByTenMHandChuyenNganh(MACN, TENM);
-        }
-
-        public DataTable GetDataNotInChuyenNganh(string MACN)
-        {
-            return dao.GetDataNotInChuyenNganh(MACN);
-        }
-
-        public DataTable FindByTenMHNotInChuyenNganh(string MASV, string TENMH)
-        {
-            return dao.FindByTenMHNotInChuyenNganh(MASV, TENMH);
+            return await dao.GetDataNotInChuyenNganh(MACN);
         }
     }
 }

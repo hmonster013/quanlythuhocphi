@@ -1,62 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.NguoiDung;
 
 namespace DataAccessLayer
 {
     public class NGUOIDUNGDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/nguoidung";
 
-        public DataTable GetData()
+        public NGUOIDUNGDAO()
         {
-            return _dbConnect.GetData("sp_NGUOIDUNG_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(string ID)
+        public async Task<List<NGUOIDUNG>> GetData()
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("TENTAIKHOAN", ID)
-            };
-            return _dbConnect.GetData("sp_NGUOIDUNG_select_tentaikhoan", param);
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<List<NGUOIDUNG>>();
         }
 
-        public int Insert(NGUOIDUNG obj)
+        public async Task<NGUOIDUNG> GetDataByID(string tenTaiKhoan)
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{tenTaiKhoan}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("TENTAIKHOAN", obj.TENTAIKHOAN),
-                new SqlParameter("MATKHAU", obj.MATKHAU),
-                new SqlParameter("QUYEN", obj.QUYEN)
-            };
-            return _dbConnect.ExecuteSQL("sp_NGUOIDUNG_insert", param);
+                return await response.Content.ReadFromJsonAsync<NGUOIDUNG>();
+            }
+
+            return null;
         }
 
-        public int Update(NGUOIDUNG obj)
+        public async Task<int> Insert(CreateNguoiDungRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("TENTAIKHOAN", obj.TENTAIKHOAN),
-                new SqlParameter("MATKHAU", obj.MATKHAU),
-                new SqlParameter("QUYEN", obj.QUYEN)
-            };
-            return _dbConnect.ExecuteSQL("sp_NGUOIDUNG_update", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+            return 1;
         }
 
-        public int Delete(string ID)
+        public async Task<int> Update(string tenTaiKhoan, UpdateNguoiDungRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("TENTAIKHOAN", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_NGUOIDUNG_delete", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{tenTaiKhoan}", obj);
+            response.EnsureSuccessStatusCode();
+            return 1;
+        }
+
+        public async Task<int> Delete(string tenTaiKhoan)
+        {
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{tenTaiKhoan}");
+            response.EnsureSuccessStatusCode();
+            return 1;
         }
     }
 }
-

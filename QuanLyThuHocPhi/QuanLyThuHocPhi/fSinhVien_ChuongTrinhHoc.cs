@@ -26,9 +26,9 @@ namespace QuanLyThuHocPhi
             this.MASV = MASV;
         }
 
-        public void load_dgvHienThi()
+        public async void load_dgvHienThi()
         {
-            dgvHienThi.DataSource = bus.GetData(MASV);
+            dgvHienThi.DataSource = await bus.GetDataBySinhVien(MASV);
             dgvHienThi.ReadOnly = true;
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -46,17 +46,6 @@ namespace QuanLyThuHocPhi
             cbHocKy.Items.Add("4");
             cbHocKy.Items.Add("5");
         }
-        private void btTimKiem_Click(object sender, EventArgs e)
-        {
-            if (cbHocKy.SelectedItem == null)
-            {
-                dgvHienThi.DataSource = bus.GetDataByTenMH(MASV, txbTenMH.Text);
-            }
-            else
-            {
-                dgvHienThi.DataSource = bus.GetDataByTenMH(MASV, txbTenMH.Text, int.Parse(cbHocKy.Text));
-            }
-        }
 
         private void fSinhVien_ChuongTrinhHoc_Load(object sender, EventArgs e)
         {
@@ -64,9 +53,33 @@ namespace QuanLyThuHocPhi
             load_dgvHienThi();
         }
 
-        private void cbHocKy_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvHienThi.DataSource = bus.GetData(MASV, int.Parse(cbHocKy.SelectedItem.ToString()));
+            dgvHienThi.DataSource = await bus.GetDataBySVHocKy(MASV, int.Parse(cbHocKy.SelectedItem.ToString()));
+        }
+
+        private void txbTenMH_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txbTenMH.Text.Trim().ToLower();
+
+            dgvHienThi.BindingContext[dgvHienThi.DataSource].SuspendBinding();
+
+            foreach (DataGridViewRow row in dgvHienThi.Rows)
+            {
+                row.Visible = true;
+            }
+
+            foreach (DataGridViewRow row in dgvHienThi.Rows)
+            {
+                bool found = string.IsNullOrEmpty(keyword) || row.Cells[1].Value?.ToString().ToLower().Contains(keyword) == true;
+
+                if (row.Visible != found)
+                {
+                    row.Visible = found;
+                }
+            }
+
+            dgvHienThi.BindingContext[dgvHienThi.DataSource].ResumeBinding();
         }
     }
 }

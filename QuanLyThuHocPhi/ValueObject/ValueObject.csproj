@@ -41,20 +41,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CHUYENNGANH.cs" />
-    <Compile Include="CTCHUYENNGANH.cs" />
-    <Compile Include="CTDANGKY.cs" />
-    <Compile Include="CTPHIEUTHU.cs" />
-    <Compile Include="DANGKY.cs" />
-    <Compile Include="NGUOIDUNG.cs" />
-    <Compile Include="PHIEUTHU.cs" />
-    <Compile Include="GIANGVIEN.cs" />
-    <Compile Include="KHOA.cs" />
-    <Compile Include="LOP.cs" />
-    <Compile Include="LOPHOCPHAN.cs" />
-    <Compile Include="MONHOC.cs" />
+    <Compile Include="ChuyenNganh\CHUYENNGANH.cs" />
+    <Compile Include="ChuyenNganh\CreateChuyenNganhRequestDto.cs" />
+    <Compile Include="ChuyenNganh\UpdateChuyenNganhRequestDto.cs" />
+    <Compile Include="CTChuyenNganh\CreateCTChuyenNganhRequestDto.cs" />
+    <Compile Include="CTChuyenNganh\CTCHUYENNGANH.cs" />
+    <Compile Include="CTChuyenNganh\UpdateCTChuyenNganhRequestDto.cs" />
+    <Compile Include="CTDangKy\CreateCTDangKyRequestDto.cs" />
+    <Compile Include="CTDangKy\CTDANGKY.cs" />
+    <Compile Include="CTDangKy\UpdateCTDangKyRequestDto.cs" />
+    <Compile Include="CTPhieuThu\CreateCTPhieuThuRequestDto.cs" />
+    <Compile Include="CTPhieuThu\CTPHIEUTHU.cs" />
+    <Compile Include="CTPhieuThu\UpdateCTPhieuThuRequestDto.cs" />
+    <Compile Include="DangKy\CreateDangKyRequestDto.cs" />
+    <Compile Include="DangKy\DANGKY.cs" />
+    <Compile Include="DangKy\UpdateDangKyRequestDto.cs" />
+    <Compile Include="GiangVien\CreateGiangVienRequestDto.cs" />
+    <Compile Include="GiangVien\UpdateGiangVienRequestDto.cs" />
+    <Compile Include="Khoa\CreateKhoaRequestDto.cs" />
+    <Compile Include="Khoa\UpdateKhoaRequestDto.cs" />
+    <Compile Include="LopHocPhan\CreateLopHocPhanRequestDto.cs" />
+    <Compile Include="LopHocPhan\UpdateLopHocPhanRequestDto.cs" />
+    <Compile Include="Lop\CreateLopRequestDto.cs" />
+    <Compile Include="Lop\UpdateLopRequestDto.cs" />
+    <Compile Include="MonHoc\CreateMonHocRequestDto.cs" />
+    <Compile Include="MonHoc\UpdateMonHocRequestDto.cs" />
+    <Compile Include="NguoiDung\CreateNguoiDungRequestDto.cs" />
+    <Compile Include="NguoiDung\NGUOIDUNG.cs" />
+    <Compile Include="NguoiDung\UpdateNguoiDungRequestDto.cs" />
+    <Compile Include="PhieuThu\CreatePhieuThuRequestDto.cs" />
+    <Compile Include="PhieuThu\PHIEUTHU.cs" />
+    <Compile Include="GiangVien\GIANGVIEN.cs" />
+    <Compile Include="Khoa\KHOA.cs" />
+    <Compile Include="Lop\LOP.cs" />
+    <Compile Include="LopHocPhan\LOPHOCPHAN.cs" />
+    <Compile Include="MonHoc\MONHOC.cs" />
+    <Compile Include="PhieuThu\UpdatePhieuThuRequestDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SINHVIEN.cs" />
+    <Compile Include="SinhVien\CreateSinhVienRequestDto.cs" />
+    <Compile Include="SinhVien\SINHVIEN.cs" />
+    <Compile Include="SinhVien\UpdateSinhVienRequestDto.cs" />
+    <Compile Include="XuLyDangKy\LopHocPhanQueryDto.cs" />
+    <Compile Include="XuLyHocPhi\HocPhiDto.cs" />
+    <Compile Include="XuLyHocPhi\HocPhiSinhVienDto.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

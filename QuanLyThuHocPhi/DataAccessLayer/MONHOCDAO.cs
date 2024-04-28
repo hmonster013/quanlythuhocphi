@@ -6,59 +6,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using System.Net.Http;
+using System.Net.Http.Json;
+using ValueObject.MonHoc;
 
 namespace DataAccessLayer
 {
     public class MONHOCDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/monhoc";
 
-        public DataTable GetData()
+        public MONHOCDAO()
         {
-            return _dbConnect.GetData("sp_MONHOC_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(string ID)
+        public async Task<List<MONHOC>> GetData()
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<MONHOC>>();
+        }
+
+        public async Task<MONHOC> GetDataByID(string maMH)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maMH}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MAMH", ID)
-            };
-            return _dbConnect.GetData("sp_MONHOC_select_mamh", param);
+                return await response.Content.ReadFromJsonAsync<MONHOC>();
+            }
+
+            return null;
         }
 
-        public int Insert(MONHOC obj)
+        public async Task<int> Insert(CreateMonHocRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("TENMH", obj.TENMH),
-                new SqlParameter("HOCKY", obj.HOCKY),
-                new SqlParameter("SOTINCHI", obj.SOTINCHI)
-            };
-            return _dbConnect.ExecuteSQL("sp_MONHOC_insert", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Update(MONHOC obj)
+        public async Task<int> Update(string maMH, UpdateMonHocRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("TENMH", obj.TENMH),
-                new SqlParameter("HOCKY", obj.HOCKY),
-                new SqlParameter("SOTINCHI", obj.SOTINCHI)
-            };
-            return _dbConnect.ExecuteSQL("sp_MONHOC_update", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maMH}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Delete(string ID)
+        public async Task<int> Delete(string maMH)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAMH", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_MONHOC_delete", param);
-        }
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maMH}");
+            response.EnsureSuccessStatusCode();
 
+            return 1;
+        }
     }
 }

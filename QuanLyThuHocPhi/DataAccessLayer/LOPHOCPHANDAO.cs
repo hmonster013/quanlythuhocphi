@@ -5,78 +5,72 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.LopHocPhan;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace DataAccessLayer
 {
     public class LOPHOCPHANDAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/lophocphan";
 
-        public DataTable GetData()
+        public LOPHOCPHANDAO()
         {
-            return _dbConnect.GetData("sp_LOPHOCPHAN_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(int ID)
+        public async Task<List<LOPHOCPHAN>> GetData()
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<LOPHOCPHAN>>();
+        }
+
+        public async Task<LOPHOCPHAN> GetDataByID(int maLHP)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maLHP}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MALHP", ID)
-            };
-            return _dbConnect.GetData("sp_LOPHOCPHAN_select_malhp", param);
+                return await response.Content.ReadFromJsonAsync<LOPHOCPHAN>();
+            }
+
+            return null;
         }
 
-        public DataTable GetDataByChuyenNganh(string MACN)
+        public async Task<List<LOPHOCPHAN>> GetDataByChuyenNganh(string MACN)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MACN", MACN)
-            };
-            return _dbConnect.GetData("sp_LOPHOCPHAN_select_by_chuyennganh", param);
+            var response = await _httpClient.GetAsync($"{BASE_URL}/chuyennganh/{MACN}");
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<LOPHOCPHAN>>();
         }
 
-        public DataTable GetDataMaLHP()
+        public async Task<int> Insert(CreateLopHocPhanRequestDto obj)
         {
-            return _dbConnect.GetData("SELECT IDENT_CURRENT('LOPHOCPHAN') + 1");
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Insert(LOPHOCPHAN obj)
+        public async Task<int> Update(int maLHP, UpdateLopHocPhanRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("NIENKHOA", obj.NIENKHOA),
-                new SqlParameter("HOCKY", obj.HOCKY),
-                new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("MAGV", obj.MAGV),
-                new SqlParameter("MACN", obj.MACN),
-                new SqlParameter("HUYLOP", obj.HUYLOP)
-            };
-            return _dbConnect.ExecuteSQL("sp_LOPHOCPHAN_insert", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maLHP}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Update(LOPHOCPHAN obj)
+        public async Task<int> Delete(int maLHP)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MALHP", obj.MALHP),
-                new SqlParameter("NIENKHOA", obj.NIENKHOA),
-                new SqlParameter("HOCKY", obj.HOCKY),
-                new SqlParameter("MAMH", obj.MAMH),
-                new SqlParameter("MAGV", obj.MAGV),
-                new SqlParameter("MACN", obj.MACN),
-                new SqlParameter("HUYLOP", obj.HUYLOP)
-            };
-            return _dbConnect.ExecuteSQL("sp_LOPHOCPHAN_update", param);
-        }
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maLHP}");
+            response.EnsureSuccessStatusCode();
 
-        public int Delete(int ID)
-        {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MALHP", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_LOPHOCPHAN_delete", param);
+            return 1;
         }
 
     }

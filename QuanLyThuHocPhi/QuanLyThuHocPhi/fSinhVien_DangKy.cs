@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogicLayer;
-using ValueObject;
+using ValueObject.DangKy;
 
 namespace QuanLyThuHocPhi
 {
@@ -40,9 +40,9 @@ namespace QuanLyThuHocPhi
             cbHocKy.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
-        public void load_dgvHienThi()
+        public async void load_dgvHienThi()
         {
-            dgvHienThi.DataSource = bus.GetDataByMASV(MASV);
+            dgvHienThi.DataSource = await bus.GetDataByMASV(MASV);
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHienThi.Columns[0].HeaderText = "Mã đăng ký";
             dgvHienThi.Columns[1].HeaderText = "Mã sinh viên";
@@ -60,8 +60,6 @@ namespace QuanLyThuHocPhi
 
         public void settingMaDK()
         {
-            txbMaDK.ReadOnly = true;
-            txbMaDK.Text = bus.GetDataSTTMaDK().Rows[0].ItemArray[0].ToString();
             txbMaSV.Text = MASV;
             txbMaSV.ReadOnly = true;
         }
@@ -70,9 +68,9 @@ namespace QuanLyThuHocPhi
         {
             if (dgvHienThi.Columns[e.ColumnIndex].Name == "btChiTiet")
             {
-                obj.MADK = int.Parse(dgvHienThi.Rows[e.RowIndex].Cells[1].Value.ToString());
-                obj.MASV = dgvHienThi.Rows[e.RowIndex].Cells[2].Value.ToString();
-                obj.HOCKY = int.Parse(dgvHienThi.Rows[e.RowIndex].Cells[3].Value.ToString());
+                obj.MADK = int.Parse(dgvHienThi.Rows[e.RowIndex].Cells[0].Value.ToString());
+                obj.MASV = dgvHienThi.Rows[e.RowIndex].Cells[1].Value.ToString();
+                obj.HOCKY = int.Parse(dgvHienThi.Rows[e.RowIndex].Cells[2].Value.ToString());
                 fSinhVien_ChiTietDangKy temp = new fSinhVien_ChiTietDangKy(obj);
                 temp.ShowDialog();
             }
@@ -85,23 +83,20 @@ namespace QuanLyThuHocPhi
             settingMaDK();
         }
 
-        private void btDangKy_Click(object sender, EventArgs e)
+        private async void btDangKy_Click(object sender, EventArgs e)
         {
-            obj.MADK = int.Parse(txbMaDK.Text);
-            obj.MASV = txbMaSV.Text;
-            obj.HOCKY = int.Parse(cbHocKy.Text);
-            if (bus.GetDataByMASVandHOCKY(obj).Rows.Count == 0)
+            if (await bus.GetDataByMASVandHOCKY(txbMaSV.Text, int.Parse(cbHocKy.Text)) == null)
             {
-                bus.Insert(obj);
+                await bus.Insert(obj);
                 settingMaDK();
-                dgvHienThi.DataSource = bus.GetDataByMASV(MASV);
+                dgvHienThi.DataSource = await bus.GetDataByMASV(MASV);
                 //Mo bang them chi tiet dang ky
                 fSinhVien_ThemCTDK ftemp = new fSinhVien_ThemCTDK(obj);
                 ftemp.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Học kỳ đã được đang ký, vui lòng chọn lại");
+                MessageBox.Show("Học kỳ đã được đăng ký, vui lòng chọn lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

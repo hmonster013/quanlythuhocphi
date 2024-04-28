@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8F2A5C-0019-4A2E-8AB6-6F7187FFCFE6}|DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\acer\\desktop\\kttkpm\\quanlythuhocphi\\quanlythuhocphi\\dataaccesslayer\\khoadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8F2A5C-0019-4A2E-8AB6-6F7187FFCFE6}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\khoadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF9F0BC7-7F06-4F92-8BAD-DFA29D5F4F7A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|c:\\users\\acer\\desktop\\kttkpm\\quanlythuhocphi\\quanlythuhocphi\\businesslogiclayer\\khoabus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF9F0BC7-7F06-4F92-8BAD-DFA29D5F4F7A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\khoabus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8F2A5C-0019-4A2E-8AB6-6F7187FFCFE6}|DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\acer\\desktop\\kttkpm\\quanlythuhocphi\\quanlythuhocphi\\dataaccesslayer\\chuyennganhdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8F2A5C-0019-4A2E-8AB6-6F7187FFCFE6}|DataAccessLayer\\DataAccessLayer.csproj|solutionrelative:dataaccesslayer\\chuyennganhdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF9F0BC7-7F06-4F92-8BAD-DFA29D5F4F7A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|c:\\users\\acer\\desktop\\kttkpm\\quanlythuhocphi\\quanlythuhocphi\\businesslogiclayer\\ctchuyennganhbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF9F0BC7-7F06-4F92-8BAD-DFA29D5F4F7A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\ctchuyennganhbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF9F0BC7-7F06-4F92-8BAD-DFA29D5F4F7A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|c:\\users\\acer\\desktop\\kttkpm\\quanlythuhocphi\\quanlythuhocphi\\businesslogiclayer\\chuongtrinhhocbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF9F0BC7-7F06-4F92-8BAD-DFA29D5F4F7A}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\chuongtrinhhocbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC3D58C-6E50-4D2F-A736-AC4F9AD555AB}|QuanLyThuHocPhi\\QuanLyThuHocPhi.csproj|c:\\users\\acer\\desktop\\kttkpm\\quanlythuhocphi\\quanlythuhocphi\\quanlythuhocphi\\fadmin_nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC3D58C-6E50-4D2F-A736-AC4F9AD555AB}|QuanLyThuHocPhi\\QuanLyThuHocPhi.csproj|solutionrelative:quanlythuhocphi\\fadmin_nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC3D58C-6E50-4D2F-A736-AC4F9AD555AB}|QuanLyThuHocPhi\\QuanLyThuHocPhi.csproj|C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\quanlythuhocphi\\fadmin_nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6EC3D58C-6E50-4D2F-A736-AC4F9AD555AB}|QuanLyThuHocPhi\\QuanLyThuHocPhi.csproj|solutionrelative:quanlythuhocphi\\fadmin_nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KHOADAO.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\DataAccessLayer\\KHOADAO.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\KHOADAO.cs",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\DataAccessLayer\\KHOADAO.cs",
+              "RelativeToolTip": "DataAccessLayer\\KHOADAO.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABsAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T02:55:35.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KHOABUS.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\BusinessLogicLayer\\KHOABUS.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\KHOABUS.cs",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\BusinessLogicLayer\\KHOABUS.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\KHOABUS.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T02:55:30.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CHUYENNGANHDAO.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\DataAccessLayer\\CHUYENNGANHDAO.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer\\CHUYENNGANHDAO.cs",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\DataAccessLayer\\CHUYENNGANHDAO.cs",
+              "RelativeToolTip": "DataAccessLayer\\CHUYENNGANHDAO.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T02:50:14.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CTCHUYENNGANHBUS.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\BusinessLogicLayer\\CTCHUYENNGANHBUS.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\CTCHUYENNGANHBUS.cs",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\BusinessLogicLayer\\CTCHUYENNGANHBUS.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\CTCHUYENNGANHBUS.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T02:49:52.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CHUONGTRINHHOCBUS.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\BusinessLogicLayer\\CHUONGTRINHHOCBUS.cs",
+              "RelativeDocumentMoniker": "BusinessLogicLayer\\CHUONGTRINHHOCBUS.cs",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\BusinessLogicLayer\\CHUONGTRINHHOCBUS.cs",
+              "RelativeToolTip": "BusinessLogicLayer\\CHUONGTRINHHOCBUS.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T02:49:49.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "fAdmin_NguoiDung.cs",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\QuanLyThuHocPhi\\fAdmin_NguoiDung.cs",
+              "RelativeDocumentMoniker": "QuanLyThuHocPhi\\fAdmin_NguoiDung.cs",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\QuanLyThuHocPhi\\fAdmin_NguoiDung.cs",
+              "RelativeToolTip": "QuanLyThuHocPhi\\fAdmin_NguoiDung.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwBkAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T01:20:28.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "fAdmin_NguoiDung.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\QuanLyThuHocPhi\\fAdmin_NguoiDung.cs",
+              "RelativeDocumentMoniker": "QuanLyThuHocPhi\\fAdmin_NguoiDung.cs",
+              "ToolTip": "C:\\Users\\ACER\\Desktop\\KTTKPM\\quanlythuhocphi\\QuanLyThuHocPhi\\QuanLyThuHocPhi\\fAdmin_NguoiDung.cs [Design]",
+              "RelativeToolTip": "QuanLyThuHocPhi\\fAdmin_NguoiDung.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T01:20:26.478Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

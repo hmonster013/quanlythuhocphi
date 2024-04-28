@@ -6,52 +6,48 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DataAccessLayer;
-using ValueObject;
+using Mappers;
+using ValueObject.DangKy;
 
 namespace BusinessLogicLayer
 {
     public class DANGKYBUS
     {
-        DANGKYDAO dao  = new DANGKYDAO();
+        private readonly DANGKYDAO dao = new DANGKYDAO();
 
-        public DataTable GetData()
+        public async Task<List<DANGKY>> GetData()
         {
-            return dao.GetData();
+            return await dao.GetData();
         }
 
-        public DataTable GetData(int ID)
+        public async Task<DANGKY> GetData(int maDK)
         {
-            return dao.GetDataByID(ID);
+            return await dao.GetDataByID(maDK);
         }
 
-        public DataTable GetDataByMASV(string MASV)
+        public async Task<List<DANGKY>> GetDataByMASV(string MASV)
         {
-            return dao.GetDataByMASV(MASV);
+            return await dao.GetDataByMASV(MASV);
         }
 
-        public DataTable GetDataByMASVandHOCKY(DANGKY obj)
+        public async Task<DANGKY> GetDataByMASVandHOCKY(string MASV, int HOCKY)
         {
-            return dao.GetDataByMASVandHOCKY(obj);
+            return await dao.GetDataByMASVandHOCKY(MASV, HOCKY);
         }
 
-        public DataTable GetDataSTTMaDK()
+        public async Task<int> Insert(DANGKY obj)
         {
-            return dao.GetDataSTTMaDK();
+            return await dao.Insert(obj.ToCreateDTOFromDangKy());
         }
 
-        public int Insert(DANGKY obj)
+        public async Task<int> Update(DANGKY obj)
         {
-            return dao.Insert(obj);
+            return await dao.Update(obj.MADK, obj.ToUpdateDTOFromDangKy());
         }
 
-        public int Update(DANGKY obj)
+        public async Task<int> Delete(int maDK)
         {
-            return dao.Update(obj);
-        }
-
-        public int Delete(int ID)
-        {
-            return dao.Delete(ID);
+            return await dao.Delete(maDK);
         }
     }
 }

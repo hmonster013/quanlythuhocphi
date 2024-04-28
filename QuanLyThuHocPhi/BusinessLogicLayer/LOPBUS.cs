@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,45 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using ValueObject.Lop;
 
 namespace BusinessLogicLayer
 {
     public class LOPBUS
     {
-        LOPDAO dao = new LOPDAO();
+        private readonly LOPDAO _dao;
 
-        public DataTable GetData()
+        public LOPBUS()
         {
-            return dao.GetData();
+            _dao = new LOPDAO();
         }
 
-        public DataTable GetData(string ID)
+        public async Task<List<LOP>> GetData()
         {
-            return dao.GetDataByID(ID);
+            return await _dao.GetData();
         }
 
-        public DataTable GetDataByMAKHOA(string MAKHOA)
+        public async Task<LOP> GetData(string maLop)
         {
-            return dao.GetDataByMAKHOA(MAKHOA);
+            return await _dao.GetDataByID(maLop);
         }
 
-        public DataTable GetdataByMACN(string MACN)
+        public async Task<List<LOP>> GetDataByMAKHOA(string MAKHOA)
         {
-            return dao.GetDataByMACN(MACN);
-        }
-        public int Insert(LOP obj)
-        {
-            return dao.Insert(obj);
+            return await _dao.GetDataByMAKHOA(MAKHOA);
         }
 
-        public int Update(LOP obj)
+        public async Task<List<LOP>> GetdataByMACN(string MACN)
         {
-            return dao.Update(obj);
+            return await _dao.GetDataByMACN(MACN);
         }
 
-        public int Delete(string ID)
+        public async Task<int> Insert(LOP obj)
         {
-            return dao.Delete(ID);
+            return await _dao.Insert(obj.ToCreateDTOFromLop());
+        }
+
+        public async Task<int> Update(LOP obj)
+        {
+            return await _dao.Update(obj.MALOP, obj.ToUpdateDTOFromLop());
+        }
+
+        public async Task<int> Delete(string maLop)
+        {
+            return await _dao.Delete(maLop);
         }
     }
 }

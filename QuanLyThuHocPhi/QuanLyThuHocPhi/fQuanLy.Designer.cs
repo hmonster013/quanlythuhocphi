@@ -154,7 +154,7 @@
             this.btGiangVien.Name = "btGiangVien";
             this.btGiangVien.Size = new System.Drawing.Size(200, 70);
             this.btGiangVien.TabIndex = 25;
-            this.btGiangVien.Text = "Giảng Viên";
+            this.btGiangVien.Text = "Giảng viên";
             this.btGiangVien.UseVisualStyleBackColor = true;
             this.btGiangVien.Click += new System.EventHandler(this.btGiangVien_Click);
             // 
@@ -246,9 +246,9 @@
             this.lbHienThi.ForeColor = System.Drawing.Color.White;
             this.lbHienThi.Location = new System.Drawing.Point(6, 18);
             this.lbHienThi.Name = "lbHienThi";
-            this.lbHienThi.Size = new System.Drawing.Size(172, 55);
+            this.lbHienThi.Size = new System.Drawing.Size(196, 55);
             this.lbHienThi.TabIndex = 0;
-            this.lbHienThi.Text = "HOME";
+            this.lbHienThi.Text = "Quản lý";
             // 
             // pnHienThi
             // 
@@ -270,7 +270,7 @@
             this.Name = "fQuanLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuanLy";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fQuanLy_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fQuanLy_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

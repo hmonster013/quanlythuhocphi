@@ -8,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ValueObject;
-using BusinessLogicLayer;
+using ValueObject.SinhVien;
+using ValueObject.Lop;
+using ValueObject.NguoiDung;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace QuanLyThuHocPhi
@@ -25,9 +26,9 @@ namespace QuanLyThuHocPhi
             InitializeComponent();
         }
 
-        public void load_dgvHienThi(object sender, EventArgs e)
+        public async void load_dgvHienThi(object sender, EventArgs e)
         {
-            dgvHienThi.DataSource = bus_SV.GetData();
+            dgvHienThi.DataSource = await bus_SV.GetData();
             dgvHienThi.ReadOnly = true;
             dgvHienThi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHienThi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -69,16 +70,14 @@ namespace QuanLyThuHocPhi
             cbMaLop.Text = dgvHienThi.SelectedRows[0].Cells[3].Value.ToString();
         }
 
-        private void addDataComboBox(object sender, EventArgs e)
+        private async void addDataComboBox(object sender, EventArgs e)
         {
             LOPBUS tempLop = new LOPBUS();
-            KHOABUS tempKhoa = new KHOABUS();
-            DataTable dtLop = tempLop.GetData();
-            DataTable dtKhoa = tempKhoa.GetData();
+            List<LOP> dsLop = await tempLop.GetData();
             //ComboBox Ma Lop
-            foreach (DataRow row in dtLop.Rows)
+            foreach (LOP lop in dsLop)
             {
-                cbMaLop.Items.Add(row[0].ToString());
+                cbMaLop.Items.Add(lop.MALOP);
             }
             cbMaLop.AutoCompleteMode = AutoCompleteMode.Suggest;
             cbMaLop.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -90,7 +89,7 @@ namespace QuanLyThuHocPhi
             load_dgvHienThi(sender, e);
         }
 
-        private void btThem_Click(object sender, EventArgs e)
+        private async void btThem_Click(object sender, EventArgs e)
         {
             //Gán dữ liệu cho obj_SV
             obj_SV.MASV = txbMaSV.Text;
@@ -120,21 +119,21 @@ namespace QuanLyThuHocPhi
             obj_ND.TENTAIKHOAN = txbMaSV.Text.ToString();
             obj_ND.MATKHAU = "1";
             obj_ND.QUYEN = "User";
-            if (bus_SV.GetData(txbMaSV.Text).Rows.Count == 0)
+            if (await bus_SV.GetData(txbMaSV.Text) == null)
             {
-                bus_ND.Insert(obj_ND);
-                bus_SV.Insert(obj_SV);
-                MessageBox.Show("Thêm thành công", "Thông báo");
+                await bus_ND.Insert(obj_ND);
+                await bus_SV.Insert(obj_SV);
+                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 load_dgvHienThi(sender, e);
             }
             else
             {
-                MessageBox.Show("Mã sinh viên đã tồn tại, vui lòng nhập lại", "Thông báo");
+                MessageBox.Show("Mã sinh viên đã tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbMaSV.Focus();
             }
         }
 
-        private void btSua_Click(object sender, EventArgs e)
+        private async void btSua_Click(object sender, EventArgs e)
         {
             obj_SV.MASV = txbMaSV.Text;
             obj_SV.HO = txbHoSV.Text; ;
@@ -159,42 +158,38 @@ namespace QuanLyThuHocPhi
             }
             obj_SV.NGAYSINH = dtpNgaySinh.Value;
             obj_SV.MALOP = cbMaLop.Text;
-            if (bus_SV.GetData(txbMaSV.Text).Rows.Count != 0)
+            if (await bus_SV.GetData(txbMaSV.Text) != null)
             {
-                bus_SV.Update(obj_SV);
-                MessageBox.Show("Sửa thành công", "Thông báo");
+                await bus_SV.Update(obj_SV);
+                MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 load_dgvHienThi(sender, e);
             }
             else
             {
-                MessageBox.Show("Mã sinh viên không tồn tại, vui lòng nhập lại", "Thông báo");
+                MessageBox.Show("Mã sinh viên không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbMaSV.Focus();
             }
         }
 
-        private void btXoa_Click(object sender, EventArgs e)
+        private async void btXoa_Click(object sender, EventArgs e)
         {
-            if (bus_SV.GetData(txbMaSV.Text).Rows.Count != 0)
+            if (await bus_SV.GetData(txbMaSV.Text) != null)
             {
-                DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa sinh viên này không?", "Thống báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa sinh viên này không?", "Thống báo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (rs == DialogResult.Yes)
                 {
-                    bus_SV.Delete(txbMaSV.Text);
-                    MessageBox.Show("Xóa thành công", "Thông báo");
+                    await bus_SV.Delete(txbMaSV.Text);
+                    await bus_ND.Delete(txbMaSV.Text);
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     btReset_Click(sender, e);
                     load_dgvHienThi(sender, e);
                 }
             }
             else
             {
-                MessageBox.Show("Mã sinh viên không tồn tại, vui lòng nhập lại", "Thông báo");
+                MessageBox.Show("Mã sinh viên không tồn tại, vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbMaSV.Focus();
             }
-        }
-
-        private void btNhapExcel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btReset_Click(object sender, EventArgs e)
@@ -272,7 +267,7 @@ namespace QuanLyThuHocPhi
             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
         }
 
-        private void btNhapExcel_Click_1(object sender, EventArgs e)
+        private async void btNhapExcel_Click_1(object sender, EventArgs e)
         {
             // Tạo một OpenFileDialog để chọn file Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -282,51 +277,51 @@ namespace QuanLyThuHocPhi
             {
                 // Lấy đường dẫn của file Excel đã chọn
                 filePath = openFileDialog.FileName;
-            }
 
-            // Khởi tạo một đối tượng Excel.Application
-            Excel.Application excelApp = new Excel.Application();
+                // Khởi tạo một đối tượng Excel.Application
+                Excel.Application excelApp = new Excel.Application();
 
-            // Mở file Excel
-            Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+                // Mở file Excel
+                Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
 
-            // Lấy Sheet đầu tiên từ Workbook
-            Excel.Worksheet worksheet = workbook.Sheets[1];
+                // Lấy Sheet đầu tiên từ Workbook
+                Excel.Worksheet worksheet = workbook.Sheets[1];
 
-            // Đọc dữ liệu từ Sheet
-            int row = 3;
-            while (worksheet.Cells[row, 1].Value != null)
-            {
-
-                obj_SV.MASV = worksheet.Cells[row, 1].Value.ToString();
-                obj_SV.HO = worksheet.Cells[row, 2].Value.ToString();
-                obj_SV.TEN = worksheet.Cells[row, 3].Value.ToString();
-                obj_SV.MALOP = worksheet.Cells[row, 4].Value.ToString();
-                obj_SV.PHAI = bool.Parse(worksheet.Cells[row, 5].Value.ToString());
-                obj_SV.NGAYSINH = DateTime.Parse(worksheet.Cells[row, 6].Value.ToString());
-                obj_SV.DIACHI = worksheet.Cells[row, 7].Value.ToString();
-                obj_SV.DANGNGHIHOC = bool.Parse(worksheet.Cells[row, 8].Value.ToString());
-                obj_SV.TENTAIKHOAN = worksheet.Cells[row, 9].Value.ToString();
-
-                obj_ND.TENTAIKHOAN = obj_SV.TENTAIKHOAN;
-                obj_ND.MATKHAU = "1";
-                obj_ND.QUYEN = "User";
-                if (bus_SV.GetData(obj_SV.MASV).Rows.Count == 0)
+                // Đọc dữ liệu từ Sheet
+                int row = 3;
+                while (worksheet.Cells[row, 1].Value != null)
                 {
-                    bus_ND.Insert(obj_ND);
-                    bus_SV.Insert(obj_SV);
-                }
-                row++;
-            }
-            load_dgvHienThi(sender, e);
-            // Đóng Workbook và thoát khỏi ứng dụng Excel
-            workbook.Close();
-            excelApp.Quit();
 
-            // Giải phóng bộ nhớ
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                    obj_SV.MASV = worksheet.Cells[row, 1].Value.ToString();
+                    obj_SV.HO = worksheet.Cells[row, 2].Value.ToString();
+                    obj_SV.TEN = worksheet.Cells[row, 3].Value.ToString();
+                    obj_SV.MALOP = worksheet.Cells[row, 4].Value.ToString();
+                    obj_SV.PHAI = bool.Parse(worksheet.Cells[row, 5].Value.ToString());
+                    obj_SV.NGAYSINH = DateTime.Parse(worksheet.Cells[row, 6].Value.ToString());
+                    obj_SV.DIACHI = worksheet.Cells[row, 7].Value.ToString();
+                    obj_SV.DANGNGHIHOC = bool.Parse(worksheet.Cells[row, 8].Value.ToString());
+                    obj_SV.TENTAIKHOAN = worksheet.Cells[row, 9].Value.ToString();
+
+                    obj_ND.TENTAIKHOAN = obj_SV.TENTAIKHOAN;
+                    obj_ND.MATKHAU = "1";
+                    obj_ND.QUYEN = "User";
+                    if (await bus_SV.GetData(obj_SV.MASV) == null)
+                    {
+                        await bus_ND.Insert(obj_ND);
+                        await bus_SV.Insert(obj_SV);
+                    }
+                    row++;
+                }
+                load_dgvHienThi(sender, e);
+                // Đóng Workbook và thoát khỏi ứng dụng Excel
+                workbook.Close();
+                excelApp.Quit();
+
+                // Giải phóng bộ nhớ
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            }
         }
     }
 }

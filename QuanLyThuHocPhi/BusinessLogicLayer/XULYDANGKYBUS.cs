@@ -5,26 +5,22 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValueObject;
+using ValueObject.DangKy;
+using ValueObject.XuLyDangKy;
 
 namespace BusinessLogicLayer
 {
     public class XULYDANGKYBUS
     {
         private XULYDANGKYDAO dao = new XULYDANGKYDAO();
-        public DataTable GetData(DANGKY obj)
+        public async Task<List<LopHocPhanQueryDto>> GetDataLHPDaDK(DANGKY obj)
         {
-            return dao.GetData(obj);
+            return await dao.GetDataLHPDaDK(obj);
         }
 
-        public DataTable GetData(DANGKY obj, string TENMH)
+        public async Task<List<LopHocPhanQueryDto>> GetDataLHPChuaDK(DANGKY obj)
         {
-            return dao.GetData(obj, TENMH);
-        }
-
-        public DataTable GetDataLHPChuaDK(DANGKY obj)
-        {
-            return dao.GetDataLHPChuaDK(obj);
+            return await dao.GetDataLHPChuaDK(obj);
         }
     }
 }

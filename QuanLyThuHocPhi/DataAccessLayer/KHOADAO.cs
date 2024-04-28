@@ -7,57 +7,64 @@ using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
 using System.Dynamic;
+using System.Net.Http;
+using System.Net.Http.Json;
+using ValueObject.Khoa;
 
 namespace DataAccessLayer
 {
     public class KHOADAO
     {
-        dbConnect _dbConnect = new dbConnect();
+        private readonly HttpClient _httpClient;
+        private const string BASE_URL = Constants.BASE_API_URL + "api/khoa";
 
-        public DataTable GetData()
+        public KHOADAO()
         {
-            return _dbConnect.GetData("sp_KHOA_select_all", null);
+            _httpClient = HttpManager.GetHttpClient();
         }
 
-        public DataTable GetDataByID(string ID)
+        public async Task<List<KHOA>> GetData()
         {
-            SqlParameter[] param =
+            var response = await _httpClient.GetAsync(BASE_URL);
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadFromJsonAsync<List<KHOA>>();
+        }
+
+        public async Task<KHOA> GetDataByID(string maKhoa)
+        {
+            var response = await _httpClient.GetAsync($"{BASE_URL}/{maKhoa}");
+
+            if (response.IsSuccessStatusCode)
             {
-                new SqlParameter("MAKHOA", ID)
-            };
-            return _dbConnect.GetData("sp_KHOA_select_makhoa", param);
+                return await response.Content.ReadFromJsonAsync<KHOA>();
+            }
+
+            return null;
         }
 
-        public int Insert(KHOA obj)
+        public async Task<int> Insert(CreateKhoaRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAKHOA", obj.MAKHOA),
-                new SqlParameter("TENKHOA", obj.TENKHOA),
-                new SqlParameter("DONGIA", obj.DONGIA)
-            };
-            return _dbConnect.ExecuteSQL("sp_KHOA_insert", param);
+            var response = await _httpClient.PostAsJsonAsync(BASE_URL, obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Update(KHOA obj)
+        public async Task<int> Update(string maKhoa, UpdateKhoaRequestDto obj)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAKHOA", obj.MAKHOA),
-                new SqlParameter("TENKHOA", obj.TENKHOA),
-                new SqlParameter("DONGIA", obj.DONGIA)
-            };
-            return _dbConnect.ExecuteSQL("sp_KHOA_update", param);
+            var response = await _httpClient.PutAsJsonAsync($"{BASE_URL}/{maKhoa}", obj);
+            response.EnsureSuccessStatusCode();
+
+            return 1;
         }
 
-        public int Delete(string ID)
+        public async Task<int> Delete(string maKhoa)
         {
-            SqlParameter[] param =
-            {
-                new SqlParameter("MAKHOA", ID)
-            };
-            return _dbConnect.ExecuteSQL("sp_KHOA_delete", param);
-        }
+            var response = await _httpClient.DeleteAsync($"{BASE_URL}/{maKhoa}");
+            response.EnsureSuccessStatusCode();
 
+            return 1;
+        }
     }
 }

@@ -12,11 +12,12 @@ namespace QuanLyThuHocPhi
 {
     public partial class fAdmin : Form
     {
+        private Form currentFormChild;
+
         public fAdmin()
         {
             InitializeComponent();
         }
-        private Form currentFormChild;
 
         private void OpenChildForm(Form childForm)
         {
@@ -33,18 +34,17 @@ namespace QuanLyThuHocPhi
             childForm.BringToFront();
             childForm.Show();
         }
+
         private void btTaiKhoan_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fAdmin_NguoiDung());
             lbHienThi.Text = "Quản lý tài khoản";
         }
 
-        private bool isClickbtDangXuat = false;
         private void btDangXuat_Click(object sender, EventArgs e)
         {
-            isClickbtDangXuat = true;
-            this.Close();
             fLogin.Instance.Show();
+            this.Dispose();
         }
 
         private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,15 +59,17 @@ namespace QuanLyThuHocPhi
             {
                 currentFormChild.Close();
             }
-            lbHienThi.Text = "Xin chào";
+            lbHienThi.Text = "ADMIN";
         }
 
-        private void fAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        private void fAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!isClickbtDangXuat)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
+        }
+
+        private void fAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

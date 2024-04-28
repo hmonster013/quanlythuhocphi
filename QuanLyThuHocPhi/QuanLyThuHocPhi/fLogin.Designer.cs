@@ -44,6 +44,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txbTaiKhoan = new System.Windows.Forms.TextBox();
+            this.cbShowPassword = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -108,9 +109,9 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.lilbDoiMK);
-            this.panel6.Location = new System.Drawing.Point(3, 310);
+            this.panel6.Location = new System.Drawing.Point(3, 323);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(400, 58);
+            this.panel6.Size = new System.Drawing.Size(400, 45);
             this.panel6.TabIndex = 5;
             // 
             // lilbDoiMK
@@ -128,7 +129,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.btLogin);
-            this.panel5.Location = new System.Drawing.Point(3, 246);
+            this.panel5.Location = new System.Drawing.Point(3, 259);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(400, 58);
             this.panel5.TabIndex = 4;
@@ -146,11 +147,12 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.cbShowPassword);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txbMatKhau);
             this.panel4.Location = new System.Drawing.Point(3, 182);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(400, 58);
+            this.panel4.Size = new System.Drawing.Size(400, 71);
             this.panel4.TabIndex = 3;
             // 
             // label2
@@ -198,6 +200,18 @@
             this.txbTaiKhoan.Size = new System.Drawing.Size(281, 26);
             this.txbTaiKhoan.TabIndex = 0;
             // 
+            // cbShowPassword
+            // 
+            this.cbShowPassword.AutoSize = true;
+            this.cbShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShowPassword.Location = new System.Drawing.Point(260, 51);
+            this.cbShowPassword.Name = "cbShowPassword";
+            this.cbShowPassword.Size = new System.Drawing.Size(127, 20);
+            this.cbShowPassword.TabIndex = 2;
+            this.cbShowPassword.Text = "Hiển thị mật khẩu";
+            this.cbShowPassword.UseVisualStyleBackColor = true;
+            this.cbShowPassword.CheckStateChanged += new System.EventHandler(this.cbShowPassword_CheckStateChanged);
+            // 
             // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +256,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox cbShowPassword;
     }
 }
 

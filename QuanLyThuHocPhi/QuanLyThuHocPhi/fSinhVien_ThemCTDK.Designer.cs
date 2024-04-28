@@ -31,7 +31,6 @@
             this.txbTenMH = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btTimKiem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txbMaDK = new System.Windows.Forms.TextBox();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
@@ -57,6 +56,7 @@
             this.txbTenMH.Name = "txbTenMH";
             this.txbTenMH.Size = new System.Drawing.Size(252, 26);
             this.txbTenMH.TabIndex = 0;
+            this.txbTenMH.TextChanged += new System.EventHandler(this.txbTenMH_TextChanged);
             // 
             // panel3
             // 
@@ -71,24 +71,12 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.txbTenMH);
-            this.panel8.Controls.Add(this.btTimKiem);
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(469, 0);
+            this.panel8.Location = new System.Drawing.Point(559, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(468, 41);
+            this.panel8.Size = new System.Drawing.Size(378, 41);
             this.panel8.TabIndex = 2;
-            // 
-            // btTimKiem
-            // 
-            this.btTimKiem.AutoSize = true;
-            this.btTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTimKiem.Location = new System.Drawing.Point(375, 5);
-            this.btTimKiem.Name = "btTimKiem";
-            this.btTimKiem.Size = new System.Drawing.Size(81, 30);
-            this.btTimKiem.TabIndex = 1;
-            this.btTimKiem.Text = "Tìm kiếm";
-            this.btTimKiem.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -166,9 +154,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(202, 25);
+            this.label4.Size = new System.Drawing.Size(201, 25);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Số phiếu đăng ký:";
+            this.label4.Text = "Đăng ký môn học:";
             // 
             // panel1
             // 
@@ -211,7 +199,6 @@
         private System.Windows.Forms.TextBox txbTenMH;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button btTimKiem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbMaDK;
         private System.Windows.Forms.DataGridView dgvHienThi;

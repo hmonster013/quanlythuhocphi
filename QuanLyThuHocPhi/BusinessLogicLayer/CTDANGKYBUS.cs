@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer;
+using Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ValueObject;
+using ValueObject.CTDangKy;
 
 namespace BusinessLogicLayer
 {
@@ -13,34 +15,34 @@ namespace BusinessLogicLayer
     {
         CTDANGKYDAO dao = new CTDANGKYDAO();
 
-        public DataTable GetData()
+        public async Task<List<CTDANGKY>> GetData()
         {
-            return dao.GetData();
+            return await dao.GetData();
         }
 
-        public DataTable GetData(int ID)
+        public async Task<CTDANGKY> GetData(int maCTDK)
         {
-            return dao.GetDataByID(ID);
+            return await dao.GetDataByID(maCTDK);
         }
 
-        public int Insert(CTDANGKY obj)
+        public async Task<int> Insert(CTDANGKY obj)
         {
-            return dao.Insert(obj);
+            return await dao.Insert(obj.ToCreateDTOFromCTDangKy());
         }
 
-        public int Update(CTDANGKY obj)
+        public async Task<int> Update(CTDANGKY obj)
         {
-            return dao.Update(obj);
+            return await dao.Update(obj.MACTDK, obj.ToUpdateDTOFromCTDangKy());
         }
 
-        public int Delete(int ID)
+        public async Task<int> Delete(int maCTDK)
         {
-            return dao.Delete(ID);
-        }
+            return await dao.Delete(maCTDK);
+        }   
 
-        public int Delete(CTDANGKY obj)
+        public async Task<int> DeleteByCondition(int maDangKy, int maLopHocPhan)
         {
-            return dao.Delete(obj);
+            return await dao.DeleteByCondition(maDangKy, maLopHocPhan);
         }
     }
 }
